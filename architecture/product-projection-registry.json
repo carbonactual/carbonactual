@@ -1,0 +1,75 @@
+{
+  "name": "Carbon Actual Product Projection Registry",
+  "version": "1.0.0",
+  "status": "canonical-registry",
+  "rule": "Products are projections over the shared Carbon Actual/OMNII spine. They may specialize workflows and interfaces but do not create parallel constitutional primitives.",
+  "common_required_facets": ["identity", "authority", "intent", "capability", "event", "evidence", "state"],
+  "products": {
+    "TIP": {
+      "repository": "carbonactual/tip",
+      "domain": "trade-and-investment",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "OMNI": {
+      "repository": "carbonactual/omni",
+      "domain": "universal-interface",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "SPOTIST": {
+      "repository": "carbonactual/spotist",
+      "domain": "seek-discovery-matching",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "Open Bank": {
+      "repository": "carbonactual/open-bank",
+      "domain": "banking-operations",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "ZUJID & CO.": {
+      "repository": "carbonactual/zujid",
+      "domain": "professional-advisory",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "Institute GPT": {
+      "repository": "carbonactual/institutegpt",
+      "domain": "education-and-ai",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "NOUN BOT": {
+      "repository": "carbonactual/noun-student-bot",
+      "domain": "education-assistance",
+      "facets": ["identity", "authority", "intent", "capability", "event", "evidence", "state"]
+    },
+    "Open Ballot": {
+      "repository": "carbonactual/open-ballot",
+      "domain": "civic-election",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state"]
+    },
+    "Nigerian Cultural Atlas": {
+      "repository": "carbonactual/nigerian-cultural-atlas",
+      "domain": "culture-and-publishing",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "RITES": {
+      "repository": "carbonactual/RITES",
+      "domain": "continuity-and-event-memory",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "HERITAGE": {
+      "repository": "carbonactual/heritage",
+      "domain": "lineage-and-archive",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "SEED": {
+      "repository": "carbonactual/seed",
+      "domain": "genesis-and-incubation",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "BUNK": {
+      "repository": "carbonactual/bunk",
+      "domain": "property-and-companion",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    }
+  },
+  "enforcement": "Registry declarations are architecture-level contracts. Product-specific repositories may add facets only through the Carbon Actual spine review process."
+}
