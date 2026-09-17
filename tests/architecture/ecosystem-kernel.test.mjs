@@ -9,8 +9,6 @@ const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.js
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
 const migration = JSON.parse(await readFile(migrationRegistryPath, 'utf8'));
 
-afterEach(() => {});
-
 const expectedFacets = [
   'identity',
   'authority',
