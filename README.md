@@ -24,7 +24,7 @@ These are interoperability facets, not replacement entity types. They exist to s
 
 ## CANONICAL ARCHITECTURE
 
-The live spine contains the canonical contracts migrated from the retired operating-spine architecture. The legacy repository remains a historical provenance source; it is not a competing authority.
+The live spine contains the canonical contracts migrated from historical operating-spine architecture. Historical repositories remain provenance sources; they are not competing authorities.
 
 Core controls:
 
@@ -32,6 +32,7 @@ Core controls:
 - `architecture/ecosystem-kernel.json`
 - `architecture/kernel-repo-contract.json`
 - `architecture/product-projection-registry.json`
+- `architecture/repository-estate-registry.json`
 - `architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md`
 - `architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md`
 - `architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md`
@@ -56,7 +57,7 @@ Core controls:
 - `architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md`
 - `architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md`
 - `architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md`
-- `architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json` — machine-checked coverage of the historical canonical architecture source inventory.
+- `architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json` — machine-checked coverage of historical architecture sources.
 - migration registry — historical compatibility and repository provenance control.
 
 ## BOUNDARIES
@@ -65,33 +66,30 @@ HAPI World defines constitutional meaning. Carbon Actual provides the operating-
 
 Authority is not capability. Event is not evidence. State is not history. Intent is not execution. Value is broader than money. Implementations are replaceable behind capability contracts.
 
-## LEGACY IDENTITY RULE
-
-The historical operating-spine name is retained only in archived/provenance material and compatibility filenames where necessary. It is not a current authority. **OMNI remains a distinct current product and must not be conflated with the retired operating-spine identity.**
-
 ## THE FRUITS (Products)
 
 | Product | Repo | What it is |
 |---|---|---|
 | TIP | `carbonactual/tip` | Global sourcing, trade and investment platform |
-| OMNI | `carbonactual/omni` | Universal browser/product surface currently tracked in the ecosystem |
+| OMNI | `carbonactual/omni` | Universal browser/product surface |
 | SPOTIST | `carbonactual/spotist` | Universal seek, discovery and matching capability |
 | Open Bank | `carbonactual/open-bank` | Banking operations app |
 | ZUJID & CO. | `carbonactual/zujid` | Professional advisory firm |
-| Institute GPT | `carbonactual/institutegpt` | NOUN student AI / ABBA surface |
-| NOUN BOT | `carbonactual/noun-student-bot` | WhatsApp academic companion |
+| Institute GPT | `carbonactual/institutegpt` | Education domain platform |
+| NOUN BOT | `carbonactual/noun-student-bot` | Academic companion |
+| MCP BOT | `carbonactual/mcp-bot` | CIBN micro-finance certification-prep companion under InstituteGPT |
 | Open Ballot | `carbonactual/open-ballot` | Civic election engine |
 | Nigerian Cultural Atlas | `carbonactual/nigerian-cultural-atlas` | Cultural curation and publishing |
 | RITES | `carbonactual/RITES` | Continuity and event-memory product |
-| HERITAGE | `carbonactual/heritage` | Lineage and museum/archival product |
+| HERITAGE | `carbonactual/heritage` | Lineage and archival product |
 | SEED | `carbonactual/seed` | Genesis and incubation product |
-| BUNK | `carbonactual/bunk` | Companion product |
+| BUNK | `carbonactual/bunk` | Property/companion product |
 
 ## MIGRATION / PROVENANCE
 
-The legacy operating-spine repository is archived. Its useful architecture has been migrated into this repository as Carbon Actual contracts where it remains semantically current. The archived source remains available for provenance and recovery.
+The historical operating-spine repository is archived. Useful architecture has been migrated into Carbon Actual contracts where semantically current; historical source remains available for provenance and recovery.
 
-`carbonactual/Carbon-Actual-/omnii/` is explicitly classified as a historical archive; it must not be treated as the live constitutional, registry or runtime source.
+`carbonactual/Carbon-Actual-/omnii/` is explicitly a historical archive and must not be treated as live constitutional, registry or runtime authority.
 
 ## CANONICAL NAMING
 
