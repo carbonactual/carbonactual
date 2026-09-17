@@ -1,0 +1,57 @@
+{
+  "name": "Carbon Actual Legacy Operating-Spine Migration Registry",
+  "version": "1.0.0",
+  "status": "canonical-migration-control",
+  "canonical_spine": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "legacy_repository": {
+    "repository": "carbonactual/omnii",
+    "status": "archived-historical",
+    "role": "provenance-and-recovery-source",
+    "current_authority": false
+  },
+  "identity_rule": "Carbon Actual is the sole current ecosystem operating-spine identity. The legacy OMNII label is historical provenance. OMNI remains a distinct current product name.",
+  "migration_rules": [
+    "Current canonical architecture belongs in carbonactual/carbonactual.",
+    "Active product contracts use CARBON_ACTUAL_* canonical paths.",
+    "Legacy filenames may remain as compatibility notices so existing links continue to resolve.",
+    "Historical archives retain their original names where changing them would damage provenance.",
+    "Historical material cannot become current authority merely because it contains older canonical language.",
+    "No product may recreate a competing universal graph, authority system, object envelope, capability fabric or runtime constitution."
+  ],
+  "migrated_core_architecture": [
+    "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md",
+    "architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md",
+    "architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md",
+    "architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md",
+    "architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md",
+    "architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md",
+    "architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md",
+    "architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md",
+    "architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md",
+    "architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md"
+  ],
+  "active_contracts": [
+    {"repository": "carbonactual/Carbon-Actual-", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/abba", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/abba", "canonical": "mas/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "mas/OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/hapi-world", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/hapi-world", "canonical": "nexus/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "nexus/OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/hapi-world", "canonical": "nexus/CARBON_ACTUAL_INTEGRATION_CONTRACT.md", "legacy_alias": "nexus/OMNII_INTEGRATION_CONTRACT.md"},
+    {"repository": "carbonactual/noun-student-bot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/open-ballot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/nigerian-cultural-atlas", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/RITES", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/omni", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md", "note": "OMNI is a distinct current product name."}
+  ],
+  "historical_archive": {
+    "repository": "carbonactual/Carbon-Actual-",
+    "path": "omnii/",
+    "status": "historical-archive",
+    "authority": false,
+    "reason": "Preserve legacy architecture, migrations, experiments and provenance without allowing the subtree to function as a live constitutional or runtime source."
+  }
+}
