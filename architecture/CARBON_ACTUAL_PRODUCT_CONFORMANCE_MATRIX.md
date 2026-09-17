@@ -26,6 +26,7 @@ Products are downstream compositions of Carbon Actual. They may specialize domai
 | HERITAGE | carbonactual/heritage | foundation/continuity product | lineage, provenance, cultural continuity | identity, relationship, provenance, evidence, state, value |
 | I/O | carbonactual/io | foundation movement product | movement, transport and circulation orchestration | identity, authority, capability, workflow, evidence, value, settlement |
 | Value System | carbonactual/value-system | foundation value product | value semantics, classification and governed pathways | identity, authority, relationship, evidence, state, value |
+| InstituteGPT | carbonactual/institutegpt | domain platform | education, learning, assessment and education administration | identity, authority, intent, capability, relationship, event, evidence, state |
 | Direct Bank App | carbonactual/direct-bank-app | financial product | controlled banking/payment workflow | authority, authorization, transaction, settlement, audit |
 | Open Ballot | carbonactual/open-ballot | civic simulator/domain product | civic transparency/training/simulation | identity, evidence, trust, workflow, location/time |
 | RITES | carbonactual/RITES | continuity domain product | human continuity and legacy | identity, relationship, consent, rights, continuity, evidence |
@@ -62,4 +63,4 @@ Future catalog products may be specified without being falsely marked as built. 
 
 ## Estate correction
 
-ABBA MAS belongs to the active `carbonactual/abba-mas` composition and must remain subordinate to Carbon Actual contracts. BUNK belongs to the active `carbonactual/bunk` product repository. TIP is the current economic participation platform. OMNI is a distinct operating/integration product. NAIRE, NGIN, SEED, HERITAGE, I/O and Value System are active inherited foundation/floor compositions, not alternate constitutions. The retired operating-spine repository is historical provenance only.
+ABBA MAS belongs to the active `carbonactual/abba-mas` composition and must remain subordinate to Carbon Actual contracts. BUNK belongs to the active `carbonactual/bunk` product repository. TIP is the current economic participation platform. OMNI is a distinct operating/integration product. NAIRE, NGIN, SEED, HERITAGE, I/O, Value System and InstituteGPT are active inherited foundation/floor/domain compositions, not alternate constitutions. The retired operating-spine repository is historical provenance only.
