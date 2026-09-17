@@ -24,7 +24,7 @@ const expectedFacets = [
 ];
 
 if (kernel.identity?.canonical_name !== 'Carbon Actual') fail('canonical name must be Carbon Actual');
-if (kernel.identity?.architectural_identity !== 'OMNII') fail('architectural identity must be OMNII');
+if (kernel.identity?.architectural_identity !== 'Carbon Actual') fail('architectural identity must be Carbon Actual');
 if (kernel.constitutional_boundary?.may_override_canon !== false) fail('kernel may not override HAPI World CANON.md');
 if (kernel.constitutional_boundary?.may_replace_existing_canonical_objects !== false) fail('kernel may not replace canonical objects');
 
@@ -71,6 +71,22 @@ for (const [name, product] of Object.entries(products.products ?? {})) {
   for (const required of products.common_required_facets) {
     if (!product.facets.includes(required)) fail(`product ${name} is missing required facet ${required}`);
   }
+}
+
+const canonicalSurfaces = [
+  'README.md',
+  'architecture/ECOSYSTEM_KERNEL.md',
+  'architecture/ecosystem-kernel.json',
+  'architecture/kernel-repo-contract.json',
+  'architecture/product-projection-registry.json',
+  'scripts/validate-kernel.mjs',
+  'tests/architecture/ecosystem-kernel.test.mjs',
+  'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md',
+  'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
+];
+for (const path of canonicalSurfaces) {
+  const content = await readFile(path, 'utf8');
+  if (content.includes('OMNII')) fail(`obsolete OMNII reference remains in ${path}`);
 }
 
 if (process.exitCode) process.exit();
