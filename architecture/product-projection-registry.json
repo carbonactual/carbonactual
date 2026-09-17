@@ -1,10 +1,44 @@
 {
   "name": "Carbon Actual Product Projection Registry",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "canonical-registry",
   "rule": "Products are projections over the shared Carbon Actual operating spine. They may specialize workflows and interfaces but do not create parallel constitutional primitives.",
   "common_required_facets": ["identity", "authority", "intent", "capability", "event", "evidence", "state"],
+  "repository_lifecycle_rule": "An archived implementation repository is not a current authority. A product or capability may remain active when its implementation has been absorbed into another canonical repository; the absorption target becomes the current implementation authority.",
+  "lifecycle": {
+    "ABBA MAS": {
+      "repository": "carbonactual/abba-mas",
+      "repository_status": "archived",
+      "current_composition_repository": "carbonactual/abba",
+      "current_composition_path": "mas/",
+      "authority": "carbonactual/abba"
+    },
+    "HAPI World Nexus": {
+      "repository": "carbonactual/hapi-world-nexus",
+      "repository_status": "archived",
+      "current_composition_repository": "carbonactual/hapi-world",
+      "current_composition_path": "nexus/",
+      "authority": "carbonactual/hapi-world"
+    },
+    "OMNII": {
+      "repository": "carbonactual/omnii",
+      "repository_status": "archived",
+      "authority": "carbonactual/carbonactual",
+      "role": "historical provenance and recovery only"
+    }
+  },
   "products": {
+    "ABBA": {
+      "repository": "carbonactual/abba",
+      "domain": "master-orchestration-intelligence",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "ABBA MAS": {
+      "repository": "carbonactual/abba",
+      "composition_path": "mas/",
+      "domain": "capability-fabric-and-swarm-orchestration",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
     "TIP": {
       "repository": "carbonactual/tip",
       "domain": "trade-and-investment",
@@ -18,6 +52,17 @@
     "SPOTIST": {
       "repository": "carbonactual/spotist",
       "domain": "seek-discovery-matching",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "HAPI World": {
+      "repository": "carbonactual/hapi-world",
+      "domain": "native-ecosystem-ai-world",
+      "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
+    },
+    "HAPI World Nexus": {
+      "repository": "carbonactual/hapi-world",
+      "composition_path": "nexus/",
+      "domain": "ecosystem-presentation-and-integration-surface",
       "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
     },
     "Open Bank": {
@@ -71,5 +116,6 @@
       "facets": ["identity", "authority", "intent", "capability", "relationship", "event", "evidence", "state", "value"]
     }
   },
-  "enforcement": "Registry declarations are architecture-level contracts. Product-specific repositories may add facets only through the Carbon Actual spine review process."
+  "enforcement": "Registry declarations are architecture-level contracts. Product-specific repositories may add facets only through the Carbon Actual spine review process. Lifecycle declarations must keep archived implementations from becoming current authority.",
+  "historical_repository_policy": "Historical repository names remain valid provenance references. Current implementation repositories must point to active canonical repositories or explicit absorbed composition paths."
 }
