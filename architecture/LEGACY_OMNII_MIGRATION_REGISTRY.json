@@ -1,16 +1,16 @@
 {
   "name": "Carbon Actual Legacy Operating-Spine Migration Registry",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "status": "canonical-migration-control",
   "canonical_spine": "carbonactual/carbonactual",
   "constitutional_authority": "carbonactual/hapi-world/CANON.md",
   "legacy_repository": {"repository": "carbonactual/omnii", "status": "archived-historical", "role": "provenance-and-recovery-source", "current_authority": false},
-  "identity_rule": "Carbon Actual is the sole current ecosystem operating-spine identity. The legacy OMNII label is historical provenance. OMNI remains a distinct current product name.",
+  "identity_rule": "Carbon Actual is the sole current ecosystem operating-spine identity. Historical operating-spine terminology is provenance. OMNI remains a distinct current product name.",
   "migration_rules": [
     "Current canonical architecture belongs in carbonactual/carbonactual.",
-    "Active product contracts use CARBON_ACTUAL_* canonical paths or explicit Carbon Actual repository references.",
+    "Active product contracts use Carbon Actual canonical paths or explicit Carbon Actual repository references.",
     "Legacy filenames may remain as compatibility notices so existing links continue to resolve.",
-    "Historical archives retain their original names where changing them would damage provenance.",
+    "Historical archives retain original names where changing them would damage provenance.",
     "Historical material cannot become current authority merely because it contains older canonical language.",
     "No product may recreate a competing universal graph, authority system, object envelope, capability fabric or runtime constitution.",
     "Physical provider persistence names may remain during migration; logical semantic authority remains Carbon Actual.",
@@ -20,7 +20,9 @@
     "Foundation and Floor products may specialize domains but inherit identity, authority, event, evidence, state and value semantics from Carbon Actual.",
     "An archived standalone repository is not a current authority when its capability has been absorbed into an active canonical repository.",
     "Absorbed capability and presentation compositions retain their product/domain semantics without preserving the archived repository as a competing implementation authority.",
-    "A historical product without a current repository remains provenance only until a real repository or explicit absorption target is established."
+    "A historical product without a current repository remains provenance only until a real repository or explicit absorption target is established.",
+    "The repository estate registry is the canonical classification of current, archived, absorbed, private-custody and external-tooling repositories.",
+    "Private credential custody is not an application authority and must not become a product dependency."
   ],
   "migrated_core_architecture": [
     "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md",
@@ -51,10 +53,15 @@
     "architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md",
     "architecture/SPOTIST_CANONICAL_CAPABILITY.md",
     "architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md",
-    "architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md"
+    "architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md",
+    "architecture/product-projection-registry.json",
+    "architecture/repository-estate-registry.json"
   ],
   "active_contracts": [
     {"repository": "carbonactual/carbonactual", "canonical": "architecture/ecosystem-kernel.json", "role": "operating-spine kernel"},
+    {"repository": "carbonactual/carbonactual", "canonical": "architecture/kernel-repo-contract.json", "role": "repository boundary contract"},
+    {"repository": "carbonactual/carbonactual", "canonical": "architecture/product-projection-registry.json", "role": "active product projection registry"},
+    {"repository": "carbonactual/carbonactual", "canonical": "architecture/repository-estate-registry.json", "role": "repository estate classification"},
     {"repository": "carbonactual/carbonactual", "canonical": "architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json", "role": "canonical integration fabric"},
     {"repository": "carbonactual/carbonactual", "canonical": "architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json", "role": "legacy architecture coverage and provenance control"},
     {"repository": "carbonactual/Carbon-Actual-", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md", "current_authority": false, "role": "historical compatibility contract"},
@@ -70,6 +77,8 @@
     {"repository": "carbonactual/hapi-world-nexus", "status": "archived", "current_authority": false, "absorbed_by": "carbonactual/hapi-world", "absorbed_path": "nexus/", "composition": "HAPI World Nexus"},
     {"repository": "carbonactual/noun-student-bot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/noun-student-bot", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
+    {"repository": "carbonactual/mcp-bot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "composition": "InstituteGPT child product"},
+    {"repository": "carbonactual/mcp-bot", "canonical": "architecture/product-inheritance.json", "composition": "InstituteGPT child product"},
     {"repository": "carbonactual/open-ballot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/nigerian-cultural-atlas", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/RITES", "canonical": "src/carbon-actual-contract.js", "legacy_adapter": "src/omnii-contract.js"},
@@ -95,11 +104,12 @@
     {"repository": "carbonactual/seed", "canonical": "architecture/integration-fabric/runtime-contract.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/bunk", "canonical": "architecture/product-inheritance.json"},
     {"repository": "carbonactual/bunk", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
-    {"repository": "carbonactual/institutegpt", "canonical": "architecture/product-inheritance.json", "note": "Education domain platform; NOUN BOT remains its child product."},
-    {"repository": "carbonactual/institutegpt", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"}
+    {"repository": "carbonactual/institutegpt", "canonical": "architecture/product-inheritance.json", "note": "Education domain platform; NOUN BOT and MCP BOT are child products."},
+    {"repository": "carbonactual/institutegpt", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
+    {"repository": "carbonactual/vault", "canonical": "README.md", "role": "private security custody boundary; not an application dependency", "current_authority": false}
   ],
   "historical_products": {
-    "Direct Bank App": {"repository":"carbonactual/direct-bank-app","repository_status":"historical-no-current-repository","historical_status":"canonical-intent","current_authority":false,"current_implementation":null,"note":"Historical source inventory identifies this as a financial product repository, but no current GitHub repository exists in the Carbon Actual estate. Do not assert absorption into another product without an explicit current implementation record."}
+    "Direct Bank App": {"repository":"carbonactual/direct-bank-app","repository_status":"historical-no-current-repository","historical_status":"canonical-intent","current_authority":false,"current_implementation":null,"note":"No current GitHub repository exists in the Carbon Actual estate. Do not assert absorption into another product without an explicit current implementation record."}
   },
   "historical_archive": {"repository": "carbonactual/Carbon-Actual-", "path": "omnii/", "status": "historical-archive", "authority": false, "reason": "Preserve legacy architecture, migrations, experiments and provenance without allowing the subtree to function as a live constitutional or runtime source."}
 }
