@@ -1,11 +1,11 @@
 {
   "name": "Carbon Actual Ecosystem Semantic Kernel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "canonical-operating-spine",
   "identity": {
     "canonical_name": "Carbon Actual",
-    "architectural_identity": "OMNII",
-    "rule": "OMNII is the Carbon Actual operating spine; Carbon Actual is the canonical ecosystem name. OMNII and Carbon Actual are not competing products or separate worlds."
+    "architectural_identity": "Carbon Actual",
+    "rule": "Carbon Actual is the canonical ecosystem operating spine and canonical architecture. It is one ecosystem spine, not a separate identity, product, or world."
   },
   "purpose": "Provide the smallest shared semantic grammar from which ecosystem products, agents, institutions, and infrastructure can interoperate without duplicating constitutional primitives.",
   "constitutional_boundary": {
@@ -107,7 +107,7 @@
   "ecosystem_layers": {
     "world": "HAPI World",
     "constitution": "HAPI World CANON.md and derived constitutional law",
-    "spine": "Carbon Actual / OMNII",
+    "spine": "Carbon Actual",
     "intelligence": "ABBA",
     "human_authority": "HAPI + # + Seal",
     "platform": "carbonactual/Carbon-Actual-",
