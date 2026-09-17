@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises';
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
+const migration = JSON.parse(await readFile('architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json', 'utf8'));
 
 const expectedFacets = [
   'identity',
@@ -70,6 +71,15 @@ test('product registry uses only kernel facets and common required facets', () =
   }
 });
 
+test('migration registry identifies Carbon Actual as canonical and the retired repository as historical', () => {
+  assert.equal(migration.canonical_spine, 'carbonactual/carbonactual');
+  assert.equal(migration.legacy_repository.repository, 'carbonactual/omnii');
+  assert.equal(migration.legacy_repository.status, 'archived-historical');
+  assert.equal(migration.legacy_repository.current_authority, false);
+  assert.ok(migration.migrated_core_architecture.length >= 20);
+  assert.ok(migration.active_contracts.length >= 10);
+});
+
 test('canonical control surfaces contain no obsolete operating-spine identity', async () => {
   const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
   const paths = [
@@ -78,10 +88,33 @@ test('canonical control surfaces contain no obsolete operating-spine identity', 
     'architecture/ecosystem-kernel.json',
     'architecture/kernel-repo-contract.json',
     'architecture/product-projection-registry.json',
-    'scripts/validate-kernel.mjs',
-    'tests/architecture/ecosystem-kernel.test.mjs',
+    'architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json',
+    'architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
+    'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md',
+    'architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
+    'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md',
+    'architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md',
+    'architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md',
+    'architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md',
+    'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
+    'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
+    'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
+    'architecture/CARBON_ACTUAL_CONTROL_PLANE.md',
+    'architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
+    'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md',
+    'architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
+    'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md',
+    'architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
+    'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md',
+    'architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
+    'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md',
+    'architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md',
+    'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md',
+    'architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
     'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md',
-    'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
+    'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md',
+    'scripts/validate-kernel.mjs',
+    'tests/architecture/ecosystem-kernel.test.mjs'
   ];
   for (const path of paths) {
     const content = await readFile(path, 'utf8');
