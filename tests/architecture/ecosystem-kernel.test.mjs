@@ -17,9 +17,8 @@ const expectedFacets = ['identity','authority','intent','capability','relationsh
 const expectedProductRepositories = [
   'carbonactual/abba','carbonactual/omni','carbonactual/tip','carbonactual/spotist','carbonactual/hapi-world',
   'carbonactual/naire','carbonactual/ngin','carbonactual/seed','carbonactual/heritage','carbonactual/io',
-  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/direct-bank-app',
-  'carbonactual/open-bank','carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas',
-  'carbonactual/bunk','carbonactual/zujid'
+  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/open-bank',
+  'carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas','carbonactual/bunk','carbonactual/zujid'
 ];
 
 test('kernel has exactly nine stable facets', () => {
@@ -70,6 +69,11 @@ test('product registry uses only kernel facets and complete active repository co
   for (const repository of expectedProductRepositories) {
     assert.ok(repositories.has(repository), `${repository} is represented in the canonical product registry`);
   }
+  assert.equal(repositories.has('carbonactual/direct-bank-app'), false);
+  assert.equal(products.lifecycle['Direct Bank App'].repository_status, 'historical-no-current-repository');
+  assert.equal(products.lifecycle['Direct Bank App'].historical_status, 'canonical-intent');
+  assert.equal(products.lifecycle['Direct Bank App'].current_authority, false);
+  assert.equal(products.lifecycle['Direct Bank App'].current_implementation, null);
   for (const [name, product] of Object.entries(products.products)) {
     assert.ok(product.repository, `${name} has a repository`);
     for (const facet of product.facets) assert.ok(expectedFacets.includes(facet), `${name} uses only known facets`);
