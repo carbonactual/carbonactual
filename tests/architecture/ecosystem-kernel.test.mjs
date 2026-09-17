@@ -46,6 +46,8 @@ test('critical semantic distinctions are explicit', () => {
 });
 
 test('repository boundaries prevent competing constitutional universes', () => {
+  assert.equal(contract.spine, 'carbonactual/carbonactual');
+  assert.equal(contract.repositories['carbonactual/carbonactual'].role, 'canonical-ecosystem-operating-spine');
   assert.equal(contract.repositories['carbonactual/hapi-world'].role, 'world-and-constitutional-law');
   assert.equal(contract.repositories['carbonactual/abba'].role, 'intelligence-and-orchestration');
   assert.equal(contract.repositories['carbonactual/Carbon-Actual-'].role, 'platform-and-runtime-substrate');
