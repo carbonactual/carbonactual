@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Establish Carbon Actual/OMNII as the ecosystem operating spine through a small, machine-readable semantic kernel and explicit repository contracts.
+**Goal:** Establish Carbon Actual as the sole canonical ecosystem operating spine through a small, machine-readable semantic kernel and explicit repository contracts.
 
-**Architecture:** Keep HAPI World constitutional and authoritative. Put the nine-facet interoperability kernel at the Carbon Actual spine boundary, let ABBA consume it for orchestration, and keep platform/runtime implementations behind capability contracts. The kernel is additive and projection-only.
+**Architecture:** Keep HAPI World constitutional and authoritative. Put the nine-facet interoperability kernel at the Carbon Actual spine boundary, let ABBA consume it for orchestration, and keep platform/runtime implementations behind capability contracts. Carbon Actual is both the canonical name and architectural identity; there is no second operating-spine identity. The kernel is additive and projection-only.
 
 **Tech Stack:** JSON, Markdown, Node.js built-in `node:test`, GitHub Actions.
 
@@ -13,12 +13,13 @@
 ## Global Constraints
 
 - `CANON.md` remains supreme.
-- Carbon Actual is the canonical ecosystem operating-spine name.
-- OMNII is the architectural identity of the operating spine, not a competing product/world.
+- Carbon Actual is the canonical ecosystem operating-spine name, architecture, and repository source of truth.
+- There is no separate operating-spine identity beside Carbon Actual.
 - The kernel has exactly nine facets.
 - Facets are projections, not replacement entity types.
 - Authority is not capability; event is not evidence; state is not history; intent is not execution; value is not money.
 - Product-specific code must not create a second constitutional universe.
+- Canonical control surfaces must contain no obsolete operating-spine identity.
 
 ---
 
@@ -55,7 +56,7 @@ Expected: FAIL because the kernel file is not yet present.
 
 - [ ] **Step 3: Write the minimal implementation**
 
-Create `architecture/ecosystem-kernel.json` with the nine facets and the approved invariants.
+Create `architecture/ecosystem-kernel.json` with the nine facets and the approved invariants, including Carbon Actual as both `canonical_name` and `architectural_identity`.
 
 - [ ] **Step 4: Run test to verify it passes**
 
@@ -143,8 +144,8 @@ git commit -m "docs: establish operating-spine architecture"
 - Create: `.github/workflows/ecosystem-kernel.yml`
 
 **Interfaces:**
-- Consumes: kernel JSON and repository contract.
-- Produces: non-zero exit status for structural violations.
+- Consumes: kernel JSON, repository contract, product registry, and canonical control-surface files.
+- Produces: non-zero exit status for structural or stale-naming violations.
 
 - [ ] **Step 1: Write failing validation checks**
 
@@ -153,7 +154,7 @@ The test suite must assert:
 ```js
 assert.equal(kernel.facets.length, 9);
 assert.equal(kernel.identity.canonical_name, 'Carbon Actual');
-assert.equal(kernel.identity.architectural_identity, 'OMNII');
+assert.equal(kernel.identity.architectural_identity, 'Carbon Actual');
 assert.equal(kernel.constitutional_boundary.may_override_canon, false);
 assert.equal(kernel.design_laws.includes('Authority is never inferred from capability.'), true);
 assert.equal(kernel.design_laws.includes('An event is not its evidence.'), true);
@@ -162,6 +163,8 @@ assert.equal(kernel.design_laws.includes('Intent does not equal execution or out
 assert.equal(kernel.design_laws.includes('Value is broader than money.'), true);
 ```
 
+The validator must also scan the canonical control surfaces and fail when a retired operating-spine alias appears in them.
+
 - [ ] **Step 2: Run the tests**
 
 Run: `node --test tests/architecture/ecosystem-kernel.test.mjs`
@@ -169,7 +172,7 @@ Expected: PASS after implementation.
 
 - [ ] **Step 3: Add validator**
 
-Create `scripts/validate-kernel.mjs` that loads both JSON contracts, checks duplicate facet IDs, validates the nine required IDs, verifies repository roles, and exits `1` on any violation.
+Create `scripts/validate-kernel.mjs` that loads the JSON contracts, checks duplicate facet IDs, validates the nine required IDs, verifies repository roles, validates product facet declarations, and scans the canonical control surfaces for retired operating-spine aliases. Exit `1` on any violation.
 
 - [ ] **Step 4: Add CI workflow**
 
@@ -179,6 +182,7 @@ Create `.github/workflows/ecosystem-kernel.yml` using read-only repository permi
 
 ```bash
 git add scripts/validate-kernel.mjs .github/workflows/ecosystem-kernel.yml tests/architecture/ecosystem-kernel.test.mjs
+
 git commit -m "ci: enforce Carbon Actual kernel conformance"
 ```
 
@@ -189,21 +193,21 @@ git commit -m "ci: enforce Carbon Actual kernel conformance"
 
 **Interfaces:**
 - Consumes: ecosystem kernel and repository contract.
-- Produces: human entrypoint that identifies Carbon Actual as OMNII operating spine and links to canonical architecture files.
+- Produces: human entrypoint that identifies Carbon Actual as the sole operating-spine identity and links to canonical architecture files.
 
 - [ ] **Step 1: Write replacement README section**
 
-Add a concise `OPERATING SPINE` section that states:
+The `OPERATING SPINE` section must state:
 
 ```text
-Carbon Actual = OMNII operating spine
+Carbon Actual = canonical ecosystem operating spine and architecture
 HAPI World = constitutional world/law
 ABBA = intelligence/orchestration
 Carbon-Actual- = platform/runtime substrate
 Products = specialized projections over shared primitives
 ```
 
-Link to `architecture/ECOSYSTEM_KERNEL.md`, `architecture/ecosystem-kernel.json`, and `architecture/kernel-repo-contract.json`.
+Do not reintroduce a second operating-spine identity in the README. Link to `architecture/ECOSYSTEM_KERNEL.md`, `architecture/ecosystem-kernel.json`, and `architecture/kernel-repo-contract.json`.
 
 - [ ] **Step 2: Validate README references**
 

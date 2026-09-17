@@ -24,9 +24,10 @@ const expectedFacets = [
 ];
 
 if (kernel.identity?.canonical_name !== 'Carbon Actual') fail('canonical name must be Carbon Actual');
-if (kernel.identity?.architectural_identity !== 'OMNII') fail('architectural identity must be OMNII');
+if (kernel.identity?.architectural_identity !== 'Carbon Actual') fail('architectural identity must be Carbon Actual');
 if (kernel.constitutional_boundary?.may_override_canon !== false) fail('kernel may not override HAPI World CANON.md');
 if (kernel.constitutional_boundary?.may_replace_existing_canonical_objects !== false) fail('kernel may not replace canonical objects');
+if (contract.spine !== 'carbonactual/carbonactual') fail('repository contract spine must be carbonactual/carbonactual');
 
 const facetIds = kernel.facets?.map((facet) => facet.id) ?? [];
 if (facetIds.length !== expectedFacets.length) fail(`expected ${expectedFacets.length} facets, got ${facetIds.length}`);
@@ -48,6 +49,7 @@ for (const law of requiredLaws) {
 
 const repositories = contract.repositories ?? {};
 const requiredRoles = {
+  'carbonactual/carbonactual': 'canonical-ecosystem-operating-spine',
   'carbonactual/hapi-world': 'world-and-constitutional-law',
   'carbonactual/abba': 'intelligence-and-orchestration',
   'carbonactual/Carbon-Actual-': 'platform-and-runtime-substrate'
@@ -71,6 +73,21 @@ for (const [name, product] of Object.entries(products.products ?? {})) {
   for (const required of products.common_required_facets) {
     if (!product.facets.includes(required)) fail(`product ${name} is missing required facet ${required}`);
   }
+}
+
+const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
+const canonicalSurfaces = [
+  'README.md',
+  'architecture/ECOSYSTEM_KERNEL.md',
+  'architecture/ecosystem-kernel.json',
+  'architecture/kernel-repo-contract.json',
+  'architecture/product-projection-registry.json',
+  'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md',
+  'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
+];
+for (const path of canonicalSurfaces) {
+  const content = await readFile(path, 'utf8');
+  if (content.includes(obsoleteSpineIdentity)) fail(`obsolete operating-spine identity remains in ${path}`);
 }
 
 if (process.exitCode) process.exit();

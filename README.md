@@ -4,7 +4,7 @@
 
 ## OPERATING SPINE
 
-**Carbon Actual is the ecosystem operating spine. OMNII is its architectural identity.** They are one spine, not competing products or separate worlds.
+**Carbon Actual is the canonical ecosystem operating spine, architecture, and repository source of truth.** It is one spine and one ecosystem, with specialized fruits composed over shared contracts.
 
 The ecosystem is organized as one tree with specialized fruits:
 
@@ -30,7 +30,7 @@ Canonical kernel references:
 
 ## BOUNDARIES
 
-HAPI World defines constitutional meaning. Carbon Actual/OMNII provides the operating-spine semantics and cross-product contracts. ABBA operationalizes those contracts through intelligence and orchestration. Products specialize interfaces and workflows without creating parallel universes.
+HAPI World defines constitutional meaning. Carbon Actual provides the operating-spine semantics and cross-product contracts. ABBA operationalizes those contracts through intelligence and orchestration. Products specialize interfaces and workflows without creating parallel universes.
 
 Authority is not capability. Event is not evidence. State is not history. Intent is not execution. Value is broader than money. Implementations are replaceable behind capability contracts.
 
@@ -52,14 +52,14 @@ Authority is not capability. Event is not evidence. State is not history. Intent
 | SEED | `carbonactual/seed` | Genesis and incubation product |
 | BUNK | `carbonactual/bunk` | Companion product |
 
-## NAMING SAFETY
+## CANONICAL NAMING
 
-**OMNII ≠ OMNI.** OMNII refers to the Carbon Actual operating-spine identity. OMNI is a separate product surface. Product names do not redefine the operating spine.
+Carbon Actual is the canonical ecosystem name and operating-spine identity. Product names remain product names and do not create competing constitutional or operating-spine identities.
 
 ## LAYERED LINEAGE (B3C0M1NG)
 
 1. **HAPI** — Human API
 2. **#ABBA** — the 22# namespace
-3. **Carbon Actual / OMNII** — ecosystem operating spine
+3. **Carbon Actual** — ecosystem operating spine
 
 *BEING → BECOMING → ACTUAL.*

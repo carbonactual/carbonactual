@@ -3,21 +3,27 @@ name: Ecosystem Kernel Conformance
 on:
   push:
     paths:
+      - 'README.md'
       - 'architecture/ecosystem-kernel.json'
       - 'architecture/kernel-repo-contract.json'
       - 'architecture/product-projection-registry.json'
       - 'architecture/ECOSYSTEM_KERNEL.md'
       - 'scripts/validate-kernel.mjs'
       - 'tests/architecture/ecosystem-kernel.test.mjs'
+      - 'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md'
+      - 'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
       - '.github/workflows/ecosystem-kernel.yml'
   pull_request:
     paths:
+      - 'README.md'
       - 'architecture/ecosystem-kernel.json'
       - 'architecture/kernel-repo-contract.json'
       - 'architecture/product-projection-registry.json'
       - 'architecture/ECOSYSTEM_KERNEL.md'
       - 'scripts/validate-kernel.mjs'
       - 'tests/architecture/ecosystem-kernel.test.mjs'
+      - 'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md'
+      - 'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
       - '.github/workflows/ecosystem-kernel.yml'
 
 permissions:
