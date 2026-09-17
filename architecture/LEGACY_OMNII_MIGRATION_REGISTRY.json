@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Legacy Operating-Spine Migration Registry",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "status": "canonical-migration-control",
   "canonical_spine": "carbonactual/carbonactual",
   "constitutional_authority": "carbonactual/hapi-world/CANON.md",
@@ -85,7 +85,8 @@
     {"repository": "carbonactual/seed", "canonical": "README.md", "note": "Genesis/foundation surface."},
     {"repository": "carbonactual/seed", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/seed", "canonical": "architecture/integration-fabric/runtime-contract.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
-    {"repository": "carbonactual/bunk", "canonical": "architecture/product-inheritance.json"}
+    {"repository": "carbonactual/bunk", "canonical": "architecture/product-inheritance.json"},
+    {"repository": "carbonactual/institutegpt", "canonical": "architecture/product-inheritance.json", "note": "Education domain platform; NOUN BOT remains its child product."}
   ],
   "historical_archive": {
     "repository": "carbonactual/Carbon-Actual-",
