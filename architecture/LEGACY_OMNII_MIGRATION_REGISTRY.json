@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Legacy Operating-Spine Migration Registry",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "status": "canonical-migration-control",
   "canonical_spine": "carbonactual/carbonactual",
   "constitutional_authority": "carbonactual/hapi-world/CANON.md",
@@ -19,7 +19,8 @@
     "Historical material cannot become current authority merely because it contains older canonical language.",
     "No product may recreate a competing universal graph, authority system, object envelope, capability fabric or runtime constitution.",
     "Physical provider persistence names may remain during migration; logical semantic authority remains Carbon Actual.",
-    "Compatibility code may expose legacy aliases, but the implementation behind those aliases must resolve to the Carbon Actual canonical contract."
+    "Compatibility code may expose legacy aliases, but the implementation behind those aliases must resolve to the Carbon Actual canonical contract.",
+    "Integration manifests must resolve to the canonical Carbon Actual integration fabric rather than historical repository paths."
   ],
   "migrated_core_architecture": [
     "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md",
@@ -30,6 +31,7 @@
     "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md",
     "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md",
     "architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md",
+    "architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json",
     "architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md",
     "architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md",
     "architecture/CARBON_ACTUAL_CONTROL_PLANE.md",
@@ -50,6 +52,7 @@
   ],
   "active_contracts": [
     {"repository": "carbonactual/carbonactual", "canonical": "architecture/ecosystem-kernel.json", "role": "operating-spine kernel"},
+    {"repository": "carbonactual/carbonactual", "canonical": "architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json", "role": "canonical integration fabric"},
     {"repository": "carbonactual/Carbon-Actual-", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/abba", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/abba", "canonical": "mas/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "mas/OMNII_CONFORMANCE.md"},
