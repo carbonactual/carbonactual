@@ -6,18 +6,20 @@ const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
 const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
 const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json';
+const repositoryEstatePath = 'architecture/repository-estate-registry.json';
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
 const migration = JSON.parse(await readFile(migrationRegistryPath, 'utf8'));
 const integrationFabric = JSON.parse(await readFile(integrationFabricPath, 'utf8'));
 const legacyCrosswalk = JSON.parse(await readFile(legacyCrosswalkPath, 'utf8'));
+const estate = JSON.parse(await readFile(repositoryEstatePath, 'utf8'));
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 const expectedProductRepositories = [
   'carbonactual/abba','carbonactual/omni','carbonactual/tip','carbonactual/spotist','carbonactual/hapi-world',
   'carbonactual/naire','carbonactual/ngin','carbonactual/seed','carbonactual/heritage','carbonactual/io',
-  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/open-bank',
+  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/mcp-bot','carbonactual/open-bank',
   'carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas','carbonactual/bunk','carbonactual/zujid'
 ];
 
@@ -54,8 +56,26 @@ test('repository boundaries prevent competing constitutional universes', () => {
   assert.equal(contract.repositories['carbonactual/hapi-world'].role, 'world-and-constitutional-law');
   assert.equal(contract.repositories['carbonactual/abba'].role, 'intelligence-and-orchestration');
   assert.equal(contract.repositories['carbonactual/Carbon-Actual-'].role, 'platform-and-runtime-substrate');
+  assert.equal(contract.repositories['carbonactual/mcp-bot'].role, 'education-domain-product');
+  assert.equal(contract.repositories['carbonactual/vault'].role, 'private-secret-custody');
+  assert.equal(contract.repositories['carbonactual/ECC'].role, 'external-agent-tool-mirror');
   for (const repo of Object.values(contract.repositories)) assert.equal(repo.may_define_new_kernel_facet, false);
   assert.match(contract.product_rule, /Products are fruits/);
+});
+
+test('repository estate has one classification per repository and no active unknowns', () => {
+  const membership = new Map();
+  for (const [className, entries] of Object.entries(estate.classes)) {
+    assert.ok(Array.isArray(entries), `${className} is an array`);
+    for (const repo of entries) {
+      assert.equal(membership.has(repo), false, `${repo} is classified more than once`);
+      membership.set(repo, className);
+    }
+  }
+  assert.deepEqual(estate.classes.active_unclassified_repositories, []);
+  for (const repo of ['carbonactual/carbonactual','carbonactual/hapi-world','carbonactual/abba','carbonactual/Carbon-Actual-','carbonactual/mcp-bot','carbonactual/vault','carbonactual/ECC','carbonactual/omnii','carbonactual/abba-mas','carbonactual/hapi-world-nexus']) {
+    assert.ok(membership.has(repo), `${repo} is classified in the repository estate`);
+  }
 });
 
 test('kernel flow has the approved universal order', () => {
@@ -104,7 +124,7 @@ test('integration fabric has one canonical source and preserves authority bounda
   assert.equal(integrationFabric.delivery, 'at-least-once; idempotent consumers required');
 });
 
-test('legacy OMNII architecture has explicit current-Carbon-Actual coverage', async () => {
+test('legacy architecture has explicit current-Carbon-Actual coverage', async () => {
   assert.equal(legacyCrosswalk.canonical_repository, 'carbonactual/carbonactual');
   assert.ok(legacyCrosswalk.sources.length >= 20);
   for (const source of legacyCrosswalk.sources) {
