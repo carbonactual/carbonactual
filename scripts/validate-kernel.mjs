@@ -31,7 +31,8 @@ if (kernel.constitutional_boundary?.may_replace_existing_canonical_objects !== f
 if (contract.spine !== 'carbonactual/carbonactual') fail('repository contract spine must be carbonactual/carbonactual');
 if (migration.canonical_spine !== 'carbonactual/carbonactual') fail('migration registry must point to carbonactual/carbonactual');
 if (migration.legacy_repository?.current_authority !== false) fail('archived legacy repository must not be current authority');
-if (!Array.isArray(migration.migrated_core_architecture) || migration.migrated_core_architecture.length < 20) fail('migration registry does not contain the expected core architecture inventory');
+if (!Array.isArray(migration.migrated_core_architecture) || migration.migrated_core_architecture.length < 24) fail('migration registry does not contain the complete migrated core architecture inventory');
+if (!Array.isArray(migration.active_contracts) || migration.active_contracts.length < 20) fail('migration registry does not cover the active contract estate');
 
 const facetIds = kernel.facets?.map((facet) => facet.id) ?? [];
 if (facetIds.length !== expectedFacets.length) fail(`expected ${expectedFacets.length} facets, got ${facetIds.length}`);
@@ -86,7 +87,6 @@ const canonicalSurfaces = [
   'architecture/ecosystem-kernel.json',
   'architecture/kernel-repo-contract.json',
   'architecture/product-projection-registry.json',
-  'architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json',
   'architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
   'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md',
   'architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
@@ -97,6 +97,9 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
   'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
   'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
+  'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
+  'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md',
+  'architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
   'architecture/CARBON_ACTUAL_CONTROL_PLANE.md',
   'architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
   'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md',
@@ -118,4 +121,4 @@ for (const path of canonicalSurfaces) {
 }
 
 if (process.exitCode) process.exit();
-console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products, ${migration.migrated_core_architecture.length} migrated architecture controls.`);
+console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products, ${migration.migrated_core_architecture.length} migrated architecture controls, ${migration.active_contracts.length} active contracts.`);
