@@ -8,11 +8,13 @@ const fail = (message) => {
 const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'));
 const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
+const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
 const products = await readJson('architecture/product-projection-registry.json');
 const migration = await readJson(migrationRegistryPath);
+const integrationFabric = await readJson(integrationFabricPath);
 
 const expectedFacets = [
   'identity',
@@ -35,6 +37,10 @@ if (migration.canonical_spine !== 'carbonactual/carbonactual') fail('migration r
 if (migration.legacy_repository?.current_authority !== false) fail('archived legacy repository must not be current authority');
 if (!Array.isArray(migration.migrated_core_architecture) || migration.migrated_core_architecture.length < 24) fail('migration registry does not contain the complete migrated core architecture inventory');
 if (!Array.isArray(migration.active_contracts) || migration.active_contracts.length < 20) fail('migration registry does not cover the active contract estate');
+if (integrationFabric.canonical_fabric !== `carbonactual/carbonactual/${integrationFabricPath}`) fail('integration fabric must resolve to the canonical Carbon Actual manifest');
+if (integrationFabric.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('integration fabric must preserve HAPI World constitutional authority');
+if (integrationFabric.authority !== 'SealGrant') fail('integration fabric authority must remain SealGrant');
+if (integrationFabric.identity !== '#') fail('integration fabric identity must remain #');
 
 const facetIds = kernel.facets?.map((facet) => facet.id) ?? [];
 if (facetIds.length !== expectedFacets.length) fail(`expected ${expectedFacets.length} facets, got ${facetIds.length}`);
@@ -98,6 +104,7 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
   'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
   'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
+  integrationFabricPath,
   'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
   'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md',
   'architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
