@@ -17,8 +17,8 @@ The repository contract separates responsibility: HAPI World owns constitutional
 ## Invariants
 
 1. HAPI World `CANON.md` remains supreme.
-2. Carbon Actual is the canonical ecosystem operating-spine name.
-3. OMNII is the architectural identity of that operating spine, not a separate competing product.
+2. Carbon Actual is the canonical ecosystem operating-spine name, architecture, and repository source of truth.
+3. There is no separate operating-spine identity beside Carbon Actual.
 4. No kernel facet is a new constitutional entity type.
 5. Authority is never inferred from capability.
 6. Event is not evidence.
@@ -34,7 +34,8 @@ The repository contract separates responsibility: HAPI World owns constitutional
 - `architecture/ecosystem-kernel.json`: machine-readable kernel definition.
 - `architecture/kernel-repo-contract.json`: repository responsibility boundaries.
 - `architecture/ECOSYSTEM_KERNEL.md`: human-readable design law for the spine.
-- `scripts/validate-kernel.mjs`: deterministic structural conformance check.
+- `architecture/product-projection-registry.json`: product composition registry.
+- `scripts/validate-kernel.mjs`: deterministic structural and naming conformance check.
 - `.github/workflows/ecosystem-kernel.yml`: CI gate for kernel integrity.
 - `README.md`: ecosystem map and entrypoint to the operating-spine contract.
 
@@ -46,15 +47,16 @@ Domain systems may use a subset where appropriate, but consequential actions mus
 
 ## Error handling
 
-Invalid kernel JSON, duplicate facet identifiers, broken repository roles, forbidden primitive duplication, or missing required distinctions must fail CI. No runtime fallback may silently reinterpret constitutional semantics.
+Invalid kernel JSON, duplicate facet identifiers, broken repository roles, forbidden primitive duplication, stale operating-spine naming, or missing required distinctions must fail CI. No runtime fallback may silently reinterpret constitutional semantics.
 
 ## Testing
 
-The first test layer validates:
+The conformance layer validates:
 
 - exactly nine canonical facets;
 - stable facet IDs;
+- Carbon Actual as both the canonical and architectural identity;
+- no obsolete operating-spine identity in canonical control surfaces;
 - required distinctions between capability/authority, event/evidence, state/history, intent/execution, and value/money;
-- Carbon Actual/OMNII identity rule;
 - HAPI World canonical boundary;
 - repository roles and product boundary.
