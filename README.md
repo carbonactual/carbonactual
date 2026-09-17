@@ -40,6 +40,8 @@ Core controls:
 - `architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md`
 - `architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md`
 - `architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md`
+- `architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md`
+- `architecture/CARBON_ACTUAL_AUDUBON_CONTINUUM_ECOLOGICAL_DESIGN_DOCTRINE.md`
 - `architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md`
 - `architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md`
 - `architecture/CARBON_ACTUAL_CONTROL_PLANE.md`
@@ -54,7 +56,8 @@ Core controls:
 - `architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md`
 - `architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md`
 - `architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md`
-- migration registry (historical compatibility and provenance control)
+- `architecture/CARBON_ACTUAL_LEGACY_OMNII_ARCHITECTURE_CROSSWALK.json` — machine-checked coverage of the former OMNII canonical source inventory.
+- migration registry — historical compatibility and repository provenance control.
 
 ## BOUNDARIES
 
