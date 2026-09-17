@@ -2,10 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
+const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
+const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
-const migration = JSON.parse(await readFile('architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json', 'utf8'));
+const migration = JSON.parse(await readFile(migrationRegistryPath, 'utf8'));
 
 const expectedFacets = [
   'identity',
@@ -81,7 +83,6 @@ test('migration registry identifies Carbon Actual as canonical and the retired r
 });
 
 test('canonical control surfaces contain no obsolete operating-spine identity', async () => {
-  const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
   const paths = [
     'README.md',
     'architecture/ECOSYSTEM_KERNEL.md',

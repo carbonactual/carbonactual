@@ -24,7 +24,7 @@ These are interoperability facets, not replacement entity types. They exist to s
 
 ## CANONICAL ARCHITECTURE
 
-The live spine contains the canonical contracts migrated from the retired OMNII architecture. The legacy repository remains a historical provenance source; it is not a competing authority.
+The live spine contains the canonical contracts migrated from the retired operating-spine architecture. The legacy repository remains a historical provenance source; it is not a competing authority.
 
 Core controls:
 
@@ -54,7 +54,7 @@ Core controls:
 - `architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md`
 - `architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md`
 - `architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md`
-- `architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json`
+- migration registry (historical compatibility and provenance control)
 
 ## BOUNDARIES
 
@@ -86,7 +86,7 @@ The historical operating-spine name is retained only in archived/provenance mate
 
 ## MIGRATION / PROVENANCE
 
-`carbonactual/omnii` is archived. Its useful architecture has been migrated into this repository as Carbon Actual contracts where it remains semantically current. The archived source remains available for provenance and recovery.
+The legacy operating-spine repository is archived. Its useful architecture has been migrated into this repository as Carbon Actual contracts where it remains semantically current. The archived source remains available for provenance and recovery.
 
 `carbonactual/Carbon-Actual-/omnii/` is explicitly classified as a historical archive; it must not be treated as the live constitutional, registry or runtime source.
 

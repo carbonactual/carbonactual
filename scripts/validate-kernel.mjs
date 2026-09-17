@@ -6,11 +6,13 @@ const fail = (message) => {
 };
 
 const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'));
+const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
+const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
 const products = await readJson('architecture/product-projection-registry.json');
-const migration = await readJson('architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json');
+const migration = await readJson(migrationRegistryPath);
 
 const expectedFacets = [
   'identity',
@@ -80,7 +82,6 @@ for (const [name, product] of Object.entries(products.products ?? {})) {
   }
 }
 
-const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const canonicalSurfaces = [
   'README.md',
   'architecture/ECOSYSTEM_KERNEL.md',

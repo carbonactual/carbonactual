@@ -8,10 +8,14 @@ on:
       - 'architecture/kernel-repo-contract.json'
       - 'architecture/product-projection-registry.json'
       - 'architecture/ECOSYSTEM_KERNEL.md'
+      - 'architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json'
+      - 'architecture/CARBON_ACTUAL_*.md'
+      - 'architecture/SPOTIST_*.md'
       - 'scripts/validate-kernel.mjs'
       - 'tests/architecture/ecosystem-kernel.test.mjs'
       - 'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md'
       - 'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
+      - 'docs/verification/**'
       - '.github/workflows/ecosystem-kernel.yml'
   pull_request:
     paths:
@@ -20,10 +24,14 @@ on:
       - 'architecture/kernel-repo-contract.json'
       - 'architecture/product-projection-registry.json'
       - 'architecture/ECOSYSTEM_KERNEL.md'
+      - 'architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json'
+      - 'architecture/CARBON_ACTUAL_*.md'
+      - 'architecture/SPOTIST_*.md'
       - 'scripts/validate-kernel.mjs'
       - 'tests/architecture/ecosystem-kernel.test.mjs'
       - 'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md'
       - 'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
+      - 'docs/verification/**'
       - '.github/workflows/ecosystem-kernel.yml'
 
 permissions:
