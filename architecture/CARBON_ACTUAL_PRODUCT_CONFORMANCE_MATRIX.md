@@ -15,11 +15,11 @@ Products are downstream compositions of Carbon Actual. They may specialize domai
 | Product / Surface | Repository | Classification | Primary specialization | Required shared fabric |
 |---|---|---|---|---|
 | ABBA | carbonactual/abba | product | master intelligence/orchestration | identity, intent, capability, discovery, authority, workflow, evidence, interoperability |
-| ABBA MAS | carbonactual/abba-mas | reusable capability/product | command, routing, proof coordination | authority, authorization, workflow, execution, evidence |
+| ABBA MAS | carbonactual/abba | absorbed capability composition (`mas/`); former standalone repository archived | command, routing, proof coordination, swarm/capability fabric | authority, authorization, workflow, execution, evidence |
 | OMNI | carbonactual/omni | product/runtime client | user-facing operating environment | identity, capability, discovery, context, workflow, value |
 | TIP | carbonactual/tip | economic product | trade, markets, investment, exchange, sourcing | identity, capability, discovery, relationship, authority, value, settlement |
 | HAPI World | carbonactual/hapi-world | ecosystem composition | human/AI ecosystem | identity, relationship, context, value, evidence |
-| HAPI World Nexus | carbonactual/hapi-world-nexus | presentation/ecosystem client | ecosystem presentation | discovery, context, Atlas, evidence |
+| HAPI World Nexus | carbonactual/hapi-world | absorbed presentation/integration composition (`nexus/`); former standalone repository archived | ecosystem presentation and integration/audit surface | discovery, context, Atlas, evidence, integration |
 | NAIRE | carbonactual/naire | floor product | human operating environment, person/family/life operations | identity, relationship, authority, context, value, evidence |
 | NGIN | carbonactual/ngin | floor product | organization and territory operations | identity, relationship, authority, capability, context, evidence |
 | SEED | carbonactual/seed | foundation composition | genesis, incubation, pre-actualization registry | identity, authority, intent, capability, relationship, evidence, state |
@@ -42,6 +42,8 @@ These repositories or product surfaces remain useful for provenance, recovery an
 |---|---|---|---|
 | NASC | carbonactual/abba-automation-ecosystem | archived repository | Historical product material only; current implementations must inherit Carbon Actual contracts. |
 | BKLIT UI | carbonactual/bklit-ui | archived repository | Presentation history only; no current constitutional or runtime authority. |
+| ABBA MAS standalone repository | carbonactual/abba-mas | archived repository | Superseded by the `carbonactual/abba/mas/` absorbed capability composition. |
+| HAPI World Nexus standalone repository | carbonactual/hapi-world-nexus | archived repository | Superseded by the `carbonactual/hapi-world/nexus/` absorbed composition; HAPI World remains the authority. |
 
 ## Explicitly preserved boundaries
 
@@ -54,6 +56,8 @@ These repositories or product surfaces remain useful for provenance, recovery an
 - `Product ≠ constitutional layer`
 - `Tokenization ≠ proof of ownership`
 - `Provider ≠ constitutional dependency`
+- `Archived repository ≠ current authority`
+- `Absorbed composition ≠ competing product identity`
 
 ## Product conformance lifecycle
 
@@ -63,4 +67,4 @@ Future catalog products may be specified without being falsely marked as built. 
 
 ## Estate correction
 
-ABBA MAS belongs to the active `carbonactual/abba-mas` composition and must remain subordinate to Carbon Actual contracts. BUNK belongs to the active `carbonactual/bunk` product repository. TIP is the current economic participation platform. OMNI is a distinct operating/integration product. NAIRE, NGIN, SEED, HERITAGE, I/O, Value System and InstituteGPT are active inherited foundation/floor/domain compositions, not alternate constitutions. The retired operating-spine repository is historical provenance only.
+ABBA MAS belongs to the active `carbonactual/abba/mas/` composition; its standalone repository is archived. HAPI World Nexus belongs to the active `carbonactual/hapi-world/nexus/` composition; its standalone repository is archived. BUNK belongs to the active `carbonactual/bunk` product repository. TIP is the current economic participation platform. OMNI is a distinct operating/integration product. NAIRE, NGIN, SEED, HERITAGE, I/O, Value System and InstituteGPT are active inherited foundation/floor/domain compositions, not alternate constitutions. The retired operating-spine repository remains historical provenance only.
