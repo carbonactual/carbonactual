@@ -10,6 +10,7 @@ const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
 const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
 const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json';
+const repositoryEstatePath = 'architecture/repository-estate-registry.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -17,14 +18,15 @@ const products = await readJson('architecture/product-projection-registry.json')
 const migration = await readJson(migrationRegistryPath);
 const integrationFabric = await readJson(integrationFabricPath);
 const legacyCrosswalk = await readJson(legacyCrosswalkPath);
+const estate = await readJson(repositoryEstatePath);
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
-
 const requiredProductRepositories = [
   'carbonactual/abba','carbonactual/omni','carbonactual/tip','carbonactual/spotist','carbonactual/hapi-world',
   'carbonactual/naire','carbonactual/ngin','carbonactual/seed','carbonactual/heritage','carbonactual/io',
-  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/open-bank',
-  'carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas','carbonactual/bunk','carbonactual/zujid'
+  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/mcp-bot',
+  'carbonactual/open-bank','carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas',
+  'carbonactual/bunk','carbonactual/zujid'
 ];
 
 if (kernel.identity?.canonical_name !== 'Carbon Actual') fail('canonical name must be Carbon Actual');
@@ -73,6 +75,27 @@ for (const [repo, definition] of Object.entries(repositories)) {
   if (definition.may_define_new_kernel_facet !== false) fail(`${repo} may not define a competing kernel facet`);
 }
 
+const estateClasses = estate.classes ?? {};
+const estateMembership = new Map();
+for (const [className, entries] of Object.entries(estateClasses)) {
+  if (!Array.isArray(entries)) fail(`repository estate class ${className} must be an array`);
+  for (const repo of entries) {
+    if (typeof repo !== 'string' || !repo.includes('/')) fail(`invalid repository identifier in estate class ${className}: ${repo}`);
+    const prior = estateMembership.get(repo);
+    if (prior) fail(`repository ${repo} is classified in both ${prior} and ${className}`);
+    estateMembership.set(repo, className);
+  }
+}
+if (!Array.isArray(estateClasses.active_unclassified_repositories) || estateClasses.active_unclassified_repositories.length !== 0) {
+  fail('active_unclassified_repositories must be empty');
+}
+for (const repo of [
+  'carbonactual/carbonactual','carbonactual/hapi-world','carbonactual/abba','carbonactual/Carbon-Actual-',
+  'carbonactual/mcp-bot','carbonactual/vault','carbonactual/ECC','carbonactual/omnii','carbonactual/abba-mas','carbonactual/hapi-world-nexus'
+]) {
+  if (!estateMembership.has(repo)) fail(`repository estate does not classify ${repo}`);
+}
+
 if (!Array.isArray(products.common_required_facets) || !products.common_required_facets.every((facet) => expectedFacets.includes(facet))) {
   fail('product common facet declaration contains unknown facets');
 }
@@ -85,7 +108,10 @@ for (const [name, product] of Object.entries(products.products ?? {})) {
     if (!expectedFacets.includes(facet)) fail(`product ${name} declares unknown facet ${facet}`);
   }
   for (const required of products.common_required_facets) {
-    if (!product.facets.includes(required)) fail(`product ${name} is missing required facet ${required}`);
+    if (!product.facets.includes(required)) fail(`product ${name} is missing ${required}`);
+  }
+  if (!estateClasses.active_products.includes(product.repository) && product.repository !== 'carbonactual/abba' && product.repository !== 'carbonactual/hapi-world') {
+    fail(`active product ${name} repository is not classified as active product: ${product.repository}`);
   }
 }
 for (const repository of requiredProductRepositories) {
@@ -133,4 +159,4 @@ for (const path of canonicalSurfaces) {
 }
 
 if (process.exitCode) process.exit();
-console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} active products, ${migration.migrated_core_architecture.length} migrated architecture controls, ${migration.active_contracts.length} active contracts, ${legacyCrosswalk.sources.length} legacy architecture sources crosswalked.`);
+console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} active products, ${estateMembership.size} classified estate repositories, ${migration.migrated_core_architecture.length} migrated architecture controls, ${migration.active_contracts.length} active contracts, ${legacyCrosswalk.sources.length} legacy architecture sources crosswalked.`);
