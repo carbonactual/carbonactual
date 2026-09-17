@@ -10,9 +10,9 @@ Products are downstream compositions of Carbon Actual. They may specialize domai
 ## Canonical execution pattern
 `Identity → Relationship → Intent ↔ Capability → Discovery → Match → Context + Availability → Authority → Authorization → Workflow → Execution → Evidence → Outcome → Settlement/Ledger → Pulse`
 
-## Built product surfaces currently identified
+## Built product and foundation surfaces currently identified
 
-| Product | Repository | Classification | Primary specialization | Required shared fabric |
+| Product / Surface | Repository | Classification | Primary specialization | Required shared fabric |
 |---|---|---|---|---|
 | ABBA | carbonactual/abba | product | master intelligence/orchestration | identity, intent, capability, discovery, authority, workflow, evidence, interoperability |
 | ABBA MAS | carbonactual/abba-mas | reusable capability/product | command, routing, proof coordination | authority, authorization, workflow, execution, evidence |
@@ -20,6 +20,12 @@ Products are downstream compositions of Carbon Actual. They may specialize domai
 | TIP | carbonactual/tip | economic product | trade, markets, investment, exchange, sourcing | identity, capability, discovery, relationship, authority, value, settlement |
 | HAPI World | carbonactual/hapi-world | ecosystem composition | human/AI ecosystem | identity, relationship, context, value, evidence |
 | HAPI World Nexus | carbonactual/hapi-world-nexus | presentation/ecosystem client | ecosystem presentation | discovery, context, Atlas, evidence |
+| NAIRE | carbonactual/naire | floor product | human operating environment, person/family/life operations | identity, relationship, authority, context, value, evidence |
+| NGIN | carbonactual/ngin | floor product | organization and territory operations | identity, relationship, authority, capability, context, evidence |
+| SEED | carbonactual/seed | foundation composition | genesis, incubation, pre-actualization registry | identity, authority, intent, capability, relationship, evidence, state |
+| HERITAGE | carbonactual/heritage | foundation/continuity product | lineage, provenance, cultural continuity | identity, relationship, provenance, evidence, state, value |
+| I/O | carbonactual/io | foundation movement product | movement, transport and circulation orchestration | identity, authority, capability, workflow, evidence, value, settlement |
+| Value System | carbonactual/value-system | foundation value product | value semantics, classification and governed pathways | identity, authority, relationship, evidence, state, value |
 | Direct Bank App | carbonactual/direct-bank-app | financial product | controlled banking/payment workflow | authority, authorization, transaction, settlement, audit |
 | Open Ballot | carbonactual/open-ballot | civic simulator/domain product | civic transparency/training/simulation | identity, evidence, trust, workflow, location/time |
 | RITES | carbonactual/RITES | continuity domain product | human continuity and legacy | identity, relationship, consent, rights, continuity, evidence |
@@ -56,4 +62,4 @@ Future catalog products may be specified without being falsely marked as built. 
 
 ## Estate correction
 
-ABBA MAS belongs to the active `carbonactual/abba-mas` composition and must remain subordinate to Carbon Actual contracts. BUNK belongs to the active `carbonactual/bunk` product repository. TIP is the current economic participation platform. OMNI is a distinct operating/integration product. The retired operating-spine repository is historical provenance only.
+ABBA MAS belongs to the active `carbonactual/abba-mas` composition and must remain subordinate to Carbon Actual contracts. BUNK belongs to the active `carbonactual/bunk` product repository. TIP is the current economic participation platform. OMNI is a distinct operating/integration product. NAIRE, NGIN, SEED, HERITAGE, I/O and Value System are active inherited foundation/floor compositions, not alternate constitutions. The retired operating-spine repository is historical provenance only.
