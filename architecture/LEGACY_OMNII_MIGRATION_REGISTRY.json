@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Legacy Operating-Spine Migration Registry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "canonical-migration-control",
   "canonical_spine": "carbonactual/carbonactual",
   "constitutional_authority": "carbonactual/hapi-world/CANON.md",
@@ -17,22 +17,32 @@
     "Legacy filenames may remain as compatibility notices so existing links continue to resolve.",
     "Historical archives retain their original names where changing them would damage provenance.",
     "Historical material cannot become current authority merely because it contains older canonical language.",
-    "No product may recreate a competing universal graph, authority system, object envelope, capability fabric or runtime constitution."
+    "No product may recreate a competing universal graph, authority system, object envelope, capability fabric or runtime constitution.",
+    "Physical provider persistence names may remain during migration; logical semantic authority remains Carbon Actual."
   ],
   "migrated_core_architecture": [
     "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md",
     "architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md",
     "architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md",
+    "architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md",
     "architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md",
     "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md",
     "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md",
     "architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md",
+    "architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md",
+    "architecture/CARBON_ACTUAL_CONTROL_PLANE.md",
     "architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md",
     "architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md",
-    "architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md",
     "architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md",
     "architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md",
-    "architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md"
+    "architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md",
+    "architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md",
+    "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+    "architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md",
+    "architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md",
+    "architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md",
+    "architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md"
   ],
   "active_contracts": [
     {"repository": "carbonactual/Carbon-Actual-", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
