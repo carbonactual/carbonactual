@@ -5,6 +5,10 @@
 ## The Constitution
 - **CANON.md** — the immutable source of truth (carbonactual/hapi-world)
 - **TRADE CANON** — the canonical law of trade (hapi-world/canon/TRADE_CANON.md)
+- **MARKET UNIVERSE CANON** — the law of market objects (hapi-world/canon/MARKET_UNIVERSE_CANON.md)
+- **HAPI WORLD SYSTEMS + COMPLETION** — the 26 native systems registry (hapi-world/canon/)
+- **VOICE & VIDEO SURFACE LAW** — obligatory product surfaces (hapi-world/canon/VOICE_VIDEO_SURFACE_LAW.md)
+- **ABBA MASTER CAPABILITY REGISTRY** — the orchestrator's registry (carbonactual/abba/MASTER_CAPABILITY_REGISTRY.md)
 - **OMNII** — constitutional/runtime ecosystem substrate (carbonactual/omnii)
 
 ## Products
@@ -24,11 +28,19 @@
 | VALUE SYSTEM | carbonactual/value-system | Full-cost accounting & value classification |
 | HAPI Bank Nexus | carbonactual/hapi-world-nexus | Compatibility, bridge & lineage repository |
 | BUNK | carbonactual/bunk | Companion system |
-| ABBA | carbonactual/abba | The Being Agent |
+| ABBA | carbonactual/abba | The master intelligence & orchestrator — the law made operational |
+| abba-mas | carbonactual/abba-mas | The multi-agent system platform (mAS — my Assets) |
+| Open Ballot | carbonactual/open-ballot | Open-ballot civic election engine |
+| Nigerian Cultural Atlas | carbonactual/nigerian-cultural-atlas | Cultural curation & publishing |
+| Carbon-Actual- | carbonactual/Carbon-Actual- | Platform repo — architecture manifests & conformance |
 
 ## Layered lineage (B3C0M1NG org)
 - **carbonactual/HAPI** — Human API
 - **#ABBA** — the 22# namespace
 - **carbon_actual** — ecosystem operating spine
+
+## Consolidation status (Sept 16, 2026)
+
+Every repo audited. Unique content from 11 archived repos is preserved (heritage museum + canonical homes); the archived repos are exhibits awaiting deletion (token lacks delete_repo scope). The constellation: 23 living user repos + 8 org repos, one canon, one orchestrator, zero duplicates.
 
 *BEING -> BECOMING -> ACTUAL. Intelligent living, balanced between AI and human.*
