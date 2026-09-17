@@ -5,7 +5,7 @@ import { readFile } from 'node:fs/promises';
 const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
 const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
-const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_OMNII_ARCHITECTURE_CROSSWALK.json';
+const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json';
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
