@@ -54,7 +54,7 @@ Core controls:
 - `architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md`
 - `architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md`
 - `architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md`
-- `architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json`
+- migration registry (historical compatibility and provenance control)
 
 ## BOUNDARIES
 
