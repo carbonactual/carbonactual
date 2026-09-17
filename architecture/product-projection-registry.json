@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Product Projection Registry",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "status": "canonical-registry",
   "rule": "Products are projections over the shared Carbon Actual operating spine. They may specialize workflows and interfaces but do not create parallel constitutional primitives.",
   "common_required_facets": ["identity", "authority", "intent", "capability", "event", "evidence", "state"],
@@ -26,8 +26,9 @@
     "HERITAGE": {"repository":"carbonactual/heritage","domain":"lineage-and-archive","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
     "I/O": {"repository":"carbonactual/io","domain":"movement-and-transport","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
     "Value System": {"repository":"carbonactual/value-system","domain":"value-semantics-and-governed-value-pathways","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "InstituteGPT": {"repository":"carbonactual/institutegpt","domain":"education-and-ai","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"],"child_products":["NOUN BOT"]},
+    "InstituteGPT": {"repository":"carbonactual/institutegpt","domain":"education-and-ai","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"],"child_products":["NOUN BOT","MCP BOT"]},
     "NOUN BOT": {"repository":"carbonactual/noun-student-bot","domain":"education-assistance","facets":["identity","authority","intent","capability","event","evidence","state"]},
+    "MCP BOT": {"repository":"carbonactual/mcp-bot","domain":"education-assistance-and-certification-prep","parent_product":"InstituteGPT","facets":["identity","authority","intent","capability","event","evidence","state"]},
     "Open Bank": {"repository":"carbonactual/open-bank","domain":"banking-operations","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
     "Open Ballot": {"repository":"carbonactual/open-ballot","domain":"civic-election","facets":["identity","authority","intent","capability","relationship","event","evidence","state"]},
     "RITES": {"repository":"carbonactual/RITES","domain":"continuity-and-event-memory","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
