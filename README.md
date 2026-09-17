@@ -8,12 +8,11 @@ Everything not product-specific lives here. The tree grows laws, governance, ide
 
 1. **HAPI World** — carbonactual/hapi-world — the constitution and laws: CANON.md (supreme), TRADE CANON, MARKET UNIVERSE CANON, HAPI WORLD SYSTEMS (26 native systems) + COMPLETION, VOICE & VIDEO SURFACE LAW, the absorbed Nexus (nexus/ — bridges, boundary laws, standards, audits)
 2. **ABBA** — carbonactual/abba — the orchestrator and the law made operational: MASTER_CAPABILITY_REGISTRY, and the absorbed abba-mas at mas/ (full multi-agent system, history preserved) — everything ABBA is in ABBA
-3. **OMNII** — carbonactual/omnii — constitutional/runtime ecosystem substrate
-4. **Carbon-Actual-** — carbonactual/Carbon-Actual- — platform repo: architecture manifests & conformance
-5. **I/O** — carbonactual/io — economy layer: value flows, IOLedger settlement
-6. **NGIN** — carbonactual/ngin — organizations layer
-7. **NAIRE** — carbonactual/naire — humans layer
-8. **VALUE SYSTEM** — carbonactual/value-system — full-cost accounting & value classification (asset vs liability)
+3. **Carbon-Actual-** — carbonactual/Carbon-Actual- — platform repo: architecture manifests, conformance, and the absorbed OMNII substrate at omnii/ (constitutional/runtime, merged Sept 17)
+4. **I/O** — carbonactual/io — economy layer: value flows, IOLedger settlement
+5. **NGIN** — carbonactual/ngin — organizations layer
+6. **NAIRE** — carbonactual/naire — humans layer
+7. **VALUE SYSTEM** — carbonactual/value-system — full-cost accounting & value classification (asset vs liability)
 
 ## THE FRUITS (Products)
 
@@ -40,6 +39,6 @@ Everything not product-specific lives here. The tree grows laws, governance, ide
 
 ## Consolidation status (Sept 16, 2026)
 
-Every repo audited and placed per the tree-and-fruits ruling. 13 archived exhibits (unique content preserved in heritage museum + canonical homes) await deletion. The constellation: one tree, thirteen fruits, one orchestrator, zero duplicates.
+Every repo audited and placed per the tree-and-fruits ruling. 14 archived exhibits (unique content preserved in heritage museum + canonical homes) await deletion. The constellation: one tree, thirteen fruits, one orchestrator, zero duplicates.
 
 *BEING -> BECOMING -> ACTUAL. Intelligent living, balanced between AI and human.*
