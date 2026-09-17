@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Legacy Operating-Spine Migration Registry",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "status": "canonical-migration-control",
   "canonical_spine": "carbonactual/carbonactual",
   "constitutional_authority": "carbonactual/hapi-world/CANON.md",
@@ -53,6 +53,7 @@
     {"repository": "carbonactual/carbonactual", "canonical": "architecture/ecosystem-kernel.json", "role": "operating-spine kernel"},
     {"repository": "carbonactual/carbonactual", "canonical": "architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json", "role": "canonical integration fabric"},
     {"repository": "carbonactual/Carbon-Actual-", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md", "current_authority": false, "role": "historical compatibility contract"},
+    {"repository": "carbonactual/Carbon-Actual-", "canonical": "architecture/product-manifests/registry.json", "role": "implementation registry", "semantic_authority": "carbonactual/carbonactual"},
     {"repository": "carbonactual/abba", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/abba", "canonical": "mas/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "mas/OMNII_CONFORMANCE.md", "composition": "ABBA MAS"},
     {"repository": "carbonactual/abba-mas", "status": "archived", "current_authority": false, "absorbed_by": "carbonactual/abba", "absorbed_path": "mas/", "composition": "ABBA MAS"},
@@ -63,6 +64,7 @@
     {"repository": "carbonactual/hapi-world", "canonical": "nexus/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/hapi-world-nexus", "status": "archived", "current_authority": false, "absorbed_by": "carbonactual/hapi-world", "absorbed_path": "nexus/", "composition": "HAPI World Nexus"},
     {"repository": "carbonactual/noun-student-bot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/noun-student-bot", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/open-ballot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/nigerian-cultural-atlas", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/RITES", "canonical": "src/carbon-actual-contract.js", "legacy_adapter": "src/omnii-contract.js"},
@@ -76,7 +78,9 @@
     {"repository": "carbonactual/io", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/open-bank", "canonical": "ECOSYSTEM_CONFORMANCE.md"},
     {"repository": "carbonactual/value-system", "canonical": "architecture/product-inheritance.json"},
+    {"repository": "carbonactual/value-system", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/naire", "canonical": "architecture/product-inheritance.json"},
+    {"repository": "carbonactual/naire", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/ngin", "canonical": "architecture/product-inheritance.json"},
     {"repository": "carbonactual/ngin", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/heritage", "canonical": "architecture/product-inheritance.json"},
@@ -85,7 +89,9 @@
     {"repository": "carbonactual/seed", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/seed", "canonical": "architecture/integration-fabric/runtime-contract.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/bunk", "canonical": "architecture/product-inheritance.json"},
-    {"repository": "carbonactual/institutegpt", "canonical": "architecture/product-inheritance.json", "note": "Education domain platform; NOUN BOT remains its child product."}
+    {"repository": "carbonactual/bunk", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
+    {"repository": "carbonactual/institutegpt", "canonical": "architecture/product-inheritance.json", "note": "Education domain platform; NOUN BOT remains its child product."},
+    {"repository": "carbonactual/institutegpt", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"}
   ],
   "historical_archive": {"repository": "carbonactual/Carbon-Actual-", "path": "omnii/", "status": "historical-archive", "authority": false, "reason": "Preserve legacy architecture, migrations, experiments and provenance without allowing the subtree to function as a live constitutional or runtime source."}
 }
