@@ -28,6 +28,29 @@ const expectedFacets = [
   'value'
 ];
 
+const requiredProductRepositories = [
+  'carbonactual/abba',
+  'carbonactual/omni',
+  'carbonactual/tip',
+  'carbonactual/spotist',
+  'carbonactual/hapi-world',
+  'carbonactual/naire',
+  'carbonactual/ngin',
+  'carbonactual/seed',
+  'carbonactual/heritage',
+  'carbonactual/io',
+  'carbonactual/value-system',
+  'carbonactual/institutegpt',
+  'carbonactual/noun-student-bot',
+  'carbonactual/direct-bank-app',
+  'carbonactual/open-bank',
+  'carbonactual/open-ballot',
+  'carbonactual/RITES',
+  'carbonactual/nigerian-cultural-atlas',
+  'carbonactual/bunk',
+  'carbonactual/zujid'
+];
+
 if (kernel.identity?.canonical_name !== 'Carbon Actual') fail('canonical name must be Carbon Actual');
 if (kernel.identity?.architectural_identity !== 'Carbon Actual') fail('architectural identity must be Carbon Actual');
 if (kernel.constitutional_boundary?.may_override_canon !== false) fail('kernel may not override HAPI World CANON.md');
@@ -36,7 +59,7 @@ if (contract.spine !== 'carbonactual/carbonactual') fail('repository contract sp
 if (migration.canonical_spine !== 'carbonactual/carbonactual') fail('migration registry must point to carbonactual/carbonactual');
 if (migration.legacy_repository?.current_authority !== false) fail('archived legacy repository must not be current authority');
 if (!Array.isArray(migration.migrated_core_architecture) || migration.migrated_core_architecture.length < 24) fail('migration registry does not contain the complete migrated core architecture inventory');
-if (!Array.isArray(migration.active_contracts) || migration.active_contracts.length < 20) fail('migration registry does not cover the active contract estate');
+if (!Array.isArray(migration.active_contracts) || migration.active_contracts.length < 30) fail('migration registry does not cover the complete active contract estate');
 if (integrationFabric.canonical_fabric !== `carbonactual/carbonactual/${integrationFabricPath}`) fail('integration fabric must resolve to the canonical Carbon Actual manifest');
 if (integrationFabric.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('integration fabric must preserve HAPI World constitutional authority');
 if (integrationFabric.authority !== 'SealGrant') fail('integration fabric authority must remain SealGrant');
@@ -77,8 +100,10 @@ for (const [repo, definition] of Object.entries(repositories)) {
 if (!Array.isArray(products.common_required_facets) || !products.common_required_facets.every((facet) => expectedFacets.includes(facet))) {
   fail('product common facet declaration contains unknown facets');
 }
+const registeredProductRepositories = new Set();
 for (const [name, product] of Object.entries(products.products ?? {})) {
   if (!product.repository) fail(`product ${name} is missing repository`);
+  registeredProductRepositories.add(product.repository);
   if (!Array.isArray(product.facets) || product.facets.length === 0) fail(`product ${name} has no declared facets`);
   for (const facet of product.facets) {
     if (!expectedFacets.includes(facet)) fail(`product ${name} declares unknown facet ${facet}`);
@@ -86,6 +111,9 @@ for (const [name, product] of Object.entries(products.products ?? {})) {
   for (const required of products.common_required_facets) {
     if (!product.facets.includes(required)) fail(`product ${name} is missing required facet ${required}`);
   }
+}
+for (const repository of requiredProductRepositories) {
+  if (!registeredProductRepositories.has(repository)) fail(`active product repository missing from projection registry: ${repository}`);
 }
 
 const canonicalSurfaces = [
