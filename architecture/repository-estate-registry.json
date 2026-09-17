@@ -1,0 +1,89 @@
+{
+  "name": "Carbon Actual Repository Estate Registry",
+  "version": "1.0.0",
+  "status": "canonical-estate-control",
+  "purpose": "Classify every known carbonactual repository so repository existence cannot be mistaken for semantic or constitutional authority.",
+  "authority": {
+    "semantic": "carbonactual/carbonactual",
+    "constitutional": "carbonactual/hapi-world/CANON.md",
+    "intelligence": "carbonactual/abba"
+  },
+  "classes": {
+    "canonical": ["carbonactual/carbonactual"],
+    "constitutional_world": ["carbonactual/hapi-world"],
+    "intelligence": ["carbonactual/abba"],
+    "platform_substrate": ["carbonactual/Carbon-Actual-"],
+    "active_products": [
+      "carbonactual/tip",
+      "carbonactual/omni",
+      "carbonactual/spotist",
+      "carbonactual/naire",
+      "carbonactual/ngin",
+      "carbonactual/seed",
+      "carbonactual/heritage",
+      "carbonactual/io",
+      "carbonactual/value-system",
+      "carbonactual/institutegpt",
+      "carbonactual/noun-student-bot",
+      "carbonactual/mcp-bot",
+      "carbonactual/open-bank",
+      "carbonactual/open-ballot",
+      "carbonactual/RITES",
+      "carbonactual/nigerian-cultural-atlas",
+      "carbonactual/bunk",
+      "carbonactual/zujid"
+    ],
+    "private_custody": ["carbonactual/vault"],
+    "optional_external_tool_mirrors": ["carbonactual/ECC"],
+    "absorbed_archives": [
+      "carbonactual/abba-mas",
+      "carbonactual/hapi-world-nexus"
+    ],
+    "historical_operating_spine_archive": ["carbonactual/omnii"],
+    "archived_internal_or_experimental": [
+      "carbonactual/Shadow",
+      "carbonactual/caveman",
+      "carbonactual/ABDUHABU",
+      "carbonactual/zujidagent",
+      "carbonactual/abba-automation-ecosystem",
+      "carbonactual/bklit-ui",
+      "carbonactual/chatbot",
+      "carbonactual/eve-slack-agent",
+      "carbonactual/eve-slack-agent-template",
+      "carbonactual/eve",
+      "carbonactual/eve-slack-agen"
+    ],
+    "archived_external_or_tooling_mirrors": [
+      "carbonactual/openclaw",
+      "carbonactual/Botpress",
+      "carbonactual/baserow",
+      "carbonactual/crewAI",
+      "carbonactual/universal-mcp",
+      "carbonactual/skills-from-google",
+      "carbonactual/thunderbolt",
+      "carbonactual/mcp-remote",
+      "carbonactual/PraisonAI",
+      "carbonactual/Grok-Api",
+      "carbonactual/mergekit",
+      "carbonactual/agent-skills",
+      "carbonactual/workflow",
+      "carbonactual/ai",
+      "carbonactual/command-code",
+      "carbonactual/claude-code-action",
+      "carbonactual/engram"
+    ],
+    "active_unclassified_repositories": []
+  },
+  "absorption_rules": {
+    "carbonactual/abba-mas": "current authority is carbonactual/abba/mas/",
+    "carbonactual/hapi-world-nexus": "current authority is carbonactual/hapi-world/nexus/",
+    "carbonactual/omnii": "historical provenance and recovery only",
+    "carbonactual/direct-bank-app": "no current repository is asserted; retain as historical lifecycle record only"
+  },
+  "security_rules": {
+    "carbonactual/vault": "private custody only; never reference vault material from products or architecture contracts",
+    "secret_values": "must never be copied into this registry or any product registry",
+    "external_mirrors": "must not become constitutional or semantic authorities merely because they are accessible or active"
+  },
+  "conformance_rule": "New repositories require explicit classification before being treated as ecosystem authorities, products, infrastructure or absorbed implementations."
+}
