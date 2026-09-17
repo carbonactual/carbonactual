@@ -9,6 +9,7 @@ const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'));
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
+const products = await readJson('architecture/product-projection-registry.json');
 
 const expectedFacets = [
   'identity',
@@ -58,5 +59,19 @@ for (const [repo, definition] of Object.entries(repositories)) {
   if (definition.may_define_new_kernel_facet !== false) fail(`${repo} may not define a competing kernel facet`);
 }
 
+if (!Array.isArray(products.common_required_facets) || !products.common_required_facets.every((facet) => expectedFacets.includes(facet))) {
+  fail('product common facet declaration contains unknown facets');
+}
+for (const [name, product] of Object.entries(products.products ?? {})) {
+  if (!product.repository) fail(`product ${name} is missing repository`);
+  if (!Array.isArray(product.facets) || product.facets.length === 0) fail(`product ${name} has no declared facets`);
+  for (const facet of product.facets) {
+    if (!expectedFacets.includes(facet)) fail(`product ${name} declares unknown facet ${facet}`);
+  }
+  for (const required of products.common_required_facets) {
+    if (!product.facets.includes(required)) fail(`product ${name} is missing required facet ${required}`);
+  }
+}
+
 if (process.exitCode) process.exit();
-console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories.`);
+console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products.`);
