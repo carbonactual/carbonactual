@@ -1,8 +1,14 @@
 {
   "name": "Carbon Actual Ecosystem Repository Contract",
-  "version": "1.0.0",
-  "spine": "carbonactual",
+  "version": "1.1.0",
+  "spine": "carbonactual/carbonactual",
   "repositories": {
+    "carbonactual/carbonactual": {
+      "role": "canonical-ecosystem-operating-spine",
+      "owns": ["semantic kernel", "repository contracts", "product projection registry", "architecture conformance", "cross-product contracts"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "canonical source of operating-spine contracts"
+    },
     "carbonactual/hapi-world": {
       "role": "world-and-constitutional-law",
       "owns": ["CANON", "constitutional laws", "world ontology", "world-native systems"],
