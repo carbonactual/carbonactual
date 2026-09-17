@@ -5,6 +5,7 @@ on:
     paths:
       - 'architecture/ecosystem-kernel.json'
       - 'architecture/kernel-repo-contract.json'
+      - 'architecture/product-projection-registry.json'
       - 'architecture/ECOSYSTEM_KERNEL.md'
       - 'scripts/validate-kernel.mjs'
       - 'tests/architecture/ecosystem-kernel.test.mjs'
@@ -13,6 +14,7 @@ on:
     paths:
       - 'architecture/ecosystem-kernel.json'
       - 'architecture/kernel-repo-contract.json'
+      - 'architecture/product-projection-registry.json'
       - 'architecture/ECOSYSTEM_KERNEL.md'
       - 'scripts/validate-kernel.mjs'
       - 'tests/architecture/ecosystem-kernel.test.mjs'
