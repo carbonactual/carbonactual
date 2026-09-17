@@ -10,6 +10,7 @@ const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'));
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
 const products = await readJson('architecture/product-projection-registry.json');
+const migration = await readJson('architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json');
 
 const expectedFacets = [
   'identity',
@@ -28,6 +29,9 @@ if (kernel.identity?.architectural_identity !== 'Carbon Actual') fail('architect
 if (kernel.constitutional_boundary?.may_override_canon !== false) fail('kernel may not override HAPI World CANON.md');
 if (kernel.constitutional_boundary?.may_replace_existing_canonical_objects !== false) fail('kernel may not replace canonical objects');
 if (contract.spine !== 'carbonactual/carbonactual') fail('repository contract spine must be carbonactual/carbonactual');
+if (migration.canonical_spine !== 'carbonactual/carbonactual') fail('migration registry must point to carbonactual/carbonactual');
+if (migration.legacy_repository?.current_authority !== false) fail('archived legacy repository must not be current authority');
+if (!Array.isArray(migration.migrated_core_architecture) || migration.migrated_core_architecture.length < 20) fail('migration registry does not contain the expected core architecture inventory');
 
 const facetIds = kernel.facets?.map((facet) => facet.id) ?? [];
 if (facetIds.length !== expectedFacets.length) fail(`expected ${expectedFacets.length} facets, got ${facetIds.length}`);
@@ -82,6 +86,29 @@ const canonicalSurfaces = [
   'architecture/ecosystem-kernel.json',
   'architecture/kernel-repo-contract.json',
   'architecture/product-projection-registry.json',
+  'architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json',
+  'architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
+  'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md',
+  'architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
+  'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md',
+  'architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md',
+  'architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md',
+  'architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md',
+  'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
+  'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
+  'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
+  'architecture/CARBON_ACTUAL_CONTROL_PLANE.md',
+  'architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
+  'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md',
+  'architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
+  'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md',
+  'architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
+  'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md',
+  'architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
+  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md',
+  'architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md',
+  'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md',
+  'architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md',
   'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
@@ -91,4 +118,4 @@ for (const path of canonicalSurfaces) {
 }
 
 if (process.exitCode) process.exit();
-console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products.`);
+console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products, ${migration.migrated_core_architecture.length} migrated architecture controls.`);
