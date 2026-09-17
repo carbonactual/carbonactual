@@ -1,15 +1,10 @@
 {
   "name": "Carbon Actual Legacy Operating-Spine Migration Registry",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "status": "canonical-migration-control",
   "canonical_spine": "carbonactual/carbonactual",
   "constitutional_authority": "carbonactual/hapi-world/CANON.md",
-  "legacy_repository": {
-    "repository": "carbonactual/omnii",
-    "status": "archived-historical",
-    "role": "provenance-and-recovery-source",
-    "current_authority": false
-  },
+  "legacy_repository": {"repository": "carbonactual/omnii", "status": "archived-historical", "role": "provenance-and-recovery-source", "current_authority": false},
   "identity_rule": "Carbon Actual is the sole current ecosystem operating-spine identity. The legacy OMNII label is historical provenance. OMNI remains a distinct current product name.",
   "migration_rules": [
     "Current canonical architecture belongs in carbonactual/carbonactual.",
@@ -22,7 +17,9 @@
     "Compatibility code may expose legacy aliases, but the implementation behind those aliases must resolve to the Carbon Actual canonical contract.",
     "Integration manifests must resolve to the canonical Carbon Actual integration fabric rather than historical repository paths.",
     "Canonical manifest references must resolve to real files in the owning repository; dead product-manifest pointers are non-conforming.",
-    "Foundation and Floor products may specialize domains but inherit identity, authority, event, evidence, state and value semantics from Carbon Actual."
+    "Foundation and Floor products may specialize domains but inherit identity, authority, event, evidence, state and value semantics from Carbon Actual.",
+    "An archived standalone repository is not a current authority when its capability has been absorbed into an active canonical repository.",
+    "Absorbed capability and presentation compositions retain their product/domain semantics without preserving the archived repository as a competing implementation authority."
   ],
   "migrated_core_architecture": [
     "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md",
@@ -57,12 +54,14 @@
     {"repository": "carbonactual/carbonactual", "canonical": "architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json", "role": "canonical integration fabric"},
     {"repository": "carbonactual/Carbon-Actual-", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md", "current_authority": false, "role": "historical compatibility contract"},
     {"repository": "carbonactual/abba", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
-    {"repository": "carbonactual/abba", "canonical": "mas/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "mas/OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/abba", "canonical": "mas/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "mas/OMNII_CONFORMANCE.md", "composition": "ABBA MAS"},
+    {"repository": "carbonactual/abba-mas", "status": "archived", "current_authority": false, "absorbed_by": "carbonactual/abba", "absorbed_path": "mas/", "composition": "ABBA MAS"},
     {"repository": "carbonactual/abba", "canonical": "architecture/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
     {"repository": "carbonactual/hapi-world", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
-    {"repository": "carbonactual/hapi-world", "canonical": "nexus/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "nexus/OMNII_CONFORMANCE.md"},
+    {"repository": "carbonactual/hapi-world", "canonical": "nexus/CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "nexus/OMNII_CONFORMANCE.md", "composition": "HAPI World Nexus"},
     {"repository": "carbonactual/hapi-world", "canonical": "nexus/CARBON_ACTUAL_INTEGRATION_CONTRACT.md", "legacy_alias": "nexus/OMNII_INTEGRATION_CONTRACT.md"},
     {"repository": "carbonactual/hapi-world", "canonical": "nexus/integration-fabric-manifest.json", "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"},
+    {"repository": "carbonactual/hapi-world-nexus", "status": "archived", "current_authority": false, "absorbed_by": "carbonactual/hapi-world", "absorbed_path": "nexus/", "composition": "HAPI World Nexus"},
     {"repository": "carbonactual/noun-student-bot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/open-ballot", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
     {"repository": "carbonactual/nigerian-cultural-atlas", "canonical": "CARBON_ACTUAL_CONFORMANCE.md", "legacy_alias": "OMNII_CONFORMANCE.md"},
@@ -88,11 +87,5 @@
     {"repository": "carbonactual/bunk", "canonical": "architecture/product-inheritance.json"},
     {"repository": "carbonactual/institutegpt", "canonical": "architecture/product-inheritance.json", "note": "Education domain platform; NOUN BOT remains its child product."}
   ],
-  "historical_archive": {
-    "repository": "carbonactual/Carbon-Actual-",
-    "path": "omnii/",
-    "status": "historical-archive",
-    "authority": false,
-    "reason": "Preserve legacy architecture, migrations, experiments and provenance without allowing the subtree to function as a live constitutional or runtime source."
-  }
+  "historical_archive": {"repository": "carbonactual/Carbon-Actual-", "path": "omnii/", "status": "historical-archive", "authority": false, "reason": "Preserve legacy architecture, migrations, experiments and provenance without allowing the subtree to function as a live constitutional or runtime source."}
 }
