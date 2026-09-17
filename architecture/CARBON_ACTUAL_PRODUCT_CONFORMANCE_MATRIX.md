@@ -8,7 +8,6 @@
 Products are downstream compositions of Carbon Actual. They may specialize domain behavior and presentation, but they MUST consume the Common Layer for recurring semantics and MUST NOT establish alternate identity, relationship, authority, graph, workflow, execution, evidence, value or ledger foundations.
 
 ## Canonical execution pattern
-
 `Identity → Relationship → Intent ↔ Capability → Discovery → Match → Context + Availability → Authority → Authorization → Workflow → Execution → Evidence → Outcome → Settlement/Ledger → Pulse`
 
 ## Built product surfaces currently identified
@@ -49,4 +48,4 @@ Future catalog products may be specified without being falsely marked as built. 
 
 ## Estate correction
 
-Historical `carbonactual/abba-mas` and the old OMNII repository are not current authorities. ABBA MAS belongs to the active `carbonactual/abba` composition; BUNK belongs to the active `carbonactual/bunk` product repository.
+The legacy ABBA MAS repository is not a current authority. ABBA MAS belongs to the active `carbonactual/abba` composition. BUNK belongs to the active `carbonactual/bunk` product repository. The retired operating-spine repository is historical provenance only.
