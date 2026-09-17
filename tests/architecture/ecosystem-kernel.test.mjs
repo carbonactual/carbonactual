@@ -69,6 +69,7 @@ test('product registry uses only kernel facets and common required facets', () =
 });
 
 test('canonical control surfaces contain no obsolete operating-spine identity', async () => {
+  const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
   const paths = [
     'README.md',
     'architecture/ECOSYSTEM_KERNEL.md',
@@ -82,6 +83,6 @@ test('canonical control surfaces contain no obsolete operating-spine identity', 
   ];
   for (const path of paths) {
     const content = await readFile(path, 'utf8');
-    assert.equal(content.includes('OMNII'), false, `${path} contains obsolete OMNII naming`);
+    assert.equal(content.includes(obsoleteSpineIdentity), false, `${path} contains obsolete operating-spine naming`);
   }
 });
