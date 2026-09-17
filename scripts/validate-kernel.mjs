@@ -9,46 +9,23 @@ const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'));
 const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
 const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
+const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_OMNII_ARCHITECTURE_CROSSWALK.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
 const products = await readJson('architecture/product-projection-registry.json');
 const migration = await readJson(migrationRegistryPath);
 const integrationFabric = await readJson(integrationFabricPath);
+const legacyCrosswalk = await readJson(legacyCrosswalkPath);
 
-const expectedFacets = [
-  'identity',
-  'authority',
-  'intent',
-  'capability',
-  'relationship',
-  'event',
-  'evidence',
-  'state',
-  'value'
-];
+const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 
 const requiredProductRepositories = [
-  'carbonactual/abba',
-  'carbonactual/omni',
-  'carbonactual/tip',
-  'carbonactual/spotist',
-  'carbonactual/hapi-world',
-  'carbonactual/naire',
-  'carbonactual/ngin',
-  'carbonactual/seed',
-  'carbonactual/heritage',
-  'carbonactual/io',
-  'carbonactual/value-system',
-  'carbonactual/institutegpt',
-  'carbonactual/noun-student-bot',
-  'carbonactual/direct-bank-app',
-  'carbonactual/open-bank',
-  'carbonactual/open-ballot',
-  'carbonactual/RITES',
-  'carbonactual/nigerian-cultural-atlas',
-  'carbonactual/bunk',
-  'carbonactual/zujid'
+  'carbonactual/abba','carbonactual/omni','carbonactual/tip','carbonactual/spotist','carbonactual/hapi-world',
+  'carbonactual/naire','carbonactual/ngin','carbonactual/seed','carbonactual/heritage','carbonactual/io',
+  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/direct-bank-app',
+  'carbonactual/open-bank','carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas',
+  'carbonactual/bunk','carbonactual/zujid'
 ];
 
 if (kernel.identity?.canonical_name !== 'Carbon Actual') fail('canonical name must be Carbon Actual');
@@ -116,40 +93,35 @@ for (const repository of requiredProductRepositories) {
   if (!registeredProductRepositories.has(repository)) fail(`active product repository missing from projection registry: ${repository}`);
 }
 
+if (legacyCrosswalk.canonical_repository !== 'carbonactual/carbonactual') fail('legacy architecture crosswalk must point to carbonactual/carbonactual');
+if (!Array.isArray(legacyCrosswalk.sources) || legacyCrosswalk.sources.length < 20) fail('legacy architecture crosswalk is incomplete');
+for (const source of legacyCrosswalk.sources ?? []) {
+  if (!source.path || !source.status) fail('legacy architecture crosswalk contains an incomplete source entry');
+  if (!Array.isArray(source.targets)) fail(`legacy architecture crosswalk entry ${source.path} has no target array`);
+  if (source.status === 'mapped' && source.targets.length === 0) fail(`mapped legacy architecture source has no current target: ${source.path}`);
+  for (const target of source.targets) {
+    const content = await readFile(target, 'utf8');
+    if (content.includes(obsoleteSpineIdentity)) fail(`current target ${target} contains obsolete operating-spine identity`);
+  }
+}
+
 const canonicalSurfaces = [
-  'README.md',
-  'architecture/ECOSYSTEM_KERNEL.md',
-  'architecture/ecosystem-kernel.json',
-  'architecture/kernel-repo-contract.json',
-  'architecture/product-projection-registry.json',
-  'architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
-  'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md',
-  'architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
-  'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md',
-  'architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md',
-  'architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md',
-  'architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md',
-  'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
-  'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
-  'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
-  integrationFabricPath,
-  'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
-  'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md',
-  'architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
-  'architecture/CARBON_ACTUAL_CONTROL_PLANE.md',
-  'architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
-  'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md',
-  'architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md',
-  'architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
-  'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md',
-  'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
-  'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md',
-  'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
+  'README.md','architecture/ECOSYSTEM_KERNEL.md','architecture/ecosystem-kernel.json','architecture/kernel-repo-contract.json',
+  'architecture/product-projection-registry.json','architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
+  'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md','architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
+  'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md','architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md',
+  'architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md','architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md',
+  'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md','architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md',
+  'architecture/CARBON_ACTUAL_AUDUBON_CONTINUUM_ECOLOGICAL_DESIGN_DOCTRINE.md','architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
+  'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',integrationFabricPath,'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
+  'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md','architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
+  'architecture/CARBON_ACTUAL_CONTROL_PLANE.md','architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
+  'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md','architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
+  'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md','architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
+  'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
+  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md',
+  'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
+  'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
 for (const path of canonicalSurfaces) {
   const content = await readFile(path, 'utf8');
@@ -157,4 +129,4 @@ for (const path of canonicalSurfaces) {
 }
 
 if (process.exitCode) process.exit();
-console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products, ${migration.migrated_core_architecture.length} migrated architecture controls, ${migration.active_contracts.length} active contracts.`);
+console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products, ${migration.migrated_core_architecture.length} migrated architecture controls, ${migration.active_contracts.length} active contracts, ${legacyCrosswalk.sources.length} legacy architecture sources crosswalked.`);
