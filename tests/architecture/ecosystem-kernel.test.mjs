@@ -23,6 +23,29 @@ const expectedFacets = [
   'value'
 ];
 
+const expectedProductRepositories = [
+  'carbonactual/abba',
+  'carbonactual/omni',
+  'carbonactual/tip',
+  'carbonactual/spotist',
+  'carbonactual/hapi-world',
+  'carbonactual/naire',
+  'carbonactual/ngin',
+  'carbonactual/seed',
+  'carbonactual/heritage',
+  'carbonactual/io',
+  'carbonactual/value-system',
+  'carbonactual/institutegpt',
+  'carbonactual/noun-student-bot',
+  'carbonactual/direct-bank-app',
+  'carbonactual/open-bank',
+  'carbonactual/open-ballot',
+  'carbonactual/RITES',
+  'carbonactual/nigerian-cultural-atlas',
+  'carbonactual/bunk',
+  'carbonactual/zujid'
+];
+
 test('kernel has exactly nine stable facets', () => {
   assert.deepEqual(kernel.facets.map((facet) => facet.id), expectedFacets);
   assert.equal(new Set(kernel.facets.map((facet) => facet.id)).size, 9);
@@ -64,10 +87,13 @@ test('kernel flow has the approved universal order', () => {
   assert.deepEqual(kernel.universal_flow, expectedFacets);
 });
 
-test('product registry uses only kernel facets and common required facets', () => {
+test('product registry uses only kernel facets and complete active repository coverage', () => {
   const required = new Set(products.common_required_facets);
+  const repositories = new Set(Object.values(products.products).map((product) => product.repository));
   assert.equal(products.status, 'canonical-registry');
-  assert.equal(Object.keys(products.products).length, 13);
+  for (const repository of expectedProductRepositories) {
+    assert.ok(repositories.has(repository), `${repository} is represented in the canonical product registry`);
+  }
   for (const [name, product] of Object.entries(products.products)) {
     assert.ok(product.repository, `${name} has a repository`);
     for (const facet of product.facets) assert.ok(expectedFacets.includes(facet), `${name} uses only known facets`);
@@ -75,13 +101,19 @@ test('product registry uses only kernel facets and common required facets', () =
   }
 });
 
-test('migration registry identifies Carbon Actual as canonical and the retired repository as historical', () => {
+test('migration registry identifies Carbon Actual as canonical and retired repositories as historical or absorbed', () => {
   assert.equal(migration.canonical_spine, 'carbonactual/carbonactual');
   assert.equal(migration.legacy_repository.repository, 'carbonactual/omnii');
   assert.equal(migration.legacy_repository.status, 'archived-historical');
   assert.equal(migration.legacy_repository.current_authority, false);
   assert.ok(migration.migrated_core_architecture.length >= 25);
-  assert.ok(migration.active_contracts.length >= 21);
+  assert.ok(migration.active_contracts.length >= 30);
+  const archivedMas = migration.active_contracts.find((entry) => entry.repository === 'carbonactual/abba-mas');
+  assert.equal(archivedMas?.current_authority, false);
+  assert.equal(archivedMas?.absorbed_by, 'carbonactual/abba');
+  const archivedNexus = migration.active_contracts.find((entry) => entry.repository === 'carbonactual/hapi-world-nexus');
+  assert.equal(archivedNexus?.current_authority, false);
+  assert.equal(archivedNexus?.absorbed_by, 'carbonactual/hapi-world');
 });
 
 test('integration fabric has one canonical source and preserves authority boundaries', () => {
