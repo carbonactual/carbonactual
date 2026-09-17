@@ -1,13 +1,14 @@
 {
   "name": "Carbon Actual Product Projection Registry",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "status": "canonical-registry",
   "rule": "Products are projections over the shared Carbon Actual operating spine. They may specialize workflows and interfaces but do not create parallel constitutional primitives.",
   "common_required_facets": ["identity", "authority", "intent", "capability", "event", "evidence", "state"],
-  "repository_lifecycle_rule": "An archived implementation repository is not a current authority. A product or capability may remain active when its implementation has been absorbed into another canonical repository; the absorption target becomes the current implementation authority.",
+  "repository_lifecycle_rule": "An archived implementation repository is not a current authority. A product or capability may remain active when its implementation has been absorbed into another canonical repository; the absorption target becomes the current implementation authority. A historical product with no current repository is not listed as an active product projection.",
   "lifecycle": {
     "ABBA MAS": {"repository":"carbonactual/abba-mas","repository_status":"archived","current_composition_repository":"carbonactual/abba","current_composition_path":"mas/","authority":"carbonactual/abba"},
     "HAPI World Nexus": {"repository":"carbonactual/hapi-world-nexus","repository_status":"archived","current_composition_repository":"carbonactual/hapi-world","current_composition_path":"nexus/","authority":"carbonactual/hapi-world"},
+    "Direct Bank App": {"repository":"carbonactual/direct-bank-app","repository_status":"historical-no-current-repository","historical_status":"canonical-intent","current_authority":false,"current_implementation":null,"note":"Historical repository is absent from the current GitHub estate. No current absorption target is asserted until a real repository or explicit absorption record exists."},
     "legacy_operating_spine": {"repository":"carbonactual/omnii","repository_status":"archived","authority":"carbonactual/carbonactual","role":"historical provenance and recovery only"},
     "Carbon-Actual-": {"repository":"carbonactual/Carbon-Actual-","repository_status":"active implementation substrate","semantic_authority":"carbonactual/carbonactual","constitutional_authority":"carbonactual/hapi-world/CANON.md","role":"platform/runtime implementation only"}
   },
@@ -27,7 +28,6 @@
     "Value System": {"repository":"carbonactual/value-system","domain":"value-semantics-and-governed-value-pathways","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
     "InstituteGPT": {"repository":"carbonactual/institutegpt","domain":"education-and-ai","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"],"child_products":["NOUN BOT"]},
     "NOUN BOT": {"repository":"carbonactual/noun-student-bot","domain":"education-assistance","facets":["identity","authority","intent","capability","event","evidence","state"]},
-    "Direct Bank App": {"repository":"carbonactual/direct-bank-app","domain":"controlled-banking-and-payment-workflow","facets":["identity","authority","intent","capability","event","evidence","state","value"]},
     "Open Bank": {"repository":"carbonactual/open-bank","domain":"banking-operations","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
     "Open Ballot": {"repository":"carbonactual/open-ballot","domain":"civic-election","facets":["identity","authority","intent","capability","relationship","event","evidence","state"]},
     "RITES": {"repository":"carbonactual/RITES","domain":"continuity-and-event-memory","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
@@ -36,5 +36,5 @@
     "ZUJID & CO.": {"repository":"carbonactual/zujid","domain":"professional-advisory","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"],"ecosystem_boundary":"independent-company-codebase"}
   },
   "enforcement": "Registry declarations are architecture-level contracts. Product-specific repositories may add facets only through the Carbon Actual spine review process. Lifecycle declarations must keep archived implementations from becoming current authority. The registry is the complete current product projection catalog for the conformance matrix.",
-  "historical_repository_policy": "Historical repository names remain valid provenance references. Current implementation repositories must point to active canonical repositories or explicit absorbed composition paths."
+  "historical_repository_policy": "Historical repository names remain valid provenance references. Current implementation repositories must point to active canonical repositories or explicit absorbed composition paths. Historical products without a current repository remain lifecycle records, not active product projections."
 }
