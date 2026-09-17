@@ -4,10 +4,12 @@ import { readFile } from 'node:fs/promises';
 
 const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
+const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
 const migration = JSON.parse(await readFile(migrationRegistryPath, 'utf8'));
+const integrationFabric = JSON.parse(await readFile(integrationFabricPath, 'utf8'));
 
 const expectedFacets = [
   'identity',
@@ -78,8 +80,16 @@ test('migration registry identifies Carbon Actual as canonical and the retired r
   assert.equal(migration.legacy_repository.repository, 'carbonactual/omnii');
   assert.equal(migration.legacy_repository.status, 'archived-historical');
   assert.equal(migration.legacy_repository.current_authority, false);
-  assert.ok(migration.migrated_core_architecture.length >= 24);
-  assert.ok(migration.active_contracts.length >= 20);
+  assert.ok(migration.migrated_core_architecture.length >= 25);
+  assert.ok(migration.active_contracts.length >= 21);
+});
+
+test('integration fabric has one canonical source and preserves authority boundaries', () => {
+  assert.equal(integrationFabric.canonical_fabric, `carbonactual/carbonactual/${integrationFabricPath}`);
+  assert.equal(integrationFabric.constitutional_authority, 'carbonactual/hapi-world/CANON.md');
+  assert.equal(integrationFabric.authority, 'SealGrant');
+  assert.equal(integrationFabric.identity, '#');
+  assert.equal(integrationFabric.delivery, 'at-least-once; idempotent consumers required');
 });
 
 test('canonical control surfaces contain no obsolete operating-spine identity', async () => {
@@ -99,6 +109,7 @@ test('canonical control surfaces contain no obsolete operating-spine identity', 
     'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
     'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
     'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
+    integrationFabricPath,
     'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
     'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md',
     'architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
