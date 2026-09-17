@@ -27,6 +27,7 @@ if (kernel.identity?.canonical_name !== 'Carbon Actual') fail('canonical name mu
 if (kernel.identity?.architectural_identity !== 'Carbon Actual') fail('architectural identity must be Carbon Actual');
 if (kernel.constitutional_boundary?.may_override_canon !== false) fail('kernel may not override HAPI World CANON.md');
 if (kernel.constitutional_boundary?.may_replace_existing_canonical_objects !== false) fail('kernel may not replace canonical objects');
+if (contract.spine !== 'carbonactual/carbonactual') fail('repository contract spine must be carbonactual/carbonactual');
 
 const facetIds = kernel.facets?.map((facet) => facet.id) ?? [];
 if (facetIds.length !== expectedFacets.length) fail(`expected ${expectedFacets.length} facets, got ${facetIds.length}`);
@@ -48,6 +49,7 @@ for (const law of requiredLaws) {
 
 const repositories = contract.repositories ?? {};
 const requiredRoles = {
+  'carbonactual/carbonactual': 'canonical-ecosystem-operating-spine',
   'carbonactual/hapi-world': 'world-and-constitutional-law',
   'carbonactual/abba': 'intelligence-and-orchestration',
   'carbonactual/Carbon-Actual-': 'platform-and-runtime-substrate'
