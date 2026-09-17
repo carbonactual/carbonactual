@@ -76,8 +76,8 @@ test('migration registry identifies Carbon Actual as canonical and the retired r
   assert.equal(migration.legacy_repository.repository, 'carbonactual/omnii');
   assert.equal(migration.legacy_repository.status, 'archived-historical');
   assert.equal(migration.legacy_repository.current_authority, false);
-  assert.ok(migration.migrated_core_architecture.length >= 20);
-  assert.ok(migration.active_contracts.length >= 10);
+  assert.ok(migration.migrated_core_architecture.length >= 24);
+  assert.ok(migration.active_contracts.length >= 20);
 });
 
 test('canonical control surfaces contain no obsolete operating-spine identity', async () => {
@@ -88,7 +88,6 @@ test('canonical control surfaces contain no obsolete operating-spine identity', 
     'architecture/ecosystem-kernel.json',
     'architecture/kernel-repo-contract.json',
     'architecture/product-projection-registry.json',
-    'architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json',
     'architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
     'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md',
     'architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
@@ -99,6 +98,9 @@ test('canonical control surfaces contain no obsolete operating-spine identity', 
     'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
     'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
     'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
+    'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
+    'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md',
+    'architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
     'architecture/CARBON_ACTUAL_CONTROL_PLANE.md',
     'architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
     'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md',
