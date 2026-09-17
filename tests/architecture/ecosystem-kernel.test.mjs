@@ -5,45 +5,21 @@ import { readFile } from 'node:fs/promises';
 const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_MIGRATION_REGISTRY.json'].join('');
 const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
+const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_OMNII_ARCHITECTURE_CROSSWALK.json';
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
 const migration = JSON.parse(await readFile(migrationRegistryPath, 'utf8'));
 const integrationFabric = JSON.parse(await readFile(integrationFabricPath, 'utf8'));
+const legacyCrosswalk = JSON.parse(await readFile(legacyCrosswalkPath, 'utf8'));
 
-const expectedFacets = [
-  'identity',
-  'authority',
-  'intent',
-  'capability',
-  'relationship',
-  'event',
-  'evidence',
-  'state',
-  'value'
-];
-
+const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 const expectedProductRepositories = [
-  'carbonactual/abba',
-  'carbonactual/omni',
-  'carbonactual/tip',
-  'carbonactual/spotist',
-  'carbonactual/hapi-world',
-  'carbonactual/naire',
-  'carbonactual/ngin',
-  'carbonactual/seed',
-  'carbonactual/heritage',
-  'carbonactual/io',
-  'carbonactual/value-system',
-  'carbonactual/institutegpt',
-  'carbonactual/noun-student-bot',
-  'carbonactual/direct-bank-app',
-  'carbonactual/open-bank',
-  'carbonactual/open-ballot',
-  'carbonactual/RITES',
-  'carbonactual/nigerian-cultural-atlas',
-  'carbonactual/bunk',
-  'carbonactual/zujid'
+  'carbonactual/abba','carbonactual/omni','carbonactual/tip','carbonactual/spotist','carbonactual/hapi-world',
+  'carbonactual/naire','carbonactual/ngin','carbonactual/seed','carbonactual/heritage','carbonactual/io',
+  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/direct-bank-app',
+  'carbonactual/open-bank','carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas',
+  'carbonactual/bunk','carbonactual/zujid'
 ];
 
 test('kernel has exactly nine stable facets', () => {
@@ -124,43 +100,44 @@ test('integration fabric has one canonical source and preserves authority bounda
   assert.equal(integrationFabric.delivery, 'at-least-once; idempotent consumers required');
 });
 
+test('legacy OMNII architecture has explicit current-Carbon-Actual coverage', async () => {
+  assert.equal(legacyCrosswalk.canonical_repository, 'carbonactual/carbonactual');
+  assert.ok(legacyCrosswalk.sources.length >= 20);
+  for (const source of legacyCrosswalk.sources) {
+    assert.ok(source.path);
+    assert.ok(['mapped','reference-only'].includes(source.status));
+    assert.ok(Array.isArray(source.targets));
+    if (source.status === 'mapped') assert.ok(source.targets.length > 0, `${source.path} has a current target`);
+    for (const target of source.targets) {
+      const content = await readFile(target, 'utf8');
+      assert.equal(content.includes(obsoleteSpineIdentity), false, `${target} contains obsolete operating-spine naming`);
+    }
+  }
+  const audubon = legacyCrosswalk.sources.find((entry) => entry.path.includes('AUDUBON_CONTINUUM_ECOLOGICAL_DESIGN_DOCTRINE'));
+  assert.deepEqual(audubon?.targets, ['architecture/CARBON_ACTUAL_AUDUBON_CONTINUUM_ECOLOGICAL_DESIGN_DOCTRINE.md']);
+  const institutional = legacyCrosswalk.sources.find((entry) => entry.path.includes('OMNII_REUSABLE_INSTITUTIONAL_COMPOSITION'));
+  assert.deepEqual(institutional?.targets, ['architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md']);
+});
+
 test('canonical control surfaces contain no obsolete operating-spine identity', async () => {
   const paths = [
-    'README.md',
-    'architecture/ECOSYSTEM_KERNEL.md',
-    'architecture/ecosystem-kernel.json',
-    'architecture/kernel-repo-contract.json',
-    'architecture/product-projection-registry.json',
-    'architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
-    'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md',
-    'architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
-    'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md',
-    'architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md',
-    'architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md',
-    'architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md',
-    'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md',
-    'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
-    'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',
-    integrationFabricPath,
-    'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
-    'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md',
-    'architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
-    'architecture/CARBON_ACTUAL_CONTROL_PLANE.md',
-    'architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
-    'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md',
-    'architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
-    'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md',
-    'architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
-    'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md',
-    'architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
-    'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md',
-    'architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md',
-    'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md',
-    'architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
-    'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md',
-    'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md',
-    'scripts/validate-kernel.mjs',
-    'tests/architecture/ecosystem-kernel.test.mjs'
+    'README.md','architecture/ECOSYSTEM_KERNEL.md','architecture/ecosystem-kernel.json','architecture/kernel-repo-contract.json',
+    'architecture/product-projection-registry.json','architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
+    'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md','architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
+    'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md','architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md',
+    'architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md','architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md',
+    'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md','architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md',
+    'architecture/CARBON_ACTUAL_AUDUBON_CONTINUUM_ECOLOGICAL_DESIGN_DOCTRINE.md','architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
+    'architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md',integrationFabricPath,'architecture/SPOTIST_CANONICAL_CAPABILITY.md',
+    'architecture/SPOTIST_SEEK_ARCHITECTURE_V2.md','architecture/CARBON_ACTUAL_PRODUCT_CONFORMANCE_MATRIX.md',
+    'architecture/CARBON_ACTUAL_CONTROL_PLANE.md','architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md',
+    'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md','architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
+    'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md','architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
+    'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
+    'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md',
+    'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
+    'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md',
+    'scripts/validate-kernel.mjs','tests/architecture/ecosystem-kernel.test.mjs'
   ];
   for (const path of paths) {
     const content = await readFile(path, 'utf8');
