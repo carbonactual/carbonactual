@@ -26,7 +26,7 @@
 | RITES | carbonactual/RITES | Continuity layer |
 | HERITAGE / SEED | carbonactual/{heritage,seed} | Lineage · Genesis/incubation |
 | VALUE SYSTEM | carbonactual/value-system | Full-cost accounting & value classification |
-| HAPI Bank Nexus | carbonactual/hapi-world-nexus | Compatibility, bridge & lineage repository |
+| HAPI World Nexus | carbonactual/hapi-world/nexus/ | Compatibility, bridge & lineage — merged INTO HAPI World (repo archived) |
 | BUNK | carbonactual/bunk | Companion system |
 | ABBA | carbonactual/abba | The master intelligence & orchestrator — the law made operational |
 | abba-mas | carbonactual/abba-mas | The multi-agent system platform (mAS — my Assets) |
