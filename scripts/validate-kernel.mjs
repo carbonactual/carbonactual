@@ -23,9 +23,8 @@ const expectedFacets = ['identity','authority','intent','capability','relationsh
 const requiredProductRepositories = [
   'carbonactual/abba','carbonactual/omni','carbonactual/tip','carbonactual/spotist','carbonactual/hapi-world',
   'carbonactual/naire','carbonactual/ngin','carbonactual/seed','carbonactual/heritage','carbonactual/io',
-  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/direct-bank-app',
-  'carbonactual/open-bank','carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas',
-  'carbonactual/bunk','carbonactual/zujid'
+  'carbonactual/value-system','carbonactual/institutegpt','carbonactual/noun-student-bot','carbonactual/open-bank',
+  'carbonactual/open-ballot','carbonactual/RITES','carbonactual/nigerian-cultural-atlas','carbonactual/bunk','carbonactual/zujid'
 ];
 
 if (kernel.identity?.canonical_name !== 'Carbon Actual') fail('canonical name must be Carbon Actual');
@@ -92,6 +91,11 @@ for (const [name, product] of Object.entries(products.products ?? {})) {
 for (const repository of requiredProductRepositories) {
   if (!registeredProductRepositories.has(repository)) fail(`active product repository missing from projection registry: ${repository}`);
 }
+const directBank = products.lifecycle?.['Direct Bank App'];
+if (directBank?.repository_status !== 'historical-no-current-repository' || directBank?.current_authority !== false || directBank?.current_implementation !== null) {
+  fail('Direct Bank App must remain historical-only until a real current repository or explicit absorption target exists');
+}
+if (registeredProductRepositories.has('carbonactual/direct-bank-app')) fail('nonexistent Direct Bank App repository must not be an active product projection');
 
 if (legacyCrosswalk.canonical_repository !== 'carbonactual/carbonactual') fail('legacy architecture crosswalk must point to carbonactual/carbonactual');
 if (!Array.isArray(legacyCrosswalk.sources) || legacyCrosswalk.sources.length < 20) fail('legacy architecture crosswalk is incomplete');
@@ -129,4 +133,4 @@ for (const path of canonicalSurfaces) {
 }
 
 if (process.exitCode) process.exit();
-console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} products, ${migration.migrated_core_architecture.length} migrated architecture controls, ${migration.active_contracts.length} active contracts, ${legacyCrosswalk.sources.length} legacy architecture sources crosswalked.`);
+console.log(`Kernel conformance passed: ${facetIds.length} facets, ${Object.keys(repositories).length} governed repositories, ${Object.keys(products.products ?? {}).length} active products, ${migration.migrated_core_architecture.length} migrated architecture controls, ${migration.active_contracts.length} active contracts, ${legacyCrosswalk.sources.length} legacy architecture sources crosswalked.`);
