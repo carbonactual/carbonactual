@@ -163,7 +163,7 @@ assert.equal(kernel.design_laws.includes('Intent does not equal execution or out
 assert.equal(kernel.design_laws.includes('Value is broader than money.'), true);
 ```
 
-The validator must also scan the canonical control surfaces and fail when the obsolete operating-spine name `OMNII` appears in them.
+The validator must also scan the canonical control surfaces and fail when a retired operating-spine alias appears in them.
 
 - [ ] **Step 2: Run the tests**
 
@@ -172,7 +172,7 @@ Expected: PASS after implementation.
 
 - [ ] **Step 3: Add validator**
 
-Create `scripts/validate-kernel.mjs` that loads the JSON contracts, checks duplicate facet IDs, validates the nine required IDs, verifies repository roles, validates product facet declarations, and scans the canonical control surfaces for obsolete operating-spine naming. Exit `1` on any violation.
+Create `scripts/validate-kernel.mjs` that loads the JSON contracts, checks duplicate facet IDs, validates the nine required IDs, verifies repository roles, validates product facet declarations, and scans the canonical control surfaces for retired operating-spine aliases. Exit `1` on any violation.
 
 - [ ] **Step 4: Add CI workflow**
 
