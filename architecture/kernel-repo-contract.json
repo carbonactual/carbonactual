@@ -1,11 +1,11 @@
 {
   "name": "Carbon Actual Ecosystem Repository Contract",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "spine": "carbonactual/carbonactual",
   "repositories": {
     "carbonactual/carbonactual": {
       "role": "canonical-ecosystem-operating-spine",
-      "owns": ["semantic kernel", "repository contracts", "product projection registry", "architecture conformance", "cross-product contracts"],
+      "owns": ["semantic kernel", "repository contracts", "product projection registry", "repository estate registry", "architecture conformance", "cross-product contracts"],
       "may_define_new_kernel_facet": false,
       "kernel_relationship": "canonical source of operating-spine contracts"
     },
@@ -50,9 +50,29 @@
       "owns": ["asset/liability classification", "full-cost accounting", "value measurement rules"],
       "may_define_new_kernel_facet": false,
       "kernel_relationship": "value semantics implementation"
+    },
+    "carbonactual/mcp-bot": {
+      "role": "education-domain-product",
+      "owns": ["CIBN micro-finance certification-prep experience"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "InstituteGPT child product projection"
+    },
+    "carbonactual/vault": {
+      "role": "private-secret-custody",
+      "owns": ["personal credential custody boundary"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "security custody only; never product authority"
+    },
+    "carbonactual/ECC": {
+      "role": "external-agent-tool-mirror",
+      "owns": ["third-party agent-harness tooling snapshot"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "optional external adapter; never constitutional authority"
     }
   },
   "product_rule": "Products are fruits. They consume shared contracts and may specialize workflows without creating parallel constitutional primitives.",
   "boundary_rule": "Cross-repository behavior is described by contracts and projections, not by copying the same semantic authority into each repository.",
+  "estate_rule": "Every repository must be classified as canonical, active product, active infrastructure, private custody, absorbed archive, historical archive, or external/tooling mirror. An unclassified repository is a conformance failure.",
+  "security_rule": "Private custody repositories may contain credentials only under a separately governed security boundary; credentials must never become product source code, manifests, or shared architecture data.",
   "legacy_rule": "Historical repositories and names remain recoverable through lineage and heritage mechanisms; recovery does not make obsolete copies authoritative again."
 }
