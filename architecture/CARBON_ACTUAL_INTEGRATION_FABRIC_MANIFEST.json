@@ -1,0 +1,26 @@
+{
+  "fabric_version": "1.0.0",
+  "canonical_fabric": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "operating_spine": "carbonactual/carbonactual",
+  "authority": "SealGrant",
+  "identity": "#",
+  "delivery": "at-least-once; idempotent consumers required",
+  "rule": "Adapters translate external contracts into Carbon Actual canonical semantics without creating a competing universal ontology.",
+  "owned_events": [],
+  "supported_surfaces": [
+    "API",
+    "SDK",
+    "CLI",
+    "MCP",
+    "A2A",
+    "agent",
+    "event",
+    "provider",
+    "ENS",
+    "DID",
+    "HNS",
+    "future protocols"
+  ],
+  "human_authority": "Human authority remains binding through governed crossings and SEAL contracts."
+}
