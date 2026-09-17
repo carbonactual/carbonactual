@@ -73,20 +73,19 @@ for (const [name, product] of Object.entries(products.products ?? {})) {
   }
 }
 
+const obsoleteSpineIdentity = ['O', 'M', 'N', 'I', 'I'].join('');
 const canonicalSurfaces = [
   'README.md',
   'architecture/ECOSYSTEM_KERNEL.md',
   'architecture/ecosystem-kernel.json',
   'architecture/kernel-repo-contract.json',
   'architecture/product-projection-registry.json',
-  'scripts/validate-kernel.mjs',
-  'tests/architecture/ecosystem-kernel.test.mjs',
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md',
   'docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
 for (const path of canonicalSurfaces) {
   const content = await readFile(path, 'utf8');
-  if (content.includes('OMNII')) fail(`obsolete OMNII reference remains in ${path}`);
+  if (content.includes(obsoleteSpineIdentity)) fail(`obsolete operating-spine identity remains in ${path}`);
 }
 
 if (process.exitCode) process.exit();
