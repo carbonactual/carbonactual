@@ -1,0 +1,52 @@
+{
+  "name": "Carbon Actual Ecosystem Repository Contract",
+  "version": "1.0.0",
+  "spine": "carbonactual",
+  "repositories": {
+    "carbonactual/hapi-world": {
+      "role": "world-and-constitutional-law",
+      "owns": ["CANON", "constitutional laws", "world ontology", "world-native systems"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "authoritative source domain"
+    },
+    "carbonactual/abba": {
+      "role": "intelligence-and-orchestration",
+      "owns": ["reasoning", "planning", "routing", "multi-agent coordination", "capability orchestration"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "consumer and operationalizer"
+    },
+    "carbonactual/Carbon-Actual-": {
+      "role": "platform-and-runtime-substrate",
+      "owns": ["runtime", "platform manifests", "conformance", "transport/infrastructure adapters"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "implementation substrate"
+    },
+    "carbonactual/io": {
+      "role": "value-flow-and-settlement",
+      "owns": ["value flows", "ledger operations", "settlement adapters"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "value-domain implementation"
+    },
+    "carbonactual/ngin": {
+      "role": "organization-layer",
+      "owns": ["organization and institutional business-domain models"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "domain projection"
+    },
+    "carbonactual/naire": {
+      "role": "human-layer",
+      "owns": ["human-facing identity and interaction domain models"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "domain projection"
+    },
+    "carbonactual/value-system": {
+      "role": "value-classification-and-full-cost-accounting",
+      "owns": ["asset/liability classification", "full-cost accounting", "value measurement rules"],
+      "may_define_new_kernel_facet": false,
+      "kernel_relationship": "value semantics implementation"
+    }
+  },
+  "product_rule": "Products are fruits. They consume shared contracts and may specialize workflows without creating parallel constitutional primitives.",
+  "boundary_rule": "Cross-repository behavior is described by contracts and projections, not by copying the same semantic authority into each repository.",
+  "legacy_rule": "Historical repositories and names remain recoverable through lineage and heritage mechanisms; recovery does not make obsolete copies authoritative again."
+}
