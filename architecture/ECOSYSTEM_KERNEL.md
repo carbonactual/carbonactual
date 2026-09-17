@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Carbon Actual is the ecosystem operating spine. OMNII is its architectural identity, not a competing product or separate world.
+Carbon Actual is the canonical ecosystem operating spine and architecture.
 
 The kernel is the smallest shared semantic grammar for the ecosystem:
 
