@@ -1,0 +1,39 @@
+name: Ecosystem Kernel Conformance
+
+on:
+  push:
+    paths:
+      - 'architecture/ecosystem-kernel.json'
+      - 'architecture/kernel-repo-contract.json'
+      - 'architecture/product-projection-registry.json'
+      - 'architecture/ECOSYSTEM_KERNEL.md'
+      - 'scripts/validate-kernel.mjs'
+      - 'tests/architecture/ecosystem-kernel.test.mjs'
+      - '.github/workflows/ecosystem-kernel.yml'
+  pull_request:
+    paths:
+      - 'architecture/ecosystem-kernel.json'
+      - 'architecture/kernel-repo-contract.json'
+      - 'architecture/product-projection-registry.json'
+      - 'architecture/ECOSYSTEM_KERNEL.md'
+      - 'scripts/validate-kernel.mjs'
+      - 'tests/architecture/ecosystem-kernel.test.mjs'
+      - '.github/workflows/ecosystem-kernel.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate kernel
+        run: node scripts/validate-kernel.mjs
+      - name: Run kernel tests
+        run: node --test tests/architecture/ecosystem-kernel.test.mjs

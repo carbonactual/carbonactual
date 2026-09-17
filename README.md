@@ -1,44 +1,65 @@
 # CARBON ACTUAL
 
-**The human-AI balanced economy.** An ecosystem of constitutional products, agents, and value rails — built on consent-first governance (human sole administrator), full-cost accounting, and permanent human-AI balance.
+**The human-AI balanced economy.** An ecosystem of constitutional products, agents, and value rails — built on consent-first governance, full-cost accounting, permanent human-AI balance, and a shared operating spine.
 
-## THE TREE (Ecosystem) — laws, governance, capabilities
+## OPERATING SPINE
 
-Everything not product-specific lives here. The tree grows laws, governance, identity, economy rails and capabilities. Products are its fruits.
+**Carbon Actual is the ecosystem operating spine. OMNII is its architectural identity.** They are one spine, not competing products or separate worlds.
 
-1. **HAPI World** — carbonactual/hapi-world — the constitution and laws: CANON.md (supreme), TRADE CANON, MARKET UNIVERSE CANON, HAPI WORLD SYSTEMS (26 native systems) + COMPLETION, VOICE & VIDEO SURFACE LAW, the absorbed Nexus (nexus/ — bridges, boundary laws, standards, audits)
-2. **ABBA** — carbonactual/abba — the orchestrator and the law made operational: MASTER_CAPABILITY_REGISTRY, and the absorbed abba-mas at mas/ (full multi-agent system, history preserved) — everything ABBA is in ABBA
-3. **Carbon-Actual-** — carbonactual/Carbon-Actual- — platform repo: architecture manifests, conformance, and the absorbed OMNII substrate at omnii/ (constitutional/runtime, merged Sept 17)
-4. **I/O** — carbonactual/io — economy layer: value flows, IOLedger settlement
-5. **NGIN** — carbonactual/ngin — organizations layer
-6. **NAIRE** — carbonactual/naire — humans layer
-7. **VALUE SYSTEM** — carbonactual/value-system — full-cost accounting & value classification (asset vs liability)
+The ecosystem is organized as one tree with specialized fruits:
+
+- **HAPI World** — `carbonactual/hapi-world` — constitutional world and law. `CANON.md` remains supreme.
+- **ABBA** — `carbonactual/abba` — intelligence, reasoning, planning, routing, and orchestration.
+- **Carbon-Actual-** — `carbonactual/Carbon-Actual-` — platform/runtime substrate, manifests, conformance, and infrastructure implementations.
+- **I/O** — `carbonactual/io` — value flows and settlement operations.
+- **NGIN** — `carbonactual/ngin` — organization/institution layer.
+- **NAIRE** — `carbonactual/naire` — human layer.
+- **VALUE SYSTEM** — `carbonactual/value-system` — value measurement, full-cost accounting, and asset/liability classification.
+
+The shared semantic kernel is:
+
+**Identity → Authority → Intent → Capability → Relationship → Event → Evidence → State → Value**
+
+These are interoperability facets, not replacement entity types. They exist to stop the ecosystem from reinventing the same primitive in every repository.
+
+Canonical kernel references:
+
+- [`architecture/ECOSYSTEM_KERNEL.md`](architecture/ECOSYSTEM_KERNEL.md)
+- [`architecture/ecosystem-kernel.json`](architecture/ecosystem-kernel.json)
+- [`architecture/kernel-repo-contract.json`](architecture/kernel-repo-contract.json)
+
+## BOUNDARIES
+
+HAPI World defines constitutional meaning. Carbon Actual/OMNII provides the operating-spine semantics and cross-product contracts. ABBA operationalizes those contracts through intelligence and orchestration. Products specialize interfaces and workflows without creating parallel universes.
+
+Authority is not capability. Event is not evidence. State is not history. Intent is not execution. Value is broader than money. Implementations are replaceable behind capability contracts.
 
 ## THE FRUITS (Products)
 
 | Product | Repo | What it is |
 |---|---|---|
-| TIP | carbonactual/tip | Global Sourcing & Trading Desk — every region, every corridor |
-| OMNI | carbonactual/omni | The universal browser product |
-| SPOTIST | carbonactual/spotist | Universal seek / discovery / matching capability |
-| Open Bank | carbonactual/open-bank | Banking operations app |
-| ZUJID & CO. | carbonactual/zujid | Professional advisory firm (zujidandco.com) |
-| Institute GPT | carbonactual/institutegpt | Home of ABBA — the NOUN student AI |
-| NOUN BOT | carbonactual/noun-student-bot | WhatsApp academic companion for NOUN students |
-| Open Ballot | carbonactual/open-ballot | Open-ballot civic election engine |
-| Nigerian Cultural Atlas | carbonactual/nigerian-cultural-atlas | Cultural curation & publishing |
-| RITES | carbonactual/RITES | Continuity product — nothing dies unrecorded |
-| HERITAGE | carbonactual/heritage | Lineage & museum product (holds all merged history) |
-| SEED | carbonactual/seed | Genesis & incubation product |
-| BUNK | carbonactual/bunk | Companion product |
+| TIP | `carbonactual/tip` | Global sourcing, trade and investment platform |
+| OMNI | `carbonactual/omni` | Universal browser/product surface currently tracked in the ecosystem |
+| SPOTIST | `carbonactual/spotist` | Universal seek, discovery and matching capability |
+| Open Bank | `carbonactual/open-bank` | Banking operations app |
+| ZUJID & CO. | `carbonactual/zujid` | Professional advisory firm |
+| Institute GPT | `carbonactual/institutegpt` | NOUN student AI / ABBA surface |
+| NOUN BOT | `carbonactual/noun-student-bot` | WhatsApp academic companion |
+| Open Ballot | `carbonactual/open-ballot` | Civic election engine |
+| Nigerian Cultural Atlas | `carbonactual/nigerian-cultural-atlas` | Cultural curation and publishing |
+| RITES | `carbonactual/RITES` | Continuity and event-memory product |
+| HERITAGE | `carbonactual/heritage` | Lineage and museum/archival product |
+| SEED | `carbonactual/seed` | Genesis and incubation product |
+| BUNK | `carbonactual/bunk` | Companion product |
 
-## Layered lineage (B3C0M1NG org)
-1. **carbonactual/HAPI** — Human API
+## NAMING SAFETY
+
+**OMNII ≠ OMNI.** OMNII refers to the Carbon Actual operating-spine identity. OMNI is a separate product surface. Product names do not redefine the operating spine.
+
+## LAYERED LINEAGE (B3C0M1NG)
+
+1. **HAPI** — Human API
 2. **#ABBA** — the 22# namespace
-3. **carbon_actual** — ecosystem operating spine
+3. **Carbon Actual / OMNII** — ecosystem operating spine
 
-## Consolidation status (Sept 16, 2026)
-
-Every repo audited and placed per the tree-and-fruits ruling. 14 archived exhibits (unique content preserved in heritage museum + canonical homes) await deletion. The constellation: one tree, thirteen fruits, one orchestrator, zero duplicates.
-
-*BEING -> BECOMING -> ACTUAL. Intelligent living, balanced between AI and human.*
+*BEING → BECOMING → ACTUAL.*

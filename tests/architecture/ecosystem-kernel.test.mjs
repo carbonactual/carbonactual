@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
+const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
 
 const expectedFacets = [
   'identity',
@@ -54,4 +55,15 @@ test('repository boundaries prevent competing constitutional universes', () => {
 
 test('kernel flow has the approved universal order', () => {
   assert.deepEqual(kernel.universal_flow, expectedFacets);
+});
+
+test('product registry uses only kernel facets and common required facets', () => {
+  const required = new Set(products.common_required_facets);
+  assert.equal(products.status, 'canonical-registry');
+  assert.equal(Object.keys(products.products).length, 13);
+  for (const [name, product] of Object.entries(products.products)) {
+    assert.ok(product.repository, `${name} has a repository`);
+    for (const facet of product.facets) assert.ok(expectedFacets.includes(facet), `${name} uses only known facets`);
+    for (const facet of required) assert.ok(product.facets.includes(facet), `${name} includes ${facet}`);
+  }
 });
