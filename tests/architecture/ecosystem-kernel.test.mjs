@@ -7,6 +7,7 @@ const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_
 const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
 const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json';
 const repositoryEstatePath = 'architecture/repository-estate-registry.json';
+const commonLayerPath = 'architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md';
 const kernel = JSON.parse(await readFile('architecture/ecosystem-kernel.json', 'utf8'));
 const contract = JSON.parse(await readFile('architecture/kernel-repo-contract.json', 'utf8'));
 const products = JSON.parse(await readFile('architecture/product-projection-registry.json', 'utf8'));
@@ -14,6 +15,7 @@ const migration = JSON.parse(await readFile(migrationRegistryPath, 'utf8'));
 const integrationFabric = JSON.parse(await readFile(integrationFabricPath, 'utf8'));
 const legacyCrosswalk = JSON.parse(await readFile(legacyCrosswalkPath, 'utf8'));
 const estate = JSON.parse(await readFile(repositoryEstatePath, 'utf8'));
+const commonLayer = await readFile(commonLayerPath, 'utf8');
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 const expectedProductRepositories = [
@@ -38,6 +40,12 @@ test('kernel cannot override the constitutional Canon', () => {
   assert.equal(kernel.constitutional_boundary.supreme_source, 'HAPI World CANON.md');
   assert.equal(kernel.constitutional_boundary.may_override_canon, false);
   assert.equal(kernel.constitutional_boundary.may_replace_existing_canonical_objects, false);
+});
+
+test('Common Layer denominators do not become a competing kernel', () => {
+  assert.match(commonLayer, /not a second semantic kernel/);
+  assert.match(commonLayer, /IDENTITY \+ AUTHORITY \+ INTENT \+ CAPABILITY \+ RELATIONSHIP \+ EVENT \+ EVIDENCE \+ STATE \+ VALUE/);
+  assert.match(commonLayer, /not a replacement for the nine canonical kernel facets/);
 });
 
 test('critical semantic distinctions are explicit', () => {
