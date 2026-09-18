@@ -63,3 +63,12 @@ Residual occurrences are intentionally limited to compatibility/provenance/histo
 ## Result
 
 The reviewed live authority-bearing surfaces now align with the canonical hierarchy without deleting historical provenance or compatibility paths. The only outstanding owner-only security action remains rotation and authorized history purge for the previously exposed Vault credential.
+
+
+## Production infrastructure evidence — 2026-09-18
+
+The connected Supabase project `omnii-canonical` now has the runtime persistence migration applied. The new runtime table uses RLS and has no table/RPC access for `anon` or `authenticated`; `service_role` has the intended server-side privileges.
+
+The hosted PostGIS `public.spatial_ref_sys` advisory remains a provider-managed platform finding: the table is owned by `supabase_admin`, belongs to the `postgis` extension, and currently has RLS disabled. No blind RLS mutation was performed.
+
+Supabase's own 2026 issue/discussion history documents this exact extension-ownership limitation and recommends provider-supported handling rather than forcing RLS from an ordinary project role. citeturn226206search0turn226206search6
