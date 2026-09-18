@@ -12,6 +12,7 @@ const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MAN
 const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json';
 const repositoryEstatePath = 'architecture/repository-estate-registry.json';
 const communicationPresencePath = 'architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json';
+const freezeCoveragePath = 'architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -21,9 +22,18 @@ const integrationFabric = await readJson(integrationFabricPath);
 const legacyCrosswalk = await readJson(legacyCrosswalkPath);
 const estate = await readJson(repositoryEstatePath);
 const communicationPresence = await readJson(communicationPresencePath);
+const freezeCoverage = await readJson(freezeCoveragePath);
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
+if (freezeCoverage.operating_spine !== 'carbonactual/carbonactual') fail('freeze coverage must resolve to canonical Carbon Actual');
+if (freezeCoverage.required_areas !== 40 || freezeCoverage.covered !== 40 || freezeCoverage.gaps !== 0) fail('universal architecture freeze coverage must declare 40 covered areas and zero gaps');
+if (!Array.isArray(freezeCoverage.coverage) || freezeCoverage.coverage.length !== 40) fail('universal architecture freeze coverage matrix must contain exactly 40 areas');
+for (const entry of freezeCoverage.coverage) {
+  if (!Array.isArray(entry) || entry.length !== 3) fail('freeze coverage entry must be [requirement,status,destinations]');
+  if (entry[1] !== 'covered') fail('uncovered freeze requirement: ' + entry[0]);
+  if (!Array.isArray(entry[2]) || entry[2].length === 0) fail('freeze requirement has no destination: ' + entry[0]);
+}
 if (communicationPresence.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('communication/presence registry must preserve constitutional authority');
 if ((communicationPresence.semantic_facets || []).join('|') !== expectedFacets.join('|')) fail('communication/presence registry facet inheritance drift');
 if (communicationPresence.capability_rule !== 'Communication and Presence are cross-cutting capabilities/denominators, not additional kernel facets.') fail('communication/presence must remain subordinate to the nine-facet kernel');
@@ -156,7 +166,7 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md','architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md','architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
   'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json',
+  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json',
   'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
