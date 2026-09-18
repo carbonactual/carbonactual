@@ -59,6 +59,17 @@ test('Communication & Presence remains a capability over the nine-facet kernel',
   assert.ok(registry.maturity.experimental.includes('BCI-neural-communication'));
 });
 
+test('Swarm and Team traceability covers canonical objects and readiness gates', async () => {
+  const trace = JSON.parse(await readFile('architecture/CARBON_ACTUAL_SWARM_TEAM_TRACEABILITY.json', 'utf8'));
+  assert.equal(trace.authority, 'carbonactual/carbonactual');
+  assert.equal(trace.constitutional_authority, 'carbonactual/hapi-world/CANON.md');
+  assert.equal(trace.traceability.length, 10);
+  assert.deepEqual(trace.readiness_states, ['READY', 'INCOMPLETE', 'BLOCKED']);
+  assert.ok(trace.team_record_requirements.includes('team_id'));
+  assert.ok(trace.team_record_requirements.includes('authority_requirements'));
+  assert.ok(trace.workflow_record_requirements.includes('recovery_path'));
+});
+
 test('integration provider policy remains vendor-neutral and open-first', async () => {
   const policy = await readFile('architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md', 'utf8');
   assert.match(policy, /Provider is not authority\./);
