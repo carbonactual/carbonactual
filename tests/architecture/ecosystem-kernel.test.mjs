@@ -59,6 +59,15 @@ test('Communication & Presence remains a capability over the nine-facet kernel',
   assert.ok(registry.maturity.experimental.includes('BCI-neural-communication'));
 });
 
+test('Creative Economy remains a separate future domain composition', async () => {
+  const registry = JSON.parse(await readFile('architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json', 'utf8'));
+  assert.equal(registry.canonical_contract, 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md');
+  assert.equal(registry.implementation_repository, null);
+  assert.equal(registry.cultural_atlas_boundary, 'Nigerian Cultural Atlas remains publishing/atlas; creative production and rights/commercial operations remain separate.');
+  assert.ok(registry.capabilities.includes('rights-and-license-management'));
+  assert.ok(registry.capabilities.includes('royalty-accounting'));
+});
+
 test('universal architecture freeze has explicit 40-area coverage', async () => {
   const coverage = JSON.parse(await readFile('architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json', 'utf8'));
   assert.equal(coverage.summary.required_areas, 40);
