@@ -59,6 +59,18 @@ test('Communication & Presence remains a capability over the nine-facet kernel',
   assert.ok(registry.maturity.experimental.includes('BCI-neural-communication'));
 });
 
+test('universal architecture freeze has explicit 40-area coverage', async () => {
+  const coverage = JSON.parse(await readFile('architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json', 'utf8'));
+  assert.equal(coverage.required_areas, 40);
+  assert.equal(coverage.covered, 40);
+  assert.equal(coverage.gaps, 0);
+  assert.equal(coverage.coverage.length, 40);
+  for (const [requirement, status, destinations] of coverage.coverage) {
+    assert.equal(status, 'covered', requirement);
+    assert.ok(destinations.length > 0, requirement);
+  }
+});
+
 test('critical semantic distinctions are explicit', () => {
   const laws = new Set(kernel.design_laws);
   assert.ok(laws.has('Authority is never inferred from capability.'));
