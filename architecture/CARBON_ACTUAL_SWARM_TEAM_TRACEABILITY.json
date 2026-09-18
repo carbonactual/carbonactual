@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "status": "canonical-swarm-team-traceability-control",
+  "authority": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "contract": "architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md",
+  "distinctions": {
+    "swarm": "comparative capability field",
+    "team": "contextual capability composition",
+    "workflow": "execution coordination",
+    "mission": "objective plus readiness assessment",
+    "abba": "intelligence/orchestration",
+    "sealgrant": "authority/permission boundary",
+    "pulse": "feedback",
+    "value": "measured consequence"
+  },
+  "traceability": [
+    {
+      "object": "Identity",
+      "kernel_facet": "identity",
+      "swarm_team_role": "Every Swarm member and Team member references canonical identity; membership does not mint a second identity.",
+      "authority_gate": "identity resolution"
+    },
+    {
+      "object": "Authority",
+      "kernel_facet": "authority",
+      "swarm_team_role": "Teams inherit authority only from explicit principal/delegation; Swarm membership never grants authority.",
+      "authority_gate": "SealGrant/policy"
+    },
+    {
+      "object": "Intent",
+      "kernel_facet": "intent",
+      "swarm_team_role": "Mission/intent defines required outcome and capability demand.",
+      "authority_gate": "mission scope"
+    },
+    {
+      "object": "Capability",
+      "kernel_facet": "capability",
+      "swarm_team_role": "Swarm aggregates capability alternatives; Team selects contextual members.",
+      "authority_gate": "capability suitability"
+    },
+    {
+      "object": "Relationship",
+      "kernel_facet": "relationship",
+      "swarm_team_role": "Team membership, roles and provider dependencies are explicit relationships.",
+      "authority_gate": "relationship scope"
+    },
+    {
+      "object": "Event",
+      "kernel_facet": "event",
+      "swarm_team_role": "Discovery, evaluation, composition, workflow and execution transitions are events.",
+      "authority_gate": "event attribution"
+    },
+    {
+      "object": "Evidence",
+      "kernel_facet": "evidence",
+      "swarm_team_role": "Benchmarks, health, provenance, outputs and execution proofs feed Swarm/Team decisions.",
+      "authority_gate": "evidence quality"
+    },
+    {
+      "object": "State",
+      "kernel_facet": "state",
+      "swarm_team_role": "Swarm/member/team/workflow states track availability, readiness, execution and recovery.",
+      "authority_gate": "readiness/risk"
+    },
+    {
+      "object": "Value",
+      "kernel_facet": "value",
+      "swarm_team_role": "Team outcomes feed Pulse and Value analysis and future curation.",
+      "authority_gate": "value accounting"
+    },
+    {
+      "object": "Product",
+      "kernel_facet": "composition",
+      "swarm_team_role": "Products consume Swarms/Teams through Product Composer; product code does not redefine universal capability meaning.",
+      "authority_gate": "product conformance"
+    }
+  ],
+  "required_swarm_member_dimensions": [
+    "capability",
+    "specialization",
+    "strengths",
+    "weaknesses",
+    "performance",
+    "reliability",
+    "cost",
+    "latency",
+    "interoperability",
+    "openness",
+    "privacy",
+    "security",
+    "maintainability",
+    "maturity",
+    "provenance",
+    "licensing",
+    "dependencies",
+    "resource_requirements",
+    "failure_modes",
+    "opportunities",
+    "risks",
+    "context_suitability"
+  ],
+  "team_record_requirements": [
+    "team_id",
+    "objective",
+    "context",
+    "members",
+    "roles",
+    "dependencies",
+    "authority_requirements",
+    "policy_requirements",
+    "resource_requirements",
+    "workflow",
+    "readiness",
+    "evidence",
+    "expected_outcome"
+  ],
+  "workflow_record_requirements": [
+    "workflow_id",
+    "team_id",
+    "steps",
+    "dependencies",
+    "approval_points",
+    "execution_order",
+    "recovery_path",
+    "observability"
+  ],
+  "readiness_states": [
+    "READY",
+    "INCOMPLETE",
+    "BLOCKED"
+  ],
+  "mandatory_build_flow": [
+    "define outcome",
+    "decompose capabilities",
+    "discover relevant Swarms",
+    "evaluate candidates",
+    "compose Team",
+    "assess mission/readiness",
+    "resolve authority/policy",
+    "execute",
+    "observe and verify",
+    "record Pulse/Value",
+    "feed curation"
+  ],
+  "anti_duplication_rules": [
+    "Swarm is not a product.",
+    "Team is not a new authority layer.",
+    "Workflow is not constitutional law.",
+    "Mission readiness is not permission.",
+    "Provider membership is not ownership.",
+    "ABBA orchestration is not human authority.",
+    "Product-specific capability specialization must not recreate universal kernel semantics."
+  ],
+  "future_entity_rule": "Unknown future Swarm members may be registered provisionally when identity, capability, provenance, authority, safety and value semantics are representable without changing frozen kernel invariants."
+}
