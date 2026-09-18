@@ -3,38 +3,390 @@
   "version": "1.3.3",
   "status": "canonical-registry",
   "rule": "Products are projections over the shared Carbon Actual operating spine. They may specialize workflows and interfaces but do not create parallel constitutional primitives.",
-  "common_required_facets": ["identity", "authority", "intent", "capability", "event", "evidence", "state"],
+  "common_required_facets": [
+    "identity",
+    "authority",
+    "intent",
+    "capability",
+    "event",
+    "evidence",
+    "state"
+  ],
   "repository_lifecycle_rule": "An archived implementation repository is not a current authority. A product or capability may remain active when its implementation has been absorbed into another canonical repository; the absorption target becomes the current implementation authority. A historical product with no current repository is not listed as an active product projection.",
   "lifecycle": {
-    "ABBA MAS": {"repository":"carbonactual/abba-mas","repository_status":"archived","current_composition_repository":"carbonactual/abba","current_composition_path":"mas/","authority":"carbonactual/abba"},
-    "HAPI World Nexus": {"repository":"carbonactual/hapi-world-nexus","repository_status":"archived","current_composition_repository":"carbonactual/hapi-world","current_composition_path":"nexus/","authority":"carbonactual/hapi-world"},
-    "Direct Bank App": {"repository":"carbonactual/direct-bank-app","repository_status":"historical-no-current-repository","historical_status":"canonical-intent","current_authority":false,"current_implementation":null,"note":"Historical repository is absent from the current GitHub estate. No current absorption target is asserted until a real repository or explicit absorption record exists."},
-    "legacy_operating_spine": {"repository":"carbonactual/omnii","repository_status":"archived","authority":"carbonactual/carbonactual","role":"historical provenance and recovery only"},
-    "Carbon-Actual-": {"repository":"carbonactual/Carbon-Actual-","repository_status":"active implementation substrate","semantic_authority":"carbonactual/carbonactual","constitutional_authority":"carbonactual/hapi-world/CANON.md","role":"platform/runtime implementation only"}
+    "ABBA MAS": {
+      "repository": "carbonactual/abba-mas",
+      "repository_status": "archived",
+      "current_composition_repository": "carbonactual/abba",
+      "current_composition_path": "mas/",
+      "authority": "carbonactual/abba"
+    },
+    "HAPI World Nexus": {
+      "repository": "carbonactual/hapi-world-nexus",
+      "repository_status": "archived",
+      "current_composition_repository": "carbonactual/hapi-world",
+      "current_composition_path": "nexus/",
+      "authority": "carbonactual/hapi-world"
+    },
+    "Direct Bank App": {
+      "repository": "carbonactual/direct-bank-app",
+      "repository_status": "historical-no-current-repository",
+      "historical_status": "canonical-intent",
+      "current_authority": false,
+      "current_implementation": null,
+      "note": "Historical repository is absent from the current GitHub estate. No current absorption target is asserted until a real repository or explicit absorption record exists."
+    },
+    "legacy_operating_spine": {
+      "repository": "carbonactual/omnii",
+      "repository_status": "archived",
+      "authority": "carbonactual/carbonactual",
+      "role": "historical provenance and recovery only"
+    },
+    "Carbon-Actual-": {
+      "repository": "carbonactual/Carbon-Actual-",
+      "repository_status": "active implementation substrate",
+      "semantic_authority": "carbonactual/carbonactual",
+      "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+      "role": "platform/runtime implementation only"
+    }
   },
   "products": {
-    "ABBA": {"repository":"carbonactual/abba","domain":"master-orchestration-intelligence","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "ABBA MAS": {"repository":"carbonactual/abba","composition_path":"mas/","domain":"capability-fabric-and-swarm-orchestration","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "OMNI": {"repository":"carbonactual/omni","domain":"universal-interface","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "TIP": {"repository":"carbonactual/tip","domain":"trade-and-investment","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "SPOTIST": {"repository":"carbonactual/spotist","domain":"seek-discovery-matching","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "HAPI World": {"repository":"carbonactual/hapi-world","domain":"native-ecosystem-ai-world","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "HAPI World Nexus": {"repository":"carbonactual/hapi-world","composition_path":"nexus/","domain":"ecosystem-presentation-and-integration-surface","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "NAIRE": {"repository":"carbonactual/naire","domain":"human-operating-environment","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "NGIN": {"repository":"carbonactual/ngin","domain":"organizational-and-territorial-operating-environment","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "SEED": {"repository":"carbonactual/seed","domain":"genesis-and-incubation","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "HERITAGE": {"repository":"carbonactual/heritage","domain":"lineage-and-archive","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "I/O": {"repository":"carbonactual/io","domain":"movement-and-transport","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "Value System": {"repository":"carbonactual/value-system","domain":"value-semantics-and-governed-value-pathways","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "InstituteGPT": {"repository":"carbonactual/institutegpt","domain":"education-and-ai","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"],"child_products":["NOUN BOT","MCP BOT"]},
-    "NOUN BOT": {"repository":"carbonactual/noun-student-bot","domain":"education-assistance","facets":["identity","authority","intent","capability","event","evidence","state"]},
-    "MCP BOT": {"repository":"carbonactual/mcp-bot","domain":"education-assistance-and-certification-prep","parent_product":"InstituteGPT","facets":["identity","authority","intent","capability","event","evidence","state"]},
-    "Open Bank": {"repository":"carbonactual/open-bank","domain":"banking-operations","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "Open Ballot": {"repository":"carbonactual/open-ballot","domain":"civic-election","facets":["identity","authority","intent","capability","relationship","event","evidence","state"]},
-    "RITES": {"repository":"carbonactual/RITES","domain":"continuity-and-event-memory","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "Nigerian Cultural Atlas": {"repository":"carbonactual/nigerian-cultural-atlas","domain":"culture-and-publishing","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "BUNK": {"repository":"carbonactual/bunk","domain":"property-and-companion","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"]},
-    "ZUJID & CO.": {"repository":"carbonactual/zujid","domain":"professional-advisory","facets":["identity","authority","intent","capability","relationship","event","evidence","state","value"],"ecosystem_boundary":"independent-company-codebase"}
+    "ABBA": {
+      "repository": "carbonactual/abba",
+      "domain": "master-orchestration-intelligence",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "ABBA MAS": {
+      "repository": "carbonactual/abba",
+      "composition_path": "mas/",
+      "domain": "capability-fabric-and-swarm-orchestration",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "OMNI": {
+      "repository": "carbonactual/omni",
+      "domain": "universal-interface",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "TIP": {
+      "repository": "carbonactual/tip",
+      "domain": "trade-and-investment",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ],
+      "legacy_product_id": "desk",
+      "public_name": "TIP",
+      "naming_rule": "TIP is the current public product identity; Desk remains a compatibility identifier only."
+    },
+    "SPOTIST": {
+      "repository": "carbonactual/spotist",
+      "domain": "seek-discovery-matching",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "HAPI World": {
+      "repository": "carbonactual/hapi-world",
+      "domain": "native-ecosystem-ai-world",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "HAPI World Nexus": {
+      "repository": "carbonactual/hapi-world",
+      "composition_path": "nexus/",
+      "domain": "ecosystem-presentation-and-integration-surface",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "NAIRE": {
+      "repository": "carbonactual/naire",
+      "domain": "human-operating-environment",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "NGIN": {
+      "repository": "carbonactual/ngin",
+      "domain": "organizational-and-territorial-operating-environment",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "SEED": {
+      "repository": "carbonactual/seed",
+      "domain": "genesis-and-incubation",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "HERITAGE": {
+      "repository": "carbonactual/heritage",
+      "domain": "lineage-and-archive",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "I/O": {
+      "repository": "carbonactual/io",
+      "domain": "movement-and-transport",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "Value System": {
+      "repository": "carbonactual/value-system",
+      "domain": "value-semantics-and-governed-value-pathways",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "InstituteGPT": {
+      "repository": "carbonactual/institutegpt",
+      "domain": "education-and-ai",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ],
+      "child_products": [
+        "NOUN BOT",
+        "MCP BOT"
+      ]
+    },
+    "NOUN BOT": {
+      "repository": "carbonactual/noun-student-bot",
+      "domain": "education-assistance",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "event",
+        "evidence",
+        "state"
+      ]
+    },
+    "MCP BOT": {
+      "repository": "carbonactual/mcp-bot",
+      "domain": "education-assistance-and-certification-prep",
+      "parent_product": "InstituteGPT",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "event",
+        "evidence",
+        "state"
+      ]
+    },
+    "Open Bank": {
+      "repository": "carbonactual/open-bank",
+      "domain": "banking-operations",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "Open Ballot": {
+      "repository": "carbonactual/open-ballot",
+      "domain": "civic-election",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state"
+      ]
+    },
+    "RITES": {
+      "repository": "carbonactual/RITES",
+      "domain": "continuity-and-event-memory",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "Nigerian Cultural Atlas": {
+      "repository": "carbonactual/nigerian-cultural-atlas",
+      "domain": "culture-and-publishing",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "BUNK": {
+      "repository": "carbonactual/bunk",
+      "domain": "property-and-companion",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ]
+    },
+    "ZUJID & CO.": {
+      "repository": "carbonactual/zujid",
+      "domain": "professional-advisory",
+      "facets": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value"
+      ],
+      "ecosystem_boundary": "independent-company-codebase"
+    }
   },
   "enforcement": "Registry declarations are architecture-level contracts. Product-specific repositories may add facets only through the Carbon Actual spine review process. Lifecycle declarations must keep archived implementations from becoming current authority. The registry is the complete current product projection catalog for the conformance matrix.",
   "historical_repository_policy": "Historical repository names remain valid provenance references. Current implementation repositories must point to active canonical repositories or explicit absorbed composition paths. Historical products without a current repository remain lifecycle records, not active product projections."
