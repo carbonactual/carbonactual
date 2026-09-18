@@ -52,6 +52,14 @@ This verification record documents the post-spine reconciliation pass that remov
 
 Residual occurrences are intentionally limited to compatibility/provenance/history artifacts, such as retained `OMNII_CONFORMANCE.md` filenames, historical extraction records, migration/crosswalk artifacts, legacy source paths, and internal compatibility identifiers. These do not identify OMNII as current authority.
 
+## Additional reconciliation checks
+
+- The live GitHub estate contains 55 repositories; all 55 are represented exactly once in the canonical estate registry, with no active unclassified repository.
+- The Carbon Actual semantic kernel remains exactly nine stable facets: identity, authority, intent, capability, relationship, event, evidence, state, value.
+- The broader Common Layer denominator catalogue is explicitly subordinate to that nine-facet kernel and is not a competing kernel.
+- TIP's market model now implements exactly the nine market-object families ratified by HAPI World MARKET UNIVERSE CANON; information, identifiers, environmental attributes and composite objects remain representations/configurations rather than new core primitives.
+- TIP is the current public economic-product identity; `desk` remains an internal compatibility identifier. OMNI remains a distinct current product.
+
 ## Result
 
-The reviewed live authority-bearing surfaces now align with the canonical hierarchy without deleting historical provenance or compatibility paths.
+The reviewed live authority-bearing surfaces now align with the canonical hierarchy without deleting historical provenance or compatibility paths. The only outstanding owner-only security action remains rotation and authorized history purge for the previously exposed Vault credential.
