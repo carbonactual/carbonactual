@@ -131,7 +131,7 @@ A provider may be replaced without changing the canonical capability identity, i
 
 ## 10. Connected provider universe
 
-Connected plugin/provider families may include source control, database/runtime, deployment/hosting, application deployment, documentation/knowledge, design, analytics, blockchain infrastructure, AI APIs and automation. These are capability sources, not separate operating systems.
+Connected plugin/provider families may include source control, database/runtime, deployment/hosting, application deployment, documentation/knowledge, design, analytics, blockchain infrastructure, AI APIs, automation, communication, presence, session management and media/provenance tooling. These are capability sources, not separate operating systems.
 
 ## 11. Mission integration
 
@@ -167,7 +167,7 @@ Ministry/domain classifications may be used operationally, but they are not cons
 
 ## 16. Product composition
 
-**OMNI** is the command/observation surface. **NAIRE** consumes CACF for human/household capabilities. **NGIN** consumes CACF for organization/institution/territory operations. **HAPI World** uses CACF for AI/agent capabilities under identity, delegation and authority. RITES/continuity remains an independent domain consuming shared substrate.
+**OMNI** is the command/observation surface. **NAIRE** consumes CACF for human/household capabilities. **NGIN** consumes CACF for organization/institution/territory operations. **HAPI World** uses CACF for AI/agent capabilities under identity, delegation and authority. **Communication & Presence** is a shared capability family consumed by OMNI, TIP, HAPI World, education products, ZUJID and other products without creating product-specific communication or presence primitives. RITES/continuity remains an independent domain consuming shared substrate.
 
 ## 17. Commercial composition
 
