@@ -48,6 +48,17 @@ test('Common Layer denominators do not become a competing kernel', () => {
   assert.match(commonLayer, /replacement for the nine canonical kernel facets/);
 });
 
+test('Communication & Presence remains a capability over the nine-facet kernel', async () => {
+  const registry = JSON.parse(await readFile('architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json', 'utf8'));
+  assert.equal(registry.canonical_source, 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md');
+  assert.equal(registry.constitutional_authority, 'carbonactual/hapi-world/CANON.md');
+  assert.deepEqual(registry.semantic_facets, expectedFacets);
+  assert.equal(registry.capability_rule, 'Communication and Presence are cross-cutting capabilities/denominators, not additional kernel facets.');
+  assert.ok(registry.maturity.canonical.includes('voice'));
+  assert.ok(registry.maturity.emerging.includes('AR/VR'));
+  assert.ok(registry.maturity.experimental.includes('BCI-neural-communication'));
+});
+
 test('critical semantic distinctions are explicit', () => {
   const laws = new Set(kernel.design_laws);
   assert.ok(laws.has('Authority is never inferred from capability.'));
