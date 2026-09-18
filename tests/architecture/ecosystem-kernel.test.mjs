@@ -61,9 +61,9 @@ test('Communication & Presence remains a capability over the nine-facet kernel',
 
 test('universal architecture freeze has explicit 40-area coverage', async () => {
   const coverage = JSON.parse(await readFile('architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json', 'utf8'));
-  assert.equal(coverage.required_areas, 40);
-  assert.equal(coverage.covered, 40);
-  assert.equal(coverage.gaps, 0);
+  assert.equal(coverage.summary.required_areas, 40);
+  assert.equal(coverage.summary.covered, 40);
+  assert.equal(coverage.summary.gaps, 0);
   assert.equal(coverage.coverage.length, 40);
   for (const [requirement, status, destinations] of coverage.coverage) {
     assert.equal(status, 'covered', requirement);
