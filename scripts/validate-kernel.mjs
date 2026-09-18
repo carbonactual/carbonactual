@@ -17,6 +17,7 @@ const creativeEconomyPath = 'architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABIL
 const capabilityOwnershipPath = 'architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json';
 const routingMapPath = 'architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json';
 const productTaxonomyPath = 'architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json';
+const swarmTeamTraceabilityPath = 'architecture/CARBON_ACTUAL_SWARM_TEAM_TRACEABILITY.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -31,6 +32,7 @@ const creativeEconomy = await readJson(creativeEconomyPath);
 const capabilityOwnership = await readJson(capabilityOwnershipPath);
 const routingMap = await readJson(routingMapPath);
 const productTaxonomy = await readJson(productTaxonomyPath);
+const swarmTeamTraceability = await readJson(swarmTeamTraceabilityPath);
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
@@ -44,6 +46,16 @@ const providerPolicy = await readFile(providerPolicyPath, 'utf8');
 if (!providerPolicy.includes('Provider is not authority.')) fail('integration provider policy authority boundary missing');
 if (!providerPolicy.includes('open standards')) fail('integration provider policy open-first rule missing');
 if (productTaxonomy.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('product taxonomy constitutional authority drift');
+if (swarmTeamTraceability.authority !== 'carbonactual/carbonactual') fail('Swarm/Team traceability authority drift');
+if (swarmTeamTraceability.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('Swarm/Team traceability constitutional authority drift');
+if (swarmTeamTraceability.contract !== 'architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md') fail('Swarm/Team traceability contract drift');
+if (!Array.isArray(swarmTeamTraceability.traceability) || swarmTeamTraceability.traceability.length !== 10) fail('Swarm/Team traceability must cover 10 canonical relationships/objects');
+for (const row of swarmTeamTraceability.traceability) {
+  if (!row.object || !row.kernel_facet || !row.swarm_team_role || !row.authority_gate) fail('incomplete Swarm/Team traceability row');
+}
+for (const requirement of swarmTeamTraceability.team_record_requirements || []) if (typeof requirement !== 'string') fail('invalid Team record requirement');
+for (const requirement of swarmTeamTraceability.workflow_record_requirements || []) if (typeof requirement !== 'string') fail('invalid Workflow record requirement');
+if (JSON.stringify(swarmTeamTraceability.readiness_states) !== JSON.stringify(['READY','INCOMPLETE','BLOCKED'])) fail('Swarm/Team readiness states drift');
 const allowedKinds = new Set(productTaxonomy.classification_values || []);
 for (const [name, record] of Object.entries(productTaxonomy.canonical_current_products || {})) {
   if (!allowedKinds.has(record.kind)) fail('invalid product taxonomy kind: ' + name);
@@ -208,7 +220,7 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md','architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md','architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
   'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json','architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json','architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json','architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md',
+  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json','architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json','architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json','architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md','architecture/CARBON_ACTUAL_SWARM_TEAM_TRACEABILITY.json','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
