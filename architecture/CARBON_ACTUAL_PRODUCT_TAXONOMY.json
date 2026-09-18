@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "status": "canonical-product-taxonomy-control",
+  "authority": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "classification_values": [
+    "ecosystem",
+    "platform_surface",
+    "domain_product",
+    "agent_or_agent_family",
+    "internal_module",
+    "infrastructure",
+    "doctrine_or_principle",
+    "external_provider",
+    "historical_or_preserved",
+    "future_domain"
+  ],
+  "rules": [
+    "A named concept is not automatically a public product.",
+    "Public product status requires a current product projection or explicit product declaration.",
+    "Platform layers and internal modules must not be marketed or routed as separate products unless explicitly promoted.",
+    "Agent/agent-family names do not automatically create independent identity or authority systems.",
+    "Historical/preserved names remain discoverable but are not current routing destinations.",
+    "A future domain may be specified canonically without an implementation repository."
+  ],
+  "canonical_current_products": {
+    "ABBA": {
+      "kind": "agent_or_agent_family",
+      "repository": "carbonactual/abba",
+      "domain": "master-orchestration-intelligence",
+      "public_product_surface": false
+    },
+    "OMNI": {
+      "kind": "platform_surface",
+      "repository": "carbonactual/omni",
+      "domain": "universal-interface",
+      "public_product_surface": true
+    },
+    "TIP": {
+      "kind": "domain_product",
+      "repository": "carbonactual/tip",
+      "domain": "trade-and-investment",
+      "public_product_surface": true,
+      "legacy_names": [
+        "Desk"
+      ]
+    },
+    "SPOTIST": {
+      "kind": "domain_product",
+      "repository": "carbonactual/spotist",
+      "domain": "seek-discovery-matching",
+      "public_product_surface": true
+    },
+    "HAPI World": {
+      "kind": "platform_surface",
+      "repository": "carbonactual/hapi-world",
+      "domain": "native-ecosystem-ai-world",
+      "public_product_surface": true
+    },
+    "NAIRE": {
+      "kind": "domain_product",
+      "repository": "carbonactual/naire",
+      "domain": "human-operating-environment",
+      "public_product_surface": true
+    },
+    "NGIN": {
+      "kind": "domain_product",
+      "repository": "carbonactual/ngin",
+      "domain": "organizational-and-territorial-operating-environment",
+      "public_product_surface": true
+    },
+    "SEED": {
+      "kind": "domain_product",
+      "repository": "carbonactual/seed",
+      "domain": "genesis-and-incubation",
+      "public_product_surface": true
+    },
+    "HERITAGE": {
+      "kind": "domain_product",
+      "repository": "carbonactual/heritage",
+      "domain": "lineage-and-archive",
+      "public_product_surface": true
+    },
+    "I/O": {
+      "kind": "platform_surface",
+      "repository": "carbonactual/io",
+      "domain": "movement-value-flow-and-settlement",
+      "public_product_surface": true
+    },
+    "Value System": {
+      "kind": "platform_surface",
+      "repository": "carbonactual/value-system",
+      "domain": "value-semantics",
+      "public_product_surface": true
+    },
+    "InstituteGPT": {
+      "kind": "domain_product",
+      "repository": "carbonactual/institutegpt",
+      "domain": "education-and-ai",
+      "public_product_surface": true
+    },
+    "NOUN BOT": {
+      "kind": "agent_or_agent_family",
+      "repository": "carbonactual/noun-student-bot",
+      "domain": "education-assistance",
+      "public_product_surface": true
+    },
+    "MCP BOT": {
+      "kind": "agent_or_agent_family",
+      "repository": "carbonactual/mcp-bot",
+      "domain": "education-assistance-and-certification-prep",
+      "public_product_surface": true
+    },
+    "Open Bank": {
+      "kind": "domain_product",
+      "repository": "carbonactual/open-bank",
+      "domain": "banking-operations",
+      "public_product_surface": true
+    },
+    "Open Ballot": {
+      "kind": "domain_product",
+      "repository": "carbonactual/open-ballot",
+      "domain": "civic-election",
+      "public_product_surface": true
+    },
+    "Nigerian Cultural Atlas": {
+      "kind": "domain_product",
+      "repository": "carbonactual/nigerian-cultural-atlas",
+      "domain": "culture-and-publishing",
+      "public_product_surface": true
+    },
+    "BUNK": {
+      "kind": "domain_product",
+      "repository": "carbonactual/bunk",
+      "domain": "property-and-companion",
+      "public_product_surface": true
+    },
+    "ZUJID & CO.": {
+      "kind": "domain_product",
+      "repository": "carbonactual/zujid",
+      "domain": "professional-advisory",
+      "public_product_surface": true
+    },
+    "RITES": {
+      "kind": "domain_product",
+      "repository": "carbonactual/RITES",
+      "domain": "continuity-and-event-memory",
+      "public_product_surface": true
+    }
+  },
+  "absorbed_or_internal": {
+    "ABBA MAS": {
+      "kind": "internal_module",
+      "repository": "carbonactual/abba",
+      "path": "mas/",
+      "public_product_surface": false,
+      "parent": "ABBA"
+    },
+    "HAPI World Nexus": {
+      "kind": "internal_module",
+      "repository": "carbonactual/hapi-world",
+      "path": "nexus/",
+      "public_product_surface": false,
+      "parent": "HAPI World"
+    },
+    "Platform Runtime": {
+      "kind": "infrastructure",
+      "repository": "carbonactual/Carbon-Actual-",
+      "public_product_surface": false
+    },
+    "Vault": {
+      "kind": "infrastructure",
+      "repository": "carbonactual/vault",
+      "public_product_surface": false,
+      "boundary": "private-secret-custody"
+    }
+  },
+  "future_domains": {
+    "Creative Economy": {
+      "kind": "future_domain",
+      "repository": null,
+      "contract": "architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md"
+    }
+  },
+  "ecosystem_concepts": {
+    "Carbon Actual": {
+      "kind": "ecosystem",
+      "repository": "carbonactual/carbonactual",
+      "public_product_surface": false
+    },
+    "Being": {
+      "kind": "doctrine_or_principle",
+      "public_product_surface": false
+    },
+    "Becoming": {
+      "kind": "doctrine_or_principle",
+      "public_product_surface": false
+    },
+    "Root": {
+      "kind": "platform_surface",
+      "public_product_surface": false
+    },
+    "Index": {
+      "kind": "platform_surface",
+      "public_product_surface": false
+    },
+    "Actual": {
+      "kind": "platform_surface",
+      "public_product_surface": false
+    },
+    "Atlas": {
+      "kind": "platform_surface",
+      "public_product_surface": false
+    },
+    "Pulse": {
+      "kind": "doctrine_or_principle",
+      "public_product_surface": false
+    },
+    "Ash": {
+      "kind": "platform_surface",
+      "public_product_surface": false
+    },
+    "Phoenix": {
+      "kind": "platform_surface",
+      "public_product_surface": false
+    },
+    "SEAL": {
+      "kind": "platform_surface",
+      "public_product_surface": false
+    }
+  },
+  "historical_or_preserved_names": [
+    "PRAI",
+    "Babylon",
+    "Shadow",
+    "GONG/GoNG",
+    "RatesFX",
+    "AfriPredict",
+    "CAP/C-MAP",
+    "Desk"
+  ],
+  "future_or_unresolved_rule": "Future or unresolved names may be registered without a live repository or routing target. They remain non-current until explicitly promoted with evidence.",
+  "relationship_to_product_projection_registry": "This taxonomy classifies the projection registry's named products more precisely; it does not replace the registry's product-contract inheritance rules."
+}
