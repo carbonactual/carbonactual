@@ -27,7 +27,7 @@ const freezeCoverage = await readJson(freezeCoveragePath);
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
 if (freezeCoverage.operating_spine !== 'carbonactual/carbonactual') fail('freeze coverage must resolve to canonical Carbon Actual');
-if (freezeCoverage.required_areas !== 40 || freezeCoverage.covered !== 40 || freezeCoverage.gaps !== 0) fail('universal architecture freeze coverage must declare 40 covered areas and zero gaps');
+if (freezeCoverage.summary?.required_areas !== 40 || freezeCoverage.summary?.covered !== 40 || freezeCoverage.summary?.gaps !== 0) fail('universal architecture freeze coverage must declare 40 covered areas and zero gaps');
 if (!Array.isArray(freezeCoverage.coverage) || freezeCoverage.coverage.length !== 40) fail('universal architecture freeze coverage matrix must contain exactly 40 areas');
 for (const entry of freezeCoverage.coverage) {
   if (!Array.isArray(entry) || entry.length !== 3) fail('freeze coverage entry must be [requirement,status,destinations]');
