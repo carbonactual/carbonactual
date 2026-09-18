@@ -102,3 +102,15 @@ Carbon Actual is the canonical ecosystem name and operating-spine identity. Prod
 3. **Carbon Actual** — ecosystem operating spine
 
 *BEING → BECOMING → ACTUAL.*
+
+## CURRENT CONTROL ORDER
+
+1. **HAPI World Canon** — constitutional authority for the HAPI World boundary.
+2. **Carbon Actual operating spine** — shared semantic contracts, repository authority, capability ownership, routing and conformance.
+3. **ABBA / ABBA-MAS** — intelligence, orchestration, command, policy and execution coordination.
+4. **Platform runtime** — executable implementation of the contracts.
+5. **Products** — specialized leaves consuming the shared fabric.
+6. **Providers** — replaceable implementations behind capability adapters.
+7. **Historical repositories** — provenance/recovery only unless explicitly promoted by amendment.
+
+The canonical architecture intentionally separates frozen invariants from replaceable implementations. New domains are composed from existing facets before any new universal primitive is considered.
