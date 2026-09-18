@@ -8,6 +8,10 @@ This document defines the reusable denominator model for Carbon Actual. It preve
 
 The Common Layer is the reusable substrate. Products and domains compose it; they do not silently create competing versions of canonical semantics.
 
+## Relationship to the nine-facet semantic kernel
+
+The denominator model is broader than the nine-facet semantic kernel. Denominators describe reusable concepts/capabilities across domains; the nine facets are the stable interoperability grammar of the Carbon Actual operating spine. Denominators therefore map to, compose over, and reuse the kernel rather than becoming additional kernel facets.
+
 ## 1. Two denominator levels
 
 ### Universal denominators
