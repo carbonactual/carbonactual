@@ -278,7 +278,7 @@
       "Versioning/migration/backward compatibility/lifecycle",
       "covered",
       [
-        "architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json",
+        "architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json",
         "architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json"
       ]
     ],
