@@ -59,6 +59,18 @@ test('Communication & Presence remains a capability over the nine-facet kernel',
   assert.ok(registry.maturity.experimental.includes('BCI-neural-communication'));
 });
 
+test('repository routing follows Human → ABBA → ABBA-MAS → shared fabric → product/provider', async () => {
+  const routing = JSON.parse(await readFile('architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json', 'utf8'));
+  assert.equal(routing.routes.abba.repository, 'carbonactual/abba');
+  assert.equal(routing.routes.abba.delegates_to, 'ABBA-MAS');
+  assert.equal(routing.routes.abba_mas.repository, 'carbonactual/abba');
+  assert.equal(routing.routes.shared_capability_fabric.repository, 'carbonactual/carbonactual');
+  assert.equal(routing.routes.platform_runtime.repository, 'carbonactual/Carbon-Actual-');
+  assert.match(routing.routes.products.rule, /leaves/);
+  assert.match(routing.legacy['carbonactual/abba-mas'], /archived-provenance/);
+  assert.match(routing.legacy['carbonactual/omnii'], /archived-provenance/);
+});
+
 test('Creative Economy remains a separate future domain composition', async () => {
   const registry = JSON.parse(await readFile('architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json', 'utf8'));
   assert.equal(registry.canonical_contract, 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md');
