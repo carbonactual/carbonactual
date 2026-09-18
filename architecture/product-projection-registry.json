@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Product Projection Registry",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "status": "canonical-registry",
   "rule": "Products are projections over the shared Carbon Actual operating spine. They may specialize workflows and interfaces but do not create parallel constitutional primitives.",
   "common_required_facets": [
