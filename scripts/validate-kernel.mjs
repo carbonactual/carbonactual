@@ -39,6 +39,10 @@ if (creativeEconomy.canonical_contract !== 'carbonactual/carbonactual/architectu
 if (capabilityOwnership.semantic_authority !== 'carbonactual/carbonactual') fail('capability ownership semantic authority drift');
 if (routingMap.semantic_authority !== 'carbonactual/carbonactual') fail('routing map semantic authority drift');
 if (productTaxonomy.authority !== 'carbonactual/carbonactual') fail('product taxonomy authority drift');
+const providerPolicyPath = 'architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md';
+const providerPolicy = await readFile(providerPolicyPath, 'utf8');
+if (!providerPolicy.includes('Provider is not authority.')) fail('integration provider policy authority boundary missing');
+if (!providerPolicy.includes('open standards')) fail('integration provider policy open-first rule missing');
 if (productTaxonomy.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('product taxonomy constitutional authority drift');
 const allowedKinds = new Set(productTaxonomy.classification_values || []);
 for (const [name, record] of Object.entries(productTaxonomy.canonical_current_products || {})) {
@@ -204,7 +208,7 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md','architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md','architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
   'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json','architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json','architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json','architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md',
+  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json','architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json','architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json','architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
