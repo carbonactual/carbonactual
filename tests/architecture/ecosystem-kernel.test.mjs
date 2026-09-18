@@ -59,6 +59,17 @@ test('Communication & Presence remains a capability over the nine-facet kernel',
   assert.ok(registry.maturity.experimental.includes('BCI-neural-communication'));
 });
 
+test('product taxonomy separates products from modules, agents, infrastructure and preserved names', async () => {
+  const taxonomy = JSON.parse(await readFile('architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json', 'utf8'));
+  assert.ok(taxonomy.classification_values.includes('domain_product'));
+  assert.equal(taxonomy.canonical_current_products.TIP.kind, 'domain_product');
+  assert.equal(taxonomy.canonical_current_products.ABBA.kind, 'agent_or_agent_family');
+  assert.equal(taxonomy.absorbed_or_internal['ABBA MAS'].kind, 'internal_module');
+  assert.equal(taxonomy.absorbed_or_internal['Platform Runtime'].kind, 'infrastructure');
+  assert.ok(taxonomy.historical_or_preserved_names.includes('Desk'));
+  assert.equal(taxonomy.future_domains['Creative Economy'].repository, null);
+});
+
 test('repository routing follows Human → ABBA → ABBA-MAS → shared fabric → product/provider', async () => {
   const routing = JSON.parse(await readFile('architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json', 'utf8'));
   assert.equal(routing.routes.abba.repository, 'carbonactual/abba');
