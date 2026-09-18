@@ -76,7 +76,7 @@ test('integration provider policy remains vendor-neutral and open-first', async 
   assert.match(policy, /Provider is not ontology\./);
   assert.match(policy, /open standards/);
   assert.match(policy, /self-hostable implementations/);
-  assert.match(policy, /exit must remain possible/);
+  assert.match(policy, /Exit must remain possible/);
 });
 
 test('product taxonomy separates products from modules, agents, infrastructure and preserved names', async () => {
