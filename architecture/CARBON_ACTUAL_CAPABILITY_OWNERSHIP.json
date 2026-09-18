@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "status": "canonical-capability-ownership-control",
+  "semantic_authority": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "rules": [
+    "Each universal capability family has one canonical semantic owner.",
+    "Implementations may live in multiple repositories only when they implement the same contract through explicit adapters/projections.",
+    "An implementation repository cannot promote itself to semantic authority.",
+    "Archived repositories remain provenance/recovery sources unless explicitly promoted by a canonical amendment.",
+    "Product repositories consume capabilities; they do not redefine universal capability meaning."
+  ],
+  "owners": {
+    "semantic_kernel": "carbonactual/carbonactual",
+    "repository_estate_and_architecture": "carbonactual/carbonactual",
+    "identity_entity_resolution": "carbonactual/carbonactual",
+    "authority_seal_governance": "carbonactual/hapi-world",
+    "human_hapi_world_ontology": "carbonactual/hapi-world",
+    "abba_intelligence_orchestration": "carbonactual/abba",
+    "abba_mas_command_policy_coordination": "carbonactual/abba",
+    "event_interaction_and_provenance_contracts": "carbonactual/carbonactual",
+    "communication_presence": "carbonactual/carbonactual",
+    "capability_discovery_and_routing": "carbonactual/carbonactual",
+    "runtime_infrastructure": "carbonactual/Carbon-Actual-",
+    "durable_runtime_persistence": "carbonactual/Carbon-Actual-",
+    "value_semantics": "carbonactual/value-system",
+    "value_flow_and_settlement": "carbonactual/io",
+    "trade_and_investment_product": "carbonactual/tip",
+    "organization_domain": "carbonactual/ngin",
+    "human_domain": "carbonactual/naire",
+    "education_domain": "carbonactual/institutegpt",
+    "creative_economy_domain": "carbonactual/carbonactual",
+    "cultural_atlas_domain": "carbonactual/nigerian-cultural-atlas",
+    "continuity_and_identity_rites": "carbonactual/RITES",
+    "private_secret_custody": "carbonactual/vault",
+    "property_domain_bunk": "carbonactual/bunk",
+    "site_business_service_zujid": "carbonactual/zujid",
+    "external_agent_tool_mirror": "carbonactual/ECC"
+  },
+  "absorbed_archives": {
+    "carbonactual/abba-mas": {
+      "current_owner": "carbonactual/abba",
+      "status": "archived-provenance",
+      "reason": "command routing, SEAL policy, provider routing, proof coordination and product registry are now composed under ABBA MAS inside the ABBA repository"
+    },
+    "carbonactual/omnii": {
+      "current_owner": "carbonactual/carbonactual",
+      "status": "archived-provenance",
+      "reason": "former operating-spine material was mapped into Carbon Actual canonical contracts; BUNK product material was separately extracted"
+    }
+  }
+}
