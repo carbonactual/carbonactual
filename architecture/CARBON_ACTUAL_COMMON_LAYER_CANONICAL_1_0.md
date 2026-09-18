@@ -16,11 +16,15 @@ The physical persistence mechanism is an implementation detail. Existing provide
 - **Ecosystem denominators:** `INTENT, CAPABILITY, AUTHORITY, AUTHORIZATION, OBLIGATION, REQUEST, SERVICE, WORKFLOW, TASK, DISCOVERY, MATCHING, AVAILABILITY, RESOURCE, RIGHTS, VALUE, EXCHANGE, MARKET, OFFER, ORDER, TRANSACTION, SETTLEMENT, EVIDENCE, PROVENANCE, POLICY, DECISION, COMMUNICATION, AUDIT, REGISTRY, COMPLIANCE, RISK, CONSENT, CREDENTIAL, SCHEDULING, BOOKING, QUEUE, ALLOCATION, EXECUTION, FULFILLMENT, DELIVERY, INTEROPERABILITY`.
 - Domain-specific concepts extend these contracts; technology-specific implementations sit at the edge and remain replaceable.
 
-## Eight deep common denominators
+## Eight deep composition denominators — not kernel facets
 
 `ENTITY + RELATIONSHIP + INTENT + CAPABILITY + VALUE + AUTHORITY + MOTION + OUTCOME`
 
-These are expressed through the existing Carbon Actual foundation and composition contracts.
+These are **design/composition dimensions**, not a second semantic kernel or a replacement for the nine canonical kernel facets:
+
+`IDENTITY + AUTHORITY + INTENT + CAPABILITY + RELATIONSHIP + EVENT + EVIDENCE + STATE + VALUE`
+
+The eight-dimension shorthand is useful when designing cross-domain flows; each dimension maps into existing Carbon Actual facets and denominators. It must never be registered or implemented as a competing kernel.
 
 ## Shared primitive registry
 
