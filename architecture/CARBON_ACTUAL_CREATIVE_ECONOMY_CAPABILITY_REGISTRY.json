@@ -1,0 +1,69 @@
+{
+  "name": "Carbon Actual Creative Economy Capability Registry",
+  "version": "1.0.0",
+  "status": "canonical-domain-registry",
+  "domain": "music-and-creative-economy",
+  "canonical_contract": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md",
+  "implementation_status": "future-dedicated-product",
+  "implementation_repository": null,
+  "parent_domains": [
+    "communication-presence",
+    "economic-revenue-monetization",
+    "event",
+    "evidence",
+    "value",
+    "capability"
+  ],
+  "capabilities": [
+    "creator-and-contributor-registry",
+    "work-and-recording-lineage",
+    "rights-and-license-management",
+    "contract-and-split-management",
+    "studio-and-production-coordination",
+    "beat-and-remix-versioning",
+    "media-production",
+    "quality-review",
+    "rights-clearance",
+    "release-and-distribution",
+    "live-performance-and-events",
+    "booking-and-tour-coordination",
+    "audience-and-presence",
+    "content-provenance",
+    "synthetic-media-disclosure",
+    "royalty-accounting",
+    "revenue-sharing",
+    "creative-financing",
+    "education-and-coaching",
+    "awards-and-reputation-evidence",
+    "cultural-legacy-archiving",
+    "annual-abba-99-composition"
+  ],
+  "maturity": {
+    "canonical": [
+      "rights-lineage",
+      "work-recording-distinction",
+      "event-performance",
+      "contributor-relationships",
+      "provenance",
+      "royalty-accounting-boundary"
+    ],
+    "future": [
+      "dedicated-creative-economy-product",
+      "full-production-workflows",
+      "global-rights-clearance-adapters",
+      "catalog-investment-market"
+    ],
+    "experimental": [
+      "synthetic-media-production-workflows",
+      "advanced-audience-integrity-signals"
+    ]
+  },
+  "prohibited_duplicates": [
+    "second identity system",
+    "second rights ontology",
+    "second universal ledger",
+    "second communication fabric",
+    "second orchestration intelligence"
+  ],
+  "cultural_atlas_boundary": "Nigerian Cultural Atlas remains publishing/atlas; creative production and rights/commercial operations remain separate."
+}
