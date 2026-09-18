@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "status": "canonical-routing-control",
+  "semantic_authority": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "routes": {
+    "human_or_authorized_source": {
+      "entry": "ABBA",
+      "rule": "Human authority and/or existing authorized source enters through ABBA command/intelligence boundary; capability does not imply authority."
+    },
+    "abba": {
+      "repository": "carbonactual/abba",
+      "role": "master-intelligence-and-orchestration",
+      "delegates_to": "ABBA-MAS",
+      "cannot": "self-issue authority, replace Canon, or create parallel universal primitives"
+    },
+    "abba_mas": {
+      "repository": "carbonactual/abba",
+      "path": "mas/",
+      "role": "command-policy-routing-execution-proof-coordination",
+      "consumes": [
+        "carbonactual/carbonactual",
+        "carbonactual/hapi-world"
+      ],
+      "cannot": "be a second master intelligence, constitution, identity system, or universal ledger"
+    },
+    "shared_capability_fabric": {
+      "repository": "carbonactual/carbonactual",
+      "role": "semantic capability discovery and contract routing",
+      "capabilities": [
+        "identity",
+        "authority",
+        "intent",
+        "capability",
+        "relationship",
+        "event",
+        "evidence",
+        "state",
+        "value",
+        "communication",
+        "presence",
+        "physical-world",
+        "accessibility",
+        "localization",
+        "economic-revenue-monetization"
+      ]
+    },
+    "platform_runtime": {
+      "repository": "carbonactual/Carbon-Actual-",
+      "role": "executable runtime and infrastructure implementation",
+      "source_of_semantics": "carbonactual/carbonactual",
+      "constitutional_source": "carbonactual/hapi-world/CANON.md"
+    },
+    "products": {
+      "rule": "Products are terminal projections/leaves; they consume the shared fabric and do not redefine universal semantics.",
+      "examples": {
+        "tip": "carbonactual/tip",
+        "omni": "carbonactual/omni",
+        "zujid": "carbonactual/zujid",
+        "hapi_world": "carbonactual/hapi-world",
+        "nigerian_cultural_atlas": "carbonactual/nigerian-cultural-atlas",
+        "rites": "carbonactual/RITES",
+        "institution_gpt": "carbonactual/institutegpt",
+        "bunk": "carbonactual/bunk"
+      }
+    },
+    "providers": {
+      "rule": "Providers are replaceable external implementations reached through capability adapters. Provider availability never creates constitutional authority."
+    }
+  },
+  "legacy": {
+    "carbonactual/abba-mas": "archived-provenance; absorbed into carbonactual/abba/mas/",
+    "carbonactual/omnii": "archived-provenance; former operating-spine material mapped into Carbon Actual; BUNK extracted"
+  },
+  "invariants": [
+    "semantic authority is one Carbon Actual spine",
+    "constitutional authority remains HAPI World CANON.md",
+    "ABBA is the master intelligence/orchestration layer",
+    "ABBA-MAS is subordinate to ABBA",
+    "products are leaves",
+    "providers are replaceable",
+    "authority is explicitly evaluated before consequential execution"
+  ]
+}
