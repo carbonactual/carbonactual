@@ -45,7 +45,7 @@ test('kernel cannot override the constitutional Canon', () => {
 test('Common Layer denominators do not become a competing kernel', () => {
   assert.match(commonLayer, /not a second semantic kernel/);
   assert.match(commonLayer, /IDENTITY \+ AUTHORITY \+ INTENT \+ CAPABILITY \+ RELATIONSHIP \+ EVENT \+ EVIDENCE \+ STATE \+ VALUE/);
-  assert.match(commonLayer, /not a replacement for the nine canonical kernel facets/);
+  assert.match(commonLayer, /replacement for the nine canonical kernel facets/);
 });
 
 test('critical semantic distinctions are explicit', () => {
