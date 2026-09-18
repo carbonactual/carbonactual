@@ -11,6 +11,7 @@ const migrationRegistryPath = ['architecture/LEGACY_', obsoleteSpineIdentity, '_
 const integrationFabricPath = 'architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json';
 const legacyCrosswalkPath = 'architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json';
 const repositoryEstatePath = 'architecture/repository-estate-registry.json';
+const communicationPresencePath = 'architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -19,8 +20,14 @@ const migration = await readJson(migrationRegistryPath);
 const integrationFabric = await readJson(integrationFabricPath);
 const legacyCrosswalk = await readJson(legacyCrosswalkPath);
 const estate = await readJson(repositoryEstatePath);
+const communicationPresence = await readJson(communicationPresencePath);
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
+if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
+if (communicationPresence.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('communication/presence registry must preserve constitutional authority');
+if ((communicationPresence.semantic_facets || []).join('|') !== expectedFacets.join('|')) fail('communication/presence registry facet inheritance drift');
+if (communicationPresence.capability_rule !== 'Communication and Presence are cross-cutting capabilities/denominators, not additional kernel facets.') fail('communication/presence must remain subordinate to the nine-facet kernel');
+if (!Array.isArray(communicationPresence.maturity?.canonical) || communicationPresence.maturity.canonical.length === 0) fail('communication/presence canonical capability set is empty');
 const requiredProductRepositories = [
   'carbonactual/abba','carbonactual/omni','carbonactual/tip','carbonactual/spotist','carbonactual/hapi-world',
   'carbonactual/naire','carbonactual/ngin','carbonactual/seed','carbonactual/heritage','carbonactual/io',
@@ -149,7 +156,7 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md','architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md','architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
   'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md',
+  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json',
   'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
