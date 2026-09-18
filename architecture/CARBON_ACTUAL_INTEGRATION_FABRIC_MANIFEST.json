@@ -22,5 +22,16 @@
     "HNS",
     "future protocols"
   ],
-  "human_authority": "Human authority remains binding through governed crossings and SEAL contracts."
+  "human_authority": "Human authority remains binding through governed crossings and SEAL contracts.",
+  "supported_capabilities": [
+    "communication",
+    "presence",
+    "session",
+    "representation",
+    "media-provenance"
+  ],
+  "canonical_capability_contracts": [
+    "architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md",
+    "architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json"
+  ]
 }
