@@ -1,0 +1,133 @@
+{
+  "name": "Carbon Actual Communication & Presence Capability Registry",
+  "version": "1.0.0",
+  "status": "canonical-capability-registry",
+  "canonical_source": "carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "semantic_facets": [
+    "identity",
+    "authority",
+    "intent",
+    "capability",
+    "relationship",
+    "event",
+    "evidence",
+    "state",
+    "value"
+  ],
+  "capability_rule": "Communication and Presence are cross-cutting capabilities/denominators, not additional kernel facets.",
+  "maturity": {
+    "canonical": [
+      "text",
+      "document",
+      "image",
+      "audio",
+      "speech",
+      "voice",
+      "video",
+      "captioning",
+      "transcription",
+      "translation",
+      "notification",
+      "live-call",
+      "meeting",
+      "room",
+      "invitation",
+      "attendance",
+      "presence",
+      "delivery-status",
+      "session",
+      "message",
+      "media-artifact",
+      "decision",
+      "minutes",
+      "question-answer",
+      "action-item",
+      "API",
+      "RPC",
+      "webhook",
+      "event-stream",
+      "pub-sub",
+      "MCP",
+      "A2A",
+      "device-local"
+    ],
+    "emerging": [
+      "spatial-communication",
+      "AR/VR",
+      "immersive-session",
+      "gesture-interface",
+      "body-language-interface",
+      "haptic-interface",
+      "silent-speech",
+      "satellite-direct-to-device"
+    ],
+    "experimental": [
+      "BCI-neural-communication",
+      "advanced-environment-sensing-communication",
+      "experimental-olfactory",
+      "experimental-gustatory"
+    ],
+    "future": [
+      "new-modalities-as-registry-entries"
+    ]
+  },
+  "invariants": [
+    "communication is not authority",
+    "presence is not identity",
+    "delivery is not consent",
+    "recording is not automatically truth",
+    "transcript is not the original event",
+    "provider is not constitutional authority"
+  ],
+  "transport_adapters": [
+    "internet",
+    "cellular",
+    "wifi",
+    "bluetooth",
+    "device-to-device",
+    "satellite",
+    "radio",
+    "optical",
+    "acoustic",
+    "underwater",
+    "store-and-forward",
+    "delay/disruption-tolerant",
+    "local/offline",
+    "event",
+    "API",
+    "MCP",
+    "A2A"
+  ],
+  "privacy_modes": [
+    "public",
+    "private",
+    "restricted",
+    "invite-only",
+    "anonymous",
+    "pseudonymous",
+    "incognito",
+    "selective-disclosure",
+    "ephemeral"
+  ],
+  "security_controls": [
+    "least-privilege-session-access",
+    "representation-provenance",
+    "anti-impersonation",
+    "recording-consent",
+    "media-integrity",
+    "replay-resistance",
+    "anti-tracking",
+    "abuse-controls",
+    "evidence-preservation",
+    "continuity-and-portability"
+  ],
+  "products_consume": [
+    "carbonactual/omni",
+    "carbonactual/tip",
+    "carbonactual/hapi-world",
+    "carbonactual/zujid",
+    "carbonactual/noun-student-bot",
+    "carbonactual/mcp-bot"
+  ]
+}
