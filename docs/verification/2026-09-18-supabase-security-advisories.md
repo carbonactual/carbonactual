@@ -54,3 +54,12 @@ This is an intentional server-side runtime boundary.
 ## Principle
 
 Provider-managed infrastructure remains visible as an external dependency and is not misrepresented as successfully remediated by ineffective application-owned SQL.
+
+
+## Performance advisor snapshot — 2026-09-18
+
+The current performance advisor reports 24 unindexed foreign keys and 320 unused indexes. These metrics are treated as an evidence-backed optimization backlog, not automatic deletion candidates: zero observed scans can be caused by low traffic, recent creation, infrequent workflows, or planned future paths.
+
+The newly created `canonical_runtime_records_collection_idx` is currently unused because the table has zero rows. It remains intentional and should only be reconsidered after runtime workload evidence exists.
+
+No production index or foreign-key mutation was performed in this pass.
