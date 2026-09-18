@@ -1,0 +1,324 @@
+{
+  "name": "Carbon Actual Universal Architecture Freeze Coverage Matrix",
+  "version": "1.0.0",
+  "status": "canonical-coverage-control",
+  "authority": "carbonactual/hapi-world/CANON.md",
+  "operating_spine": "carbonactual/carbonactual",
+  "rule": "Freeze invariants and composition boundaries; keep implementation choices replaceable. Every required architectural concern must map to an existing canonical contract, with no silent omission.",
+  "coverage": [
+    [
+      "Universal entity/object ontology",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md",
+        "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md"
+      ]
+    ],
+    [
+      "Universal capability ontology",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md"
+      ]
+    ],
+    [
+      "Identity, authority, consent, delegation",
+      "covered",
+      [
+        "architecture/ecosystem-kernel.json",
+        "architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md"
+      ]
+    ],
+    [
+      "Human capability / HAPI",
+      "covered",
+      [
+        "architecture/ecosystem-kernel.json",
+        "architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md"
+      ]
+    ],
+    [
+      "AI/agent intelligence / ABBA",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md",
+        "architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md"
+      ]
+    ],
+    [
+      "Human-AI HASH relationship",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md",
+        "architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"
+      ]
+    ],
+    [
+      "Knowledge, data, provenance, lineage",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md",
+        "architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md"
+      ]
+    ],
+    [
+      "Value/Pulse/economic ontology",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Asset/liability and inverted economics",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Value baseline/floor/boundary",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+        "architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Logical ledgers / interoperability",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+        "architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md"
+      ]
+    ],
+    [
+      "Tokenization/fractionalization/decimalization",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Blockchain-agnostic architecture",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md",
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Payments/finance/Nano Banking/settlement",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+        "architecture/product-projection-registry.json"
+      ]
+    ],
+    [
+      "Marketplace/exchange fabric",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+        "architecture/product-projection-registry.json"
+      ]
+    ],
+    [
+      "Contracts/commitments/obligations",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md"
+      ]
+    ],
+    [
+      "Communication/network/relationship fabric",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md",
+        "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md"
+      ]
+    ],
+    [
+      "Workflow/automation/orchestration/curation",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md",
+        "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md"
+      ]
+    ],
+    [
+      "Integration/open standards/provider replaceability",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md",
+        "architecture/CARBON_ACTUAL_INTEGRATION_KERNEL.md"
+      ]
+    ],
+    [
+      "MCP/A2A/API/SDK/tool/agent strategy",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_INTEGRATION_FABRIC_MANIFEST.json"
+      ]
+    ],
+    [
+      "Hardware/IoT/physical/robot/machine interoperability",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md"
+      ]
+    ],
+    [
+      "Human/digital/physical resource management",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md",
+        "architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md"
+      ]
+    ],
+    [
+      "Maintenance/repair/Spare/lifecycle continuity",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md",
+        "architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Security/zero-trust/privacy/selective disclosure/recovery",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md"
+      ]
+    ],
+    [
+      "Ash/Phoenix lifecycle",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md"
+      ]
+    ],
+    [
+      "No-waste/value recovery",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+        "architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Certification/skills/knowledge/institutional capability",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md",
+        "architecture/product-projection-registry.json"
+      ]
+    ],
+    [
+      "Organizational intelligence/workforce/capability optimization",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md",
+        "architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md"
+      ]
+    ],
+    [
+      "Opportunity/Becoming engine",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md",
+        "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md"
+      ]
+    ],
+    [
+      "Product composition/LEGO architecture",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md"
+      ]
+    ],
+    [
+      "Product/service/contract/entity blueprint model",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md",
+        "architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md"
+      ]
+    ],
+    [
+      "Domain branch model / product estate",
+      "covered",
+      [
+        "architecture/product-projection-registry.json",
+        "architecture/repository-estate-registry.json"
+      ]
+    ],
+    [
+      "Monetization/revenue/value capture",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Governance/audit/compliance/accountability",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md",
+        "architecture/CARBON_ACTUAL_CONTROL_PLANE.md"
+      ]
+    ],
+    [
+      "Observability/metrics/KPIs/ecosystem health",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Versioning/migration/backward compatibility/lifecycle",
+      "covered",
+      [
+        "architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json",
+        "architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json"
+      ]
+    ],
+    [
+      "Disaster recovery/continuity/exit/portability",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md",
+        "architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md"
+      ]
+    ],
+    [
+      "Internationalization/localization",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md"
+      ]
+    ],
+    [
+      "Accessibility/human usability",
+      "covered",
+      [
+        "architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md",
+        "architecture/CARBON_ACTUAL_AUDUBON_CONTINUUM_ECOLOGICAL_DESIGN_DOCTRINE.md"
+      ]
+    ],
+    [
+      "Future/unknown entity extensibility",
+      "covered",
+      [
+        "architecture/ecosystem-kernel.json",
+        "architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md",
+        "architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md"
+      ]
+    ]
+  ],
+  "summary": {
+    "required_areas": 40,
+    "covered": 40,
+    "gaps": 0,
+    "note": "Coverage means a current canonical contract or explicit composition boundary exists. It does not mean every implementation is deployed."
+  }
+}
