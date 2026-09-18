@@ -15,6 +15,7 @@ const communicationPresencePath = 'architecture/CARBON_ACTUAL_COMMUNICATION_PRES
 const freezeCoveragePath = 'architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json';
 const creativeEconomyPath = 'architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json';
 const capabilityOwnershipPath = 'architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json';
+const routingMapPath = 'architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -27,12 +28,22 @@ const communicationPresence = await readJson(communicationPresencePath);
 const freezeCoverage = await readJson(freezeCoveragePath);
 const creativeEconomy = await readJson(creativeEconomyPath);
 const capabilityOwnership = await readJson(capabilityOwnershipPath);
+const routingMap = await readJson(routingMapPath);
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
 if (freezeCoverage.operating_spine !== 'carbonactual/carbonactual') fail('freeze coverage must resolve to canonical Carbon Actual');
 if (creativeEconomy.canonical_contract !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md') fail('creative economy registry must resolve to canonical contract');
 if (capabilityOwnership.semantic_authority !== 'carbonactual/carbonactual') fail('capability ownership semantic authority drift');
+if (routingMap.semantic_authority !== 'carbonactual/carbonactual') fail('routing map semantic authority drift');
+if (routingMap.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('routing map constitutional authority drift');
+if (routingMap.routes.abba.repository !== 'carbonactual/abba') fail('ABBA routing repository drift');
+if (routingMap.routes.abba.delegates_to !== 'ABBA-MAS') fail('ABBA must delegate execution coordination to ABBA-MAS');
+if (routingMap.routes.abba_mas.repository !== 'carbonactual/abba') fail('ABBA-MAS repository drift');
+if (routingMap.routes.shared_capability_fabric.repository !== 'carbonactual/carbonactual') fail('shared capability fabric repository drift');
+if (routingMap.routes.platform_runtime.repository !== 'carbonactual/Carbon-Actual-') fail('platform runtime repository drift');
+if (routingMap.routes.products.rule.indexOf('leaves') === -1) fail('product leaf routing rule missing');
+for (const [legacy, state] of Object.entries(routingMap.legacy || {})) if (!state || !/archived-provenance/.test(state)) fail('legacy route must remain provenance-only: ' + legacy);
 if (capabilityOwnership.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('capability ownership constitutional authority drift');
 if (Object.keys(capabilityOwnership.owners || {}).length < 20) fail('capability ownership registry unexpectedly small');
 for (const [capability, owner] of Object.entries(capabilityOwnership.owners || {})) {
@@ -180,7 +191,7 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md','architecture/CARBON_ACTUAL_ABBA_SWARM_TEAM_WORKFLOW_BOUNDARY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_RECONCILIATION.md','architecture/CARBON_ACTUAL_RUNTIME_CONFORMANCE_MATRIX.md',
   'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
-  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json','architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json',
+  'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json','architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json','architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json',
   'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
