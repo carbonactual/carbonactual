@@ -12,6 +12,7 @@ on:
       - 'architecture/ECOSYSTEM_KERNEL.md'
       - 'architecture/LEGACY_OMNII_MIGRATION_REGISTRY.json'
       - 'architecture/CARBON_ACTUAL_*.md'
+      - 'architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json'
       - 'architecture/SPOTIST_*.md'
       - 'scripts/validate-kernel.mjs'
       - 'tests/architecture/ecosystem-kernel.test.mjs'
