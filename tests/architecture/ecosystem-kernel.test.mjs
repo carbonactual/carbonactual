@@ -59,6 +59,15 @@ test('Communication & Presence remains a capability over the nine-facet kernel',
   assert.ok(registry.maturity.experimental.includes('BCI-neural-communication'));
 });
 
+test('integration provider policy remains vendor-neutral and open-first', async () => {
+  const policy = await readFile('architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md', 'utf8');
+  assert.match(policy, /Provider is not authority\./);
+  assert.match(policy, /Provider is not ontology\./);
+  assert.match(policy, /open standards/);
+  assert.match(policy, /self-hostable implementations/);
+  assert.match(policy, /exit must remain possible/);
+});
+
 test('product taxonomy separates products from modules, agents, infrastructure and preserved names', async () => {
   const taxonomy = JSON.parse(await readFile('architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json', 'utf8'));
   assert.ok(taxonomy.classification_values.includes('domain_product'));
