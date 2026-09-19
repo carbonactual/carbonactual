@@ -77,6 +77,10 @@ As of 2026-09-19 the live registry reports:
 - 0 missing scope projections
 - 0 dangling graph edges
 
+## PostgREST continuity
+
+The canonical database contains `public.omnii_abba_sessions` with a service-role-only policy. A historical production log reported that PostgREST could not find this table in its schema cache even though the relation existed. The schema cache was explicitly reloaded using `NOTIFY pgrst, 'reload schema'`, and the current production one-hour error check is clean.
+
 ## Residual provider-managed findings
 
 Supabase security advisories still report:
