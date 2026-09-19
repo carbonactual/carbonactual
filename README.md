@@ -34,6 +34,16 @@ The domain is larger than the product. The overview layer defines the alignment 
 A **Domain** describes the complete real-world circumference of a field. A **SWIRM** groups comparable/reusable capabilities. A **TEAM** composes capabilities from multiple SWIRMs when one intent or mission crosses functional or domain boundaries. Products are projections into domains and consume these shared compositions; they do not create parallel universal primitives.
 
 
+## EXPANDED DOMAIN / FUNCTION COVERAGE
+
+The current domain pass covers the remaining major functional fields: **transport, money, transactions, blockchain/distributed ledger, minting, tokenization, decentralization, decimalization, fractionalization, education, sourcing, services, software, security, government, justice, technical engineering/operations, I/O flows, property, finance and authority**.
+
+These are not separate competing universes. Their detailed scopes resolve into the existing kernel and functional SWIRMs, while cross-domain missions resolve into TEAM compositions.
+
+Current live composition registry: **335 capability families · 35 SWIRMs · 30 TEAM patterns · 58 domain-scope records · 0 dangling registry edges**.
+
+Technical reference layer: `architecture/CARBON_ACTUAL_TECHNICAL_STANDARDS_ALIGNMENT_2026.md`.
+
 Canonical maps:
 
 
