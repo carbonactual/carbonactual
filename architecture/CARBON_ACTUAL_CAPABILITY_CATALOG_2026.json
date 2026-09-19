@@ -1,0 +1,10 @@
+{
+  "name": "Carbon Actual Capability Catalog",
+  "version": "2026-09-19",
+  "status": "canonical-registry-projection",
+  "source_registry": "logical:capability",
+  "scope": "open-world",
+  "count": 0,
+  "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
+  "families": []
+}
