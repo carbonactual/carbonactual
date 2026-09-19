@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_GLOBAL_API_FEDERATION",
-  "version": "2026-09-19.2",
+  "version": "2026-09-19.3",
   "status": "curated-and-discovery-ready",
   "purpose": "Global public API and machine-readable data-source federation for Carbon Actual. It covers Earth, Solar-System, frontier and unknown horizons without treating any provider as constitutional authority.",
   "nonredundancy_rule": "one canonical capability -> many provider adapters -> one governed evidence/result path",
@@ -740,6 +740,24 @@
       "none",
       "official",
       "https://www.iana.org/protocols"
+    ],
+    [
+      "celestrak",
+      "CelesTrak GP / OMM satellite data",
+      "satellite-tracking,space,orbits,earth-observation",
+      "https://celestrak.org/NORAD/elements/",
+      "none",
+      "public-data",
+      "https://celestrak.org/NORAD/elements/"
+    ],
+    [
+      "minor-planet-center",
+      "Minor Planet Center APIs",
+      "asteroids,comets,neo,solar-system-observations",
+      "https://data.minorplanetcenter.net/api/",
+      "none",
+      "official/public",
+      "https://docs.minorplanetcenter.net/mpc-ops-docs/apis/"
     ]
   ],
   "nigeria": [
@@ -894,5 +912,5 @@
     "World/space/unknown horizons are modeled as scope and reality states. No extraterrestrial or alien API is asserted as factual; future/unknown connectors remain candidates until evidence exists.",
     "Directory indexes are the mechanism for continuously discovering the much larger public-API universe rather than pretending a fixed hand-curated list can remain complete."
   ],
-  "provider_count": 82
+  "provider_count": 84
 }
