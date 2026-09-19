@@ -96,6 +96,18 @@ The only remaining Supabase security findings are PostGIS/provider-managed:
 
 These are recorded as residual provider-managed findings, not silently marked resolved.
 
+## Final runtime sweep — 2026-09-19
+
+A seven-day Vercel runtime-error sweep across the active team found no runtime error clusters on RITES, MCP BOT, OMNI, Nigerian Cultural Atlas, the historical ZUJID-bound surface or HAPI World Nexus. NOUN BOT's historical clusters were limited to:
+- Node DEP0169 deprecation warnings;
+- an earlier numeric-confidence schema mismatch, already fixed;
+- Gemini 429/abort events, already protected by model fallback/retry logic;
+- a transient PostgREST schema-cache observation for `omnii_abba_sessions`.
+
+The `omnii_abba_sessions` table is present in the canonical database, is service-role-only, contains zero records at this snapshot, and PostgREST was explicitly reloaded after verification.
+
+The final one-hour production check for NOUN BOT reported no runtime errors and no error-level logs.
+
 ## Closure interpretation
 
 The current estate is structurally reconciled and the identified application/runtime regressions are repaired. Remaining work is now ordinary evidence-driven hardening, provider-specific PostGIS remediation, and future product/runtime promotion—not unresolved kernel or registry gaps.
