@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_CAPABILITY_READINESS",
-  "version": "2026-09-19.3",
+  "version": "2026-09-19.5",
   "rule": "Every product is a projection over shared capabilities. Product-specific code should consume the shared fabric and should be release-gated on data, adapters, authority, evidence, and deployment readiness.",
   "deployment_policy": "NO production deployment in this pass. Build/test/data-readiness first; deployment becomes a separate promotion step.",
   "shared_capability_families": [
@@ -341,12 +341,12 @@
     "api_registry": "registry:api-endpoint",
     "product_registry": "registry:product",
     "capability_registry": "logical:capability",
-    "capability_nodes_seeded": 213,
-    "product_capability_mappings_seeded": 1647,
-    "api_provider_nodes_seeded": 84,
+    "capability_nodes_seeded": 292,
+    "product_capability_mappings_seeded": 2209,
+    "api_provider_nodes_seeded": 103,
     "production_deployments_in_this_pass": 0,
     "api_catalog_sources_seeded": 8,
-    "provider_capability_mappings_seeded": 240,
+    "provider_capability_mappings_seeded": 349,
     "deployment_gate_status": "BUILD_READY_STRUCTURE; PRODUCT_RUNTIME_VALIDATION_AND_PROVIDER_CONFORMANCE_REMAIN_BEFORE_PRODUCTION"
   },
   "release_gates": [
@@ -363,12 +363,26 @@
   "last_reconciled": "2026-09-19",
   "global_scope": {
     "universe": "open-world",
-    "geographies": "worldwide",
-    "astronomical_scope": [
-      "Earth",
-      "Solar-System",
-      "Beyond-Earth"
+    "geographies": "country-by-country and subdivision-by-subdivision",
+    "domains": "full circumference",
+    "technology": [
+      "apps",
+      "software",
+      "AI",
+      "agents",
+      "MCP",
+      "A2A",
+      "API",
+      "SDK",
+      "CLI",
+      "plugins",
+      "open-source",
+      "free",
+      "white-label",
+      "commercial",
+      "proprietary"
     ],
-    "unknown_scope": "UNKNOWN/ALIEN represented only as an evidence-gated possibility"
+    "markets": "all market structures and marketable rights/resources/capacity/opportunities",
+    "unknown": "explicit UNKNOWN/POSSIBLE horizon only"
   }
 }
