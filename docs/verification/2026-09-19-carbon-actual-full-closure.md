@@ -34,15 +34,20 @@ Verified live state:
 | Registry edges | 4,818 |
 | Capability grouping edges | 1,156 |
 | Dangling registry edges | 0 |
+| NOUN runtime dependency tables | 37 / 37 |
 
-Persistence repair:
-- populated all 58 domain scopes into `omnii_scope_records`
-- installed an automatic scope projection trigger
-- made domain-scope deletion append-preserving
-- isolated 16 internal tables from direct client access
-- indexed the missing RITES foreign-key paths
-- moved the application authority checker out of the public RPC surface
-- removed the six transport RLS init-plan performance warnings
+NOUN live database now includes tenant, account, learner, learning-continuity, past-question, exam, practice, support, service-discovery, opportunity, event/Pulse, alert/notification, knowledge-monitoring and human-escalation surfaces.
+
+Authorization was tightened so student records and consequential requests are owner/admin scoped; shared learning catalogues are member-readable with administrator-only writes; internal queues and derived evidence are client-denied.
+
+Supabase Security Advisor residuals are limited to provider-managed PostGIS:
+- `public.spatial_ref_sys` RLS disabled;
+- PostGIS installed in `public`;
+- three `st_estimatedextent` SECURITY DEFINER overloads executable through client roles.
+
+Supabase Performance Advisor currently reports only informational unused-index findings. There are no remaining unindexed-FK, RLS-init-plan or multiple-permissive-policy warnings.
+
+The supported remediation path for the PostGIS residual is documented in `ops/SUPABASE_POSTGIS_HARDENING_REQUEST.md`; do not drop/recreate the extension blindly.
 
 ## GitHub verification
 
@@ -65,18 +70,19 @@ These fixes preserve compatibility when the external NOUN student database lacks
 
 Team: `team_vw6sNkb9okBmWBIJiP0pBy9J`
 
-NOUN BOT production currently has READY deployments for both closure commits:
-- `dpl_Ejti17R5yeoENCTPsuJG9PnUwCyS` — commit `8dbd11b9...`
-- `dpl_HepjbpDAT8JiBduhFJsBwE4LXazd` — commit `139ddba...`
+Latest NOUN BOT production deployment verified:
+- `dpl_nrxReFK77q8bouXQwaKbziyxv5Vb`
+- state: READY
+- commit: `1d331b63db0e49c421658425d6a8f04e51b92984`
+- production aliases include `noun.carbonactual.com` and `noun-student-bot-dashboard.vercel.app`
+- no alias error
 
-Live checks:
-- production root returns HTTP 200
-- `/api/health` returns HTTP 200
-- `/api/cibn-catalog` is present and returns catalog data
+Live deployment checks:
+- root HTTP 200
+- `/api/health` HTTP 200
+- `/api/cibn-catalog` HTTP 200 with the 2026-10 official timetable catalog
 
-The remaining NOUN production runtime observation is Node `DEP0169` for transitive/runtime `url.parse()` usage. It is a deprecation warning, not an application failure; repository source search did not find a direct `url.parse()` call to replace safely.
-
-The other Vercel projects in the current team sweep showed no runtime error clusters in the selected one-hour window.
+Current production error monitoring shows no application error groups; the only recurring warning is Node `DEP0169` `url.parse()` deprecation emitted by a transitive/runtime dependency. Repository source search found no direct `url.parse()` call, so it remains tracked rather than suppressed.
 
 ## Explicit exclusions
 
@@ -89,25 +95,8 @@ No changes were made to those surfaces.
 
 ## Security residual
 
-The only remaining Supabase security findings are PostGIS/provider-managed:
-- `public.spatial_ref_sys` RLS disabled
-- PostGIS extension in `public`
-- three `st_estimatedextent` SECURITY DEFINER overloads executable by client roles
+The only remaining Supabase Security Advisor findings are provider-managed PostGIS surfaces documented above.
 
-These are recorded as residual provider-managed findings, not silently marked resolved.
+## Current operating position
 
-## Final runtime sweep — 2026-09-19
-
-A seven-day Vercel runtime-error sweep across the active team found no runtime error clusters on RITES, MCP BOT, OMNI, Nigerian Cultural Atlas, the historical ZUJID-bound surface or HAPI World Nexus. NOUN BOT's historical clusters were limited to:
-- Node DEP0169 deprecation warnings;
-- an earlier numeric-confidence schema mismatch, already fixed;
-- Gemini 429/abort events, already protected by model fallback/retry logic;
-- a transient PostgREST schema-cache observation for `omnii_abba_sessions`.
-
-The `omnii_abba_sessions` table is present in the canonical database, is service-role-only, contains zero records at this snapshot, and PostgREST was explicitly reloaded after verification.
-
-The final one-hour production check for NOUN BOT reported no runtime errors and no error-level logs.
-
-## Closure interpretation
-
-The current estate is structurally reconciled and the identified application/runtime regressions are repaired. Remaining work is now ordinary evidence-driven hardening, provider-specific PostGIS remediation, and future product/runtime promotion—not unresolved kernel or registry gaps.
+Carbon Actual semantic architecture is reconciled and live. NOUN BOT's runtime/database dependencies are populated, tenant-aware, owner/admin protected, regression-tested and production-served. The remaining PostGIS item requires provider-supported extension relocation rather than application-side schema invention.
