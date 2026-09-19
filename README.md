@@ -56,8 +56,7 @@ Canonical maps:
 - `architecture/CARBON_ACTUAL_DOMAIN_CIRCUMFERENCE_2026.json`
 
 
-Current live Supabase composition registry: **292 capability families**, **35 functional SWIRMs**, **17 cross-domain TEAM patterns**, **43 domain-scope records**; all 292 capability families are grouped and the registry currently has **0 dangling graph edges** in the verified scope checks.
-
+Current live Supabase composition registry: **335 capability families**, **35 functional SWIRMs**, **30 cross-domain TEAM patterns**, **58 domain-scope nodes**; all 335 capability families are grouped, all 58 graph scopes now project into the dedicated `omnii_scope_records` persistence layer, and the verified registry graph has **0 dangling edges**. The live registry currently contains **4,818 graph edges**, including **1,156 capability grouping edges**.\n
 ## CANONICAL ARCHITECTURE
 
 The live spine contains the canonical contracts migrated from historical operating-spine architecture. Historical repositories remain provenance sources; they are not competing authorities.
