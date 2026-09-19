@@ -1,0 +1,2624 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "2026-09-19.1",
+  "status": "canonical-domain-atlas",
+  "authority": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "circumference_contract": "architecture/CARBON_ACTUAL_DOMAIN_CIRCUMFERENCE_2026.json",
+  "inheritance": "Every domain receives all universal circumference dimensions; entries below define domain-specific emphasis only.",
+  "kernel": [
+    "identity",
+    "authority",
+    "intent",
+    "capability",
+    "relationship",
+    "event",
+    "evidence",
+    "state",
+    "value"
+  ],
+  "doctrine_alignment": {
+    "Being": [
+      "identity",
+      "actual",
+      "records",
+      "objects"
+    ],
+    "Becoming": [
+      "lifecycle",
+      "state",
+      "learning",
+      "curation",
+      "emergence"
+    ],
+    "Governance": [
+      "authority",
+      "policy",
+      "compliance",
+      "audit",
+      "accountability"
+    ],
+    "Value": [
+      "value",
+      "ledger",
+      "settlement",
+      "asset",
+      "liability",
+      "economics"
+    ],
+    "Human_Authority": [
+      "HAPI",
+      "#",
+      "SEAL",
+      "consent",
+      "delegation"
+    ],
+    "Constitutional_Law": [
+      "CANON",
+      "contradiction_resolution",
+      "protected_boundaries"
+    ],
+    "ABBA": [
+      "reasoning",
+      "planning",
+      "discovery",
+      "routing",
+      "orchestration"
+    ],
+    "IO": [
+      "movement",
+      "access",
+      "exchange",
+      "flow"
+    ],
+    "Tokenization": [
+      "mint",
+      "token",
+      "fractionalization",
+      "decimalization",
+      "representation"
+    ],
+    "Pulse": [
+      "feedback",
+      "measurement",
+      "learning"
+    ],
+    "Ash_Phoenix": [
+      "continuity",
+      "recovery",
+      "renewal"
+    ],
+    "Foundation": [
+      "Root",
+      "Index",
+      "Actual",
+      "Atlas",
+      "Vault",
+      "Terminal",
+      "Mint"
+    ]
+  },
+  "common_lifecycle": [
+    "need",
+    "discovery",
+    "intent",
+    "context",
+    "availability",
+    "authority",
+    "request",
+    "workflow",
+    "execution",
+    "evidence",
+    "outcome",
+    "settlement",
+    "learning",
+    "continuity"
+  ],
+  "domains": [
+    {
+      "id": "people",
+      "name": "People / Human",
+      "actors": [
+        "person",
+        "role",
+        "skill-holder",
+        "caregiver",
+        "customer",
+        "citizen",
+        "member"
+      ],
+      "objects": [
+        "person",
+        "identity",
+        "skill",
+        "relationship",
+        "need",
+        "consent",
+        "record"
+      ],
+      "lifecycle": [
+        "identity",
+        "life/service journey",
+        "learning",
+        "work",
+        "commerce",
+        "care",
+        "retirement"
+      ],
+      "functions": [
+        "identity",
+        "relationship",
+        "communication",
+        "education",
+        "workforce",
+        "health",
+        "finance",
+        "rights"
+      ],
+      "markets": [
+        "labor",
+        "services",
+        "skills",
+        "capability",
+        "time"
+      ],
+      "evidence": [
+        "identity-proof",
+        "credential",
+        "consent",
+        "service-record"
+      ],
+      "law": [
+        "identity",
+        "privacy",
+        "rights",
+        "employment",
+        "service rules"
+      ],
+      "products": [
+        "NAIRE"
+      ]
+    },
+    {
+      "id": "household-community",
+      "name": "Household / Community",
+      "actors": [
+        "household",
+        "family",
+        "community",
+        "club",
+        "association",
+        "cooperative"
+      ],
+      "objects": [
+        "membership",
+        "shared-resource",
+        "fund",
+        "property",
+        "event",
+        "community-record"
+      ],
+      "lifecycle": [
+        "form",
+        "join",
+        "organize",
+        "support",
+        "govern",
+        "exchange",
+        "renew"
+      ],
+      "functions": [
+        "relationship",
+        "communication",
+        "membership",
+        "finance",
+        "community",
+        "events"
+      ],
+      "markets": [
+        "membership",
+        "services",
+        "shared-resource"
+      ],
+      "evidence": [
+        "membership",
+        "contribution",
+        "meeting-record"
+      ],
+      "law": [
+        "association",
+        "privacy",
+        "property",
+        "finance"
+      ],
+      "products": [
+        "NAIRE"
+      ]
+    },
+    {
+      "id": "education",
+      "name": "Education / Lifelong Learning / CPD",
+      "actors": [
+        "learner",
+        "guardian",
+        "teacher",
+        "lecturer",
+        "trainer",
+        "mentor",
+        "assessor",
+        "examiner",
+        "proctor",
+        "supervisor",
+        "librarian",
+        "registrar",
+        "accreditor",
+        "provider"
+      ],
+      "objects": [
+        "learner-record",
+        "course",
+        "curriculum",
+        "assessment",
+        "exam-attempt",
+        "credential",
+        "CPD-record",
+        "research-output",
+        "library-item"
+      ],
+      "lifecycle": [
+        "creche",
+        "pre-primary",
+        "primary",
+        "secondary",
+        "vocational",
+        "undergraduate",
+        "postgraduate",
+        "masters",
+        "doctoral",
+        "professional",
+        "CPD",
+        "executive",
+        "lifelong",
+        "non-formal",
+        "informal",
+        "research",
+        "emeritus",
+        "alumni"
+      ],
+      "functions": [
+        "admissions",
+        "enrolment",
+        "course-management",
+        "teaching",
+        "tutoring",
+        "mentoring",
+        "assessment",
+        "examination",
+        "proctoring",
+        "invigilation",
+        "viva",
+        "grading",
+        "credentialing",
+        "accreditation",
+        "CPD",
+        "membership",
+        "fellowship",
+        "library",
+        "scholarship",
+        "student-finance",
+        "career",
+        "internship",
+        "accommodation",
+        "transport",
+        "wellbeing",
+        "accessibility",
+        "alumni"
+      ],
+      "markets": [
+        "education",
+        "training",
+        "skills",
+        "jobs",
+        "credentials"
+      ],
+      "evidence": [
+        "learning-record",
+        "attendance",
+        "assessment",
+        "exam-attempt",
+        "project",
+        "research-output",
+        "credential",
+        "certificate",
+        "accreditation",
+        "CPD-record"
+      ],
+      "law": [
+        "education-regulation",
+        "accreditation",
+        "privacy",
+        "academic-integrity",
+        "professional-standards"
+      ],
+      "products": [
+        "InstituteGPT",
+        "NOUN BOT",
+        "MCP BOT"
+      ]
+    },
+    {
+      "id": "professional-bodies",
+      "name": "Professional Bodies",
+      "actors": [
+        "prospect",
+        "member",
+        "student-member",
+        "professional",
+        "fellow",
+        "branch",
+        "chapter",
+        "committee",
+        "examiner",
+        "disciplinary-body"
+      ],
+      "objects": [
+        "membership",
+        "grade",
+        "CPD",
+        "exam",
+        "credential",
+        "ethics-case",
+        "fellowship",
+        "event",
+        "publication"
+      ],
+      "lifecycle": [
+        "prospect",
+        "apply",
+        "admit",
+        "member",
+        "learn",
+        "CPD",
+        "assess",
+        "examine",
+        "credential",
+        "discipline",
+        "lead",
+        "honor",
+        "retire"
+      ],
+      "functions": [
+        "membership",
+        "education",
+        "CPD",
+        "assessment",
+        "examination",
+        "ethics",
+        "discipline",
+        "governance",
+        "events",
+        "publications",
+        "fellowship"
+      ],
+      "markets": [
+        "membership",
+        "training",
+        "events",
+        "credentials",
+        "professional-services"
+      ],
+      "evidence": [
+        "membership-record",
+        "CPD-record",
+        "exam-result",
+        "credential",
+        "disciplinary-record"
+      ],
+      "law": [
+        "professional-regulation",
+        "ethics",
+        "privacy",
+        "credentialing"
+      ],
+      "products": [
+        "MCP BOT",
+        "InstituteGPT"
+      ]
+    },
+    {
+      "id": "workforce-jobs-skills",
+      "name": "Workforce / Jobs / Skills",
+      "actors": [
+        "worker",
+        "employer",
+        "recruiter",
+        "trainer",
+        "assessor",
+        "manager",
+        "contractor"
+      ],
+      "objects": [
+        "skill",
+        "occupation",
+        "job",
+        "application",
+        "employment",
+        "performance",
+        "training-record"
+      ],
+      "lifecycle": [
+        "discover",
+        "apply",
+        "screen",
+        "interview",
+        "hire",
+        "onboard",
+        "work",
+        "learn",
+        "review",
+        "promote",
+        "exit"
+      ],
+      "functions": [
+        "job-discovery",
+        "skills",
+        "matching",
+        "recruitment",
+        "training",
+        "performance",
+        "payroll",
+        "career"
+      ],
+      "markets": [
+        "labor",
+        "jobs",
+        "skills",
+        "contract-work",
+        "capability"
+      ],
+      "evidence": [
+        "CV",
+        "credential",
+        "skill-evidence",
+        "employment-record",
+        "performance-record"
+      ],
+      "law": [
+        "labor",
+        "employment",
+        "privacy",
+        "benefits"
+      ]
+    },
+    {
+      "id": "management-organization",
+      "name": "Management / Organization",
+      "actors": [
+        "owner",
+        "board",
+        "executive",
+        "manager",
+        "employee",
+        "customer",
+        "vendor",
+        "partner",
+        "auditor"
+      ],
+      "objects": [
+        "organization",
+        "team",
+        "strategy",
+        "budget",
+        "project",
+        "programme",
+        "portfolio",
+        "asset",
+        "vendor",
+        "customer",
+        "risk",
+        "control",
+        "record"
+      ],
+      "lifecycle": [
+        "strategy",
+        "design",
+        "plan",
+        "budget",
+        "staff",
+        "execute",
+        "measure",
+        "review",
+        "correct",
+        "learn",
+        "renew",
+        "retire"
+      ],
+      "functions": [
+        "governance",
+        "strategy",
+        "people",
+        "finance",
+        "sales",
+        "marketing",
+        "operations",
+        "project",
+        "programme",
+        "portfolio",
+        "procurement",
+        "quality",
+        "risk",
+        "continuity",
+        "data",
+        "security"
+      ],
+      "markets": [
+        "services",
+        "vendors",
+        "procurement",
+        "capital",
+        "labor",
+        "software"
+      ],
+      "evidence": [
+        "plan",
+        "decision",
+        "contract",
+        "invoice",
+        "audit",
+        "performance"
+      ],
+      "law": [
+        "company",
+        "contract",
+        "tax",
+        "employment",
+        "data",
+        "compliance"
+      ],
+      "products": [
+        "NGIN"
+      ]
+    },
+    {
+      "id": "commerce-marketplace",
+      "name": "Commerce / Market / Marketplace",
+      "actors": [
+        "buyer",
+        "seller",
+        "issuer",
+        "broker",
+        "dealer",
+        "market-maker",
+        "operator",
+        "valuer",
+        "oracle"
+      ],
+      "objects": [
+        "listing",
+        "offer",
+        "quote",
+        "RFQ",
+        "bid",
+        "order",
+        "contract",
+        "service",
+        "asset"
+      ],
+      "lifecycle": [
+        "need",
+        "discover",
+        "list",
+        "quote",
+        "offer",
+        "bid",
+        "match",
+        "order",
+        "contract",
+        "fulfil",
+        "deliver",
+        "review"
+      ],
+      "functions": [
+        "listing",
+        "quotations",
+        "bidding",
+        "matching",
+        "order-management",
+        "contracts",
+        "invoicing",
+        "market-making",
+        "auction",
+        "tender",
+        "fulfillment"
+      ],
+      "markets": [
+        "P2P",
+        "platform",
+        "OTC",
+        "auction",
+        "tender",
+        "subscription",
+        "reservation",
+        "capacity",
+        "rights"
+      ],
+      "evidence": [
+        "listing",
+        "quote",
+        "order",
+        "contract",
+        "delivery-proof",
+        "invoice"
+      ],
+      "law": [
+        "consumer",
+        "contract",
+        "market-rules",
+        "competition",
+        "tax"
+      ]
+    },
+    {
+      "id": "trade",
+      "name": "Trade",
+      "actors": [
+        "importer",
+        "exporter",
+        "shipper",
+        "carrier",
+        "customs-broker",
+        "financier",
+        "insurer",
+        "buyer",
+        "seller"
+      ],
+      "objects": [
+        "goods",
+        "services",
+        "shipment",
+        "customs-declaration",
+        "invoice",
+        "certificate",
+        "counterparty"
+      ],
+      "lifecycle": [
+        "source",
+        "quote",
+        "contract",
+        "purchase",
+        "prepare",
+        "clear",
+        "ship",
+        "receive",
+        "inspect",
+        "settle",
+        "reconcile",
+        "dispute"
+      ],
+      "functions": [
+        "trade",
+        "customs",
+        "documents",
+        "shipping",
+        "logistics",
+        "insurance",
+        "finance",
+        "settlement",
+        "reconciliation"
+      ],
+      "markets": [
+        "domestic",
+        "international",
+        "cross-border",
+        "wholesale",
+        "commodity"
+      ],
+      "evidence": [
+        "invoice",
+        "packing-list",
+        "certificate",
+        "customs-record",
+        "shipment-proof",
+        "inspection"
+      ],
+      "law": [
+        "customs",
+        "trade",
+        "sanctions",
+        "tax",
+        "contract",
+        "product-regulation"
+      ],
+      "products": [
+        "TIP",
+        "I/O"
+      ]
+    },
+    {
+      "id": "investment-capital",
+      "name": "Investment / Capital",
+      "actors": [
+        "investor",
+        "issuer",
+        "fund",
+        "broker",
+        "dealer",
+        "custodian",
+        "analyst",
+        "portfolio-manager",
+        "valuer",
+        "regulator"
+      ],
+      "objects": [
+        "security",
+        "equity",
+        "debt",
+        "fund",
+        "portfolio",
+        "position",
+        "valuation",
+        "corporate-action",
+        "custody"
+      ],
+      "lifecycle": [
+        "research",
+        "screen",
+        "allocate",
+        "order",
+        "execute",
+        "clear",
+        "settle",
+        "custody",
+        "monitor",
+        "rebalance",
+        "report",
+        "exit"
+      ],
+      "functions": [
+        "market-data",
+        "research",
+        "valuation",
+        "portfolio",
+        "risk",
+        "orders",
+        "trade",
+        "custody",
+        "corporate-actions",
+        "settlement"
+      ],
+      "markets": [
+        "equity",
+        "debt",
+        "funds",
+        "private-capital",
+        "public-markets",
+        "commodities",
+        "digital-assets"
+      ],
+      "evidence": [
+        "market-data",
+        "prospectus",
+        "valuation",
+        "trade-confirm",
+        "custody-record",
+        "statement"
+      ],
+      "law": [
+        "securities",
+        "market-conduct",
+        "disclosure",
+        "AML",
+        "tax"
+      ],
+      "products": [
+        "TIP"
+      ]
+    },
+    {
+      "id": "finance-banking",
+      "name": "Finance / Banking",
+      "actors": [
+        "customer",
+        "bank",
+        "MFI",
+        "lender",
+        "borrower",
+        "treasurer",
+        "payment-provider",
+        "regulator"
+      ],
+      "objects": [
+        "account",
+        "money",
+        "deposit",
+        "loan",
+        "credit",
+        "facility",
+        "collateral",
+        "treasury-position"
+      ],
+      "lifecycle": [
+        "onboard",
+        "open",
+        "fund",
+        "lend",
+        "borrow",
+        "repay",
+        "save",
+        "transfer",
+        "manage",
+        "close"
+      ],
+      "functions": [
+        "money",
+        "credit",
+        "banking",
+        "treasury",
+        "cash-management",
+        "payments",
+        "remittance",
+        "FX",
+        "fraud"
+      ],
+      "markets": [
+        "deposits",
+        "credit",
+        "money",
+        "FX",
+        "remittance"
+      ],
+      "evidence": [
+        "account-record",
+        "transaction",
+        "credit-file",
+        "contract",
+        "statement"
+      ],
+      "law": [
+        "banking",
+        "AML",
+        "consumer",
+        "payments",
+        "credit"
+      ],
+      "products": [
+        "Open Bank",
+        "I/O"
+      ]
+    },
+    {
+      "id": "payments-settlement",
+      "name": "Payments / Clearing / Settlement",
+      "actors": [
+        "payer",
+        "payee",
+        "payment-service",
+        "clearing-house",
+        "settlement-agent",
+        "reconciler"
+      ],
+      "objects": [
+        "payment-instruction",
+        "message",
+        "clearing-item",
+        "settlement-leg",
+        "reconciliation-record",
+        "exception"
+      ],
+      "lifecycle": [
+        "initiate",
+        "authenticate",
+        "validate",
+        "route",
+        "clear",
+        "settle",
+        "reconcile",
+        "reverse",
+        "dispute"
+      ],
+      "functions": [
+        "payment",
+        "financial-messaging",
+        "clearing",
+        "settlement",
+        "reconciliation",
+        "fraud"
+      ],
+      "markets": [
+        "payment-rails",
+        "clearing",
+        "settlement"
+      ],
+      "evidence": [
+        "payment-message",
+        "acknowledgement",
+        "settlement-proof",
+        "reconciliation"
+      ],
+      "law": [
+        "payments",
+        "financial-market-infrastructure",
+        "AML",
+        "consumer"
+      ]
+    },
+    {
+      "id": "property-land-housing",
+      "name": "Property / Land / Housing",
+      "actors": [
+        "owner",
+        "tenant",
+        "buyer",
+        "seller",
+        "developer",
+        "valuer",
+        "surveyor",
+        "lawyer",
+        "property-manager",
+        "lender"
+      ],
+      "objects": [
+        "land",
+        "property",
+        "unit",
+        "title",
+        "lease",
+        "mortgage",
+        "valuation",
+        "inspection",
+        "maintenance-order"
+      ],
+      "lifecycle": [
+        "identify",
+        "verify",
+        "list",
+        "inspect",
+        "value",
+        "offer",
+        "contract",
+        "finance",
+        "transfer",
+        "occupy",
+        "maintain",
+        "dispose"
+      ],
+      "functions": [
+        "property-rights",
+        "land-registry",
+        "housing",
+        "valuation",
+        "inspection",
+        "leasing",
+        "property-finance",
+        "maintenance"
+      ],
+      "markets": [
+        "sale",
+        "lease",
+        "rent",
+        "mortgage",
+        "property-services"
+      ],
+      "evidence": [
+        "title",
+        "survey",
+        "valuation",
+        "inspection",
+        "lease",
+        "payment"
+      ],
+      "law": [
+        "property",
+        "land",
+        "housing",
+        "planning",
+        "tenancy",
+        "tax"
+      ],
+      "products": [
+        "BUNK"
+      ]
+    },
+    {
+      "id": "health-care",
+      "name": "Health / Care",
+      "actors": [
+        "person",
+        "patient",
+        "caregiver",
+        "clinician",
+        "provider",
+        "laboratory",
+        "pharmacist",
+        "insurer",
+        "researcher"
+      ],
+      "objects": [
+        "care-record",
+        "appointment",
+        "care-plan",
+        "medication",
+        "result",
+        "claim",
+        "consent"
+      ],
+      "lifecycle": [
+        "prevent",
+        "discover",
+        "book",
+        "assess",
+        "diagnose",
+        "treat",
+        "monitor",
+        "refer",
+        "recover",
+        "continue"
+      ],
+      "functions": [
+        "health",
+        "care",
+        "records",
+        "scheduling",
+        "consent",
+        "payments",
+        "insurance",
+        "research"
+      ],
+      "markets": [
+        "care",
+        "insurance",
+        "pharmacy",
+        "health-services"
+      ],
+      "evidence": [
+        "clinical-record",
+        "test-result",
+        "consent",
+        "prescription",
+        "claim"
+      ],
+      "law": [
+        "health",
+        "privacy",
+        "medical-ethics",
+        "insurance"
+      ]
+    },
+    {
+      "id": "agriculture-food-seed",
+      "name": "Agriculture / Food / Seed",
+      "actors": [
+        "farmer",
+        "seed-provider",
+        "input-supplier",
+        "processor",
+        "trader",
+        "warehouse",
+        "retailer",
+        "consumer"
+      ],
+      "objects": [
+        "seed",
+        "farm",
+        "crop",
+        "livestock",
+        "input",
+        "food",
+        "batch",
+        "land",
+        "market"
+      ],
+      "lifecycle": [
+        "plan",
+        "source",
+        "seed",
+        "produce",
+        "harvest",
+        "process",
+        "store",
+        "transport",
+        "sell",
+        "consume",
+        "renew"
+      ],
+      "functions": [
+        "seed-systems",
+        "agriculture",
+        "food-systems",
+        "weather",
+        "water",
+        "traceability",
+        "market",
+        "logistics",
+        "finance"
+      ],
+      "markets": [
+        "inputs",
+        "commodities",
+        "food",
+        "land",
+        "services"
+      ],
+      "evidence": [
+        "seed-record",
+        "farm-record",
+        "batch",
+        "inspection",
+        "traceability",
+        "quality"
+      ],
+      "law": [
+        "food-safety",
+        "seed",
+        "land",
+        "environment",
+        "trade"
+      ]
+    },
+    {
+      "id": "manufacturing-industry",
+      "name": "Manufacturing / Industry",
+      "actors": [
+        "designer",
+        "manufacturer",
+        "operator",
+        "quality-assessor",
+        "maintenance-team",
+        "supplier",
+        "distributor"
+      ],
+      "objects": [
+        "product",
+        "material",
+        "machine",
+        "plant",
+        "batch",
+        "work-order",
+        "quality-record"
+      ],
+      "lifecycle": [
+        "design",
+        "prototype",
+        "source",
+        "produce",
+        "inspect",
+        "package",
+        "store",
+        "ship",
+        "service",
+        "retire"
+      ],
+      "functions": [
+        "production",
+        "quality",
+        "asset",
+        "inventory",
+        "maintenance",
+        "automation",
+        "supply-chain",
+        "logistics"
+      ],
+      "markets": [
+        "industrial-goods",
+        "components",
+        "services",
+        "capacity"
+      ],
+      "evidence": [
+        "design",
+        "work-order",
+        "quality-record",
+        "inspection",
+        "delivery-proof"
+      ]
+    },
+    {
+      "id": "mining-natural-resources",
+      "name": "Mining / Natural Resources",
+      "actors": [
+        "explorer",
+        "operator",
+        "license-holder",
+        "community",
+        "regulator",
+        "processor",
+        "trader"
+      ],
+      "objects": [
+        "resource",
+        "deposit",
+        "site",
+        "license",
+        "mine",
+        "commodity",
+        "closure-plan",
+        "environmental-record"
+      ],
+      "lifecycle": [
+        "prospect",
+        "explore",
+        "license",
+        "extract",
+        "process",
+        "transport",
+        "sell",
+        "restore",
+        "close",
+        "monitor"
+      ],
+      "functions": [
+        "resource",
+        "geospatial",
+        "commodity",
+        "environment",
+        "logistics",
+        "finance",
+        "compliance"
+      ],
+      "markets": [
+        "minerals",
+        "metals",
+        "energy",
+        "commodities"
+      ],
+      "evidence": [
+        "license",
+        "survey",
+        "assay",
+        "production-record",
+        "environmental-monitoring"
+      ]
+    },
+    {
+      "id": "energy-utilities",
+      "name": "Energy / Utilities",
+      "actors": [
+        "generator",
+        "grid-operator",
+        "distributor",
+        "consumer",
+        "metering-agent",
+        "utility",
+        "regulator"
+      ],
+      "objects": [
+        "generation",
+        "grid",
+        "meter",
+        "connection",
+        "tariff",
+        "service",
+        "asset",
+        "outage"
+      ],
+      "lifecycle": [
+        "plan",
+        "connect",
+        "generate",
+        "transmit",
+        "distribute",
+        "consume",
+        "meter",
+        "bill",
+        "maintain",
+        "recover"
+      ],
+      "functions": [
+        "energy",
+        "capacity",
+        "scheduling",
+        "billing",
+        "payments",
+        "asset",
+        "incident",
+        "weather"
+      ],
+      "markets": [
+        "energy",
+        "capacity",
+        "utility-services"
+      ],
+      "evidence": [
+        "meter",
+        "connection",
+        "bill",
+        "outage",
+        "maintenance"
+      ],
+      "law": [
+        "energy",
+        "utility",
+        "environment",
+        "consumer"
+      ]
+    },
+    {
+      "id": "transport-logistics",
+      "name": "Transport / Logistics",
+      "actors": [
+        "traveler",
+        "shipper",
+        "carrier",
+        "driver",
+        "pilot",
+        "port",
+        "warehouse",
+        "dispatcher"
+      ],
+      "objects": [
+        "vehicle",
+        "route",
+        "shipment",
+        "booking",
+        "fleet",
+        "warehouse",
+        "delivery"
+      ],
+      "lifecycle": [
+        "plan",
+        "book",
+        "route",
+        "dispatch",
+        "move",
+        "track",
+        "deliver",
+        "inspect",
+        "settle",
+        "maintain"
+      ],
+      "functions": [
+        "routing",
+        "traffic",
+        "shipping",
+        "aviation",
+        "logistics",
+        "transport",
+        "booking"
+      ],
+      "markets": [
+        "freight",
+        "mobility",
+        "delivery",
+        "capacity"
+      ],
+      "evidence": [
+        "booking",
+        "tracking",
+        "delivery-proof",
+        "inspection",
+        "waybill"
+      ]
+    },
+    {
+      "id": "travel-hospitality-events",
+      "name": "Travel / Hospitality / Events",
+      "actors": [
+        "traveler",
+        "guest",
+        "host",
+        "venue",
+        "organizer",
+        "attendee",
+        "service-provider"
+      ],
+      "objects": [
+        "ticket",
+        "booking",
+        "room",
+        "venue",
+        "event",
+        "reservation",
+        "itinerary"
+      ],
+      "lifecycle": [
+        "discover",
+        "compare",
+        "book",
+        "pay",
+        "travel",
+        "check-in",
+        "attend",
+        "serve",
+        "review",
+        "depart"
+      ],
+      "functions": [
+        "travel",
+        "hospitality",
+        "events",
+        "booking",
+        "availability",
+        "calendar",
+        "payments",
+        "media"
+      ],
+      "markets": [
+        "rooms",
+        "tickets",
+        "events",
+        "experiences",
+        "travel-services"
+      ],
+      "evidence": [
+        "reservation",
+        "ticket",
+        "check-in",
+        "attendance",
+        "receipt"
+      ]
+    },
+    {
+      "id": "environment-climate-water-ocean-biodiversity",
+      "name": "Environment / Climate / Water / Ocean / Biodiversity",
+      "actors": [
+        "observer",
+        "scientist",
+        "land-manager",
+        "community",
+        "regulator",
+        "conservation-body"
+      ],
+      "objects": [
+        "ecosystem",
+        "species",
+        "water-body",
+        "climate-observation",
+        "hazard",
+        "protected-area",
+        "resource"
+      ],
+      "lifecycle": [
+        "observe",
+        "measure",
+        "model",
+        "assess",
+        "protect",
+        "restore",
+        "allocate",
+        "respond",
+        "learn"
+      ],
+      "functions": [
+        "earth-observation",
+        "climate",
+        "weather",
+        "water",
+        "ocean",
+        "biodiversity",
+        "conservation",
+        "disaster"
+      ],
+      "markets": [
+        "water",
+        "carbon",
+        "natural-resources",
+        "conservation-services"
+      ],
+      "evidence": [
+        "sensor",
+        "observation",
+        "model",
+        "assessment",
+        "permit"
+      ]
+    },
+    {
+      "id": "science-research",
+      "name": "Science / Research",
+      "actors": [
+        "researcher",
+        "scientist",
+        "student",
+        "laboratory",
+        "reviewer",
+        "publisher",
+        "funder"
+      ],
+      "objects": [
+        "hypothesis",
+        "dataset",
+        "experiment",
+        "sample",
+        "instrument",
+        "finding",
+        "paper"
+      ],
+      "lifecycle": [
+        "question",
+        "design",
+        "fund",
+        "experiment",
+        "measure",
+        "analyze",
+        "publish",
+        "replicate",
+        "archive",
+        "continue"
+      ],
+      "functions": [
+        "science",
+        "experimentation",
+        "measurement",
+        "simulation",
+        "forecast",
+        "research",
+        "data",
+        "publication"
+      ],
+      "markets": [
+        "research",
+        "datasets",
+        "funding",
+        "expertise"
+      ],
+      "evidence": [
+        "raw-data",
+        "method",
+        "result",
+        "paper",
+        "replication",
+        "citation"
+      ]
+    },
+    {
+      "id": "space",
+      "name": "Space",
+      "actors": [
+        "mission-operator",
+        "astronomer",
+        "satellite-operator",
+        "launcher",
+        "researcher",
+        "ground-station"
+      ],
+      "objects": [
+        "space-object",
+        "satellite",
+        "mission",
+        "launch",
+        "orbit",
+        "observation",
+        "dataset"
+      ],
+      "lifecycle": [
+        "observe",
+        "track",
+        "design",
+        "launch",
+        "operate",
+        "measure",
+        "analyze",
+        "communicate",
+        "retire"
+      ],
+      "functions": [
+        "space-data",
+        "astronomy",
+        "planetary-data",
+        "satellite-tracking",
+        "launch",
+        "space-weather"
+      ],
+      "markets": [
+        "launch",
+        "satellite",
+        "space-data",
+        "communications"
+      ],
+      "evidence": [
+        "tracking",
+        "telemetry",
+        "observation",
+        "mission-record"
+      ]
+    },
+    {
+      "id": "culture-heritage",
+      "name": "Culture / Heritage",
+      "actors": [
+        "creator",
+        "community",
+        "custodian",
+        "curator",
+        "researcher",
+        "visitor",
+        "publisher"
+      ],
+      "objects": [
+        "artifact",
+        "tradition",
+        "site",
+        "collection",
+        "record",
+        "provenance"
+      ],
+      "lifecycle": [
+        "create",
+        "transmit",
+        "collect",
+        "curate",
+        "preserve",
+        "research",
+        "publish",
+        "experience",
+        "renew"
+      ],
+      "functions": [
+        "culture",
+        "heritage",
+        "archive",
+        "research",
+        "provenance",
+        "events",
+        "media"
+      ],
+      "markets": [
+        "heritage-services",
+        "cultural-experiences",
+        "publishing"
+      ],
+      "evidence": [
+        "provenance",
+        "collection-record",
+        "oral-history",
+        "catalog",
+        "research"
+      ]
+    },
+    {
+      "id": "media-creative",
+      "name": "Media / Creative Economy",
+      "actors": [
+        "creator",
+        "producer",
+        "editor",
+        "publisher",
+        "platform",
+        "audience",
+        "licensee"
+      ],
+      "objects": [
+        "work",
+        "asset",
+        "license",
+        "audience",
+        "production",
+        "publication",
+        "royalty"
+      ],
+      "lifecycle": [
+        "create",
+        "produce",
+        "edit",
+        "license",
+        "publish",
+        "distribute",
+        "monetize",
+        "archive",
+        "renew"
+      ],
+      "functions": [
+        "media",
+        "creative",
+        "rights",
+        "copyright",
+        "licensing",
+        "production",
+        "publishing",
+        "streaming",
+        "royalties"
+      ],
+      "markets": [
+        "content",
+        "advertising",
+        "licensing",
+        "subscriptions",
+        "royalties"
+      ],
+      "evidence": [
+        "work",
+        "license",
+        "publication",
+        "usage",
+        "royalty-statement"
+      ]
+    },
+    {
+      "id": "law-rights-compliance",
+      "name": "Law / Rights / Compliance",
+      "actors": [
+        "rights-holder",
+        "lawyer",
+        "regulator",
+        "compliance-officer",
+        "auditor",
+        "mediator",
+        "court"
+      ],
+      "objects": [
+        "law",
+        "rule",
+        "right",
+        "license",
+        "contract",
+        "case",
+        "obligation",
+        "control",
+        "finding"
+      ],
+      "lifecycle": [
+        "discover",
+        "interpret",
+        "advise",
+        "contract",
+        "license",
+        "comply",
+        "audit",
+        "dispute",
+        "resolve",
+        "update"
+      ],
+      "functions": [
+        "legal-reference",
+        "rights",
+        "licensing",
+        "contracts",
+        "compliance",
+        "audit",
+        "risk",
+        "dispute"
+      ],
+      "markets": [
+        "legal-services",
+        "licenses",
+        "rights"
+      ],
+      "evidence": [
+        "law-source",
+        "contract",
+        "license",
+        "filing",
+        "audit",
+        "decision"
+      ],
+      "law": [
+        "jurisdictional-law",
+        "regulations",
+        "standards"
+      ]
+    },
+    {
+      "id": "governance-civic-public-services",
+      "name": "Governance / Civic / Public Services",
+      "actors": [
+        "resident",
+        "citizen",
+        "public-body",
+        "official",
+        "service-provider",
+        "auditor",
+        "electoral-body"
+      ],
+      "objects": [
+        "civic-record",
+        "service-request",
+        "case",
+        "policy",
+        "programme",
+        "ballot",
+        "public-asset"
+      ],
+      "lifecycle": [
+        "register",
+        "request",
+        "assess",
+        "decide",
+        "serve",
+        "appeal",
+        "audit",
+        "report",
+        "renew"
+      ],
+      "functions": [
+        "public-services",
+        "civic-records",
+        "election",
+        "ballot",
+        "audit",
+        "forms",
+        "case-workflow",
+        "payments"
+      ],
+      "markets": [
+        "public-procurement",
+        "concessions",
+        "public-services"
+      ],
+      "evidence": [
+        "official-record",
+        "application",
+        "decision",
+        "service-proof",
+        "audit"
+      ]
+    },
+    {
+      "id": "technology-software-open-source",
+      "name": "Technology / Software / Open Source",
+      "actors": [
+        "developer",
+        "maintainer",
+        "user",
+        "repository",
+        "foundation",
+        "vendor",
+        "operator"
+      ],
+      "objects": [
+        "repository",
+        "package",
+        "application",
+        "service",
+        "protocol",
+        "dataset",
+        "model",
+        "license"
+      ],
+      "lifecycle": [
+        "discover",
+        "develop",
+        "test",
+        "release",
+        "deploy",
+        "observe",
+        "patch",
+        "fork",
+        "archive"
+      ],
+      "functions": [
+        "software",
+        "open-source",
+        "repositories",
+        "packages",
+        "APIs",
+        "protocols",
+        "infrastructure",
+        "licenses"
+      ],
+      "markets": [
+        "software",
+        "SaaS",
+        "APIs",
+        "support",
+        "models",
+        "data"
+      ],
+      "evidence": [
+        "commit",
+        "release",
+        "SBOM",
+        "license",
+        "build",
+        "test",
+        "attestation"
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "name": "AI / Agents / Swarms / TEAMs",
+      "actors": [
+        "human",
+        "ABBA",
+        "agent",
+        "model",
+        "tool",
+        "TEAM",
+        "SWIRM",
+        "mission-owner"
+      ],
+      "objects": [
+        "model",
+        "agent",
+        "tool",
+        "mission",
+        "swarm",
+        "team",
+        "memory",
+        "context",
+        "run"
+      ],
+      "lifecycle": [
+        "observe",
+        "reason",
+        "plan",
+        "discover",
+        "compose",
+        "authorize",
+        "execute",
+        "verify",
+        "learn",
+        "recompose"
+      ],
+      "functions": [
+        "reasoning",
+        "planning",
+        "agent",
+        "MISSION",
+        "Swarm",
+        "TEAM-orchestration",
+        "tool-use"
+      ],
+      "markets": [
+        "AI-services",
+        "models",
+        "agents",
+        "capabilities",
+        "automation"
+      ],
+      "evidence": [
+        "prompt/context",
+        "tool-call",
+        "trace",
+        "output",
+        "verification"
+      ],
+      "law": [
+        "human-authority",
+        "policy",
+        "privacy",
+        "security",
+        "model-risk"
+      ]
+    },
+    {
+      "id": "communication-presence",
+      "name": "Communication / Presence",
+      "actors": [
+        "person",
+        "organization",
+        "channel",
+        "service",
+        "agent",
+        "recipient"
+      ],
+      "objects": [
+        "message",
+        "call",
+        "session",
+        "notification",
+        "presence",
+        "address",
+        "representation"
+      ],
+      "lifecycle": [
+        "address",
+        "connect",
+        "communicate",
+        "notify",
+        "call",
+        "meet",
+        "handoff",
+        "end"
+      ],
+      "functions": [
+        "messaging",
+        "voice",
+        "calling",
+        "video",
+        "notifications",
+        "social",
+        "presence"
+      ],
+      "markets": [
+        "telecom",
+        "messaging",
+        "media",
+        "presence-services"
+      ],
+      "evidence": [
+        "message",
+        "delivery",
+        "call-record",
+        "consent",
+        "session"
+      ]
+    },
+    {
+      "id": "knowledge-data-intelligence",
+      "name": "Knowledge / Data / Intelligence",
+      "actors": [
+        "data-owner",
+        "researcher",
+        "analyst",
+        "librarian",
+        "indexer",
+        "consumer"
+      ],
+      "objects": [
+        "dataset",
+        "record",
+        "catalog",
+        "entity",
+        "graph",
+        "query",
+        "analysis",
+        "recommendation"
+      ],
+      "lifecycle": [
+        "collect",
+        "ingest",
+        "index",
+        "search",
+        "resolve",
+        "analyze",
+        "infer",
+        "recommend",
+        "publish"
+      ],
+      "functions": [
+        "search",
+        "catalog",
+        "registry",
+        "entity-resolution",
+        "analytics",
+        "knowledge",
+        "research",
+        "recommendation"
+      ],
+      "markets": [
+        "data",
+        "research",
+        "intelligence",
+        "information-services"
+      ],
+      "evidence": [
+        "source",
+        "provenance",
+        "citation",
+        "quality",
+        "lineage"
+      ]
+    },
+    {
+      "id": "security-trust-privacy",
+      "name": "Security / Trust / Privacy",
+      "actors": [
+        "principal",
+        "authenticator",
+        "certificate-authority",
+        "security-team",
+        "auditor",
+        "privacy-officer"
+      ],
+      "objects": [
+        "credential",
+        "certificate",
+        "key",
+        "secret",
+        "signature",
+        "identity",
+        "risk",
+        "privacy-policy"
+      ],
+      "lifecycle": [
+        "identify",
+        "authenticate",
+        "authorize",
+        "sign",
+        "verify",
+        "monitor",
+        "detect",
+        "respond",
+        "recover"
+      ],
+      "functions": [
+        "PKI",
+        "certificates",
+        "signing",
+        "secrets",
+        "fraud",
+        "trust",
+        "privacy",
+        "supply-chain-security"
+      ],
+      "markets": [
+        "identity",
+        "security",
+        "trust-services"
+      ],
+      "evidence": [
+        "credential",
+        "signature",
+        "attestation",
+        "scan",
+        "audit"
+      ]
+    },
+    {
+      "id": "continuity-resilience-disaster",
+      "name": "Continuity / Resilience / Disaster",
+      "actors": [
+        "steward",
+        "successor",
+        "operator",
+        "incident-team",
+        "recovery-team",
+        "beneficiary"
+      ],
+      "objects": [
+        "record",
+        "backup",
+        "handoff",
+        "succession",
+        "incident",
+        "recovery-plan",
+        "dependency"
+      ],
+      "lifecycle": [
+        "preserve",
+        "detect",
+        "respond",
+        "handoff",
+        "recover",
+        "migrate",
+        "rebuild",
+        "renew",
+        "retire"
+      ],
+      "functions": [
+        "continuity",
+        "archive",
+        "migration",
+        "recovery",
+        "disaster-resilience",
+        "succession"
+      ],
+      "evidence": [
+        "backup",
+        "handoff",
+        "incident-log",
+        "recovery-proof",
+        "reconstruction"
+      ]
+    },
+    {
+      "id": "procurement-supply-chain",
+      "name": "Procurement / Supply Chain",
+      "actors": [
+        "buyer",
+        "procurement-officer",
+        "supplier",
+        "vendor",
+        "contractor",
+        "logistics-provider"
+      ],
+      "objects": [
+        "RFQ",
+        "tender",
+        "bid",
+        "purchase-order",
+        "contract",
+        "inventory",
+        "shipment"
+      ],
+      "lifecycle": [
+        "need",
+        "source",
+        "RFQ",
+        "bid",
+        "evaluate",
+        "award",
+        "order",
+        "receive",
+        "inspect",
+        "pay",
+        "reconcile"
+      ],
+      "functions": [
+        "procurement",
+        "RFQ",
+        "tender",
+        "vendor-management",
+        "supply-chain",
+        "orders",
+        "invoicing",
+        "logistics"
+      ],
+      "markets": [
+        "procurement",
+        "wholesale",
+        "vendor",
+        "capacity"
+      ],
+      "evidence": [
+        "RFQ",
+        "bid",
+        "award",
+        "PO",
+        "delivery",
+        "invoice"
+      ]
+    },
+    {
+      "id": "insurance-risk",
+      "name": "Insurance / Risk",
+      "actors": [
+        "risk-owner",
+        "insurer",
+        "underwriter",
+        "broker",
+        "claimant",
+        "adjuster",
+        "beneficiary"
+      ],
+      "objects": [
+        "risk",
+        "policy",
+        "premium",
+        "claim",
+        "loss",
+        "reserve",
+        "benefit"
+      ],
+      "lifecycle": [
+        "identify",
+        "assess",
+        "quote",
+        "underwrite",
+        "bind",
+        "monitor",
+        "claim",
+        "settle",
+        "recover"
+      ],
+      "functions": [
+        "insurance",
+        "risk",
+        "fraud",
+        "valuation",
+        "claims",
+        "settlement",
+        "recovery"
+      ],
+      "markets": [
+        "insurance",
+        "reinsurance",
+        "risk-transfer"
+      ],
+      "evidence": [
+        "application",
+        "policy",
+        "inspection",
+        "claim",
+        "loss-proof",
+        "settlement"
+      ]
+    },
+    {
+      "id": "sport-recreation",
+      "name": "Sport / Recreation",
+      "actors": [
+        "participant",
+        "athlete",
+        "coach",
+        "club",
+        "league",
+        "organizer",
+        "venue",
+        "fan"
+      ],
+      "objects": [
+        "team",
+        "competition",
+        "venue",
+        "ticket",
+        "performance",
+        "result",
+        "membership"
+      ],
+      "lifecycle": [
+        "register",
+        "train",
+        "select",
+        "compete",
+        "measure",
+        "award",
+        "broadcast",
+        "archive",
+        "continue"
+      ],
+      "functions": [
+        "membership",
+        "performance",
+        "events",
+        "booking",
+        "media",
+        "commerce",
+        "training"
+      ],
+      "markets": [
+        "tickets",
+        "sponsorship",
+        "media",
+        "services",
+        "merchandise"
+      ],
+      "evidence": [
+        "registration",
+        "result",
+        "performance",
+        "award",
+        "attendance"
+      ]
+    },
+    {
+      "id": "philanthropy-development",
+      "name": "Philanthropy / Development",
+      "actors": [
+        "donor",
+        "funder",
+        "beneficiary",
+        "NGO",
+        "programme-manager",
+        "monitor"
+      ],
+      "objects": [
+        "grant",
+        "fund",
+        "beneficiary",
+        "programme",
+        "project",
+        "impact",
+        "report"
+      ],
+      "lifecycle": [
+        "discover",
+        "apply",
+        "assess",
+        "award",
+        "execute",
+        "monitor",
+        "report",
+        "learn",
+        "renew"
+      ],
+      "functions": [
+        "grants",
+        "funding",
+        "programme-management",
+        "impact",
+        "reporting",
+        "evidence",
+        "payments"
+      ],
+      "markets": [
+        "grants",
+        "development-services",
+        "social-impact"
+      ],
+      "evidence": [
+        "grant",
+        "milestone",
+        "disbursement",
+        "impact",
+        "audit"
+      ]
+    },
+    {
+      "id": "construction-infrastructure",
+      "name": "Construction / Infrastructure",
+      "actors": [
+        "developer",
+        "architect",
+        "engineer",
+        "contractor",
+        "inspector",
+        "utility",
+        "financier"
+      ],
+      "objects": [
+        "site",
+        "design",
+        "permit",
+        "contract",
+        "material",
+        "project",
+        "asset",
+        "inspection"
+      ],
+      "lifecycle": [
+        "plan",
+        "design",
+        "permit",
+        "procure",
+        "build",
+        "inspect",
+        "commission",
+        "operate",
+        "maintain",
+        "retire"
+      ],
+      "functions": [
+        "project-management",
+        "property",
+        "procurement",
+        "capacity",
+        "logistics",
+        "finance",
+        "safety",
+        "maintenance"
+      ],
+      "markets": [
+        "construction",
+        "infrastructure",
+        "utilities",
+        "capacity"
+      ],
+      "evidence": [
+        "design",
+        "permit",
+        "contract",
+        "inspection",
+        "commissioning",
+        "maintenance"
+      ]
+    },
+    {
+      "id": "resources-capacity",
+      "name": "Resources / Capacity / Allocation",
+      "actors": [
+        "resource-owner",
+        "requester",
+        "allocator",
+        "scheduler",
+        "operator"
+      ],
+      "objects": [
+        "resource",
+        "capacity",
+        "constraint",
+        "inventory",
+        "opportunity",
+        "allocation",
+        "utilization"
+      ],
+      "lifecycle": [
+        "discover",
+        "measure",
+        "forecast",
+        "allocate",
+        "schedule",
+        "use",
+        "measure",
+        "reallocate",
+        "retire"
+      ],
+      "functions": [
+        "capacity",
+        "allocation",
+        "inventory",
+        "utilization",
+        "queueing",
+        "resource-planning",
+        "pricing"
+      ],
+      "markets": [
+        "capacity",
+        "time",
+        "resources",
+        "services"
+      ],
+      "evidence": [
+        "inventory",
+        "availability",
+        "reservation",
+        "utilization",
+        "allocation"
+      ]
+    },
+    {
+      "id": "digital-assets-blockchain",
+      "name": "Digital Assets / Blockchain / Tokenization",
+      "actors": [
+        "issuer",
+        "holder",
+        "custodian",
+        "validator",
+        "exchange",
+        "market-maker",
+        "developer"
+      ],
+      "objects": [
+        "token",
+        "digital-asset",
+        "wallet",
+        "smart-contract",
+        "fraction",
+        "index"
+      ],
+      "lifecycle": [
+        "represent",
+        "mint",
+        "issue",
+        "transfer",
+        "fractionalize",
+        "settle",
+        "custody",
+        "redeem",
+        "retire"
+      ],
+      "functions": [
+        "blockchain",
+        "smart-contracts",
+        "tokenization",
+        "fractionalization",
+        "decimalization",
+        "digital-assets",
+        "stable-value"
+      ],
+      "markets": [
+        "crypto",
+        "tokens",
+        "digital-assets",
+        "rights",
+        "collectibles"
+      ],
+      "evidence": [
+        "issuance",
+        "transaction",
+        "contract",
+        "custody",
+        "proof"
+      ]
+    },
+    {
+      "id": "public-services-society",
+      "name": "Social / Public Benefit / Community Services",
+      "actors": [
+        "beneficiary",
+        "provider",
+        "case-worker",
+        "community",
+        "funder",
+        "volunteer"
+      ],
+      "objects": [
+        "case",
+        "benefit",
+        "service",
+        "programme",
+        "referral",
+        "outcome"
+      ],
+      "lifecycle": [
+        "need",
+        "intake",
+        "assess",
+        "match",
+        "serve",
+        "review",
+        "transition",
+        "close"
+      ],
+      "functions": [
+        "service-discovery",
+        "case-management",
+        "matching",
+        "benefits",
+        "communication",
+        "evidence"
+      ],
+      "markets": [
+        "services",
+        "volunteering",
+        "social-support"
+      ],
+      "evidence": [
+        "eligibility",
+        "service-record",
+        "outcome",
+        "consent"
+      ]
+    }
+  ]
+}
