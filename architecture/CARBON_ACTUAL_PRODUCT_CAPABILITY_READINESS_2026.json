@@ -343,8 +343,11 @@
     "capability_registry": "logical:capability",
     "capability_nodes_seeded": 193,
     "product_capability_mappings_seeded": 1340,
-    "api_provider_nodes_seeded": 88,
-    "production_deployments_in_this_pass": 0
+    "api_provider_nodes_seeded": 77,
+    "production_deployments_in_this_pass": 0,
+    "api_catalog_sources_seeded": 7,
+    "provider_capability_mappings_seeded": 191,
+    "deployment_gate_status": "BUILD_READY_STRUCTURE; PRODUCT_RUNTIME_VALIDATION_AND_PROVIDER_CONFORMANCE_REMAIN_BEFORE_PRODUCTION"
   },
   "release_gates": [
     "All product capabilities are represented in the shared capability registry before product promotion.",
