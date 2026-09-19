@@ -61,7 +61,7 @@ for (const [id, name, domains] of swirms) {
 
 const teams = matrix.team_patterns ?? [];
 const teamIds = new Set(teams.map((t) => t[0]));
-if (teams.length < 15) fail(`TEAM pattern matrix unexpectedly small: ${teams.length}`);
+if (teams.length < 30) fail(`TEAM pattern matrix unexpectedly small: ${teams.length}`);
 if (teamIds.size !== teams.length) fail('duplicate TEAM IDs');
 for (const [id, name, refs, domains] of teams) {
   if (!id || !name || !Array.isArray(refs) || refs.length < 2) fail(`TEAM has fewer than two SWIRM references: ${id}`);
@@ -70,7 +70,7 @@ for (const [id, name, refs, domains] of teams) {
 }
 
 const capabilityFamilies = capability.families ?? capability.capabilities ?? [];
-if (capability.count !== 292) fail(`capability catalog count drift: ${capability.count}`);
+if (capability.count !== 335) fail(`capability catalog count drift: ${capability.count}`);
 if (capabilityFamilies.length !== capability.count) fail(`capability family array/count mismatch: ${capabilityFamilies.length} vs ${capability.count}`);
 for (const family of capabilityFamilies) {
   if (!family.id || !family.name) fail('capability family missing id or name');
