@@ -267,3 +267,6 @@ drop function if exists public.omnii_has_active_authority(text);
 
 create index if not exists rites_relationships_related_subject_id_idx
   on public.rites_relationships(related_subject_id);
+
+-- Ensure PostgREST sees newly created/changed tables and policies.
+NOTIFY pgrst, 'reload schema';
