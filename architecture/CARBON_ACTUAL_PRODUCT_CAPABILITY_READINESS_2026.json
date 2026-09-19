@@ -1,8 +1,8 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_CAPABILITY_READINESS",
-  "version": "2026-09-19.6",
+  "version": "2026-09-19.7",
   "rule": "Every product is a projection over shared capabilities. Product-specific code should consume the shared fabric and should be release-gated on data, adapters, authority, evidence, and deployment readiness.",
-  "deployment_policy": "NO production deployment in this pass. Build/test/data-readiness first; deployment becomes a separate promotion step.",
+  "deployment_policy": "Production promotion is permitted only after the shared capability/data/authority/evidence/runtime gates pass. This closure pass has one verified NOUN BOT production promotion; other products remain individually gated.",
   "shared_capability_families": [
     "identity",
     "authority",
@@ -232,11 +232,10 @@
         "PWA"
       ],
       "next_build": [
-        "production promotion",
         "official data adapters",
         "global education services"
       ],
-      "vercel": "blocked_until_current_backend_deploys"
+      "vercel": "production_ready_verified"
     },
     "MCP BOT": {
       "repo": "carbonactual/mcp-bot",
@@ -249,7 +248,7 @@
       "next_build": [
         "production promotion of latest CI commit"
       ],
-      "vercel": "ready_but_not_promoted"
+      "vercel": "production_ready_deployment_exists; latest CI-only changes not promoted"
     },
     "Open Bank": {
       "repo": "carbonactual/open-bank",
@@ -344,13 +343,13 @@
     "capability_nodes_seeded": 335,
     "product_capability_mappings_seeded": 2209,
     "api_provider_nodes_seeded": 103,
-    "production_deployments_in_this_pass": 0,
+    "production_deployments_in_this_pass": 1,
     "api_catalog_sources_seeded": 8,
     "provider_capability_mappings_seeded": 349,
-    "deployment_gate_status": "BUILD_READY_STRUCTURE; PRODUCT_RUNTIME_VALIDATION_AND_PROVIDER_CONFORMANCE_REMAIN_BEFORE_PRODUCTION",
+    "deployment_gate_status": "PARTIALLY_PROMOTED; NOUN BOT PRODUCTION VERIFIED; OTHER PRODUCTS REMAIN INDIVIDUALLY GATED",
     "domain_scope_records": 58,
     "swirms": 35,
-    "team_patterns": 17,
+    "team_patterns": 30,
     "registry_edges_verified_dangling": 0
   },
   "release_gates": [
