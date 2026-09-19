@@ -4,7 +4,1712 @@
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 0,
+  "count": 213,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
-  "families": []
+  "families": [
+    {
+      "id": "capability-family:a2a",
+      "name": "Agent-to-Agent",
+      "key": "a2a",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:accounting",
+      "name": "Accounting",
+      "key": "accounting",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:agent",
+      "name": "Agent",
+      "key": "agent",
+      "domain": "ai",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:agriculture",
+      "name": "Agriculture",
+      "key": "agriculture",
+      "domain": "agriculture",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:ai-model",
+      "name": "AI / Model",
+      "key": "ai-model",
+      "domain": "ai",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:allocation",
+      "name": "Allocation",
+      "key": "allocation",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:analytics",
+      "name": "Analytics",
+      "key": "analytics",
+      "domain": "analytics",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:api-discovery",
+      "name": "API Discovery",
+      "key": "api-discovery",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:api-proxy",
+      "name": "API Proxy",
+      "key": "api-proxy",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:archive",
+      "name": "Archive",
+      "key": "archive",
+      "domain": "continuity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:asset",
+      "name": "Asset",
+      "key": "asset",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:astronomy",
+      "name": "Astronomy",
+      "key": "astronomy",
+      "domain": "space",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:attestation",
+      "name": "Attestation",
+      "key": "attestation",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:audio",
+      "name": "Audio",
+      "key": "audio",
+      "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:audit",
+      "name": "Audit",
+      "key": "audit",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:authority",
+      "name": "Authority",
+      "key": "authority",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:authorization",
+      "name": "Authorization",
+      "key": "authorization",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:automation",
+      "name": "Automation",
+      "key": "automation",
+      "domain": "automation",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:availability",
+      "name": "Availability",
+      "key": "availability",
+      "domain": "capability",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:availability-window",
+      "name": "Availability Window",
+      "key": "availability-window",
+      "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:aviation",
+      "name": "Aviation",
+      "key": "aviation",
+      "domain": "transport",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:ballot",
+      "name": "Ballot",
+      "key": "ballot",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:batch-data",
+      "name": "Batch Data",
+      "key": "batch-data",
+      "domain": "data",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:bidding",
+      "name": "Bidding",
+      "key": "bidding",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:biodiversity",
+      "name": "Biodiversity",
+      "key": "biodiversity",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:blockchain",
+      "name": "Blockchain",
+      "key": "blockchain",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:booking",
+      "name": "Booking",
+      "key": "booking",
+      "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:calendar",
+      "name": "Calendar",
+      "key": "calendar",
+      "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:calling",
+      "name": "Voice / Calling",
+      "key": "calling",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:capability-discovery",
+      "name": "Capability Discovery",
+      "key": "capability-discovery",
+      "domain": "capability",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:capacity",
+      "name": "Capacity",
+      "key": "capacity",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:capacity-planning",
+      "name": "Capacity Planning",
+      "key": "capacity-planning",
+      "domain": "planning",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:cash-management",
+      "name": "Cash Management",
+      "key": "cash-management",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:catalog",
+      "name": "Catalog",
+      "key": "catalog",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:civic-records",
+      "name": "Civic Records",
+      "key": "civic-records",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:cli",
+      "name": "CLI",
+      "key": "cli",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:climate",
+      "name": "Climate",
+      "key": "climate",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:commerce",
+      "name": "Commerce",
+      "key": "commerce",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:communication",
+      "name": "Communication",
+      "key": "communication",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:communications",
+      "name": "Communications",
+      "key": "communications",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:community",
+      "name": "Community",
+      "key": "community",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:compliance",
+      "name": "Compliance",
+      "key": "compliance",
+      "domain": "compliance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:consent",
+      "name": "Consent",
+      "key": "consent",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:conservation",
+      "name": "Conservation",
+      "key": "conservation",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:constraint",
+      "name": "Constraint",
+      "key": "constraint",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:continuity",
+      "name": "Continuity",
+      "key": "continuity",
+      "domain": "continuity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:contracts",
+      "name": "Contracts",
+      "key": "contracts",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:copyright",
+      "name": "Copyright",
+      "key": "copyright",
+      "domain": "rights",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:cost-controls",
+      "name": "Cost Controls",
+      "key": "cost-controls",
+      "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:credentialing",
+      "name": "Credentialing",
+      "key": "credentialing",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:credit",
+      "name": "Credit",
+      "key": "credit",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:crypto-market",
+      "name": "Crypto Market",
+      "key": "crypto-market",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:culture",
+      "name": "Culture",
+      "key": "culture",
+      "domain": "culture",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:data-governance",
+      "name": "Data Governance",
+      "key": "data-governance",
+      "domain": "privacy",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:data-ingestion",
+      "name": "Data Ingestion",
+      "key": "data-ingestion",
+      "domain": "data",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:decentralization",
+      "name": "Decentralization",
+      "key": "decentralization",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:decimalization",
+      "name": "Decimalization",
+      "key": "decimalization",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:delegation",
+      "name": "Delegation",
+      "key": "delegation",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:demand",
+      "name": "Demand",
+      "key": "demand",
+      "domain": "economics",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:democratization",
+      "name": "Democratization",
+      "key": "democratization",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:design",
+      "name": "Design",
+      "key": "design",
+      "domain": "design",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:did",
+      "name": "DID",
+      "key": "did",
+      "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:digital-assets",
+      "name": "Digital Assets",
+      "key": "digital-assets",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:digital-trust",
+      "name": "Digital Trust",
+      "key": "digital-trust",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:directory",
+      "name": "Directory",
+      "key": "directory",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:disaster",
+      "name": "Disaster / Resilience",
+      "key": "disaster",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:discovery",
+      "name": "Discovery",
+      "key": "discovery",
+      "domain": "capability",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:document",
+      "name": "Documents",
+      "key": "document",
+      "domain": "documents",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:document-processing",
+      "name": "Document Processing",
+      "key": "document-processing",
+      "domain": "documents",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:domain-name",
+      "name": "Domain Names",
+      "key": "domain-name",
+      "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:earth-observation",
+      "name": "Earth Observation",
+      "key": "earth-observation",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:economics",
+      "name": "Economics",
+      "key": "economics",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:education",
+      "name": "Education",
+      "key": "education",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:election",
+      "name": "Election",
+      "key": "election",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:ens",
+      "name": "ENS",
+      "key": "ens",
+      "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:entity-resolution",
+      "name": "Entity Resolution",
+      "key": "entity-resolution",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:escrow",
+      "name": "Escrow",
+      "key": "escrow",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:event-streaming",
+      "name": "Event Streaming",
+      "key": "event-streaming",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:events",
+      "name": "Events",
+      "key": "events",
+      "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:evidence",
+      "name": "Evidence",
+      "key": "evidence",
+      "domain": "evidence",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:experimentation",
+      "name": "Experimentation",
+      "key": "experimentation",
+      "domain": "science",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:food-systems",
+      "name": "Food Systems",
+      "key": "food-systems",
+      "domain": "agriculture",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:forecast",
+      "name": "Forecast",
+      "key": "forecast",
+      "domain": "science",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:foreign-exchange",
+      "name": "Foreign Exchange",
+      "key": "foreign-exchange",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:fractionalization",
+      "name": "Fractionalization",
+      "key": "fractionalization",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:fraud",
+      "name": "Fraud Detection",
+      "key": "fraud",
+      "domain": "security",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:geocoding",
+      "name": "Geocoding",
+      "key": "geocoding",
+      "domain": "geospatial",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:geospatial",
+      "name": "Geospatial",
+      "key": "geospatial",
+      "domain": "geospatial",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:graphql",
+      "name": "GraphQL",
+      "key": "graphql",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:health",
+      "name": "Health",
+      "key": "health",
+      "domain": "health",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:health-check",
+      "name": "Health Checking",
+      "key": "health-check",
+      "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:healthcare-services",
+      "name": "Healthcare Services",
+      "key": "healthcare-services",
+      "domain": "health",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:heritage",
+      "name": "Heritage",
+      "key": "heritage",
+      "domain": "heritage",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:hns",
+      "name": "HNS",
+      "key": "hns",
+      "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:housing",
+      "name": "Housing",
+      "key": "housing",
+      "domain": "property",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:identity",
+      "name": "Identity",
+      "key": "identity",
+      "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:identity-linking",
+      "name": "Identity Linking",
+      "key": "identity-linking",
+      "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:identity-resolution",
+      "name": "Identity Resolution",
+      "key": "identity-resolution",
+      "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:image",
+      "name": "Image",
+      "key": "image",
+      "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:insurance",
+      "name": "Insurance",
+      "key": "insurance",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:intent",
+      "name": "Intent",
+      "key": "intent",
+      "domain": "intent",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:inventory",
+      "name": "Inventory",
+      "key": "inventory",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:invoicing",
+      "name": "Invoicing",
+      "key": "invoicing",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:jobs",
+      "name": "Jobs",
+      "key": "jobs",
+      "domain": "workforce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:knowledge",
+      "name": "Knowledge",
+      "key": "knowledge",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:labor",
+      "name": "Labor / Workforce",
+      "key": "labor",
+      "domain": "workforce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:land-registry",
+      "name": "Land Registry Reference",
+      "key": "land-registry",
+      "domain": "property",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:language",
+      "name": "Language",
+      "key": "language",
+      "domain": "language",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:launch-data",
+      "name": "Launch Data",
+      "key": "launch-data",
+      "domain": "space",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:ledger",
+      "name": "Ledger",
+      "key": "ledger",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:legal-regulatory-reference",
+      "name": "Legal / Regulatory Reference",
+      "key": "legal-regulatory-reference",
+      "domain": "law",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:liability",
+      "name": "Liability",
+      "key": "liability",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:licensing",
+      "name": "Licensing",
+      "key": "licensing",
+      "domain": "rights",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:lineage",
+      "name": "Lineage",
+      "key": "lineage",
+      "domain": "evidence",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:logistics",
+      "name": "Logistics",
+      "key": "logistics",
+      "domain": "transport",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:market-data",
+      "name": "Market Data",
+      "key": "market-data",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:marketplace",
+      "name": "Marketplace",
+      "key": "marketplace",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:matching",
+      "name": "Matching",
+      "key": "matching",
+      "domain": "capability",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:matching-engine",
+      "name": "Matching Engine",
+      "key": "matching-engine",
+      "domain": "intelligence",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:mcp",
+      "name": "MCP",
+      "key": "mcp",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:measurement",
+      "name": "Measurement",
+      "key": "measurement",
+      "domain": "science",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:media",
+      "name": "Media",
+      "key": "media",
+      "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:media-discovery",
+      "name": "Media Discovery",
+      "key": "media-discovery",
+      "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:messaging",
+      "name": "Messaging",
+      "key": "messaging",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:migration",
+      "name": "Migration",
+      "key": "migration",
+      "domain": "continuity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:minting",
+      "name": "Minting",
+      "key": "minting",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:mission",
+      "name": "MISSION",
+      "key": "mission",
+      "domain": "ai",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:money",
+      "name": "Money",
+      "key": "money",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:notification",
+      "name": "Notifications",
+      "key": "notification",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:observability",
+      "name": "Observability",
+      "key": "observability",
+      "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:ocean",
+      "name": "Ocean",
+      "key": "ocean",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:ocr",
+      "name": "OCR",
+      "key": "ocr",
+      "domain": "documents",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:opportunity",
+      "name": "Opportunity",
+      "key": "opportunity",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:orders",
+      "name": "Orders",
+      "key": "orders",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:payment",
+      "name": "Payment",
+      "key": "payment",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:payments-messaging",
+      "name": "Financial Messaging",
+      "key": "payments-messaging",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:pkI",
+      "name": "PKI / Certificates",
+      "key": "pkI",
+      "domain": "security",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:planetary-data",
+      "name": "Planetary Data",
+      "key": "planetary-data",
+      "domain": "space",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:planning",
+      "name": "Planning",
+      "key": "planning",
+      "domain": "planning",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:pricing",
+      "name": "Pricing",
+      "key": "pricing",
+      "domain": "economics",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:privacy",
+      "name": "Privacy",
+      "key": "privacy",
+      "domain": "privacy",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:procurement",
+      "name": "Procurement",
+      "key": "procurement",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:property-rights",
+      "name": "Property Rights",
+      "key": "property-rights",
+      "domain": "property",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:protocol-adapter",
+      "name": "Protocol Adapter",
+      "key": "protocol-adapter",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:provenance",
+      "name": "Provenance",
+      "key": "provenance",
+      "domain": "evidence",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:public-services",
+      "name": "Public Services",
+      "key": "public-services",
+      "domain": "government",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:pulse",
+      "name": "Pulse / Feedback",
+      "key": "pulse",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:queueing",
+      "name": "Queueing",
+      "key": "queueing",
+      "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:quotations",
+      "name": "Quotations",
+      "key": "quotations",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:ranking",
+      "name": "Ranking",
+      "key": "ranking",
+      "domain": "intelligence",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:rate-limits",
+      "name": "Rate Limiting",
+      "key": "rate-limits",
+      "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:real-time-data",
+      "name": "Real-time Data",
+      "key": "real-time-data",
+      "domain": "data",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:real-time-streams",
+      "name": "Real-time Streams",
+      "key": "real-time-streams",
+      "domain": "data",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:reasoning",
+      "name": "Reasoning",
+      "key": "reasoning",
+      "domain": "ai",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:recommendation",
+      "name": "Recommendation",
+      "key": "recommendation",
+      "domain": "intelligence",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:recovery",
+      "name": "Recovery",
+      "key": "recovery",
+      "domain": "continuity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:registry-search",
+      "name": "Registry Search",
+      "key": "registry-search",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:relationship",
+      "name": "Relationship",
+      "key": "relationship",
+      "domain": "relationship",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:remittance",
+      "name": "Remittance",
+      "key": "remittance",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:research",
+      "name": "Research",
+      "key": "research",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:resource",
+      "name": "Resource",
+      "key": "resource",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:resource-planning",
+      "name": "Resource Planning",
+      "key": "resource-planning",
+      "domain": "planning",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:rest-api",
+      "name": "REST API",
+      "key": "rest-api",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:rights",
+      "name": "Rights",
+      "key": "rights",
+      "domain": "rights",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:rights-management",
+      "name": "Rights Management",
+      "key": "rights-management",
+      "domain": "rights",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:risk",
+      "name": "Risk",
+      "key": "risk",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:routing",
+      "name": "Routing",
+      "key": "routing",
+      "domain": "transport",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:satellite-tracking",
+      "name": "Satellite Tracking",
+      "key": "satellite-tracking",
+      "domain": "space",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:scheduling",
+      "name": "Scheduling",
+      "key": "scheduling",
+      "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:science",
+      "name": "Science",
+      "key": "science",
+      "domain": "science",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:search",
+      "name": "Search",
+      "key": "search",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:secrets",
+      "name": "Secret Management",
+      "key": "secrets",
+      "domain": "security",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:security",
+      "name": "Security",
+      "key": "security",
+      "domain": "security",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:seed-systems",
+      "name": "Seed Systems",
+      "key": "seed-systems",
+      "domain": "agriculture",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:service-delivery",
+      "name": "Service Delivery",
+      "key": "service-delivery",
+      "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:service-discovery",
+      "name": "Service Discovery",
+      "key": "service-discovery",
+      "domain": "capability",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:settlement",
+      "name": "Settlement",
+      "key": "settlement",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:settlement-reconciliation",
+      "name": "Settlement Reconciliation",
+      "key": "settlement-reconciliation",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:shipping",
+      "name": "Shipping",
+      "key": "shipping",
+      "domain": "transport",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:signing",
+      "name": "Signing",
+      "key": "signing",
+      "domain": "security",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:simulation",
+      "name": "Simulation",
+      "key": "simulation",
+      "domain": "science",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:skills",
+      "name": "Skills",
+      "key": "skills",
+      "domain": "workforce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:smart-contracts",
+      "name": "Smart Contracts",
+      "key": "smart-contracts",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:social",
+      "name": "Social",
+      "key": "social",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:space-data",
+      "name": "Space Data",
+      "key": "space-data",
+      "domain": "space",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:space-weather",
+      "name": "Space Weather",
+      "key": "space-weather",
+      "domain": "space",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:speech",
+      "name": "Speech",
+      "key": "speech",
+      "domain": "language",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:stable-value",
+      "name": "Stable Value Assets",
+      "key": "stable-value",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:state",
+      "name": "State",
+      "key": "state",
+      "domain": "state",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:stream-processing",
+      "name": "Stream Processing",
+      "key": "stream-processing",
+      "domain": "data",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:streaming",
+      "name": "Streaming",
+      "key": "streaming",
+      "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:supply",
+      "name": "Supply",
+      "key": "supply",
+      "domain": "economics",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:supply-chain-security",
+      "name": "Software Supply Chain Security",
+      "key": "supply-chain-security",
+      "domain": "security",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:swarm",
+      "name": "Swarm",
+      "key": "swarm",
+      "domain": "ai",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:team-orchestration",
+      "name": "TEAM Orchestration",
+      "key": "team-orchestration",
+      "domain": "ai",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:telemetry",
+      "name": "Telemetry",
+      "key": "telemetry",
+      "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:tokenization",
+      "name": "Tokenization",
+      "key": "tokenization",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:trade",
+      "name": "Trade",
+      "key": "trade",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:traffic",
+      "name": "Traffic",
+      "key": "traffic",
+      "domain": "transport",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:training",
+      "name": "Training",
+      "key": "training",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:translation",
+      "name": "Translation",
+      "key": "translation",
+      "domain": "language",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:transport",
+      "name": "Transport",
+      "key": "transport",
+      "domain": "transport",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:treasury",
+      "name": "Treasury",
+      "key": "treasury",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:trust",
+      "name": "Trust",
+      "key": "trust",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:utilization",
+      "name": "Utilization",
+      "key": "utilization",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:valuation",
+      "name": "Valuation",
+      "key": "valuation",
+      "domain": "property",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:value",
+      "name": "Value",
+      "key": "value",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:verification",
+      "name": "Verification",
+      "key": "verification",
+      "domain": "verification",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:video",
+      "name": "Video",
+      "key": "video",
+      "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:water",
+      "name": "Water",
+      "key": "water",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:weather",
+      "name": "Weather",
+      "key": "weather",
+      "domain": "environment",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:webhooks",
+      "name": "Webhooks",
+      "key": "webhooks",
+      "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:workflow",
+      "name": "Workflow",
+      "key": "workflow",
+      "domain": "workflow",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    }
+  ]
 }
