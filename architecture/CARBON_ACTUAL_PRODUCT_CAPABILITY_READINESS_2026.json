@@ -389,5 +389,21 @@
     ],
     "markets": "all market structures and marketable rights/resources/capacity/opportunities",
     "unknown": "explicit UNKNOWN/POSSIBLE horizon only"
+  },
+  "team_patterns": 30,
+  "domain_scope_records": 58,
+  "capability_families": 335,
+  "swirms": 35,
+  "registry_edges_verified_dangling": 0,
+  "live_registry_assertion": {
+    "capability_families": 335,
+    "swirms": 35,
+    "team_patterns": 30,
+    "domain_scope_records": 58,
+    "registry_edges": 4818,
+    "capability_grouping_edges": 1156,
+    "ungrouped_capabilities": 0,
+    "scope_projection_gaps": 0,
+    "dangling_edges": 0
   }
 }
