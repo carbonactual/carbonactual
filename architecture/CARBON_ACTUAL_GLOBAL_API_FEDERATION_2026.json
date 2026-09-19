@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_GLOBAL_API_FEDERATION",
-  "version": "2026-09-19",
+  "version": "2026-09-19.1",
   "status": "curated-and-discovery-ready",
   "purpose": "Global public API and machine-readable data-source federation for Carbon Actual. It covers Earth, Solar-System, frontier and unknown horizons without treating any provider as constitutional authority.",
   "nonredundancy_rule": "one canonical capability -> many provider adapters -> one governed evidence/result path",
@@ -78,6 +78,23 @@
       "scope": "public API profiles and artifacts",
       "coverage": "1,400+ free APIs and broader provider profiles",
       "status": "active_index"
+    },
+    {
+      "id": "directory:api-atlas",
+      "name": "API Atlas",
+      "url": "https://www.apiatlas.org/",
+      "scope": "global public API discovery",
+      "coverage": "3,000+ charted APIs and OpenAPI specs",
+      "status": "active_index"
+    },
+    {
+      "id": "directory:apislist",
+      "name": "APIsList",
+      "url": "https://apislist.com/",
+      "machine_source": "https://api.apislist.com/v1/apis/",
+      "scope": "hand-checked public API discovery",
+      "coverage": "1,970+ APIs across 92 categories",
+      "status": "active_index"
     }
   ],
   "selection_policy": {
@@ -112,7 +129,15 @@
       "passwords",
       "payment_credentials",
       "private_signing_material"
-    ]
+    ],
+    "discovery_priority": [
+      "first_party",
+      "official_open_data",
+      "international_multilateral",
+      "open_standard",
+      "community_catalog"
+    ],
+    "directory_rule": "Use API directories for discovery, never as proof of authority or ongoing availability; each provider is independently classified and health-checked before promotion."
   },
   "providers": [
     [
@@ -537,6 +562,132 @@
       "varies",
       "federated",
       "NASA/ESA/Copernicus/open science sources"
+    ],
+    [
+      "oecd",
+      "OECD Data Explorer SDMX API",
+      "macro-economy,social,economy,statistics",
+      "https://sdmx.oecd.org/public/rest/",
+      "none",
+      "official/free",
+      "https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html"
+    ],
+    [
+      "ilo",
+      "ILO SDMX REST API",
+      "labor,employment,social-protection,statistics",
+      "https://sdmx.ilo.org/rest/",
+      "none",
+      "official",
+      "https://sdmx.ilo.org/index.html"
+    ],
+    [
+      "eia",
+      "U.S. EIA API",
+      "energy,electricity,petroleum,nuclear,coal",
+      "https://api.eia.gov/",
+      "api_key",
+      "official/free",
+      "https://www.eia.gov/developer/"
+    ],
+    [
+      "openaq",
+      "OpenAQ v3 API",
+      "air-quality,environment,health",
+      "https://api.openaq.org/v3/",
+      "api_key",
+      "open-data",
+      "https://docs.openaq.org/api"
+    ],
+    [
+      "global-fishing-watch",
+      "Global Fishing Watch APIs",
+      "ocean,fishing,vessels,maritime",
+      "https://gateway.api.globalfishingwatch.org/",
+      "api_key",
+      "open-data",
+      "https://globalfishingwatch.org/our-apis/"
+    ],
+    [
+      "overture-maps",
+      "Overture Maps datasets/catalog",
+      "mapping,places,buildings,transport,geospatial",
+      "https://docs.overturemaps.org/",
+      "none_for_public_releases",
+      "open-data",
+      "https://docs.overturemaps.org/"
+    ],
+    [
+      "geonames",
+      "GeoNames Web Services",
+      "geocoding,placenames,boundaries,elevation,timezone",
+      "https://secure.geonames.org/",
+      "free_username",
+      "open-data",
+      "https://www.geonames.org/export/web-services.html"
+    ],
+    [
+      "common-crawl",
+      "Common Crawl Index/API",
+      "web-archive,web-history,crawl-index",
+      "https://index.commoncrawl.org/",
+      "none",
+      "open-data",
+      "https://commoncrawl.org/cdxj-index"
+    ],
+    [
+      "osv",
+      "OSV.dev API",
+      "software-vulnerabilities,supply-chain-security",
+      "https://api.osv.dev/v1/",
+      "none",
+      "open-source",
+      "https://google.github.io/osv.dev/api/"
+    ],
+    [
+      "jpl-horizons",
+      "JPL Horizons API",
+      "astronomy,ephemerides,space-navigation",
+      "https://ssd-api.jpl.nasa.gov/api/horizons.api",
+      "none",
+      "official",
+      "https://ssd-api.jpl.nasa.gov/doc/horizons.html"
+    ],
+    [
+      "aviationweather",
+      "AviationWeather.gov Data API",
+      "aviation-weather,metar,taf,pirep,navaid",
+      "https://aviationweather.gov/api/data/",
+      "none",
+      "official",
+      "https://www.connect.aviationweather.gov/data/api/"
+    ],
+    [
+      "uk-legislation",
+      "UK Legislation API",
+      "law,legislation,statutes,government",
+      "https://www.legislation.gov.uk/",
+      "none",
+      "official/open",
+      "https://www.data.gov.uk/dataset/a2416481-271a-42b2-ace8-fc247dd251be/legislation-api"
+    ],
+    [
+      "un-sdg",
+      "UN SDG API",
+      "sustainable-development,global-statistics",
+      "https://unstats.un.org/SDGAPI/",
+      "none",
+      "official",
+      "https://unstats.un.org/SDGs/"
+    ],
+    [
+      "ncbi",
+      "NCBI E-utilities",
+      "biomedical,genomics,health,research",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
+      "none_or_tool_contact",
+      "official",
+      "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
     ]
   ],
   "nigeria": [
@@ -690,5 +841,6 @@
     "Public does not mean unrestricted: many APIs require keys, OAuth, subscription, institutional agreements or explicit user consent.",
     "World/space/unknown horizons are modeled as scope and reality states. No extraterrestrial or alien API is asserted as factual; future/unknown connectors remain candidates until evidence exists.",
     "Directory indexes are the mechanism for continuously discovering the much larger public-API universe rather than pretending a fixed hand-curated list can remain complete."
-  ]
+  ],
+  "provider_count": 77
 }
