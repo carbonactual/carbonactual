@@ -1,0 +1,694 @@
+{
+  "registry": "CARBON_ACTUAL_GLOBAL_API_FEDERATION",
+  "version": "2026-09-19",
+  "status": "curated-and-discovery-ready",
+  "purpose": "Global public API and machine-readable data-source federation for Carbon Actual. It covers Earth, Solar-System, frontier and unknown horizons without treating any provider as constitutional authority.",
+  "nonredundancy_rule": "one canonical capability -> many provider adapters -> one governed evidence/result path",
+  "deployment_gate": "catalog_and_capability_registry_ready; credentials_externalized; adapters_verified_before_production",
+  "universe_scope": [
+    "Nigeria",
+    "Africa",
+    "Earth",
+    "Near-Earth",
+    "Solar-System",
+    "Beyond-Earth",
+    "Unknown-Alien"
+  ],
+  "reality_horizon": [
+    "ACTUAL",
+    "HISTORICAL",
+    "OBSERVED",
+    "PLANNED",
+    "COMMITTED",
+    "SIMULATED",
+    "POSSIBLE",
+    "UNKNOWN"
+  ],
+  "auth_classes": [
+    "none",
+    "api_key",
+    "oauth",
+    "bearer",
+    "client_credentials",
+    "signed_request",
+    "user_consent",
+    "institutional_credential",
+    "subscription",
+    "unknown"
+  ],
+  "ingestion_sources": [
+    {
+      "id": "directory:apis-guru",
+      "name": "APIs.guru",
+      "url": "https://apis.guru/",
+      "machine_source": "https://api.apis.guru/v2/list.json",
+      "scope": "public API definitions",
+      "coverage": "thousands of OpenAPI-described APIs",
+      "status": "active_index"
+    },
+    {
+      "id": "directory:public-apis-api",
+      "name": "Public APIs directory API",
+      "url": "https://api.publicapis.org/",
+      "machine_source": "https://api.publicapis.org/entries",
+      "scope": "community-curated public APIs",
+      "coverage": "large free/public catalogue",
+      "status": "active_index"
+    },
+    {
+      "id": "directory:public-api-lists",
+      "name": "Public API Lists",
+      "url": "https://public-api-lists.github.io/public-api-lists/",
+      "scope": "free public APIs",
+      "coverage": "730+ curated APIs",
+      "status": "active_index"
+    },
+    {
+      "id": "directory:apis-collection",
+      "name": "APIs Collection",
+      "url": "https://github.com/tools-collection/apis-collection",
+      "scope": "community-maintained public APIs",
+      "coverage": "broad machine-readable catalogue",
+      "status": "active_index"
+    },
+    {
+      "id": "directory:api-evangelist",
+      "name": "API Evangelist Public APIs",
+      "url": "https://github.com/api-evangelist/public-apis",
+      "scope": "public API profiles and artifacts",
+      "coverage": "1,400+ free APIs and broader provider profiles",
+      "status": "active_index"
+    }
+  ],
+  "selection_policy": {
+    "prefer": [
+      "first_party",
+      "open_standard",
+      "public_documentation",
+      "open_data",
+      "free_or_no_fee",
+      "stable_machine_readable_specification",
+      "clear_license",
+      "known_rate_limits"
+    ],
+    "permit": [
+      "credentialed_public_api",
+      "commercial_public_api",
+      "sandbox_api",
+      "subscription_api"
+    ],
+    "quarantine": [
+      "unknown_owner",
+      "unclear_license",
+      "unsafe_download",
+      "credential_exposure",
+      "deprecated_endpoint",
+      "unverified_claim"
+    ],
+    "never_store": [
+      "api_keys",
+      "bearer_tokens",
+      "oauth_refresh_tokens",
+      "passwords",
+      "payment_credentials",
+      "private_signing_material"
+    ]
+  },
+  "providers": [
+    [
+      "worldbank",
+      "World Bank Indicators API",
+      "development,economy,poverty,demography",
+      "https://api.worldbank.org/v2/",
+      "none",
+      "official",
+      "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392"
+    ],
+    [
+      "who-gho",
+      "WHO Global Health Observatory OData",
+      "health,epidemiology,public-health",
+      "https://ghoapi.azureedge.net/api/",
+      "none",
+      "official/current-interface",
+      "https://www.who.int/data/gho/info/gho-odata-api"
+    ],
+    [
+      "un-sdmx",
+      "UN SDMX / UNdata",
+      "global-statistics,sdmx,sustainable-development",
+      "http://data.un.org/ws/rest/",
+      "none",
+      "official",
+      "https://data.un.org/Host.aspx?Content=API"
+    ],
+    [
+      "unsd-sdg",
+      "UN SDG SDMX API",
+      "sdg,global-statistics",
+      "https://unstats.un.org/SDGAPI/",
+      "none_or_standard_sdmx",
+      "official",
+      "https://unstats.un.org/sdgs/iaeg-sdgs/sdmx-working-group/"
+    ],
+    [
+      "imf-data",
+      "IMF Data API",
+      "macro-economy,finance,external-sector",
+      "https://www.imf.org/external/datamapper/api/v1/",
+      "none",
+      "official",
+      "https://www.imf.org/en/Data"
+    ],
+    [
+      "ecb",
+      "European Central Bank Data API",
+      "fx,finance,macro-economy",
+      "https://data-api.ecb.europa.eu/",
+      "none",
+      "official",
+      "https://data.ecb.europa.eu/help/api"
+    ],
+    [
+      "bis",
+      "BIS statistics",
+      "banking,macro-finance,financial-stability",
+      "https://stats.bis.org/api/",
+      "sdmx",
+      "official",
+      "https://www.bis.org/statistics/api.htm"
+    ],
+    [
+      "ec-eurostat",
+      "Eurostat API",
+      "european-statistics,trade,labor,population",
+      "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/",
+      "none",
+      "official",
+      "https://ec.europa.eu/eurostat/web/main/data/web-services"
+    ],
+    [
+      "data-europa",
+      "data.europa.eu APIs",
+      "european-open-data,metadata,catalogues",
+      "https://data.europa.eu/api/",
+      "none",
+      "official",
+      "https://data.europa.eu/en"
+    ],
+    [
+      "us-census",
+      "U.S. Census API",
+      "demography,economy,geography",
+      "https://api.census.gov/data/",
+      "none_or_key",
+      "official",
+      "https://www.census.gov/data/developers.html"
+    ],
+    [
+      "us-treasury",
+      "U.S. Treasury Fiscal Data API",
+      "public-finance,debt,government",
+      "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/",
+      "none",
+      "official",
+      "https://fiscaldata.treasury.gov/api/fiscal-data/"
+    ],
+    [
+      "sec-edgar",
+      "SEC EDGAR APIs",
+      "companies,securities,filings",
+      "https://www.sec.gov/edgar/sec-api-documentation",
+      "user-agent",
+      "official",
+      "https://www.sec.gov/edgar/sec-api-documentation"
+    ],
+    [
+      "fred",
+      "FRED API",
+      "economic-series,macro-finance",
+      "https://api.stlouisfed.org/fred/",
+      "api_key",
+      "official",
+      "https://fred.stlouisfed.org/docs/api/fred/"
+    ],
+    [
+      "nasa",
+      "NASA APIs",
+      "space,earth,astronomy,science,imagery",
+      "https://api.nasa.gov/",
+      "api_key",
+      "official",
+      "https://api.nasa.gov/"
+    ],
+    [
+      "copernicus-dataspace",
+      "Copernicus Data Space APIs",
+      "earth-observation,satellite,geospatial",
+      "https://dataspace.copernicus.eu/",
+      "varies",
+      "official",
+      "https://documentation.dataspace.copernicus.eu/APIs.html"
+    ],
+    [
+      "noaa-ncei",
+      "NOAA NCEI Web Services",
+      "weather,climate,environment",
+      "https://www.ncei.noaa.gov/cdo-web/api/v2/",
+      "token",
+      "official",
+      "https://www.ncdc.noaa.gov/cdo-web/webservices"
+    ],
+    [
+      "usgs",
+      "USGS APIs",
+      "earthquakes,water,geology,land",
+      "https://earthquake.usgs.gov/fdsnws/",
+      "none",
+      "official",
+      "https://www.usgs.gov/programs/earthquake-hazards/earthquake-catalogs"
+    ],
+    [
+      "osm-nominatim",
+      "OpenStreetMap Nominatim",
+      "geocoding,reverse-geocoding,places",
+      "https://nominatim.openstreetmap.org/",
+      "none",
+      "open-project",
+      "https://git.openstreetmap.org/nominatim.git"
+    ],
+    [
+      "osm-overpass",
+      "OpenStreetMap Overpass",
+      "geospatial-query,mapping,points-of-interest",
+      "https://overpass-api.de/api/",
+      "none",
+      "open-project",
+      "https://wiki.openstreetmap.org/wiki/Overpass_API"
+    ],
+    [
+      "gbif",
+      "GBIF Occurrence API",
+      "biodiversity,species,ecology",
+      "https://api.gbif.org/v1/",
+      "none",
+      "international-open",
+      "https://techdocs.gbif.org/en/openapi/v1/occurrence"
+    ],
+    [
+      "openalex",
+      "OpenAlex API",
+      "research,works,authors,institutions,citations",
+      "https://api.openalex.org/",
+      "none",
+      "open-data",
+      "https://docs.openalex.org/"
+    ],
+    [
+      "crossref",
+      "Crossref REST API",
+      "scholarly-metadata,doi,publishing",
+      "https://api.crossref.org/",
+      "none",
+      "open-service",
+      "https://api.crossref.org/"
+    ],
+    [
+      "wikidata-sparql",
+      "Wikidata Query Service",
+      "knowledge-graph,entities,relationships",
+      "https://query.wikidata.org/sparql",
+      "none",
+      "Wikimedia",
+      "https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service"
+    ],
+    [
+      "wikimedia",
+      "Wikimedia REST APIs",
+      "encyclopedic-content,media,knowledge",
+      "https://api.wikimedia.org/",
+      "varies",
+      "Wikimedia",
+      "https://www.mediawiki.org/wiki/API"
+    ],
+    [
+      "europeana",
+      "Europeana APIs",
+      "culture,heritage,collections",
+      "https://api.europeana.eu/",
+      "api_key",
+      "official/open",
+      "https://pro.europeana.eu/resources/apis"
+    ],
+    [
+      "met-museum",
+      "Metropolitan Museum Collection API",
+      "art,culture,heritage",
+      "https://collectionapi.metmuseum.org/public/collection/v1/",
+      "none",
+      "official/open",
+      "https://metmuseum.github.io/"
+    ],
+    [
+      "smithsonian-open-access",
+      "Smithsonian Open Access",
+      "culture,science,collections,media",
+      "https://api.si.edu/",
+      "api_key",
+      "official/open",
+      "https://www.si.edu/openaccess"
+    ],
+    [
+      "openlibrary",
+      "Open Library APIs",
+      "books,authors,editions",
+      "https://openlibrary.org/developers/api",
+      "none",
+      "open-data",
+      "https://openlibrary.org/developers/api"
+    ],
+    [
+      "internet-archive",
+      "Internet Archive APIs",
+      "archives,media,books,web-history",
+      "https://archive.org/developers/",
+      "none",
+      "nonprofit/open",
+      "https://archive.org/developers/"
+    ],
+    [
+      "ncbi-eutils",
+      "NCBI E-utilities",
+      "biomedical,genomics,research",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
+      "none_or_tool_contact",
+      "official",
+      "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+    ],
+    [
+      "clinicaltrials",
+      "ClinicalTrials.gov API",
+      "clinical-trials,health-research",
+      "https://clinicaltrials.gov/data-api/api/",
+      "none",
+      "official",
+      "https://clinicaltrials.gov/data-api/api"
+    ],
+    [
+      "openfda",
+      "openFDA API",
+      "drug,device,food,safety",
+      "https://api.fda.gov/",
+      "none",
+      "official",
+      "https://open.fda.gov/apis/"
+    ],
+    [
+      "faostat",
+      "FAOSTAT APIs",
+      "agriculture,food,land,trade,statistics",
+      "https://fenixservices.fao.org/api/faostat/",
+      "varies",
+      "official",
+      "https://www.fao.org/faostat/en/#data"
+    ],
+    [
+      "open-meteo",
+      "Open-Meteo",
+      "weather,forecast,climate",
+      "https://api.open-meteo.com/",
+      "none",
+      "open",
+      "https://open-meteo.com/"
+    ],
+    [
+      "met-no",
+      "MET Norway Weather API",
+      "weather,forecast",
+      "https://api.met.no/",
+      "user-agent",
+      "official",
+      "https://api.met.no/"
+    ],
+    [
+      "nws",
+      "US National Weather Service API",
+      "weather,alerts,forecast",
+      "https://api.weather.gov/",
+      "none",
+      "official",
+      "https://www.weather.gov/documentation/services-web-api"
+    ],
+    [
+      "opensky",
+      "OpenSky Network API",
+      "aviation,aircraft,tracking",
+      "https://opensky-network.org/apidoc/",
+      "none_or_auth",
+      "open/research",
+      "https://openskynetwork.github.io/opensky-api/"
+    ],
+    [
+      "gtfs",
+      "GTFS / GTFS-Realtime",
+      "public-transit,transport,schedules",
+      "https://gtfs.org/",
+      "standard",
+      "open-standard",
+      "https://gtfs.org/documentation/"
+    ],
+    [
+      "opencorporates",
+      "OpenCorporates API",
+      "companies,corporate-registry",
+      "https://api.opencorporates.com/",
+      "api_key",
+      "public/commercial",
+      "https://api.opencorporates.com/documentation/API-Reference"
+    ],
+    [
+      "rdap",
+      "ICANN/IANA RDAP ecosystem",
+      "domains,registries,ip,identity-reference",
+      "https://rdap.org/",
+      "none",
+      "standard/open",
+      "https://www.icann.org/rdap"
+    ],
+    [
+      "openfigi",
+      "OpenFIGI API",
+      "financial-instruments,identifiers",
+      "https://api.openfigi.com/",
+      "optional_api_key",
+      "public",
+      "https://www.openfigi.com/api"
+    ],
+    [
+      "coingecko",
+      "CoinGecko API",
+      "crypto,markets,assets",
+      "https://api.coingecko.com/api/v3/",
+      "none_or_key",
+      "public/commercial",
+      "https://docs.coingecko.com/"
+    ],
+    [
+      "defillama",
+      "DeFiLlama APIs",
+      "defi,crypto,protocols,markets",
+      "https://api.llama.fi/",
+      "none",
+      "public/open",
+      "https://docs.llama.fi/"
+    ],
+    [
+      "mempool",
+      "mempool.space API",
+      "bitcoin,blockchain,fees,blocks",
+      "https://mempool.space/api/",
+      "none",
+      "open/public",
+      "https://mempool.space/docs/api/rest"
+    ],
+    [
+      "solana",
+      "Solana JSON-RPC",
+      "blockchain,tokens,accounts",
+      "https://api.mainnet-beta.solana.com",
+      "none",
+      "public-RPC",
+      "https://solana.com/docs/rpc"
+    ],
+    [
+      "ethereum-rpc",
+      "Ethereum JSON-RPC",
+      "blockchain,smart-contracts,accounts",
+      "https://ethereum.org/en/developers/docs/apis/json-rpc/",
+      "provider_specific",
+      "open-standard",
+      "https://ethereum.org/en/developers/docs/apis/json-rpc/"
+    ],
+    [
+      "space-data-discovery",
+      "Space/public-data directory layer",
+      "space,astronomy,launches,planetary-data",
+      "directory_composed_from_public_sources",
+      "varies",
+      "federated",
+      "NASA/ESA/Copernicus/open science sources"
+    ]
+  ],
+  "nigeria": [
+    [
+      "ng-open-data",
+      "Nigeria open-data discovery",
+      "government,public-data",
+      "https://data.gov.ng/",
+      "varies",
+      "public-catalog",
+      "government/open-data discovery"
+    ],
+    [
+      "ng-nibss-dev",
+      "NIBSS Developers Portal",
+      "payments,banking,identity-adjacent",
+      "https://devportal.nibss-plc.com.ng/",
+      "institutional_credential",
+      "official",
+      "https://contactcentre.nibss-plc.com.ng/support/solutions/articles/47001264993-how-do-we-access-the-new-api-for-integration-"
+    ],
+    [
+      "ng-open-banking",
+      "Open Banking Nigeria",
+      "open-banking,consent,account-data,payments",
+      "https://openbanking.ng/",
+      "client_credentials/user_consent",
+      "standard",
+      "https://docs.openbanking.ng/standard"
+    ],
+    [
+      "ng-cbn-rates",
+      "CBN data and statistics",
+      "fx,macro,banking,finance",
+      "https://www.cbn.gov.ng/rates/",
+      "public-web-data",
+      "official",
+      "https://www.cbn.gov.ng/rates/"
+    ],
+    [
+      "ng-sec-operators",
+      "SEC registered-operator verification",
+      "capital-markets,regulatory-reference",
+      "https://sec.gov.ng/for-investors/find-a-registered-operator/",
+      "public-web-data",
+      "official",
+      "https://sec.gov.ng/for-investors/find-a-registered-operator/"
+    ],
+    [
+      "ng-ngx-data",
+      "NGX market data APIs",
+      "listed-securities,market-data",
+      "https://ngxgroup.com/exchange/data/",
+      "registration_or_subscription",
+      "official",
+      "https://ngxgroup.com/exchange/data/"
+    ],
+    [
+      "ng-nasd-api",
+      "NASD developer APIs",
+      "otc-market-data,reference,corporate-actions",
+      "https://docs.nasdng.com/",
+      "authorized_partner_key",
+      "official",
+      "https://docs.nasdng.com/"
+    ],
+    [
+      "ng-ncs-trade",
+      "Nigeria Customs trade services",
+      "customs,trade,clearance",
+      "https://customs.gov.ng/",
+      "account_or_role",
+      "official",
+      "https://customs.gov.ng/"
+    ],
+    [
+      "ng-nrs",
+      "Nigeria Revenue Service",
+      "tax,revenue,compliance",
+      "https://www.nrs.gov.ng/",
+      "varies",
+      "official",
+      "https://www.nrs.gov.ng/"
+    ],
+    [
+      "ng-nimc",
+      "NIMC services/reference",
+      "identity,credential,pki",
+      "https://nimc.gov.ng/",
+      "institutional_credential",
+      "official",
+      "https://nimc.gov.ng/press-releases/president-tinubu-signs-nimc-act-2026-into-law"
+    ],
+    [
+      "ng-ndpc",
+      "NDPC",
+      "privacy,data-protection,compliance",
+      "https://www.ndpc.gov.ng/",
+      "varies",
+      "official",
+      "https://www.ndpc.gov.ng/"
+    ],
+    [
+      "ng-nasc",
+      "NASC",
+      "seed,agriculture,certification",
+      "https://seedcouncil.gov.ng/",
+      "varies",
+      "official",
+      "https://seedcouncil.gov.ng/what-we-do/"
+    ],
+    [
+      "ng-npc",
+      "National Population Commission",
+      "birth,death,civil-registration",
+      "https://nationalpopulation.gov.ng/",
+      "role_based",
+      "official",
+      "https://nationalpopulation.gov.ng/"
+    ],
+    [
+      "ng-noun",
+      "NOUN services/PAS/library",
+      "education,academic-records,library",
+      "https://nou.edu.ng/",
+      "student_or_public",
+      "official",
+      "https://nou.edu.ng/"
+    ],
+    [
+      "ng-nelfund",
+      "NELFUND portal",
+      "student-finance,education",
+      "https://nelf.gov.ng/",
+      "user_auth",
+      "official",
+      "https://nelf.gov.ng/"
+    ],
+    [
+      "ng-cibn",
+      "CIBN programme/exam information",
+      "banking-certification,education",
+      "https://www.cibng.org/",
+      "public-web-data",
+      "official",
+      "https://www.cibng.org/"
+    ]
+  ],
+  "implementation_notes": [
+    "The federation is an inventory and adapter-discovery layer, not a secret store and not an automatic right to transact.",
+    "Public does not mean unrestricted: many APIs require keys, OAuth, subscription, institutional agreements or explicit user consent.",
+    "World/space/unknown horizons are modeled as scope and reality states. No extraterrestrial or alien API is asserted as factual; future/unknown connectors remain candidates until evidence exists.",
+    "Directory indexes are the mechanism for continuously discovering the much larger public-API universe rather than pretending a fixed hand-curated list can remain complete."
+  ]
+}
