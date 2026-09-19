@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_CAPABILITY_READINESS",
-  "version": "2026-09-19.1",
+  "version": "2026-09-19.2",
   "rule": "Every product is a projection over shared capabilities. Product-specific code should consume the shared fabric and should be release-gated on data, adapters, authority, evidence, and deployment readiness.",
   "deployment_policy": "NO production deployment in this pass. Build/test/data-readiness first; deployment becomes a separate promotion step.",
   "shared_capability_families": [
@@ -343,10 +343,10 @@
     "capability_registry": "logical:capability",
     "capability_nodes_seeded": 193,
     "product_capability_mappings_seeded": 1340,
-    "api_provider_nodes_seeded": 77,
+    "api_provider_nodes_seeded": 82,
     "production_deployments_in_this_pass": 0,
-    "api_catalog_sources_seeded": 7,
-    "provider_capability_mappings_seeded": 191,
+    "api_catalog_sources_seeded": 8,
+    "provider_capability_mappings_seeded": 216,
     "deployment_gate_status": "BUILD_READY_STRUCTURE; PRODUCT_RUNTIME_VALIDATION_AND_PROVIDER_CONFORMANCE_REMAIN_BEFORE_PRODUCTION"
   },
   "release_gates": [
@@ -359,5 +359,6 @@
     "Consequential operations remain behind authority/policy/approval.",
     "Unknown/alien/future records remain explicitly UNKNOWN/POSSIBLE until evidence supports a stronger reality state.",
     "ZUJID & CO. remains excluded from codebase and deployment changes."
-  ]
+  ],
+  "last_reconciled": "2026-09-19"
 }
