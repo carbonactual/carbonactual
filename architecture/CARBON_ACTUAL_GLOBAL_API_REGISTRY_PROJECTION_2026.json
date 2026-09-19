@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Global API Registry Projection",
-  "version": "2026-09-19",
+  "version": "2026-09-19.3",
   "status": "canonical-supabase-projection",
   "source_registry": "registry:api-endpoint",
   "scope": [
