@@ -22,6 +22,32 @@ The shared semantic kernel is:
 
 These are interoperability facets, not replacement entity types. They exist to stop the ecosystem from reinventing the same primitive in every repository.
 
+## ECOSYSTEM OVERVIEW & DOMAIN COMPOSITION
+
+
+The domain is larger than the product. The overview layer defines the alignment chain:
+
+
+**CANON → DOCTRINES → KERNEL → COMMON FUNCTIONS → DOMAIN CIRCUMFERENCE → SWIRMs → TEAMs → WORKFLOWS → PRODUCTS / INTERFACES**
+
+
+A **Domain** describes the complete real-world circumference of a field. A **SWIRM** groups comparable/reusable capabilities. A **TEAM** composes capabilities from multiple SWIRMs when one intent or mission crosses functional or domain boundaries. Products are projections into domains and consume these shared compositions; they do not create parallel universal primitives.
+
+
+Canonical maps:
+
+
+- `architecture/CARBON_ACTUAL_ECOSYSTEM_OVERVIEW_ALIGNMENT_2026.md`
+
+- `architecture/CARBON_ACTUAL_ECOSYSTEM_DOMAIN_ATLAS_2026.json`
+
+- `architecture/CARBON_ACTUAL_SWIRM_TEAM_MATRIX_2026.json`
+
+- `architecture/CARBON_ACTUAL_DOMAIN_CIRCUMFERENCE_2026.json`
+
+
+Current live Supabase composition registry: **292 capability families**, **35 functional SWIRMs**, **17 cross-domain TEAM patterns**, **43 domain-scope records**; all 292 capability families are grouped and the registry currently has **0 dangling graph edges** in the verified scope checks.
+
 ## CANONICAL ARCHITECTURE
 
 The live spine contains the canonical contracts migrated from historical operating-spine architecture. Historical repositories remain provenance sources; they are not competing authorities.
