@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-19",
+  "version": "2026-09-19.3",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
