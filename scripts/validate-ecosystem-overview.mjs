@@ -69,8 +69,9 @@ for (const [id, name, refs, domains] of teams) {
   if (!Array.isArray(domains) || domains.length < 1) fail(`TEAM has no domain context: ${id}`);
 }
 
-const capabilityFamilies = capability.capabilities ?? capability.families ?? [];
-if (capabilityFamilies.length < 292) fail(`capability catalog unexpectedly small: ${capabilityFamilies.length}`);
+const capabilityFamilies = capability.families ?? capability.capabilities ?? [];
+if (capability.count !== 292) fail(`capability catalog count drift: ${capability.count}`);
+if (capabilityFamilies.length !== capability.count) fail(`capability family array/count mismatch: ${capabilityFamilies.length} vs ${capability.count}`);
 for (const family of capabilityFamilies) {
   if (!family.id || !family.name) fail('capability family missing id or name');
 }
