@@ -13,6 +13,7 @@ const SOURCES = [
   { id: "apis-guru", url: "https://api.apis.guru/v2/list.json", kind: "apis_guru" },
   { id: "public-apis", url: "https://api.publicapis.org/entries", kind: "public_apis" },
   { id: "public-api-lists", url: "https://public-api-lists.github.io/public-api-lists/api/all.json", kind: "public_api_lists" },
+  { id: "apislist", url: "https://api.apislist.com/v1/apis/", kind: "apislist" },
 ];
 
 const normalizeUrl = (value) => {
@@ -94,6 +95,28 @@ function fromPublicApis(payload) {
     source: "public-apis"
   }));
 }
+\nfunction fromApisList(payload) {
+  const entries = Array.isArray(payload)
+    ? payload
+    : (payload?.data ?? payload?.apis ?? payload?.results ?? payload?.items ?? []);
+  return (entries ?? []).map((entry, index) => {
+    const url = entry.api_url ?? entry.url ?? entry.endpoint ?? entry.link ?? entry.website;
+    const docs = entry.documentation_url ?? entry.docs_url ?? entry.documentation ?? entry.website ?? url;
+    return {
+      providerId: `apislist:${entry.id ?? String(entry.api_name ?? entry.name ?? url ?? index).toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      name: entry.api_name ?? entry.name ?? "Unnamed API",
+      baseUrl: normalizeUrl(url),
+      docsUrl: normalizeUrl(docs),
+      specUrl: normalizeUrl(entry.spec_url ?? entry.openapi_url),
+      authClass: normalizeAuth(entry.authentication_type ?? entry.auth ?? entry.authentication),
+      categories: [entry.category, ...(Array.isArray(entry.categories) ? entry.categories : [])].filter(Boolean).map((x) => String(x).trim()),
+      source: "apislist",
+      pricingClass: entry.pricing ?? null,
+      httpsSupported: String(entry.https_support ?? entry.https ?? "").toLowerCase() === "yes"
+    };
+  });
+}
+
 
 function mergeByBaseUrl(records) {
   const map = new Map();
@@ -128,6 +151,7 @@ async function main() {
       if (source.kind === "apis_guru") results.push(...fromApisGuru(payload));
       if (source.kind === "public_apis") results.push(...fromPublicApis(payload));
       if (source.kind === "public_api_lists") results.push(...fromPublicApiLists(payload));
+      if (source.kind === "apislist") results.push(...fromApisList(payload));
     } catch (error) {
       failures.push({ source: source.id, error: String(error?.message ?? error) });
     }
