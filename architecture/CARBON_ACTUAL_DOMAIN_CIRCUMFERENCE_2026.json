@@ -43,7 +43,26 @@
       "management": "Cover strategy, governance, administration, people, workforce, finance, treasury, sales, marketing, customer/service operations, product, project/program/portfolio, procurement, vendors, supply chain, assets, facilities, inventory, capacity, quality, risk, compliance, legal, data, knowledge, security, incidents, continuity, change, performance and decision support."
     },
     "ai_and_intelligence": "Every domain can expose information, research, analysis, recommendation, prediction, planning, automation, agents, teams, swarms and missions. Intelligence may inform or execute only within the authority model.",
-    "implementation_rule": "A product is not considered substantially built until its domain circumference has been mapped, shared capabilities identified, source/provider universe catalogued, authority boundaries recorded, Supabase structures populated and release tests defined."
+    "implementation_rule": "A product is not considered substantially built until its domain circumference has been mapped, shared capabilities identified, source/provider universe catalogued, authority boundaries recorded, Supabase structures populated and release tests defined.",
+    "alignment_layer": {
+      "overview": "architecture/CARBON_ACTUAL_ECOSYSTEM_OVERVIEW_ALIGNMENT_2026.md",
+      "domain_atlas": "architecture/CARBON_ACTUAL_ECOSYSTEM_DOMAIN_ATLAS_2026.json",
+      "swirm_team_matrix": "architecture/CARBON_ACTUAL_SWIRM_TEAM_MATRIX_2026.json",
+      "purpose": "Align circumference scope with doctrines, kernel facets, reusable functions, functional SWIRMs and cross-domain TEAM composition before product implementation."
+    },
+    "composition_hierarchy": [
+      "CANON",
+      "DOCTRINES",
+      "KERNEL",
+      "COMMON_FUNCTIONS",
+      "DOMAIN_CIRCUMFERENCE",
+      "SWIRMS",
+      "TEAMs",
+      "WORKFLOWS",
+      "PRODUCTS_AND_INTERFACES"
+    ],
+    "domain_rule": "A domain defines the real-world field; a product is a projection into that field; a SWIRM groups comparable capabilities; a TEAM composes capabilities across SWIRMs for an intent or mission.",
+    "alignment_rule": "When domains overlap, do not duplicate the shared function. Resolve the common function to one capability family and expose it through the relevant SWIRM; compose a TEAM when a mission requires multiple functional fields."
   },
   "educationAtlas": {
     "domain": "education",
