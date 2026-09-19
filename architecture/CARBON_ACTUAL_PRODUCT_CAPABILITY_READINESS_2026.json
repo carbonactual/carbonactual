@@ -1,0 +1,338 @@
+{
+  "registry": "CARBON_ACTUAL_PRODUCT_CAPABILITY_READINESS",
+  "version": "2026-09-19",
+  "rule": "Every product is a projection over shared capabilities. Product-specific code should consume the shared fabric and should be release-gated on data, adapters, authority, evidence, and deployment readiness.",
+  "deployment_policy": "NO production deployment in this pass. Build/test/data-readiness first; deployment becomes a separate promotion step.",
+  "shared_capability_families": [
+    "identity",
+    "authority",
+    "intent",
+    "capability-discovery",
+    "relationship",
+    "search",
+    "knowledge",
+    "geospatial",
+    "communications",
+    "media",
+    "document",
+    "workflow",
+    "automation",
+    "analytics",
+    "audit",
+    "evidence",
+    "state",
+    "value",
+    "payment",
+    "settlement",
+    "market-data",
+    "trade",
+    "education",
+    "health",
+    "agriculture",
+    "transport",
+    "weather",
+    "earth-observation",
+    "space-data",
+    "science",
+    "culture",
+    "heritage",
+    "legal-regulatory-reference",
+    "security",
+    "observability"
+  ],
+  "products": {
+    "ABBA": {
+      "repo": "carbonactual/abba",
+      "composition": "master intelligence, planning, routing, orchestration",
+      "ready_layers": [
+        "kernel-context",
+        "capability-discovery",
+        "mission-routing",
+        "provider-selection"
+      ],
+      "next_build": [
+        "universal provider catalog",
+        "global mission adapters",
+        "evidence/result normalization"
+      ],
+      "vercel": "not_primary_surface"
+    },
+    "ABBA MAS": {
+      "repo": "carbonactual/abba",
+      "composition_path": "mas/",
+      "ready_layers": [
+        "swarm/team composition"
+      ],
+      "next_build": [
+        "global capability coverage",
+        "provider health",
+        "mission readiness"
+      ],
+      "vercel": "composition_not_standalone"
+    },
+    "Carbon Actual": {
+      "repo": "carbonactual/carbonactual",
+      "composition": "canonical operating spine",
+      "ready_layers": [
+        "kernel",
+        "registries",
+        "authority maps",
+        "capability fabric"
+      ],
+      "next_build": [
+        "global API federation contract",
+        "release readiness projections"
+      ],
+      "vercel": "architecture_authority"
+    },
+    "HAPI World": {
+      "repo": "carbonactual/hapi-world",
+      "composition": "constitutional world / agent-native world",
+      "ready_layers": [
+        "CANON",
+        "identity/authority boundary"
+      ],
+      "next_build": [
+        "world capability surfaces",
+        "space/frontier ontology mappings",
+        "global data adapters"
+      ],
+      "vercel": "world surface"
+    },
+    "HAPI World Nexus": {
+      "repo": "carbonactual/hapi-world",
+      "composition_path": "nexus/",
+      "status": "absorbed_composition_archived_repo",
+      "next_build": [
+        "use hapi-world nexus path"
+      ],
+      "vercel": "not_separate_repo"
+    },
+    "OMNI": {
+      "repo": "carbonactual/omni",
+      "composition": "universal interface and operating surface",
+      "ready_layers": [
+        "PWA shell",
+        "capability routing concept"
+      ],
+      "next_build": [
+        "global API discovery UI",
+        "provider capability browser",
+        "universal service/request flows"
+      ],
+      "vercel": "ready_for_build_validation; not promoted in this pass"
+    },
+    "TIP": {
+      "repo": "carbonactual/tip",
+      "composition": "trade and investment",
+      "next_build": [
+        "global market-data providers",
+        "trade/customs/tax routes",
+        "settlement/provider adapters",
+        "asset/ownership discovery"
+      ],
+      "vercel": "build_gate"
+    },
+    "SPOTIST": {
+      "repo": "carbonactual/spotist",
+      "composition": "seek/discovery/matching",
+      "next_build": [
+        "global search/geospatial/provider matching",
+        "availability",
+        "intent-to-capability matching"
+      ],
+      "vercel": "build_gate"
+    },
+    "NAIRE": {
+      "repo": "carbonactual/naire",
+      "composition": "human operating environment",
+      "next_build": [
+        "identity",
+        "household",
+        "services",
+        "opportunities",
+        "commerce",
+        "communications"
+      ],
+      "vercel": "build_gate"
+    },
+    "NGIN": {
+      "repo": "carbonactual/ngin",
+      "composition": "organization/institution/territory operating environment",
+      "next_build": [
+        "registry composition",
+        "compliance",
+        "payments",
+        "procurement",
+        "tax",
+        "workforce"
+      ],
+      "vercel": "build_gate"
+    },
+    "SEED": {
+      "repo": "carbonactual/seed",
+      "composition": "genesis/incubation",
+      "next_build": [
+        "idea/project/capability intake",
+        "funding/resource/capability matching",
+        "incubation workflow"
+      ],
+      "vercel": "build_gate"
+    },
+    "HERITAGE": {
+      "repo": "carbonactual/heritage",
+      "composition": "lineage/archive",
+      "next_build": [
+        "global archival discovery",
+        "provenance",
+        "rights",
+        "digitization metadata"
+      ],
+      "vercel": "build_gate"
+    },
+    "I/O": {
+      "repo": "carbonactual/io",
+      "composition": "movement/transport/value flows",
+      "next_build": [
+        "global logistics",
+        "payments/settlement",
+        "shipment/route/status providers"
+      ],
+      "vercel": "build_gate"
+    },
+    "Value System": {
+      "repo": "carbonactual/value-system",
+      "composition": "value semantics and governed value pathways",
+      "next_build": [
+        "value measurement",
+        "Pulse integration",
+        "asset/liability classification",
+        "economic feedback"
+      ],
+      "vercel": "build_gate"
+    },
+    "InstituteGPT": {
+      "repo": "carbonactual/institutegpt",
+      "composition": "education and AI",
+      "next_build": [
+        "global education provider catalog",
+        "credentials",
+        "libraries",
+        "research",
+        "learning services"
+      ],
+      "vercel": "build_gate"
+    },
+    "NOUN BOT": {
+      "repo": "carbonactual/noun-student-bot",
+      "composition": "NOUN academic operating layer",
+      "ready_layers": [
+        "student workflows",
+        "CIBN continuity backend",
+        "PWA"
+      ],
+      "next_build": [
+        "production promotion",
+        "official data adapters",
+        "global education services"
+      ],
+      "vercel": "blocked_until_current_backend_deploys"
+    },
+    "MCP BOT": {
+      "repo": "carbonactual/mcp-bot",
+      "composition": "CIBN certification companion",
+      "ready_layers": [
+        "PWA",
+        "study workflow",
+        "tests"
+      ],
+      "next_build": [
+        "production promotion of latest CI commit"
+      ],
+      "vercel": "ready_but_not_promoted"
+    },
+    "Open Bank": {
+      "repo": "carbonactual/open-bank",
+      "composition": "banking operations",
+      "next_build": [
+        "open banking consent",
+        "account information",
+        "payments",
+        "reconciliation",
+        "ledger",
+        "risk/compliance"
+      ],
+      "vercel": "build_gate"
+    },
+    "Open Ballot": {
+      "repo": "carbonactual/open-ballot",
+      "composition": "civic/election engine",
+      "next_build": [
+        "election objects",
+        "registration/eligibility references",
+        "ballot flows",
+        "audit/evidence",
+        "results publication"
+      ],
+      "vercel": "build_gate"
+    },
+    "RITES": {
+      "repo": "carbonactual/RITES",
+      "composition": "continuity/event-memory",
+      "ready_layers": [
+        "PWA",
+        "institutional reference map"
+      ],
+      "next_build": [
+        "global jurisdiction-aware continuity",
+        "vital-event/probate/health/cultural/provider adapters"
+      ],
+      "vercel": "current_deploy_exists; next promotion separately gated"
+    },
+    "Nigerian Cultural Atlas": {
+      "repo": "carbonactual/nigerian-cultural-atlas",
+      "composition": "cultural curation/publishing",
+      "ready_layers": [
+        "Next.js surface",
+        "provenance model",
+        "PWA"
+      ],
+      "next_build": [
+        "global culture/heritage sources",
+        "rights/licensing",
+        "international cultural sources"
+      ],
+      "vercel": "not_promoted_in_this_pass"
+    },
+    "BUNK": {
+      "repo": "carbonactual/bunk",
+      "composition": "property/companion",
+      "next_build": [
+        "global property rights/markets",
+        "geospatial",
+        "valuation",
+        "ownership/evidence",
+        "frontier/space candidates"
+      ],
+      "vercel": "build_gate"
+    },
+    "ZUJID & CO.": {
+      "repo": "carbonactual/zujid",
+      "composition": "independent professional advisory company",
+      "codebase_touch": "none in this pass",
+      "next_build": [
+        "none under this instruction"
+      ],
+      "vercel": "do_not_touch"
+    }
+  },
+  "cross_product_gate": [
+    "All external data has source/provenance.",
+    "Credential requirements are classified; secrets remain outside descriptors.",
+    "Provider failure/deprecation is represented explicitly.",
+    "Consequential operations require authority/policy/approval as applicable.",
+    "PWA/mobile/desktop shells are tested before production promotion.",
+    "Supabase is populated before Vercel production promotion.",
+    "Vercel deployment is a promotion step, not the build environment."
+  ]
+}
