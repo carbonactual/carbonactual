@@ -12,6 +12,7 @@
 const SOURCES = [
   { id: "apis-guru", url: "https://api.apis.guru/v2/list.json", kind: "apis_guru" },
   { id: "public-apis", url: "https://api.publicapis.org/entries", kind: "public_apis" },
+  { id: "public-api-lists", url: "https://public-api-lists.github.io/public-api-lists/api/all.json", kind: "public_api_lists" },
 ];
 
 const normalizeUrl = (value) => {
@@ -68,6 +69,19 @@ function fromApisGuru(payload) {
   return out;
 }
 
+function fromPublicApiLists(payload) {
+  return (payload?.entries ?? []).map((entry) => ({
+    providerId: `public-api-lists:${String(entry.name ?? entry.url ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+    name: entry.name ?? "Unnamed API",
+    baseUrl: normalizeUrl(entry.url),
+    docsUrl: normalizeUrl(entry.url),
+    specUrl: null,
+    authClass: normalizeAuth(entry.auth),
+    categories: String(entry.category ?? "").split(",").map((x) => x.trim()).filter(Boolean),
+    source: "public-api-lists"
+  }));
+}
+
 function fromPublicApis(payload) {
   return (payload?.entries ?? []).map((entry) => ({
     providerId: `public-apis:${String(entry.API ?? entry.Link ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
@@ -113,6 +127,7 @@ async function main() {
       const payload = await fetchJson(source.url);
       if (source.kind === "apis_guru") results.push(...fromApisGuru(payload));
       if (source.kind === "public_apis") results.push(...fromPublicApis(payload));
+      if (source.kind === "public_api_lists") results.push(...fromPublicApiLists(payload));
     } catch (error) {
       failures.push({ source: source.id, error: String(error?.message ?? error) });
     }
