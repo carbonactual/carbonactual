@@ -1196,5 +1196,19 @@
       "agent/framework registries"
     ],
     "access_rule": "open, public-authenticated, member-only, institutional, restricted and proprietary systems are all catalogable; free/open sources are preferred for actual implementation and paid dependencies are not required to represent a provider."
-  }
+  },
+  "automated_refresh_sources": [
+    "directory:apis-guru",
+    "directory:public-api-lists",
+    "directory:public-apis-api",
+    "directory:apislist"
+  ],
+  "curated_or_catalog_only_sources": [
+    "directory:apis-collection",
+    "directory:api-evangelist",
+    "directory:api-atlas",
+    "directory:postman-api-network"
+  ],
+  "completeness_rule": "Automated refresh uses only current machine-readable contracts that are verified or parsed defensively; curated/catalog-only directories remain discovery inputs until their machine interface is independently verified.",
+  "last_reconciled": "2026-09-19"
 }
