@@ -1,10 +1,10 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-19.5",
+  "version": "2026-09-19.6",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 292,
+  "count": 335,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
   "families": [
     {
@@ -128,6 +128,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:approval",
+      "name": "Approval",
+      "key": "approval",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:archive",
       "name": "Archive",
       "key": "archive",
@@ -152,10 +160,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:asset-issuance",
+      "name": "Asset Issuance",
+      "key": "asset-issuance",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:asset-lifecycle-management",
       "name": "Asset Lifecycle Management",
       "key": "asset-lifecycle-management",
       "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:asset-redemption",
+      "name": "Asset Redemption",
+      "key": "asset-redemption",
+      "domain": "value",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -211,6 +235,14 @@
       "id": "capability-family:authority",
       "name": "Authority",
       "key": "authority",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:authority-escalation",
+      "name": "Authority Escalation",
+      "key": "authority-escalation",
       "domain": "authority",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
@@ -304,10 +336,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:blockchain-node-management",
+      "name": "Blockchain Node Management",
+      "key": "blockchain-node-management",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:booking",
       "name": "Booking",
       "key": "booking",
       "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:bridge-interoperability",
+      "name": "Blockchain Bridge / Interoperability",
+      "key": "bridge-interoperability",
+      "domain": "integration",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -380,6 +428,14 @@
       "name": "Career Services",
       "key": "career-services",
       "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:case-management",
+      "name": "Case Management",
+      "key": "case-management",
+      "domain": "governance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -488,9 +544,25 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:consensus",
+      "name": "Consensus",
+      "key": "consensus",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:consent",
       "name": "Consent",
       "key": "consent",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:consent-management",
+      "name": "Consent Management",
+      "key": "consent-management",
       "domain": "authority",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
@@ -560,10 +632,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:court-management",
+      "name": "Court Management",
+      "key": "court-management",
+      "domain": "government",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:cpd-management",
       "name": "CPD Management",
       "key": "cpd-management",
       "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:credential-verification",
+      "name": "Credential Verification",
+      "key": "credential-verification",
+      "domain": "verification",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -624,6 +712,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:data-export",
+      "name": "Data Export",
+      "key": "data-export",
+      "domain": "data",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:data-governance",
       "name": "Data Governance",
       "key": "data-governance",
@@ -664,6 +760,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:delegation-management",
+      "name": "Delegation Management",
+      "key": "delegation-management",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:demand",
       "name": "Demand",
       "key": "demand",
@@ -692,6 +796,14 @@
       "name": "DID",
       "key": "did",
       "domain": "identity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:digital-asset-custody",
+      "name": "Digital Asset Custody",
+      "key": "digital-asset-custody",
+      "domain": "finance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -732,6 +844,22 @@
       "name": "Discovery",
       "key": "discovery",
       "domain": "capability",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:dispute-resolution",
+      "name": "Dispute Resolution",
+      "key": "dispute-resolution",
+      "domain": "rights",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:distributed-ledger",
+      "name": "Distributed Ledger",
+      "key": "distributed-ledger",
+      "domain": "technology",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -824,6 +952,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:entitlement",
+      "name": "Entitlement",
+      "key": "entitlement",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:entity-resolution",
       "name": "Entity Resolution",
       "key": "entity-resolution",
@@ -904,6 +1040,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:flow-management",
+      "name": "Input / Output Flow Management",
+      "key": "flow-management",
+      "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:food-systems",
       "name": "Food Systems",
       "key": "food-systems",
@@ -964,6 +1108,14 @@
       "name": "Geospatial",
       "key": "geospatial",
       "domain": "geospatial",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:government-administration",
+      "name": "Government Administration",
+      "key": "government-administration",
+      "domain": "government",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1072,6 +1224,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:infrastructure-management",
+      "name": "Infrastructure Management",
+      "key": "infrastructure-management",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:insurance",
       "name": "Insurance",
       "key": "insurance",
@@ -1112,6 +1272,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:investigation",
+      "name": "Investigation",
+      "key": "investigation",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:invigilation",
       "name": "Invigilation",
       "key": "invigilation",
@@ -1132,6 +1300,22 @@
       "name": "Jobs",
       "key": "jobs",
       "domain": "workforce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:jurisdiction",
+      "name": "Jurisdiction",
+      "key": "jurisdiction",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:justice-services",
+      "name": "Justice Services",
+      "key": "justice-services",
+      "domain": "government",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1632,6 +1816,22 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:public-policy-management",
+      "name": "Public Policy Management",
+      "key": "public-policy-management",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:public-records",
+      "name": "Public Records",
+      "key": "public-records",
+      "domain": "government",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:public-services",
       "name": "Public Services",
       "key": "public-services",
@@ -1760,6 +1960,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:regulatory-decision",
+      "name": "Regulatory Decision",
+      "key": "regulatory-decision",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:relationship",
       "name": "Relationship",
       "key": "relationship",
@@ -1820,6 +2028,14 @@
       "name": "Results Management",
       "key": "results-management",
       "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:revocation",
+      "name": "Revocation",
+      "key": "revocation",
+      "domain": "authority",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1936,6 +2152,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:separation-of-duties",
+      "name": "Separation of Duties",
+      "key": "separation-of-duties",
+      "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:service-delivery",
       "name": "Service Delivery",
       "key": "service-delivery",
@@ -1948,6 +2172,22 @@
       "name": "Service Discovery",
       "key": "service-discovery",
       "domain": "capability",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:service-management",
+      "name": "Service Management",
+      "key": "service-management",
+      "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:service-quality",
+      "name": "Service Quality",
+      "key": "service-quality",
+      "domain": "service",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -2000,6 +2240,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:smart-contract-development",
+      "name": "Smart Contract Development",
+      "key": "smart-contract-development",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:smart-contracts",
       "name": "Smart Contracts",
       "key": "smart-contracts",
@@ -2016,10 +2264,42 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:software-deployment",
+      "name": "Software Deployment",
+      "key": "software-deployment",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:software-development",
+      "name": "Software Development",
+      "key": "software-development",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:software-discovery",
       "name": "Software Discovery",
       "key": "software-discovery",
       "domain": "software",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:software-testing",
+      "name": "Software Testing",
+      "key": "software-testing",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:sourcing",
+      "name": "Sourcing",
+      "key": "sourcing",
+      "domain": "commerce",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -2104,6 +2384,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:supplier-management",
+      "name": "Supplier Management",
+      "key": "supplier-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:supply",
       "name": "Supply",
       "key": "supply",
@@ -2176,6 +2464,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:token-lifecycle",
+      "name": "Token Lifecycle",
+      "key": "token-lifecycle",
+      "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:tokenization",
       "name": "Tokenization",
       "key": "tokenization",
@@ -2212,6 +2508,38 @@
       "name": "Training",
       "key": "training",
       "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:transaction-management",
+      "name": "Transaction Management",
+      "key": "transaction-management",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:transaction-monitoring",
+      "name": "Transaction Monitoring",
+      "key": "transaction-monitoring",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:transaction-reversal",
+      "name": "Transaction Reversal",
+      "key": "transaction-reversal",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:transaction-status",
+      "name": "Transaction Status",
+      "key": "transaction-status",
+      "domain": "state",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -2296,6 +2624,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:version-control",
+      "name": "Version Control",
+      "key": "version-control",
+      "domain": "technology",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:video",
       "name": "Video",
       "key": "video",
@@ -2308,6 +2644,14 @@
       "name": "Viva / Defense",
       "key": "viva-defense",
       "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:wallet-management",
+      "name": "Wallet Management",
+      "key": "wallet-management",
+      "domain": "value",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
