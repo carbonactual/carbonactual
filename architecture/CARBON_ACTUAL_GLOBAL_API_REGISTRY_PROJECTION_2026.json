@@ -1,6 +1,6 @@
 {
   "name": "Carbon Actual Global API Registry Projection",
-  "version": "2026-09-19.4",
+  "version": "2026-09-19.5",
   "status": "canonical-supabase-projection",
   "source_registry": "registry:api-endpoint",
   "scope": [
@@ -130,6 +130,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://www.connect.aviationweather.gov/data/api/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -143,6 +144,7 @@
         "auth": "sdmx",
         "source_type": "official",
         "docs": "https://www.bis.org/statistics/api.htm",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -156,6 +158,7 @@
         "auth": "none",
         "source_type": "public-data",
         "docs": "https://celestrak.org/NORAD/elements/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -169,6 +172,7 @@
         "auth": "api_key",
         "source_type": "official/public",
         "docs": "https://api-portal.charitycommission.gov.uk/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -182,6 +186,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://clinicaltrials.gov/data-api/api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -195,6 +200,7 @@
         "auth": "none_or_key",
         "source_type": "public/commercial",
         "docs": "https://docs.coingecko.com/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -208,6 +214,7 @@
         "auth": "none",
         "source_type": "open-data",
         "docs": "https://commoncrawl.org/cdxj-index",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -221,6 +228,7 @@
         "auth": "api_key_or_oauth",
         "source_type": "official/public",
         "docs": "https://developer.company-information.service.gov.uk/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -234,6 +242,7 @@
         "auth": "varies",
         "source_type": "official",
         "docs": "https://documentation.dataspace.copernicus.eu/APIs.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -247,6 +256,7 @@
         "auth": "none",
         "source_type": "open-service",
         "docs": "https://api.crossref.org/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -260,6 +270,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://data.europa.eu/en",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -273,6 +284,7 @@
         "auth": "none",
         "source_type": "public/open",
         "docs": "https://docs.llama.fi/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -286,6 +298,21 @@
         "auth": "none",
         "source_type": "open",
         "docs": "https://deps.dev/",
+        "jurisdiction": "GLOBAL",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:provider:docker-hub",
+      "name": "Docker Hub APIs / Registry API",
+      "metadata": {
+        "provider_id": "docker-hub",
+        "domain": "containers,software,images,packages,delivery",
+        "base_url": "https://registry-1.docker.io/",
+        "auth": "public_token_or_account",
+        "source_type": "open-standard/platform",
+        "docs": "https://docs.docker.com/reference/api/registry/latest/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -299,6 +326,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://ec.europa.eu/eurostat/web/main/data/web-services",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -312,6 +340,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://data.ecb.europa.eu/help/api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -325,6 +354,7 @@
         "auth": "api_key",
         "source_type": "official/free",
         "docs": "https://www.eia.gov/developer/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -338,6 +368,7 @@
         "auth": "provider_specific",
         "source_type": "open-standard",
         "docs": "https://ethereum.org/en/developers/docs/apis/json-rpc/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -351,6 +382,7 @@
         "auth": "api_key",
         "source_type": "official/open",
         "docs": "https://pro.europeana.eu/resources/apis",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -364,6 +396,7 @@
         "auth": "varies",
         "source_type": "official",
         "docs": "https://www.fao.org/faostat/en/#data",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -377,6 +410,7 @@
         "auth": "api_key",
         "source_type": "official",
         "docs": "https://fred.stlouisfed.org/docs/api/fred/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -390,6 +424,7 @@
         "auth": "download/license",
         "source_type": "open-data",
         "docs": "https://gadm.org/data.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -403,6 +438,7 @@
         "auth": "none",
         "source_type": "international-open",
         "docs": "https://techdocs.gbif.org/en/openapi/v1/occurrence",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -416,6 +452,7 @@
         "auth": "free_username",
         "source_type": "open-data",
         "docs": "https://www.geonames.org/export/web-services.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -429,6 +466,7 @@
         "auth": "github_account",
         "source_type": "platform",
         "docs": "https://docs.github.com/en/apps/github-marketplace/github-marketplace-overview",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -442,6 +480,21 @@
         "auth": "none_or_token",
         "source_type": "official",
         "docs": "https://docs.github.com/en/rest",
+        "jurisdiction": "GLOBAL",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:provider:glama",
+      "name": "Glama MCP Registry",
+      "metadata": {
+        "provider_id": "glama",
+        "domain": "mcp,agents,tools,connectors",
+        "base_url": "https://glama.ai/",
+        "auth": "none_for_discovery",
+        "source_type": "public-index",
+        "docs": "https://glama.ai/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -455,6 +508,7 @@
         "auth": "none_or_key",
         "source_type": "official/open",
         "docs": "https://www.gleif.org/en/lei-data/gleif-api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -468,6 +522,7 @@
         "auth": "api_key",
         "source_type": "open-data",
         "docs": "https://globalfishingwatch.org/our-apis/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -481,6 +536,7 @@
         "auth": "standard",
         "source_type": "open-standard",
         "docs": "https://gtfs.org/documentation/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -494,6 +550,7 @@
         "auth": "none_or_token",
         "source_type": "official/open",
         "docs": "https://huggingface.co/docs/hub/api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -507,6 +564,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://www.iana.org/protocols",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -520,6 +578,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://sdmx.ilo.org/index.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -533,6 +592,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://www.imf.org/en/Data",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -546,6 +606,7 @@
         "auth": "none",
         "source_type": "nonprofit/open",
         "docs": "https://archive.org/developers/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -559,6 +620,7 @@
         "auth": "license_or_reference",
         "source_type": "standard",
         "docs": "https://www.iso.org/iso-3166-country-codes.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -572,6 +634,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://ssd-api.jpl.nasa.gov/doc/horizons.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -585,6 +648,7 @@
         "auth": "none",
         "source_type": "open-registry",
         "docs": "https://registry.modelcontextprotocol.io/docs",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -598,6 +662,7 @@
         "auth": "none",
         "source_type": "open/public",
         "docs": "https://mempool.space/docs/api/rest",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -611,6 +676,7 @@
         "auth": "none",
         "source_type": "official/open",
         "docs": "https://metmuseum.github.io/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -624,6 +690,7 @@
         "auth": "user-agent",
         "source_type": "official",
         "docs": "https://api.met.no/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -637,6 +704,7 @@
         "auth": "none",
         "source_type": "official/public",
         "docs": "https://docs.minorplanetcenter.net/mpc-ops-docs/apis/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -650,6 +718,7 @@
         "auth": "api_key",
         "source_type": "official",
         "docs": "https://api.nasa.gov/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -663,6 +732,7 @@
         "auth": "public-domain",
         "source_type": "open-data",
         "docs": "https://www.naturalearthdata.com/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -676,6 +746,7 @@
         "auth": "none_or_tool_contact",
         "source_type": "official",
         "docs": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -689,6 +760,7 @@
         "auth": "none_or_tool_contact",
         "source_type": "official",
         "docs": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -926,6 +998,7 @@
         "auth": "token",
         "source_type": "official",
         "docs": "https://www.ncdc.noaa.gov/cdo-web/webservices",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -939,6 +1012,7 @@
         "auth": "none_for_read",
         "source_type": "open/public",
         "docs": "https://api-docs.npmjs.com/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -952,6 +1026,7 @@
         "auth": "none_for_read",
         "source_type": "official/open",
         "docs": "https://api-docs.npmjs.com/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -965,6 +1040,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://www.weather.gov/documentation/services-web-api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -978,6 +1054,7 @@
         "auth": "none",
         "source_type": "official/free",
         "docs": "https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -991,6 +1068,7 @@
         "auth": "none",
         "source_type": "open",
         "docs": "https://open-meteo.com/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1004,6 +1082,7 @@
         "auth": "none",
         "source_type": "open-data",
         "docs": "https://docs.openalex.org/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1017,6 +1096,7 @@
         "auth": "api_key",
         "source_type": "open-data",
         "docs": "https://docs.openaq.org/api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1030,6 +1110,7 @@
         "auth": "api_key",
         "source_type": "public/commercial",
         "docs": "https://api.opencorporates.com/documentation/API-Reference",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1043,6 +1124,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://open.fda.gov/apis/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1056,6 +1138,7 @@
         "auth": "optional_api_key",
         "source_type": "public",
         "docs": "https://www.openfigi.com/api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1069,6 +1152,21 @@
         "auth": "none",
         "source_type": "open-data",
         "docs": "https://openlibrary.org/developers/api",
+        "jurisdiction": "GLOBAL",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:provider:openrouter",
+      "name": "OpenRouter APIs",
+      "metadata": {
+        "provider_id": "openrouter",
+        "domain": "ai-models,inference,model-routing,agents",
+        "base_url": "https://openrouter.ai/api/v1/",
+        "auth": "api_key",
+        "source_type": "commercial/public-with-free-options",
+        "docs": "https://openrouter.ai/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1082,6 +1180,7 @@
         "auth": "none_or_auth",
         "source_type": "open/research",
         "docs": "https://openskynetwork.github.io/opensky-api/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1095,6 +1194,7 @@
         "auth": "none",
         "source_type": "open-reference",
         "docs": "https://opensource.org/licenses",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1108,6 +1208,7 @@
         "auth": "none",
         "source_type": "open-project",
         "docs": "https://git.openstreetmap.org/nominatim.git",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1121,6 +1222,7 @@
         "auth": "none",
         "source_type": "open-project",
         "docs": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1134,6 +1236,7 @@
         "auth": "none",
         "source_type": "open-source",
         "docs": "https://google.github.io/osv.dev/api/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1147,6 +1250,7 @@
         "auth": "none_for_public_releases",
         "source_type": "open-data",
         "docs": "https://docs.overturemaps.org/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1160,6 +1264,7 @@
         "auth": "access_token",
         "source_type": "commercial/public-with-terms",
         "docs": "https://api.producthunt.com/v2/docs",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1173,6 +1278,7 @@
         "auth": "none_for_read",
         "source_type": "open/public",
         "docs": "https://docs.pypi.org/api/json/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1186,6 +1292,7 @@
         "auth": "none_for_read",
         "source_type": "official/open",
         "docs": "https://docs.pypi.org/api/json/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1199,6 +1306,7 @@
         "auth": "none",
         "source_type": "standard/open",
         "docs": "https://www.icann.org/rdap",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1212,6 +1320,7 @@
         "auth": "none",
         "source_type": "open",
         "docs": "https://ror.org/registry/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1225,6 +1334,7 @@
         "auth": "user-agent",
         "source_type": "official",
         "docs": "https://www.sec.gov/edgar/sec-api-documentation",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1238,6 +1348,7 @@
         "auth": "api_key",
         "source_type": "official/open",
         "docs": "https://www.si.edu/openaccess",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1251,6 +1362,7 @@
         "auth": "none",
         "source_type": "public-RPC",
         "docs": "https://solana.com/docs/rpc",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1264,6 +1376,21 @@
         "auth": "varies",
         "source_type": "federated",
         "docs": "NASA/ESA/Copernicus/open science sources",
+        "jurisdiction": "GLOBAL",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:provider:terraform-registry",
+      "name": "Terraform Registry API",
+      "metadata": {
+        "provider_id": "terraform-registry",
+        "domain": "infrastructure,providers,modules,policies,software",
+        "base_url": "https://registry.terraform.io/v1/",
+        "auth": "none",
+        "source_type": "open/public",
+        "docs": "https://developer.hashicorp.com/terraform/registry/api-docs",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1277,6 +1404,7 @@
         "auth": "none",
         "source_type": "official/open",
         "docs": "https://www.data.gov.uk/dataset/a2416481-271a-42b2-ace8-fc247dd251be/legislation-api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1290,6 +1418,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://unstats.un.org/SDGs/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1303,6 +1432,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://data.un.org/Host.aspx?Content=API",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1316,6 +1446,7 @@
         "auth": "none_or_standard_sdmx",
         "source_type": "official",
         "docs": "https://unstats.un.org/sdgs/iaeg-sdgs/sdmx-working-group/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1329,6 +1460,7 @@
         "auth": "none_or_key",
         "source_type": "official",
         "docs": "https://www.census.gov/data/developers.html",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1342,6 +1474,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://fiscaldata.treasury.gov/api/fiscal-data/",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1355,6 +1488,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://www.usgs.gov/programs/earthquake-hazards/earthquake-catalogs",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1368,6 +1502,7 @@
         "auth": "none",
         "source_type": "official/current-interface",
         "docs": "https://www.who.int/data/gho/info/gho-odata-api",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1381,6 +1516,7 @@
         "auth": "none",
         "source_type": "open",
         "docs": "https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1394,6 +1530,7 @@
         "auth": "none",
         "source_type": "Wikimedia",
         "docs": "https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1407,6 +1544,7 @@
         "auth": "varies",
         "source_type": "Wikimedia",
         "docs": "https://www.mediawiki.org/wiki/API",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     },
@@ -1420,6 +1558,7 @@
         "auth": "none",
         "source_type": "official",
         "docs": "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392",
+        "jurisdiction": "GLOBAL",
         "reviewed_on": "2026-09-19"
       }
     }
@@ -1459,7 +1598,7 @@
       }
     }
   ],
-  "provider_count": 99,
+  "provider_count": 103,
   "discovery_source_count": 8,
   "rule": "Living federation projection; directory membership is discovery evidence only. Provider-specific conformance remains required. Unknown/alien entries are non-factual until evidence supports promotion."
 }
