@@ -1,0 +1,20 @@
+{
+  "name": "Carbon Actual Global API Registry Projection",
+  "version": "2026-09-19",
+  "status": "canonical-supabase-projection",
+  "source_registry": "registry:api-endpoint",
+  "scope": [
+    "Nigeria",
+    "Global",
+    "Earth",
+    "Solar-System",
+    "Beyond-Earth",
+    "UNKNOWN_ALIEN"
+  ],
+  "discovery_sources": [],
+  "providers": [],
+  "horizons": [],
+  "provider_count": 0,
+  "discovery_source_count": 0,
+  "rule": "This is a living federation projection. Directory membership is discovery evidence only; provider-specific conformance is separately verified. Unknown/alien entries remain explicitly non-factual until evidence supports promotion."
+}
