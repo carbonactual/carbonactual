@@ -205,6 +205,28 @@
       "freshness": "current-2026"
     },
     {
+      "key": "ng:ncc",
+      "name": "Nigerian Copyright Commission",
+      "jurisdiction": "Nigeria",
+      "domains": ["copyright","creative_rights","creative_economy"],
+      "authority_scope": ["copyright_administration","copyright_registration","collective_management_oversight","anti_piracy"],
+      "capabilities": ["copyright_work_registration_reference","rights_reference","CMO_reference","anti_piracy_reference"],
+      "source": "https://copyright.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:mdcn",
+      "name": "Medical and Dental Council of Nigeria",
+      "jurisdiction": "Nigeria",
+      "domains": ["healthcare","professional_regulation","practitioner_licensing"],
+      "authority_scope": ["medical_practitioner_registration","dental_practitioner_registration","practice_licensure"],
+      "capabilities": ["practitioner_status_reference","licensure_reference","professional_registration_reference"],
+      "source": "https://www.mdcn.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
       "key": "ng:nln",
       "name": "National Library of Nigeria",
       "jurisdiction": "Nigeria",
