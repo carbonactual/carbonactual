@@ -18,15 +18,21 @@ The registry keeps both individual providers and discovery sources. Discovery so
 
 ## Discovery sources
 
-Current machine/readable or catalog sources include:
+The federation separates **automated refresh sources** from **curated/catalog-only discovery sources**.
+
+Automated refresh currently uses four machine-readable sources:
 
 - APIs.guru
 - Public APIs directory API
 - Public API Lists
+- APIsList (parsed defensively because its published listing schema can evolve)
+
+Curated/catalog-only sources remain discovery inputs until their machine interface is independently verified:
+
 - APIs Collection
 - API Evangelist Public APIs
 - API Atlas
-- APIsList
+- Postman API Network
 
 These are discovery indexes. A provider is not trusted merely because an index contains it.
 
@@ -78,6 +84,10 @@ Products consume shared capabilities rather than owning duplicate provider conne
 This lets OMNI, TIP, SPOTIST, HAPI World, NAIRE, NGIN, SEED, HERITAGE, I/O, Value System, InstituteGPT, NOUN BOT, MCP BOT, Open Bank, Open Ballot, RITES, Cultural Atlas and BUNK reuse the same global API fabric.
 
 ZUJID & CO. is explicitly excluded from code and deployment work under the current boundary.
+
+## Current official data-source additions
+
+The provider catalog also tracks current first-party machine interfaces such as the OECD SDMX REST API and the ILO SDMX REST API. These are provider records, not discovery-directory records. OECD publishes JSON/CSV/XML response formats through its SDMX REST API; ILO publishes an SDMX REST API with the same family of standard REST resources. These sources are independently classified and health-checked before adapter promotion.
 
 ## Production gate
 
