@@ -16,5 +16,5 @@
   "horizons": [],
   "provider_count": 0,
   "discovery_source_count": 0,
-  "rule": "This is a living federation projection. Directory membership is discovery evidence only; provider-specific conformance is separately verified. Unknown/alien entries remain explicitly non-factual until evidence supports promotion."
+  "rule": "Living federation projection; directory membership is discovery evidence only. Provider-specific conformance remains required. Unknown/alien entries are non-factual until evidence supports promotion."
 }
