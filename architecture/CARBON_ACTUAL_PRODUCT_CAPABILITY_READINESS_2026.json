@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_CAPABILITY_READINESS",
-  "version": "2026-09-19",
+  "version": "2026-09-19.1",
   "rule": "Every product is a projection over shared capabilities. Product-specific code should consume the shared fabric and should be release-gated on data, adapters, authority, evidence, and deployment readiness.",
   "deployment_policy": "NO production deployment in this pass. Build/test/data-readiness first; deployment becomes a separate promotion step.",
   "shared_capability_families": [
@@ -334,5 +334,27 @@
     "PWA/mobile/desktop shells are tested before production promotion.",
     "Supabase is populated before Vercel production promotion.",
     "Vercel deployment is a promotion step, not the build environment."
+  ],
+  "global_federation_ref": "CARBON_ACTUAL_GLOBAL_API_FEDERATION_2026.json",
+  "ingestion_pipeline_ref": "CARBON_ACTUAL_GLOBAL_API_INGESTION_AND_PROMOTION_2026.md",
+  "supabase_registry": {
+    "api_registry": "registry:api-endpoint",
+    "product_registry": "registry:product",
+    "capability_registry": "logical:capability",
+    "capability_nodes_seeded": 193,
+    "product_capability_mappings_seeded": 1340,
+    "api_provider_nodes_seeded": 88,
+    "production_deployments_in_this_pass": 0
+  },
+  "release_gates": [
+    "All product capabilities are represented in the shared capability registry before product promotion.",
+    "Every external API source has provenance, auth classification and adapter status.",
+    "Directory discovery is treated as discovery, not authority.",
+    "All provider secrets remain outside the registry.",
+    "Supabase is reconciled before any Vercel production promotion.",
+    "Provider health, rate limits, license/usage conditions and deprecation are observable.",
+    "Consequential operations remain behind authority/policy/approval.",
+    "Unknown/alien/future records remain explicitly UNKNOWN/POSSIBLE until evidence supports a stronger reality state.",
+    "ZUJID & CO. remains excluded from codebase and deployment changes."
   ]
 }
