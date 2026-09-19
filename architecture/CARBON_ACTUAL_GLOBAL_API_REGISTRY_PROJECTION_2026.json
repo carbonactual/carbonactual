@@ -11,10 +11,1594 @@
     "Beyond-Earth",
     "UNKNOWN_ALIEN"
   ],
-  "discovery_sources": [],
-  "providers": [],
-  "horizons": [],
-  "provider_count": 0,
-  "discovery_source_count": 0,
+  "discovery_sources": [
+    {
+      "id": "api:catalog:api-atlas",
+      "name": "API Atlas",
+      "metadata": {
+        "id": "directory:api-atlas",
+        "url": "https://www.apiatlas.org/",
+        "name": "API Atlas",
+        "scope": "global public API discovery",
+        "status": "discovery_source",
+        "coverage": "3,000+ charted APIs and OpenAPI specs",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:catalog:api-evangelist",
+      "name": "API Evangelist Public APIs",
+      "metadata": {
+        "id": "directory:api-evangelist",
+        "url": "https://github.com/api-evangelist/public-apis",
+        "name": "API Evangelist Public APIs",
+        "scope": "public API profiles and artifacts",
+        "status": "discovery_source",
+        "coverage": "1,400+ free APIs and broader provider profiles",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:catalog:apis-collection",
+      "name": "APIs Collection",
+      "metadata": {
+        "id": "directory:apis-collection",
+        "url": "https://github.com/tools-collection/apis-collection",
+        "name": "APIs Collection",
+        "scope": "community-maintained public APIs",
+        "status": "discovery_source",
+        "coverage": "broad machine-readable catalogue",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:catalog:apis-guru",
+      "name": "APIs.guru",
+      "metadata": {
+        "id": "directory:apis-guru",
+        "url": "https://apis.guru/",
+        "name": "APIs.guru",
+        "scope": "public API definitions",
+        "status": "discovery_source",
+        "coverage": "thousands of OpenAPI-described APIs",
+        "reviewed_on": "2026-09-19",
+        "machine_source": "https://api.apis.guru/v2/list.json"
+      }
+    },
+    {
+      "id": "api:catalog:apislist",
+      "name": "APIsList",
+      "metadata": {
+        "id": "directory:apislist",
+        "url": "https://apislist.com/",
+        "name": "APIsList",
+        "scope": "hand-checked public API discovery",
+        "status": "discovery_source",
+        "coverage": "1,970+ APIs across 92 categories",
+        "reviewed_on": "2026-09-19",
+        "machine_source": "https://api.apislist.com/v1/apis/"
+      }
+    },
+    {
+      "id": "api:catalog:postman-api-network",
+      "name": "Postman API Network",
+      "metadata": {
+        "id": "directory:postman-api-network",
+        "url": "https://www.postman.com/explore/",
+        "name": "Postman API Network",
+        "scope": "public API/workspace/collection discovery",
+        "status": "discovery_source",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:catalog:public-api-lists",
+      "name": "Public API Lists",
+      "metadata": {
+        "id": "directory:public-api-lists",
+        "url": "https://public-api-lists.github.io/public-api-lists/",
+        "name": "Public API Lists",
+        "scope": "free public APIs",
+        "status": "discovery_source",
+        "coverage": "730+ curated APIs",
+        "reviewed_on": "2026-09-19"
+      }
+    },
+    {
+      "id": "api:catalog:public-apis-api",
+      "name": "Public APIs directory API",
+      "metadata": {
+        "id": "directory:public-apis-api",
+        "url": "https://api.publicapis.org/",
+        "name": "Public APIs directory API",
+        "scope": "community-curated public APIs",
+        "status": "discovery_source",
+        "coverage": "large free/public catalogue",
+        "reviewed_on": "2026-09-19",
+        "machine_source": "https://api.publicapis.org/entries"
+      }
+    }
+  ],
+  "providers": [
+    {
+      "id": "api:provider:aviationweather",
+      "name": "AviationWeather.gov Data API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.connect.aviationweather.gov/data/api/",
+        "domain": "aviation-weather,metar,taf,pirep,navaid",
+        "base_url": "https://aviationweather.gov/api/data/",
+        "provider_id": "aviationweather",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:bis",
+      "name": "BIS statistics",
+      "metadata": {
+        "auth": "sdmx",
+        "docs": "https://www.bis.org/statistics/api.htm",
+        "domain": "banking,macro-finance,financial-stability",
+        "base_url": "https://stats.bis.org/api/",
+        "provider_id": "bis",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:celestrak",
+      "name": "CelesTrak GP / OMM satellite data",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://celestrak.org/NORAD/elements/",
+        "domain": "satellite-tracking,space,orbits,earth-observation",
+        "base_url": "https://celestrak.org/NORAD/elements/",
+        "provider_id": "celestrak",
+        "reviewed_on": "2026-09-19",
+        "source_type": "public-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:clinicaltrials",
+      "name": "ClinicalTrials.gov API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://clinicaltrials.gov/data-api/api",
+        "domain": "clinical-trials,health-research",
+        "base_url": "https://clinicaltrials.gov/data-api/api/",
+        "provider_id": "clinicaltrials",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:coingecko",
+      "name": "CoinGecko API",
+      "metadata": {
+        "auth": "none_or_key",
+        "docs": "https://docs.coingecko.com/",
+        "domain": "crypto,markets,assets",
+        "base_url": "https://api.coingecko.com/api/v3/",
+        "provider_id": "coingecko",
+        "reviewed_on": "2026-09-19",
+        "source_type": "public/commercial",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:common-crawl",
+      "name": "Common Crawl Index/API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://commoncrawl.org/cdxj-index",
+        "domain": "web-archive,web-history,crawl-index",
+        "base_url": "https://index.commoncrawl.org/",
+        "provider_id": "common-crawl",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:copernicus-dataspace",
+      "name": "Copernicus Data Space APIs",
+      "metadata": {
+        "auth": "varies",
+        "docs": "https://documentation.dataspace.copernicus.eu/APIs.html",
+        "domain": "earth-observation,satellite,geospatial",
+        "base_url": "https://dataspace.copernicus.eu/",
+        "provider_id": "copernicus-dataspace",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:crossref",
+      "name": "Crossref REST API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://api.crossref.org/",
+        "domain": "scholarly-metadata,doi,publishing",
+        "base_url": "https://api.crossref.org/",
+        "provider_id": "crossref",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-service",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:data-europa",
+      "name": "data.europa.eu APIs",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://data.europa.eu/en",
+        "domain": "european-open-data,metadata,catalogues",
+        "base_url": "https://data.europa.eu/api/",
+        "provider_id": "data-europa",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:defillama",
+      "name": "DeFiLlama APIs",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://docs.llama.fi/",
+        "domain": "defi,crypto,protocols,markets",
+        "base_url": "https://api.llama.fi/",
+        "provider_id": "defillama",
+        "reviewed_on": "2026-09-19",
+        "source_type": "public/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ec-eurostat",
+      "name": "Eurostat API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://ec.europa.eu/eurostat/web/main/data/web-services",
+        "domain": "european-statistics,trade,labor,population",
+        "base_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/",
+        "provider_id": "ec-eurostat",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ecb",
+      "name": "European Central Bank Data API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://data.ecb.europa.eu/help/api",
+        "domain": "fx,finance,macro-economy",
+        "base_url": "https://data-api.ecb.europa.eu/",
+        "provider_id": "ecb",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:eia",
+      "name": "U.S. EIA API",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://www.eia.gov/developer/",
+        "domain": "energy,electricity,petroleum,nuclear,coal",
+        "base_url": "https://api.eia.gov/",
+        "provider_id": "eia",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/free",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ethereum-rpc",
+      "name": "Ethereum JSON-RPC",
+      "metadata": {
+        "auth": "provider_specific",
+        "docs": "https://ethereum.org/en/developers/docs/apis/json-rpc/",
+        "domain": "blockchain,smart-contracts,accounts",
+        "base_url": "https://ethereum.org/en/developers/docs/apis/json-rpc/",
+        "provider_id": "ethereum-rpc",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-standard",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:europeana",
+      "name": "Europeana APIs",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://pro.europeana.eu/resources/apis",
+        "domain": "culture,heritage,collections",
+        "base_url": "https://api.europeana.eu/",
+        "provider_id": "europeana",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:faostat",
+      "name": "FAOSTAT APIs",
+      "metadata": {
+        "auth": "varies",
+        "docs": "https://www.fao.org/faostat/en/#data",
+        "domain": "agriculture,food,land,trade,statistics",
+        "base_url": "https://fenixservices.fao.org/api/faostat/",
+        "provider_id": "faostat",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:fred",
+      "name": "FRED API",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://fred.stlouisfed.org/docs/api/fred/",
+        "domain": "economic-series,macro-finance",
+        "base_url": "https://api.stlouisfed.org/fred/",
+        "provider_id": "fred",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:gbif",
+      "name": "GBIF Occurrence API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://techdocs.gbif.org/en/openapi/v1/occurrence",
+        "domain": "biodiversity,species,ecology",
+        "base_url": "https://api.gbif.org/v1/",
+        "provider_id": "gbif",
+        "reviewed_on": "2026-09-19",
+        "source_type": "international-open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:geonames",
+      "name": "GeoNames Web Services",
+      "metadata": {
+        "auth": "free_username",
+        "docs": "https://www.geonames.org/export/web-services.html",
+        "domain": "geocoding,placenames,boundaries,elevation,timezone",
+        "base_url": "https://secure.geonames.org/",
+        "provider_id": "geonames",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:github-rest",
+      "name": "GitHub REST API",
+      "metadata": {
+        "auth": "none_or_token",
+        "docs": "https://docs.github.com/en/rest",
+        "domain": "source-control,issues,projects,identity,automation",
+        "base_url": "https://api.github.com/",
+        "provider_id": "github-rest",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:global-fishing-watch",
+      "name": "Global Fishing Watch APIs",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://globalfishingwatch.org/our-apis/",
+        "domain": "ocean,fishing,vessels,maritime",
+        "base_url": "https://gateway.api.globalfishingwatch.org/",
+        "provider_id": "global-fishing-watch",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:gtfs",
+      "name": "GTFS / GTFS-Realtime",
+      "metadata": {
+        "auth": "standard",
+        "docs": "https://gtfs.org/documentation/",
+        "domain": "public-transit,transport,schedules",
+        "base_url": "https://gtfs.org/",
+        "provider_id": "gtfs",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-standard",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:huggingface-hub",
+      "name": "Hugging Face Hub API",
+      "metadata": {
+        "auth": "none_or_token",
+        "docs": "https://huggingface.co/docs/hub/api",
+        "domain": "ai-models,datasets,spaces,agents",
+        "base_url": "https://huggingface.co/api/",
+        "provider_id": "huggingface-hub",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:iana-registries",
+      "name": "IANA Protocol and Number Registries",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.iana.org/protocols",
+        "domain": "dns,rdap,ip,asn,protocols",
+        "base_url": "https://www.iana.org/protocols",
+        "provider_id": "iana-registries",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ilo",
+      "name": "ILO SDMX REST API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://sdmx.ilo.org/index.html",
+        "domain": "labor,employment,social-protection,statistics",
+        "base_url": "https://sdmx.ilo.org/rest/",
+        "provider_id": "ilo",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:imf-data",
+      "name": "IMF Data API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.imf.org/en/Data",
+        "domain": "macro-economy,finance,external-sector",
+        "base_url": "https://www.imf.org/external/datamapper/api/v1/",
+        "provider_id": "imf-data",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:internet-archive",
+      "name": "Internet Archive APIs",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://archive.org/developers/",
+        "domain": "archives,media,books,web-history",
+        "base_url": "https://archive.org/developers/",
+        "provider_id": "internet-archive",
+        "reviewed_on": "2026-09-19",
+        "source_type": "nonprofit/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:jpl-horizons",
+      "name": "JPL Horizons API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://ssd-api.jpl.nasa.gov/doc/horizons.html",
+        "domain": "astronomy,ephemerides,space-navigation",
+        "base_url": "https://ssd-api.jpl.nasa.gov/api/horizons.api",
+        "provider_id": "jpl-horizons",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:mempool",
+      "name": "mempool.space API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://mempool.space/docs/api/rest",
+        "domain": "bitcoin,blockchain,fees,blocks",
+        "base_url": "https://mempool.space/api/",
+        "provider_id": "mempool",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open/public",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:met-museum",
+      "name": "Metropolitan Museum Collection API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://metmuseum.github.io/",
+        "domain": "art,culture,heritage",
+        "base_url": "https://collectionapi.metmuseum.org/public/collection/v1/",
+        "provider_id": "met-museum",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:met-no",
+      "name": "MET Norway Weather API",
+      "metadata": {
+        "auth": "user-agent",
+        "docs": "https://api.met.no/",
+        "domain": "weather,forecast",
+        "base_url": "https://api.met.no/",
+        "provider_id": "met-no",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:minor-planet-center",
+      "name": "Minor Planet Center APIs",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://docs.minorplanetcenter.net/mpc-ops-docs/apis/",
+        "domain": "asteroids,comets,neo,solar-system-observations",
+        "base_url": "https://data.minorplanetcenter.net/api/",
+        "provider_id": "minor-planet-center",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/public",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:nasa",
+      "name": "NASA APIs",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://api.nasa.gov/",
+        "domain": "space,earth,astronomy,science,imagery",
+        "base_url": "https://api.nasa.gov/",
+        "provider_id": "nasa",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ncbi",
+      "name": "NCBI E-utilities",
+      "metadata": {
+        "auth": "none_or_tool_contact",
+        "docs": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+        "domain": "biomedical,genomics,health,research",
+        "base_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
+        "provider_id": "ncbi",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ncbi-eutils",
+      "name": "NCBI E-utilities",
+      "metadata": {
+        "auth": "none_or_tool_contact",
+        "docs": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+        "domain": "biomedical,genomics,research",
+        "base_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
+        "provider_id": "ncbi-eutils",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-cbn-rates",
+      "name": "CBN data and statistics",
+      "metadata": {
+        "id": "ng-cbn-rates",
+        "geo": "Nigeria",
+        "auth": "public-web-data",
+        "docs": "https://www.cbn.gov.ng/rates/",
+        "name": "CBN data and statistics",
+        "domain": "fx,macro,banking,finance",
+        "base_url": "https://www.cbn.gov.ng/rates/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-cibn",
+      "name": "CIBN programme/exam information",
+      "metadata": {
+        "id": "ng-cibn",
+        "geo": "Nigeria",
+        "auth": "public-web-data",
+        "docs": "https://www.cibng.org/",
+        "name": "CIBN programme/exam information",
+        "domain": "banking-certification,education",
+        "base_url": "https://www.cibng.org/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis",
+          "capability:verification",
+          "capability:compliance",
+          "capability:research",
+          "capability:documentation"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-nasc",
+      "name": "NASC",
+      "metadata": {
+        "id": "ng-nasc",
+        "geo": "Nigeria",
+        "auth": "varies",
+        "docs": "https://seedcouncil.gov.ng/what-we-do/",
+        "name": "NASC",
+        "domain": "seed,agriculture,certification",
+        "base_url": "https://seedcouncil.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:verification",
+          "capability:compliance",
+          "capability:research",
+          "capability:documentation"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-nasd-api",
+      "name": "NASD developer APIs",
+      "metadata": {
+        "id": "ng-nasd-api",
+        "geo": "Nigeria",
+        "auth": "authorized_partner_key",
+        "docs": "https://docs.nasdng.com/",
+        "name": "NASD developer APIs",
+        "domain": "otc-market-data,reference,corporate-actions",
+        "base_url": "https://docs.nasdng.com/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-ncs-trade",
+      "name": "Nigeria Customs trade services",
+      "metadata": {
+        "id": "ng-ncs-trade",
+        "geo": "Nigeria",
+        "auth": "account_or_role",
+        "docs": "https://customs.gov.ng/",
+        "name": "Nigeria Customs trade services",
+        "domain": "customs,trade,clearance",
+        "base_url": "https://customs.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-ndpc",
+      "name": "NDPC",
+      "metadata": {
+        "id": "ng-ndpc",
+        "geo": "Nigeria",
+        "auth": "varies",
+        "docs": "https://www.ndpc.gov.ng/",
+        "name": "NDPC",
+        "domain": "privacy,data-protection,compliance",
+        "base_url": "https://www.ndpc.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:verification",
+          "capability:compliance"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-nelfund",
+      "name": "NELFUND portal",
+      "metadata": {
+        "id": "ng-nelfund",
+        "geo": "Nigeria",
+        "auth": "user_auth",
+        "docs": "https://nelf.gov.ng/",
+        "name": "NELFUND portal",
+        "domain": "student-finance,education",
+        "base_url": "https://nelf.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis",
+          "capability:research",
+          "capability:documentation"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-ngx-data",
+      "name": "NGX market data APIs",
+      "metadata": {
+        "id": "ng-ngx-data",
+        "geo": "Nigeria",
+        "auth": "registration_or_subscription",
+        "docs": "https://ngxgroup.com/exchange/data/",
+        "name": "NGX market data APIs",
+        "domain": "listed-securities,market-data",
+        "base_url": "https://ngxgroup.com/exchange/data/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-nibss-dev",
+      "name": "NIBSS Developers Portal",
+      "metadata": {
+        "id": "ng-nibss-dev",
+        "geo": "Nigeria",
+        "auth": "institutional_credential",
+        "docs": "https://contactcentre.nibss-plc.com.ng/support/solutions/articles/47001264993-how-do-we-access-the-new-api-for-integration-",
+        "name": "NIBSS Developers Portal",
+        "domain": "payments,banking,identity-adjacent",
+        "base_url": "https://devportal.nibss-plc.com.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis",
+          "capability:verification",
+          "capability:compliance"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-nimc",
+      "name": "NIMC services/reference",
+      "metadata": {
+        "id": "ng-nimc",
+        "geo": "Nigeria",
+        "auth": "institutional_credential",
+        "docs": "https://nimc.gov.ng/press-releases/president-tinubu-signs-nimc-act-2026-into-law",
+        "name": "NIMC services/reference",
+        "domain": "identity,credential,pki",
+        "base_url": "https://nimc.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:verification",
+          "capability:compliance"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-noun",
+      "name": "NOUN services/PAS/library",
+      "metadata": {
+        "id": "ng-noun",
+        "geo": "Nigeria",
+        "auth": "student_or_public",
+        "docs": "https://nou.edu.ng/",
+        "name": "NOUN services/PAS/library",
+        "domain": "education,academic-records,library",
+        "base_url": "https://nou.edu.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:research",
+          "capability:documentation"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-npc",
+      "name": "National Population Commission",
+      "metadata": {
+        "id": "ng-npc",
+        "geo": "Nigeria",
+        "auth": "role_based",
+        "docs": "https://nationalpopulation.gov.ng/",
+        "name": "National Population Commission",
+        "domain": "birth,death,civil-registration",
+        "base_url": "https://nationalpopulation.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:research"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-nrs",
+      "name": "Nigeria Revenue Service",
+      "metadata": {
+        "id": "ng-nrs",
+        "geo": "Nigeria",
+        "auth": "varies",
+        "docs": "https://www.nrs.gov.ng/",
+        "name": "Nigeria Revenue Service",
+        "domain": "tax,revenue,compliance",
+        "base_url": "https://www.nrs.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:verification",
+          "capability:compliance"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-open-banking",
+      "name": "Open Banking Nigeria",
+      "metadata": {
+        "id": "ng-open-banking",
+        "geo": "Nigeria",
+        "auth": "client_credentials/user_consent",
+        "docs": "https://docs.openbanking.ng/standard",
+        "name": "Open Banking Nigeria",
+        "domain": "open-banking,consent,account-data,payments",
+        "base_url": "https://openbanking.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "standard",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis",
+          "capability:workflow"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-open-data",
+      "name": "Nigeria open-data discovery",
+      "metadata": {
+        "id": "ng-open-data",
+        "geo": "Nigeria",
+        "auth": "varies",
+        "docs": "government/open-data discovery",
+        "name": "Nigeria open-data discovery",
+        "domain": "government,public-data",
+        "base_url": "https://data.gov.ng/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "public-catalog",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:research"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:ng-sec-operators",
+      "name": "SEC registered-operator verification",
+      "metadata": {
+        "id": "ng-sec-operators",
+        "geo": "Nigeria",
+        "auth": "public-web-data",
+        "docs": "https://sec.gov.ng/for-investors/find-a-registered-operator/",
+        "name": "SEC registered-operator verification",
+        "domain": "capital-markets,regulatory-reference",
+        "base_url": "https://sec.gov.ng/for-investors/find-a-registered-operator/",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "canonical_capabilities": [
+          "capability:analysis",
+          "capability:verification",
+          "capability:compliance"
+        ],
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:noaa-ncei",
+      "name": "NOAA NCEI Web Services",
+      "metadata": {
+        "auth": "token",
+        "docs": "https://www.ncdc.noaa.gov/cdo-web/webservices",
+        "domain": "weather,climate,environment",
+        "base_url": "https://www.ncei.noaa.gov/cdo-web/api/v2/",
+        "provider_id": "noaa-ncei",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:npm-registry",
+      "name": "npm Public Registry API",
+      "metadata": {
+        "auth": "none_for_read",
+        "docs": "https://api-docs.npmjs.com/",
+        "domain": "software-packages,dependencies,metadata",
+        "base_url": "https://registry.npmjs.org/",
+        "provider_id": "npm-registry",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:nws",
+      "name": "US National Weather Service API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.weather.gov/documentation/services-web-api",
+        "domain": "weather,alerts,forecast",
+        "base_url": "https://api.weather.gov/",
+        "provider_id": "nws",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:oecd",
+      "name": "OECD Data Explorer SDMX API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html",
+        "domain": "macro-economy,social,economy,statistics",
+        "base_url": "https://sdmx.oecd.org/public/rest/",
+        "provider_id": "oecd",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/free",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:open-meteo",
+      "name": "Open-Meteo",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://open-meteo.com/",
+        "domain": "weather,forecast,climate",
+        "base_url": "https://api.open-meteo.com/",
+        "provider_id": "open-meteo",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:openalex",
+      "name": "OpenAlex API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://docs.openalex.org/",
+        "domain": "research,works,authors,institutions,citations",
+        "base_url": "https://api.openalex.org/",
+        "provider_id": "openalex",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:openaq",
+      "name": "OpenAQ v3 API",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://docs.openaq.org/api",
+        "domain": "air-quality,environment,health",
+        "base_url": "https://api.openaq.org/v3/",
+        "provider_id": "openaq",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:opencorporates",
+      "name": "OpenCorporates API",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://api.opencorporates.com/documentation/API-Reference",
+        "domain": "companies,corporate-registry",
+        "base_url": "https://api.opencorporates.com/",
+        "provider_id": "opencorporates",
+        "reviewed_on": "2026-09-19",
+        "source_type": "public/commercial",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:openfda",
+      "name": "openFDA API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://open.fda.gov/apis/",
+        "domain": "drug,device,food,safety",
+        "base_url": "https://api.fda.gov/",
+        "provider_id": "openfda",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:openfigi",
+      "name": "OpenFIGI API",
+      "metadata": {
+        "auth": "optional_api_key",
+        "docs": "https://www.openfigi.com/api",
+        "domain": "financial-instruments,identifiers",
+        "base_url": "https://api.openfigi.com/",
+        "provider_id": "openfigi",
+        "reviewed_on": "2026-09-19",
+        "source_type": "public",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:openlibrary",
+      "name": "Open Library APIs",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://openlibrary.org/developers/api",
+        "domain": "books,authors,editions",
+        "base_url": "https://openlibrary.org/developers/api",
+        "provider_id": "openlibrary",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:opensky",
+      "name": "OpenSky Network API",
+      "metadata": {
+        "auth": "none_or_auth",
+        "docs": "https://openskynetwork.github.io/opensky-api/",
+        "domain": "aviation,aircraft,tracking",
+        "base_url": "https://opensky-network.org/apidoc/",
+        "provider_id": "opensky",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open/research",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:osm-nominatim",
+      "name": "OpenStreetMap Nominatim",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://git.openstreetmap.org/nominatim.git",
+        "domain": "geocoding,reverse-geocoding,places",
+        "base_url": "https://nominatim.openstreetmap.org/",
+        "provider_id": "osm-nominatim",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-project",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:osm-overpass",
+      "name": "OpenStreetMap Overpass",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+        "domain": "geospatial-query,mapping,points-of-interest",
+        "base_url": "https://overpass-api.de/api/",
+        "provider_id": "osm-overpass",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-project",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:osv",
+      "name": "OSV.dev API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://google.github.io/osv.dev/api/",
+        "domain": "software-vulnerabilities,supply-chain-security",
+        "base_url": "https://api.osv.dev/v1/",
+        "provider_id": "osv",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-source",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:overture-maps",
+      "name": "Overture Maps datasets/catalog",
+      "metadata": {
+        "auth": "none_for_public_releases",
+        "docs": "https://docs.overturemaps.org/",
+        "domain": "mapping,places,buildings,transport,geospatial",
+        "base_url": "https://docs.overturemaps.org/",
+        "provider_id": "overture-maps",
+        "reviewed_on": "2026-09-19",
+        "source_type": "open-data",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:pypi-json",
+      "name": "PyPI JSON API",
+      "metadata": {
+        "auth": "none_for_read",
+        "docs": "https://docs.pypi.org/api/json/",
+        "domain": "software-packages,dependencies,metadata",
+        "base_url": "https://pypi.org/pypi/",
+        "provider_id": "pypi-json",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:rdap",
+      "name": "ICANN/IANA RDAP ecosystem",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.icann.org/rdap",
+        "domain": "domains,registries,ip,identity-reference",
+        "base_url": "https://rdap.org/",
+        "provider_id": "rdap",
+        "reviewed_on": "2026-09-19",
+        "source_type": "standard/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:sec-edgar",
+      "name": "SEC EDGAR APIs",
+      "metadata": {
+        "auth": "user-agent",
+        "docs": "https://www.sec.gov/edgar/sec-api-documentation",
+        "domain": "companies,securities,filings",
+        "base_url": "https://www.sec.gov/edgar/sec-api-documentation",
+        "provider_id": "sec-edgar",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:smithsonian-open-access",
+      "name": "Smithsonian Open Access",
+      "metadata": {
+        "auth": "api_key",
+        "docs": "https://www.si.edu/openaccess",
+        "domain": "culture,science,collections,media",
+        "base_url": "https://api.si.edu/",
+        "provider_id": "smithsonian-open-access",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:solana",
+      "name": "Solana JSON-RPC",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://solana.com/docs/rpc",
+        "domain": "blockchain,tokens,accounts",
+        "base_url": "https://api.mainnet-beta.solana.com",
+        "provider_id": "solana",
+        "reviewed_on": "2026-09-19",
+        "source_type": "public-RPC",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:space-data-discovery",
+      "name": "Space/public-data directory layer",
+      "metadata": {
+        "auth": "varies",
+        "docs": "NASA/ESA/Copernicus/open science sources",
+        "domain": "space,astronomy,launches,planetary-data",
+        "base_url": "directory_composed_from_public_sources",
+        "provider_id": "space-data-discovery",
+        "reviewed_on": "2026-09-19",
+        "source_type": "federated",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:uk-legislation",
+      "name": "UK Legislation API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.data.gov.uk/dataset/a2416481-271a-42b2-ace8-fc247dd251be/legislation-api",
+        "domain": "law,legislation,statutes,government",
+        "base_url": "https://www.legislation.gov.uk/",
+        "provider_id": "uk-legislation",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/open",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:un-sdg",
+      "name": "UN SDG API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://unstats.un.org/SDGs/",
+        "domain": "sustainable-development,global-statistics",
+        "base_url": "https://unstats.un.org/SDGAPI/",
+        "provider_id": "un-sdg",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:un-sdmx",
+      "name": "UN SDMX / UNdata",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://data.un.org/Host.aspx?Content=API",
+        "domain": "global-statistics,sdmx,sustainable-development",
+        "base_url": "http://data.un.org/ws/rest/",
+        "provider_id": "un-sdmx",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:unsd-sdg",
+      "name": "UN SDG SDMX API",
+      "metadata": {
+        "auth": "none_or_standard_sdmx",
+        "docs": "https://unstats.un.org/sdgs/iaeg-sdgs/sdmx-working-group/",
+        "domain": "sdg,global-statistics",
+        "base_url": "https://unstats.un.org/SDGAPI/",
+        "provider_id": "unsd-sdg",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:us-census",
+      "name": "U.S. Census API",
+      "metadata": {
+        "auth": "none_or_key",
+        "docs": "https://www.census.gov/data/developers.html",
+        "domain": "demography,economy,geography",
+        "base_url": "https://api.census.gov/data/",
+        "provider_id": "us-census",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:us-treasury",
+      "name": "U.S. Treasury Fiscal Data API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://fiscaldata.treasury.gov/api/fiscal-data/",
+        "domain": "public-finance,debt,government",
+        "base_url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/",
+        "provider_id": "us-treasury",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:usgs",
+      "name": "USGS APIs",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.usgs.gov/programs/earthquake-hazards/earthquake-catalogs",
+        "domain": "earthquakes,water,geology,land",
+        "base_url": "https://earthquake.usgs.gov/fdsnws/",
+        "provider_id": "usgs",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:who-gho",
+      "name": "WHO Global Health Observatory OData",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.who.int/data/gho/info/gho-odata-api",
+        "domain": "health,epidemiology,public-health",
+        "base_url": "https://ghoapi.azureedge.net/api/",
+        "provider_id": "who-gho",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official/current-interface",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:wikidata-sparql",
+      "name": "Wikidata Query Service",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service",
+        "domain": "knowledge-graph,entities,relationships",
+        "base_url": "https://query.wikidata.org/sparql",
+        "provider_id": "wikidata-sparql",
+        "reviewed_on": "2026-09-19",
+        "source_type": "Wikimedia",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:wikimedia",
+      "name": "Wikimedia REST APIs",
+      "metadata": {
+        "auth": "varies",
+        "docs": "https://www.mediawiki.org/wiki/API",
+        "domain": "encyclopedic-content,media,knowledge",
+        "base_url": "https://api.wikimedia.org/",
+        "provider_id": "wikimedia",
+        "reviewed_on": "2026-09-19",
+        "source_type": "Wikimedia",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    },
+    {
+      "id": "api:provider:worldbank",
+      "name": "World Bank Indicators API",
+      "metadata": {
+        "auth": "none",
+        "docs": "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392",
+        "domain": "development,economy,poverty,demography",
+        "base_url": "https://api.worldbank.org/v2/",
+        "provider_id": "worldbank",
+        "reviewed_on": "2026-09-19",
+        "source_type": "official",
+        "adapter_status": "cataloged_needs_conformance",
+        "public_surface": true,
+        "credential_secret_stored": false
+      }
+    }
+  ],
+  "horizons": [
+    {
+      "id": "api:horizon:beyond-earth",
+      "name": "Beyond Earth",
+      "metadata": {
+        "scope": "Beyond-Earth",
+        "reality_policy": "planned_possible"
+      }
+    },
+    {
+      "id": "api:horizon:earth",
+      "name": "Earth",
+      "metadata": {
+        "scope": "Earth",
+        "reality_policy": "actual_or_observed"
+      }
+    },
+    {
+      "id": "api:horizon:solar-system",
+      "name": "Solar System",
+      "metadata": {
+        "scope": "Solar-System",
+        "reality_policy": "actual_observed_planned_possible"
+      }
+    },
+    {
+      "id": "api:horizon:unknown-alien",
+      "name": "Unknown / Alien Candidate",
+      "metadata": {
+        "scope": "UNKNOWN_ALIEN",
+        "reality_policy": "unknown_possible",
+        "factual_claims_forbidden": true
+      }
+    }
+  ],
+  "provider_count": 84,
+  "discovery_source_count": 8,
   "rule": "Living federation projection; directory membership is discovery evidence only. Provider-specific conformance remains required. Unknown/alien entries are non-factual until evidence supports promotion."
 }
