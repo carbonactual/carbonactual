@@ -4642,5 +4642,2871 @@
     "team": "Capabilities from different SWIRMs are composed into a TEAM when a real intent/mission requires them to function together.",
     "domain": "Domains describe the full real-world field; products are projections into domains.",
     "no_duplicate_function": "Crossing domains does not justify duplicating a shared function; resolve it to the same canonical capability family/SWIRM."
+  },
+  "remaining_deep_scope_contracts": {
+    "money": {
+      "domain": "Money",
+      "actors": [
+        "issuer",
+        "central-bank",
+        "bank",
+        "MFI",
+        "payment-provider",
+        "payer",
+        "payee",
+        "treasurer",
+        "custodian",
+        "regulator"
+      ],
+      "objects_rights": [
+        "currency",
+        "fund",
+        "account-balance",
+        "deposit",
+        "cash",
+        "reserve",
+        "credit",
+        "debt",
+        "collateral",
+        "payment-instruction",
+        "monetary-claim"
+      ],
+      "lifecycle": [
+        "issuance",
+        "distribution",
+        "holding",
+        "conversion",
+        "transfer",
+        "clearing",
+        "settlement",
+        "reconciliation",
+        "redemption",
+        "retirement"
+      ],
+      "institutions": [
+        "central-bank",
+        "banks",
+        "MFIs",
+        "payment-institutions",
+        "clearing-systems",
+        "settlement-systems",
+        "custodians",
+        "regulators"
+      ],
+      "capability_surface": [
+        "money",
+        "accounting",
+        "payments",
+        "cash-management",
+        "foreign-exchange",
+        "credit",
+        "treasury",
+        "clearing",
+        "settlement",
+        "reconciliation",
+        "remittance",
+        "fraud"
+      ],
+      "capacity_availability_constraints": [
+        "liquidity",
+        "reserves",
+        "credit",
+        "collateral",
+        "settlement-capacity",
+        "payment-rail-capacity",
+        "market-hours",
+        "limits"
+      ],
+      "demand_supply_opportunity": [
+        "liquidity-demand",
+        "credit-demand",
+        "funding-supply",
+        "cash-surplus",
+        "remittance-demand",
+        "FX-demand"
+      ],
+      "markets": [
+        "money",
+        "deposits",
+        "credit",
+        "FX",
+        "remittance",
+        "payments",
+        "liquidity"
+      ],
+      "transaction_value_settlement": [
+        "payment",
+        "transfer",
+        "deposit",
+        "withdrawal",
+        "loan",
+        "repayment",
+        "FX",
+        "fee",
+        "interest",
+        "clearing",
+        "settlement"
+      ],
+      "records_evidence": [
+        "account-record",
+        "transaction",
+        "payment-message",
+        "statement",
+        "credit-record",
+        "settlement-proof",
+        "reconciliation"
+      ],
+      "rules": [
+        "monetary-law",
+        "banking",
+        "payments",
+        "AML",
+        "KYC",
+        "consumer-protection",
+        "capital/liquidity"
+      ],
+      "technology_access": [
+        "core-banking",
+        "payment-api",
+        "ISO-style messaging",
+        "web",
+        "mobile",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "openness": [
+        "public",
+        "authenticated",
+        "member",
+        "institutional",
+        "restricted"
+      ],
+      "data_intelligence": [
+        "balances",
+        "flows",
+        "liquidity",
+        "credit-risk",
+        "fraud-signals",
+        "FX-data",
+        "treasury-intelligence"
+      ],
+      "workflow": [
+        "identify",
+        "authorize",
+        "initiate",
+        "validate",
+        "route",
+        "clear",
+        "settle",
+        "reconcile",
+        "report"
+      ],
+      "security": [
+        "identity",
+        "authorization",
+        "transaction-signing",
+        "fraud",
+        "privacy",
+        "key-security"
+      ],
+      "quality_feedback": [
+        "settlement-quality",
+        "latency",
+        "failure-rate",
+        "liquidity",
+        "customer-outcome",
+        "Pulse"
+      ],
+      "continuity": [
+        "payment-failover",
+        "liquidity-continuity",
+        "account-recovery",
+        "records-recovery"
+      ],
+      "interfaces": [
+        "banking",
+        "wallet",
+        "terminal",
+        "web",
+        "mobile",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "banks",
+        "central-banks",
+        "payment-rails",
+        "clearing-houses",
+        "settlement-systems",
+        "FX-venues"
+      ]
+    },
+    "transactions": {
+      "domain": "Transactions",
+      "actors": [
+        "initiator",
+        "counterparty",
+        "agent",
+        "provider",
+        "processor",
+        "clearing-party",
+        "settling-party",
+        "custodian",
+        "auditor"
+      ],
+      "objects_rights": [
+        "intent",
+        "instruction",
+        "offer",
+        "order",
+        "contract",
+        "transaction",
+        "leg",
+        "obligation",
+        "receipt",
+        "proof"
+      ],
+      "lifecycle": [
+        "intent",
+        "proposal",
+        "authorization",
+        "initiation",
+        "validation",
+        "matching",
+        "execution",
+        "clearing",
+        "settlement",
+        "reconciliation",
+        "exception",
+        "reversal",
+        "dispute",
+        "closure"
+      ],
+      "institutions": [
+        "merchant",
+        "marketplace",
+        "bank",
+        "payment-provider",
+        "exchange",
+        "clearing-house",
+        "settlement-system",
+        "regulator"
+      ],
+      "capability_surface": [
+        "transaction-management",
+        "transaction-status",
+        "transaction-monitoring",
+        "payment",
+        "order-management",
+        "contracting",
+        "clearing",
+        "settlement",
+        "reconciliation",
+        "reversal",
+        "dispute"
+      ],
+      "capacity_availability_constraints": [
+        "processing-capacity",
+        "liquidity",
+        "counterparty-capacity",
+        "queue",
+        "rate-limits",
+        "market-hours"
+      ],
+      "demand_supply_opportunity": [
+        "transaction-demand",
+        "counterparty-supply",
+        "execution-opportunity",
+        "capacity-opportunity"
+      ],
+      "markets": [
+        "commerce",
+        "payments",
+        "capital",
+        "services",
+        "digital-assets",
+        "procurement",
+        "property"
+      ],
+      "transaction_value_settlement": [
+        "gross-transaction",
+        "netting",
+        "payment",
+        "clearing",
+        "settlement",
+        "refund",
+        "reversal",
+        "chargeback"
+      ],
+      "records_evidence": [
+        "intent",
+        "instruction",
+        "authorization",
+        "acknowledgement",
+        "execution-record",
+        "receipt",
+        "settlement-proof",
+        "reconciliation"
+      ],
+      "rules": [
+        "contract",
+        "payments",
+        "market-rules",
+        "consumer",
+        "tax",
+        "AML",
+        "privacy"
+      ],
+      "technology_access": [
+        "API",
+        "event-stream",
+        "workflow",
+        "web",
+        "mobile",
+        "MCP",
+        "A2A",
+        "agent"
+      ],
+      "openness": [
+        "public",
+        "authenticated",
+        "member",
+        "institutional",
+        "private"
+      ],
+      "data_intelligence": [
+        "transaction-history",
+        "status",
+        "anomaly",
+        "fraud",
+        "counterparty-risk",
+        "execution-quality"
+      ],
+      "workflow": [
+        "discover",
+        "authorize",
+        "initiate",
+        "validate",
+        "execute",
+        "clear",
+        "settle",
+        "reconcile",
+        "resolve"
+      ],
+      "security": [
+        "authentication",
+        "authorization",
+        "signing",
+        "fraud",
+        "privacy",
+        "non-repudiation"
+      ],
+      "quality_feedback": [
+        "success-rate",
+        "latency",
+        "exception-rate",
+        "settlement-quality",
+        "Pulse"
+      ],
+      "continuity": [
+        "replay",
+        "recovery",
+        "idempotency",
+        "reversal",
+        "failover",
+        "audit-history"
+      ],
+      "interfaces": [
+        "web",
+        "mobile",
+        "terminal",
+        "API",
+        "MCP",
+        "agent"
+      ]
+    },
+    "blockchain": {
+      "domain": "Blockchain / Distributed Ledger",
+      "actors": [
+        "network",
+        "node",
+        "validator",
+        "sequencer",
+        "developer",
+        "issuer",
+        "user",
+        "wallet-provider",
+        "custodian",
+        "bridge",
+        "oracle"
+      ],
+      "objects_rights": [
+        "ledger",
+        "block",
+        "transaction",
+        "state",
+        "account",
+        "wallet",
+        "token",
+        "smart-contract",
+        "proof",
+        "signature",
+        "consensus-state"
+      ],
+      "lifecycle": [
+        "design",
+        "deploy",
+        "fund",
+        "submit",
+        "validate",
+        "order",
+        "consensus",
+        "finalize",
+        "read",
+        "index",
+        "upgrade",
+        "pause",
+        "recover"
+      ],
+      "institutions": [
+        "protocol",
+        "network",
+        "validator-set",
+        "developer-community",
+        "custodian",
+        "exchange",
+        "bridge",
+        "regulator"
+      ],
+      "capability_surface": [
+        "distributed-ledger",
+        "blockchain",
+        "node-management",
+        "consensus",
+        "smart-contracts",
+        "smart-contract-development",
+        "wallet",
+        "on-chain-data",
+        "signing",
+        "bridge-interoperability"
+      ],
+      "capacity_availability_constraints": [
+        "throughput",
+        "block-space",
+        "fees",
+        "validator-capacity",
+        "sequencing",
+        "latency",
+        "finality",
+        "network-health"
+      ],
+      "demand_supply_opportunity": [
+        "transaction-demand",
+        "block-space-demand",
+        "validator-supply",
+        "application-opportunity"
+      ],
+      "markets": [
+        "crypto",
+        "digital-assets",
+        "tokens",
+        "DeFi",
+        "data",
+        "infrastructure",
+        "identity"
+      ],
+      "transaction_value_settlement": [
+        "on-chain-transaction",
+        "token-transfer",
+        "contract-call",
+        "fee",
+        "finality",
+        "custody",
+        "redemption"
+      ],
+      "records_evidence": [
+        "transaction-hash",
+        "block",
+        "consensus-proof",
+        "signature",
+        "contract-state",
+        "event-log"
+      ],
+      "rules": [
+        "protocol-rules",
+        "smart-contract-rules",
+        "custody",
+        "financial-regulation",
+        "consumer",
+        "privacy",
+        "security"
+      ],
+      "technology_access": [
+        "RPC",
+        "node",
+        "SDK",
+        "CLI",
+        "API",
+        "MCP",
+        "A2A",
+        "web",
+        "indexer"
+      ],
+      "openness": [
+        "open",
+        "public",
+        "permissioned",
+        "consortium",
+        "private",
+        "restricted"
+      ],
+      "data_intelligence": [
+        "on-chain-data",
+        "state",
+        "graph",
+        "analytics",
+        "risk",
+        "market-data"
+      ],
+      "workflow": [
+        "deploy",
+        "fund",
+        "submit",
+        "validate",
+        "finalize",
+        "observe",
+        "reconcile",
+        "upgrade"
+      ],
+      "security": [
+        "key-management",
+        "signing",
+        "consensus-security",
+        "smart-contract-security",
+        "bridge-security",
+        "wallet-security"
+      ],
+      "quality_feedback": [
+        "uptime",
+        "finality",
+        "latency",
+        "fee",
+        "security",
+        "adoption",
+        "Pulse"
+      ],
+      "continuity": [
+        "node-recovery",
+        "key-recovery",
+        "state-recovery",
+        "fork-awareness",
+        "bridge-failover"
+      ],
+      "interfaces": [
+        "wallet",
+        "explorer",
+        "API",
+        "SDK",
+        "CLI",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "networks",
+        "custodians",
+        "exchanges",
+        "oracles",
+        "bridges",
+        "identity systems"
+      ]
+    },
+    "tokenization": {
+      "domain": "Minting / Tokenization / Fractionalization / Decimalization",
+      "actors": [
+        "issuer",
+        "minter",
+        "holder",
+        "owner",
+        "rights-holder",
+        "custodian",
+        "market",
+        "redeemer",
+        "attestor",
+        "regulator"
+      ],
+      "objects_rights": [
+        "underlying-asset",
+        "right",
+        "claim",
+        "token",
+        "fraction",
+        "share",
+        "unit",
+        "series",
+        "class",
+        "mint-record",
+        "redemption-right"
+      ],
+      "lifecycle": [
+        "identify-underlying",
+        "verify-right",
+        "define-representation",
+        "mint",
+        "issue",
+        "distribute",
+        "transfer",
+        "fractionalize",
+        "decimalize",
+        "trade",
+        "settle",
+        "redeem",
+        "retire"
+      ],
+      "institutions": [
+        "issuer",
+        "registrar",
+        "custodian",
+        "marketplace",
+        "exchange",
+        "settlement-system",
+        "regulator",
+        "auditor"
+      ],
+      "capability_surface": [
+        "minting",
+        "tokenization",
+        "fractionalization",
+        "decimalization",
+        "asset-issuance",
+        "token-lifecycle",
+        "asset-redemption",
+        "digital-assets",
+        "custody",
+        "rights-management"
+      ],
+      "capacity_availability_constraints": [
+        "issuance-capacity",
+        "custody-capacity",
+        "market-liquidity",
+        "fraction-precision",
+        "redemption-capacity"
+      ],
+      "demand_supply_opportunity": [
+        "capital-demand",
+        "asset-supply",
+        "fractional-access",
+        "liquidity-opportunity",
+        "new-market-opportunity"
+      ],
+      "markets": [
+        "securities",
+        "property",
+        "commodities",
+        "collectibles",
+        "IP",
+        "funds",
+        "digital-assets",
+        "carbon",
+        "capacity",
+        "rights"
+      ],
+      "transaction_value_settlement": [
+        "issuance",
+        "subscription",
+        "transfer",
+        "trade",
+        "fee",
+        "redemption",
+        "settlement",
+        "royalty",
+        "distribution"
+      ],
+      "records_evidence": [
+        "underlying-asset-proof",
+        "ownership-proof",
+        "issuance-record",
+        "token-record",
+        "custody",
+        "transfer",
+        "redemption"
+      ],
+      "rules": [
+        "property-rights",
+        "securities",
+        "contract",
+        "tax",
+        "AML",
+        "custody",
+        "consumer",
+        "data"
+      ],
+      "technology_access": [
+        "smart-contract",
+        "ledger",
+        "API",
+        "SDK",
+        "CLI",
+        "MCP",
+        "wallet",
+        "agent"
+      ],
+      "openness": [
+        "open",
+        "public",
+        "permissioned",
+        "institutional",
+        "private",
+        "restricted"
+      ],
+      "data_intelligence": [
+        "asset-data",
+        "ownership",
+        "valuation",
+        "token-supply",
+        "holder-distribution",
+        "liquidity",
+        "risk"
+      ],
+      "workflow": [
+        "verify",
+        "define",
+        "mint",
+        "issue",
+        "distribute",
+        "transfer",
+        "fractionalize",
+        "decimalize",
+        "trade",
+        "redeem",
+        "retire"
+      ],
+      "security": [
+        "key-management",
+        "access-control",
+        "signing",
+        "custody",
+        "fraud",
+        "contract-security"
+      ],
+      "quality_feedback": [
+        "liquidity",
+        "accuracy",
+        "redemption-performance",
+        "holder-outcomes",
+        "Pulse"
+      ],
+      "continuity": [
+        "key-recovery",
+        "custody-recovery",
+        "asset-reconciliation",
+        "token-upgrade",
+        "record-preservation"
+      ],
+      "interfaces": [
+        "wallet",
+        "marketplace",
+        "terminal",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "custodians",
+        "registrars",
+        "exchanges",
+        "banks",
+        "blockchains",
+        "legal registries"
+      ]
+    },
+    "decentralization": {
+      "domain": "Decentralization / Democratization",
+      "actors": [
+        "participant",
+        "community",
+        "operator",
+        "validator",
+        "delegate",
+        "voter",
+        "governance-body",
+        "public-authority"
+      ],
+      "objects_rights": [
+        "membership",
+        "delegation",
+        "vote",
+        "proposal",
+        "rule",
+        "resource",
+        "control-right",
+        "network-state"
+      ],
+      "lifecycle": [
+        "form",
+        "propose",
+        "deliberate",
+        "delegate",
+        "vote",
+        "execute",
+        "audit",
+        "appeal",
+        "amend",
+        "renew"
+      ],
+      "institutions": [
+        "community",
+        "cooperative",
+        "DAO-like network",
+        "protocol",
+        "association",
+        "public-institution",
+        "regulator"
+      ],
+      "capability_surface": [
+        "decentralization",
+        "democratization",
+        "consensus",
+        "delegation",
+        "authorization",
+        "voting",
+        "governance",
+        "audit",
+        "transparency"
+      ],
+      "capacity_availability_constraints": [
+        "participation",
+        "quorum",
+        "validator-capacity",
+        "decision-capacity",
+        "information-access"
+      ],
+      "demand_supply_opportunity": [
+        "participation-demand",
+        "delegation-demand",
+        "collective-resource-opportunity"
+      ],
+      "markets": [
+        "governance-rights",
+        "collective-resource",
+        "protocol-services",
+        "public-services"
+      ],
+      "transaction_value_settlement": [
+        "allocation",
+        "grant",
+        "membership-dues",
+        "resource-transfer",
+        "voting-right-effects"
+      ],
+      "records_evidence": [
+        "proposal",
+        "vote",
+        "quorum",
+        "delegation",
+        "decision",
+        "audit",
+        "amendment"
+      ],
+      "rules": [
+        "constitution",
+        "bylaws",
+        "protocol-rules",
+        "association-law",
+        "public-law",
+        "privacy"
+      ],
+      "technology_access": [
+        "web",
+        "mobile",
+        "ledger",
+        "API",
+        "MCP",
+        "CLI",
+        "agent"
+      ],
+      "openness": [
+        "open",
+        "public",
+        "member",
+        "institutional",
+        "permissioned",
+        "private"
+      ],
+      "data_intelligence": [
+        "participation",
+        "representation",
+        "decision-history",
+        "governance-risk"
+      ],
+      "workflow": [
+        "propose",
+        "review",
+        "authorize",
+        "vote",
+        "decide",
+        "execute",
+        "audit",
+        "appeal"
+      ],
+      "security": [
+        "identity",
+        "sybil-resistance",
+        "authorization",
+        "signing",
+        "privacy",
+        "audit"
+      ],
+      "quality_feedback": [
+        "participation",
+        "representation",
+        "decision-quality",
+        "accountability",
+        "Pulse"
+      ],
+      "continuity": [
+        "succession",
+        "rule-history",
+        "delegate-replacement",
+        "recovery",
+        "amendment-history"
+      ],
+      "interfaces": [
+        "governance-ui",
+        "web",
+        "mobile",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "associations",
+        "cooperatives",
+        "protocols",
+        "public institutions",
+        "regulators"
+      ]
+    },
+    "sourcing": {
+      "domain": "Sourcing / Supplier Discovery",
+      "actors": [
+        "buyer",
+        "sourcing-agent",
+        "supplier",
+        "manufacturer",
+        "distributor",
+        "broker",
+        "procurement-officer",
+        "inspector"
+      ],
+      "objects_rights": [
+        "need",
+        "requirement",
+        "supplier",
+        "catalog",
+        "RFQ",
+        "bid",
+        "quote",
+        "qualification",
+        "contract",
+        "capacity"
+      ],
+      "lifecycle": [
+        "need",
+        "specify",
+        "discover",
+        "shortlist",
+        "RFQ",
+        "quote",
+        "evaluate",
+        "negotiate",
+        "award",
+        "order",
+        "receive",
+        "review"
+      ],
+      "institutions": [
+        "buyer-organization",
+        "supplier",
+        "marketplace",
+        "procurement-office",
+        "standards-body",
+        "inspection-body"
+      ],
+      "capability_surface": [
+        "sourcing",
+        "supplier-management",
+        "discovery",
+        "matching",
+        "RFQ",
+        "quotations",
+        "bidding",
+        "qualification",
+        "procurement",
+        "contracts"
+      ],
+      "capacity_availability_constraints": [
+        "supplier-capacity",
+        "inventory",
+        "lead-time",
+        "price",
+        "quality",
+        "geographic-reach",
+        "minimum-order"
+      ],
+      "demand_supply_opportunity": [
+        "buyer-demand",
+        "supplier-supply",
+        "surplus",
+        "alternative-supplier",
+        "capacity-opportunity"
+      ],
+      "markets": [
+        "wholesale",
+        "procurement",
+        "services",
+        "components",
+        "commodities",
+        "professional-services"
+      ],
+      "transaction_value_settlement": [
+        "RFQ",
+        "quote",
+        "bid",
+        "award",
+        "PO",
+        "invoice",
+        "payment",
+        "delivery",
+        "reconciliation"
+      ],
+      "records_evidence": [
+        "specification",
+        "supplier-profile",
+        "certification",
+        "quote",
+        "bid",
+        "award",
+        "contract",
+        "delivery-proof"
+      ],
+      "rules": [
+        "procurement",
+        "competition",
+        "contract",
+        "tax",
+        "quality",
+        "sanctions",
+        "trade"
+      ],
+      "technology_access": [
+        "marketplace",
+        "ERP",
+        "API",
+        "web",
+        "MCP",
+        "agent",
+        "EDI"
+      ],
+      "openness": [
+        "public",
+        "registered",
+        "authenticated",
+        "member",
+        "institutional",
+        "private"
+      ],
+      "data_intelligence": [
+        "supplier-data",
+        "price-data",
+        "capacity",
+        "performance",
+        "risk",
+        "market-intelligence"
+      ],
+      "workflow": [
+        "need",
+        "discover",
+        "qualify",
+        "RFQ",
+        "bid",
+        "evaluate",
+        "award",
+        "order",
+        "receive",
+        "pay",
+        "review"
+      ],
+      "security": [
+        "supplier-verification",
+        "identity",
+        "fraud",
+        "contract-security",
+        "privacy"
+      ],
+      "quality_feedback": [
+        "price",
+        "quality",
+        "delivery",
+        "supplier-performance",
+        "Pulse"
+      ],
+      "continuity": [
+        "supplier-substitution",
+        "alternate-source",
+        "contract-recovery",
+        "inventory-continuity"
+      ],
+      "interfaces": [
+        "marketplace",
+        "procurement-ui",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "supplier-directories",
+        "marketplaces",
+        "trade-registries",
+        "logistics",
+        "standards"
+      ]
+    },
+    "services": {
+      "domain": "Services",
+      "actors": [
+        "service-provider",
+        "customer",
+        "agent",
+        "worker",
+        "operator",
+        "scheduler",
+        "assessor",
+        "reviewer"
+      ],
+      "objects_rights": [
+        "service",
+        "capability",
+        "service-offer",
+        "appointment",
+        "booking",
+        "contract",
+        "SLA",
+        "availability",
+        "review"
+      ],
+      "lifecycle": [
+        "discover",
+        "compare",
+        "request",
+        "match",
+        "book",
+        "authorize",
+        "deliver",
+        "measure",
+        "accept",
+        "settle",
+        "review",
+        "renew"
+      ],
+      "institutions": [
+        "service-provider",
+        "professional-body",
+        "marketplace",
+        "employer",
+        "regulator"
+      ],
+      "capability_surface": [
+        "service-discovery",
+        "service-delivery",
+        "service-management",
+        "availability",
+        "booking",
+        "scheduling",
+        "matching",
+        "quality",
+        "communication"
+      ],
+      "capacity_availability_constraints": [
+        "worker-capacity",
+        "time",
+        "skills",
+        "location",
+        "equipment",
+        "service-slots",
+        "queue",
+        "travel-time"
+      ],
+      "demand_supply_opportunity": [
+        "service-demand",
+        "provider-supply",
+        "unused-capacity",
+        "urgent-demand",
+        "new-service-opportunity"
+      ],
+      "markets": [
+        "professional-services",
+        "health",
+        "education",
+        "transport",
+        "maintenance",
+        "advisory",
+        "creative",
+        "digital-services"
+      ],
+      "transaction_value_settlement": [
+        "quote",
+        "booking",
+        "deposit",
+        "payment",
+        "delivery",
+        "invoice",
+        "refund",
+        "commission",
+        "payout"
+      ],
+      "records_evidence": [
+        "service-request",
+        "booking",
+        "consent",
+        "delivery-proof",
+        "SLA",
+        "invoice",
+        "review",
+        "outcome"
+      ],
+      "rules": [
+        "consumer",
+        "professional",
+        "contract",
+        "privacy",
+        "safety",
+        "tax",
+        "licensing"
+      ],
+      "technology_access": [
+        "web",
+        "mobile",
+        "chat",
+        "voice",
+        "video",
+        "API",
+        "MCP",
+        "agent",
+        "calendar"
+      ],
+      "openness": [
+        "public",
+        "authenticated",
+        "member",
+        "institutional",
+        "private"
+      ],
+      "data_intelligence": [
+        "provider-profile",
+        "availability",
+        "pricing",
+        "quality",
+        "outcomes",
+        "matching"
+      ],
+      "workflow": [
+        "discover",
+        "match",
+        "request",
+        "authorize",
+        "book",
+        "deliver",
+        "verify",
+        "settle",
+        "review",
+        "renew"
+      ],
+      "security": [
+        "identity",
+        "provider-verification",
+        "payment-security",
+        "privacy",
+        "fraud"
+      ],
+      "quality_feedback": [
+        "service-quality",
+        "SLA",
+        "customer-outcome",
+        "provider-performance",
+        "Pulse"
+      ],
+      "continuity": [
+        "provider-substitution",
+        "booking-recovery",
+        "service-handoff",
+        "record-recovery"
+      ],
+      "interfaces": [
+        "service-directory",
+        "marketplace",
+        "web",
+        "mobile",
+        "chat",
+        "voice",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "service-providers",
+        "professional-bodies",
+        "marketplaces",
+        "payment-rails",
+        "scheduling-systems"
+      ]
+    },
+    "software": {
+      "domain": "Software / Technical Systems",
+      "actors": [
+        "developer",
+        "maintainer",
+        "architect",
+        "operator",
+        "security-team",
+        "user",
+        "vendor",
+        "foundation",
+        "package-maintainer"
+      ],
+      "objects_rights": [
+        "repository",
+        "source-code",
+        "package",
+        "dependency",
+        "release",
+        "build",
+        "artifact",
+        "license",
+        "vulnerability",
+        "environment"
+      ],
+      "lifecycle": [
+        "idea",
+        "design",
+        "develop",
+        "review",
+        "test",
+        "build",
+        "package",
+        "release",
+        "deploy",
+        "operate",
+        "patch",
+        "upgrade",
+        "fork",
+        "archive"
+      ],
+      "institutions": [
+        "repository-host",
+        "foundation",
+        "standards-body",
+        "vendor",
+        "operator",
+        "security-authority",
+        "package-registry"
+      ],
+      "capability_surface": [
+        "software-development",
+        "software-testing",
+        "software-deployment",
+        "version-control",
+        "infrastructure-management",
+        "API",
+        "protocol",
+        "documentation",
+        "observability",
+        "security"
+      ],
+      "capacity_availability_constraints": [
+        "compute",
+        "storage",
+        "network",
+        "developer-capacity",
+        "CI-capacity",
+        "rate-limits",
+        "dependency-availability"
+      ],
+      "demand_supply_opportunity": [
+        "feature-demand",
+        "developer-supply",
+        "package-supply",
+        "platform-capacity",
+        "software-opportunity"
+      ],
+      "markets": [
+        "software",
+        "SaaS",
+        "APIs",
+        "packages",
+        "models",
+        "infrastructure",
+        "support",
+        "data"
+      ],
+      "transaction_value_settlement": [
+        "license",
+        "subscription",
+        "purchase",
+        "deployment",
+        "support",
+        "usage",
+        "royalty",
+        "sponsorship"
+      ],
+      "records_evidence": [
+        "commit",
+        "pull-request",
+        "release",
+        "build",
+        "test",
+        "SBOM",
+        "signature",
+        "attestation",
+        "license"
+      ],
+      "rules": [
+        "license",
+        "copyright",
+        "privacy",
+        "security",
+        "supply-chain",
+        "contract",
+        "data"
+      ],
+      "technology_access": [
+        "web",
+        "app",
+        "API",
+        "SDK",
+        "CLI",
+        "plugin",
+        "MCP",
+        "A2A",
+        "agent",
+        "container",
+        "infrastructure"
+      ],
+      "openness": [
+        "open-source",
+        "free",
+        "white-label",
+        "commercial",
+        "proprietary",
+        "public",
+        "private"
+      ],
+      "data_intelligence": [
+        "code",
+        "dependency-graph",
+        "telemetry",
+        "vulnerabilities",
+        "usage",
+        "quality",
+        "performance"
+      ],
+      "workflow": [
+        "plan",
+        "code",
+        "review",
+        "test",
+        "build",
+        "sign",
+        "release",
+        "deploy",
+        "observe",
+        "patch",
+        "recover"
+      ],
+      "security": [
+        "identity",
+        "signing",
+        "secrets",
+        "SBOM",
+        "dependency-risk",
+        "vulnerability",
+        "access-control"
+      ],
+      "quality_feedback": [
+        "tests",
+        "availability",
+        "performance",
+        "security",
+        "usage",
+        "maintenance",
+        "Pulse"
+      ],
+      "continuity": [
+        "repository-history",
+        "fork",
+        "backup",
+        "artifact-recovery",
+        "provider-substitution",
+        "migration"
+      ],
+      "interfaces": [
+        "IDE",
+        "web",
+        "terminal",
+        "CLI",
+        "API",
+        "SDK",
+        "MCP",
+        "A2A",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "Git hosts",
+        "package registries",
+        "container registries",
+        "cloud providers",
+        "standards bodies",
+        "security databases"
+      ]
+    },
+    "security": {
+      "domain": "Security / Trust / Privacy",
+      "actors": [
+        "principal",
+        "identity-provider",
+        "security-team",
+        "privacy-officer",
+        "certificate-authority",
+        "auditor",
+        "incident-responder",
+        "regulator"
+      ],
+      "objects_rights": [
+        "identity",
+        "credential",
+        "certificate",
+        "key",
+        "secret",
+        "signature",
+        "policy",
+        "role",
+        "entitlement",
+        "risk",
+        "incident"
+      ],
+      "lifecycle": [
+        "identify",
+        "assess",
+        "protect",
+        "authenticate",
+        "authorize",
+        "monitor",
+        "detect",
+        "respond",
+        "recover",
+        "revoke",
+        "learn"
+      ],
+      "institutions": [
+        "identity-provider",
+        "certificate-authority",
+        "security-team",
+        "auditor",
+        "regulator",
+        "privacy-office"
+      ],
+      "capability_surface": [
+        "security",
+        "PKI",
+        "signing",
+        "secret-management",
+        "fraud",
+        "privacy",
+        "authorization",
+        "credential-verification",
+        "revocation",
+        "separation-of-duties"
+      ],
+      "capacity_availability_constraints": [
+        "security-staff",
+        "monitoring-capacity",
+        "response-capacity",
+        "credential-capacity",
+        "key-rotation"
+      ],
+      "demand_supply_opportunity": [
+        "security-demand",
+        "trust-demand",
+        "risk-exposure",
+        "protection-opportunity"
+      ],
+      "markets": [
+        "security-services",
+        "identity",
+        "trust",
+        "insurance",
+        "compliance"
+      ],
+      "transaction_value_settlement": [
+        "credential-issuance",
+        "certificate",
+        "license",
+        "security-service",
+        "incident-cost",
+        "recovery-cost"
+      ],
+      "records_evidence": [
+        "credential",
+        "certificate",
+        "signature",
+        "attestation",
+        "log",
+        "finding",
+        "incident",
+        "consent",
+        "audit"
+      ],
+      "rules": [
+        "privacy",
+        "cybersecurity",
+        "data-protection",
+        "identity",
+        "sector-rules",
+        "contract"
+      ],
+      "technology_access": [
+        "PKI",
+        "HSM",
+        "secrets-vault",
+        "identity",
+        "API",
+        "MCP",
+        "CLI",
+        "agent"
+      ],
+      "openness": [
+        "open",
+        "public",
+        "authenticated",
+        "institutional",
+        "private",
+        "restricted"
+      ],
+      "data_intelligence": [
+        "threat-data",
+        "logs",
+        "telemetry",
+        "vulnerability-data",
+        "risk",
+        "anomaly"
+      ],
+      "workflow": [
+        "identify",
+        "authenticate",
+        "authorize",
+        "monitor",
+        "detect",
+        "respond",
+        "recover",
+        "revoke",
+        "audit"
+      ],
+      "security": [
+        "cryptography",
+        "key-management",
+        "access-control",
+        "least-privilege",
+        "fraud",
+        "privacy"
+      ],
+      "quality_feedback": [
+        "incident-rate",
+        "detection-time",
+        "response-time",
+        "recovery",
+        "control-effectiveness"
+      ],
+      "continuity": [
+        "key-recovery",
+        "credential-recovery",
+        "incident-continuity",
+        "disaster-recovery",
+        "succession"
+      ],
+      "interfaces": [
+        "identity-ui",
+        "security-console",
+        "API",
+        "CLI",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "identity systems",
+        "certificate authorities",
+        "security vendors",
+        "regulators",
+        "threat-intelligence sources"
+      ]
+    },
+    "government": {
+      "domain": "Government / Public Administration",
+      "actors": [
+        "resident",
+        "citizen",
+        "official",
+        "agency",
+        "ministry",
+        "regulator",
+        "service-provider",
+        "auditor",
+        "elected-representative",
+        "public-employee"
+      ],
+      "objects_rights": [
+        "public-record",
+        "application",
+        "permit",
+        "license",
+        "benefit",
+        "tax",
+        "case",
+        "programme",
+        "policy",
+        "public-asset"
+      ],
+      "lifecycle": [
+        "register",
+        "request",
+        "apply",
+        "assess",
+        "decide",
+        "serve",
+        "appeal",
+        "audit",
+        "report",
+        "renew",
+        "retire"
+      ],
+      "institutions": [
+        "local-government",
+        "state/province",
+        "national-government",
+        "agency",
+        "regulator",
+        "court",
+        "public-enterprise"
+      ],
+      "capability_surface": [
+        "government-administration",
+        "public-services",
+        "public-records",
+        "policy-management",
+        "permits",
+        "licenses",
+        "tax",
+        "procurement",
+        "case-management",
+        "audit"
+      ],
+      "capacity_availability_constraints": [
+        "staff",
+        "budget",
+        "service-capacity",
+        "office-capacity",
+        "digital-capacity",
+        "emergency-capacity"
+      ],
+      "demand_supply_opportunity": [
+        "public-demand",
+        "service-supply",
+        "infrastructure-demand",
+        "programme-opportunity"
+      ],
+      "markets": [
+        "public-procurement",
+        "concessions",
+        "licenses",
+        "public-services",
+        "public-assets"
+      ],
+      "transaction_value_settlement": [
+        "tax",
+        "fee",
+        "benefit",
+        "procurement",
+        "grant",
+        "public-payment",
+        "permit-fee"
+      ],
+      "records_evidence": [
+        "official-record",
+        "application",
+        "decision",
+        "permit",
+        "license",
+        "tax-record",
+        "service-proof",
+        "audit"
+      ],
+      "rules": [
+        "constitution",
+        "statute",
+        "regulation",
+        "administrative-law",
+        "procurement",
+        "tax",
+        "privacy",
+        "records-law"
+      ],
+      "technology_access": [
+        "government-portal",
+        "API",
+        "identity",
+        "digital-signature",
+        "web",
+        "mobile",
+        "MCP",
+        "agent"
+      ],
+      "openness": [
+        "public",
+        "authenticated",
+        "resident-only",
+        "institutional",
+        "restricted"
+      ],
+      "data_intelligence": [
+        "civic-data",
+        "service-demand",
+        "budgets",
+        "population",
+        "case-data",
+        "programme-outcomes"
+      ],
+      "workflow": [
+        "intake",
+        "verify",
+        "assess",
+        "decide",
+        "serve",
+        "appeal",
+        "audit",
+        "report"
+      ],
+      "security": [
+        "identity",
+        "access-control",
+        "privacy",
+        "records-security",
+        "fraud",
+        "critical-infrastructure"
+      ],
+      "quality_feedback": [
+        "service-level",
+        "response-time",
+        "outcomes",
+        "audit-findings",
+        "public-feedback",
+        "Pulse"
+      ],
+      "continuity": [
+        "records-continuity",
+        "succession",
+        "disaster-recovery",
+        "service-continuity",
+        "emergency-response"
+      ],
+      "interfaces": [
+        "portal",
+        "web",
+        "mobile",
+        "call-centre",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "public registries",
+        "utilities",
+        "banks",
+        "identity systems",
+        "courts",
+        "health",
+        "education",
+        "transport"
+      ]
+    },
+    "justice": {
+      "domain": "Justice / Dispute / Case Resolution",
+      "actors": [
+        "complainant",
+        "respondent",
+        "lawyer",
+        "judge",
+        "magistrate",
+        "mediator",
+        "arbitrator",
+        "investigator",
+        "police",
+        "prosecutor",
+        "court",
+        "registrar",
+        "expert",
+        "witness"
+      ],
+      "objects_rights": [
+        "case",
+        "claim",
+        "complaint",
+        "allegation",
+        "evidence",
+        "order",
+        "judgment",
+        "appeal",
+        "right",
+        "obligation",
+        "remedy"
+      ],
+      "lifecycle": [
+        "intake",
+        "registration",
+        "triage",
+        "investigation",
+        "pleading",
+        "discovery",
+        "hearing",
+        "decision",
+        "judgment",
+        "appeal",
+        "enforcement",
+        "closure",
+        "archive"
+      ],
+      "institutions": [
+        "court",
+        "tribunal",
+        "arbitration-body",
+        "mediation-body",
+        "police",
+        "prosecutor",
+        "corrections",
+        "legal-aid",
+        "regulator"
+      ],
+      "capability_surface": [
+        "case-management",
+        "investigation",
+        "dispute-resolution",
+        "court-management",
+        "justice-services",
+        "evidence",
+        "legal-reference",
+        "appeals",
+        "enforcement"
+      ],
+      "capacity_availability_constraints": [
+        "court-capacity",
+        "judge-capacity",
+        "legal-aid-capacity",
+        "hearing-slots",
+        "investigation-capacity"
+      ],
+      "demand_supply_opportunity": [
+        "case-demand",
+        "legal-services",
+        "mediation-opportunity",
+        "resolution-capacity"
+      ],
+      "markets": [
+        "legal-services",
+        "arbitration",
+        "mediation",
+        "legal-aid"
+      ],
+      "transaction_value_settlement": [
+        "filing-fee",
+        "legal-fee",
+        "award",
+        "damages",
+        "restitution",
+        "settlement"
+      ],
+      "records_evidence": [
+        "claim",
+        "pleading",
+        "evidence",
+        "witness-record",
+        "expert-report",
+        "order",
+        "judgment",
+        "appeal"
+      ],
+      "rules": [
+        "substantive-law",
+        "procedural-law",
+        "evidence-rules",
+        "rights",
+        "privacy",
+        "professional-ethics"
+      ],
+      "technology_access": [
+        "case-management",
+        "document-management",
+        "court-portal",
+        "e-filing",
+        "API",
+        "MCP",
+        "secure-messaging"
+      ],
+      "openness": [
+        "public",
+        "party-authenticated",
+        "lawyer-access",
+        "court-only",
+        "restricted",
+        "sealed"
+      ],
+      "data_intelligence": [
+        "case-law",
+        "legal-research",
+        "docket",
+        "precedent",
+        "case-analytics",
+        "risk",
+        "conflict-check"
+      ],
+      "workflow": [
+        "file",
+        "serve",
+        "investigate",
+        "exchange",
+        "hear",
+        "decide",
+        "appeal",
+        "enforce",
+        "close"
+      ],
+      "security": [
+        "identity",
+        "access-control",
+        "sealed-records",
+        "evidence-integrity",
+        "audit",
+        "privacy",
+        "non-repudiation"
+      ],
+      "quality_feedback": [
+        "timeliness",
+        "resolution-quality",
+        "appeal-rate",
+        "access-to-justice",
+        "case-outcomes"
+      ],
+      "continuity": [
+        "case-history",
+        "record-preservation",
+        "judge/representative succession",
+        "archive",
+        "system-recovery"
+      ],
+      "interfaces": [
+        "court-portal",
+        "mobile",
+        "web",
+        "e-filing",
+        "API",
+        "MCP",
+        "secure-agent"
+      ],
+      "external_ecosystem": [
+        "legal registries",
+        "courts",
+        "police",
+        "professional bodies",
+        "public records",
+        "experts"
+      ]
+    },
+    "technicalities": {
+      "domain": "Technical Engineering / Infrastructure / Operations",
+      "actors": [
+        "architect",
+        "engineer",
+        "developer",
+        "operator",
+        "SRE",
+        "administrator",
+        "technician",
+        "security-engineer",
+        "network-engineer"
+      ],
+      "objects_rights": [
+        "system",
+        "service",
+        "component",
+        "dependency",
+        "environment",
+        "configuration",
+        "deployment",
+        "incident",
+        "capacity",
+        "interface"
+      ],
+      "lifecycle": [
+        "design",
+        "build",
+        "test",
+        "integrate",
+        "deploy",
+        "operate",
+        "observe",
+        "repair",
+        "upgrade",
+        "migrate",
+        "retire"
+      ],
+      "institutions": [
+        "engineering-team",
+        "vendor",
+        "standards-body",
+        "platform-provider",
+        "operator",
+        "security-team"
+      ],
+      "capability_surface": [
+        "software-development",
+        "software-testing",
+        "software-deployment",
+        "infrastructure-management",
+        "configuration-management",
+        "observability",
+        "telemetry",
+        "capacity-planning",
+        "workflow",
+        "security"
+      ],
+      "capacity_availability_constraints": [
+        "compute",
+        "storage",
+        "network",
+        "energy",
+        "staff",
+        "budget",
+        "deployment-capacity",
+        "rate-limits"
+      ],
+      "demand_supply_opportunity": [
+        "compute-demand",
+        "service-demand",
+        "engineering-capacity",
+        "infrastructure-opportunity"
+      ],
+      "markets": [
+        "cloud",
+        "compute",
+        "software",
+        "network",
+        "infrastructure",
+        "technical-services"
+      ],
+      "transaction_value_settlement": [
+        "usage",
+        "subscription",
+        "license",
+        "support",
+        "deployment",
+        "capacity-allocation"
+      ],
+      "records_evidence": [
+        "architecture",
+        "config",
+        "build",
+        "test",
+        "deployment",
+        "telemetry",
+        "incident",
+        "change-record"
+      ],
+      "rules": [
+        "security",
+        "privacy",
+        "license",
+        "SLA",
+        "change-control",
+        "safety",
+        "standards"
+      ],
+      "technology_access": [
+        "CLI",
+        "SDK",
+        "API",
+        "MCP",
+        "A2A",
+        "web",
+        "terminal",
+        "agent",
+        "infrastructure"
+      ],
+      "openness": [
+        "open",
+        "free",
+        "white-label",
+        "commercial",
+        "proprietary",
+        "internal"
+      ],
+      "data_intelligence": [
+        "metrics",
+        "logs",
+        "traces",
+        "capacity",
+        "errors",
+        "dependencies",
+        "performance"
+      ],
+      "workflow": [
+        "design",
+        "implement",
+        "test",
+        "deploy",
+        "observe",
+        "incident",
+        "recover",
+        "change",
+        "retire"
+      ],
+      "security": [
+        "least-privilege",
+        "secrets",
+        "signing",
+        "supply-chain-security",
+        "network-security",
+        "backup"
+      ],
+      "quality_feedback": [
+        "availability",
+        "latency",
+        "errors",
+        "test-coverage",
+        "security-findings",
+        "cost",
+        "Pulse"
+      ],
+      "continuity": [
+        "backup",
+        "failover",
+        "migration",
+        "provider-substitution",
+        "disaster-recovery",
+        "recovery"
+      ],
+      "interfaces": [
+        "terminal",
+        "CLI",
+        "IDE",
+        "dashboard",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "clouds",
+        "datacentres",
+        "registries",
+        "standards",
+        "open-source projects"
+      ]
+    },
+    "input-output": {
+      "domain": "I/O — Input, Output, Movement, Access and Flow",
+      "actors": [
+        "origin",
+        "destination",
+        "carrier",
+        "router",
+        "operator",
+        "sender",
+        "receiver",
+        "processor",
+        "custodian"
+      ],
+      "objects_rights": [
+        "input",
+        "output",
+        "request",
+        "message",
+        "package",
+        "shipment",
+        "payment-flow",
+        "data-flow",
+        "resource-flow",
+        "access-right"
+      ],
+      "lifecycle": [
+        "source",
+        "capture",
+        "accept",
+        "validate",
+        "route",
+        "transform",
+        "move",
+        "deliver",
+        "acknowledge",
+        "reconcile",
+        "close"
+      ],
+      "institutions": [
+        "transport-provider",
+        "payment-provider",
+        "data-provider",
+        "network",
+        "warehouse",
+        "marketplace",
+        "operator"
+      ],
+      "capability_surface": [
+        "routing",
+        "transport",
+        "shipping",
+        "data-ingestion",
+        "data-export",
+        "event-streaming",
+        "payment",
+        "service-delivery",
+        "flow-management",
+        "settlement"
+      ],
+      "capacity_availability_constraints": [
+        "bandwidth",
+        "route-capacity",
+        "vehicle-capacity",
+        "storage",
+        "queue",
+        "processing-capacity",
+        "settlement-capacity"
+      ],
+      "demand_supply_opportunity": [
+        "movement-demand",
+        "data-demand",
+        "service-demand",
+        "capacity-opportunity"
+      ],
+      "markets": [
+        "transport",
+        "logistics",
+        "data",
+        "payments",
+        "services",
+        "capacity"
+      ],
+      "transaction_value_settlement": [
+        "transfer",
+        "shipment",
+        "message",
+        "service",
+        "payment",
+        "delivery",
+        "settlement",
+        "reconciliation"
+      ],
+      "records_evidence": [
+        "input-record",
+        "output-record",
+        "receipt",
+        "tracking",
+        "acknowledgement",
+        "delivery-proof",
+        "settlement-proof"
+      ],
+      "rules": [
+        "transport",
+        "payments",
+        "data",
+        "customs",
+        "privacy",
+        "contract",
+        "safety"
+      ],
+      "technology_access": [
+        "API",
+        "event-stream",
+        "webhook",
+        "MCP",
+        "CLI",
+        "SDK",
+        "A2A",
+        "agent"
+      ],
+      "openness": [
+        "open",
+        "public",
+        "authenticated",
+        "institutional",
+        "private"
+      ],
+      "data_intelligence": [
+        "route-data",
+        "flow-status",
+        "capacity",
+        "queue",
+        "latency",
+        "demand",
+        "exceptions"
+      ],
+      "workflow": [
+        "capture",
+        "validate",
+        "route",
+        "move",
+        "deliver",
+        "acknowledge",
+        "reconcile",
+        "recover"
+      ],
+      "security": [
+        "authentication",
+        "integrity",
+        "encryption",
+        "access-control",
+        "fraud",
+        "provenance"
+      ],
+      "quality_feedback": [
+        "delivery-time",
+        "success-rate",
+        "loss",
+        "latency",
+        "exceptions",
+        "Pulse"
+      ],
+      "continuity": [
+        "re-route",
+        "retry",
+        "failover",
+        "buffer",
+        "recovery",
+        "reconciliation"
+      ],
+      "interfaces": [
+        "terminal",
+        "web",
+        "API",
+        "MCP",
+        "CLI",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "networks",
+        "carriers",
+        "banks",
+        "APIs",
+        "warehouses",
+        "marketplaces"
+      ]
+    },
+    "authority": {
+      "domain": "Authority / Authorization / Consent / Delegation",
+      "actors": [
+        "principal",
+        "human",
+        "representative",
+        "delegate",
+        "administrator",
+        "agent",
+        "institution",
+        "regulator",
+        "auditor"
+      ],
+      "objects_rights": [
+        "authority",
+        "permission",
+        "consent",
+        "delegation",
+        "role",
+        "credential",
+        "entitlement",
+        "obligation",
+        "policy",
+        "decision",
+        "revocation"
+      ],
+      "lifecycle": [
+        "identify-principal",
+        "define-scope",
+        "request",
+        "consent",
+        "approve",
+        "delegate",
+        "authorize",
+        "execute",
+        "monitor",
+        "revoke",
+        "appeal",
+        "audit",
+        "expire"
+      ],
+      "institutions": [
+        "human-principal",
+        "organization",
+        "institution",
+        "regulator",
+        "court",
+        "professional-body",
+        "governance-body"
+      ],
+      "capability_surface": [
+        "authority",
+        "authorization",
+        "consent",
+        "consent-management",
+        "delegation",
+        "delegation-management",
+        "approval",
+        "entitlement",
+        "revocation",
+        "attestation",
+        "credential-verification",
+        "separation-of-duties",
+        "authority-escalation",
+        "jurisdiction"
+      ],
+      "capacity_availability_constraints": [
+        "delegation-scope",
+        "role-capacity",
+        "approval-capacity",
+        "quorum",
+        "credential-validity",
+        "time-window"
+      ],
+      "demand_supply_opportunity": [
+        "approval-demand",
+        "delegation-demand",
+        "service-access",
+        "representation-opportunity"
+      ],
+      "markets": [
+        "authorized-services",
+        "licensed-activity",
+        "representation",
+        "professional-services"
+      ],
+      "transaction_value_settlement": [
+        "approval",
+        "authorization",
+        "delegation",
+        "consent",
+        "entitlement",
+        "revocation"
+      ],
+      "records_evidence": [
+        "consent-record",
+        "seal/approval",
+        "delegation-record",
+        "credential",
+        "attestation",
+        "policy",
+        "decision",
+        "audit"
+      ],
+      "rules": [
+        "constitution",
+        "law",
+        "policy",
+        "contract",
+        "regulation",
+        "professional-rules",
+        "privacy"
+      ],
+      "technology_access": [
+        "identity",
+        "DID",
+        "VC",
+        "PKI",
+        "signature",
+        "policy-engine",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "openness": [
+        "public",
+        "authenticated",
+        "member",
+        "institutional",
+        "private",
+        "restricted"
+      ],
+      "data_intelligence": [
+        "authority-graph",
+        "scope",
+        "policy",
+        "delegation",
+        "credential-status",
+        "risk",
+        "audit"
+      ],
+      "workflow": [
+        "identify",
+        "request",
+        "review",
+        "approve",
+        "delegate",
+        "authorize",
+        "execute",
+        "monitor",
+        "revoke",
+        "audit"
+      ],
+      "security": [
+        "authentication",
+        "authorization",
+        "least-privilege",
+        "signing",
+        "credential-security",
+        "revocation",
+        "privacy"
+      ],
+      "quality_feedback": [
+        "decision-quality",
+        "approval-time",
+        "policy-compliance",
+        "unauthorized-attempts",
+        "audit-quality"
+      ],
+      "continuity": [
+        "successor-authority",
+        "credential-renewal",
+        "revocation",
+        "emergency-delegation",
+        "archive"
+      ],
+      "interfaces": [
+        "SEAL",
+        "identity-ui",
+        "approval-ui",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "identity authorities",
+        "courts",
+        "regulators",
+        "professional bodies",
+        "banks",
+        "government",
+        "credential issuers"
+      ]
+    },
+    "finance": {
+      "domain": "Finance",
+      "actors": [
+        "bank",
+        "MFI",
+        "investor",
+        "lender",
+        "borrower",
+        "treasurer",
+        "insurer",
+        "fund",
+        "broker",
+        "custodian",
+        "regulator"
+      ],
+      "objects_rights": [
+        "asset",
+        "liability",
+        "account",
+        "loan",
+        "credit",
+        "investment",
+        "security",
+        "fund",
+        "premium",
+        "claim",
+        "cash",
+        "portfolio"
+      ],
+      "lifecycle": [
+        "onboard",
+        "assess",
+        "originate",
+        "fund",
+        "trade",
+        "manage",
+        "service",
+        "settle",
+        "report",
+        "recover",
+        "close"
+      ],
+      "institutions": [
+        "banks",
+        "MFIs",
+        "funds",
+        "brokers",
+        "insurers",
+        "exchanges",
+        "custodians",
+        "regulators"
+      ],
+      "capability_surface": [
+        "money",
+        "credit",
+        "investment",
+        "insurance",
+        "treasury",
+        "cash-management",
+        "FX",
+        "payments",
+        "settlement",
+        "valuation",
+        "risk",
+        "fraud"
+      ],
+      "capacity_availability_constraints": [
+        "capital",
+        "liquidity",
+        "credit",
+        "collateral",
+        "custody",
+        "risk-capacity",
+        "settlement-capacity"
+      ],
+      "demand_supply_opportunity": [
+        "capital-demand",
+        "credit-demand",
+        "investment-supply",
+        "insurance-supply",
+        "funding-opportunity"
+      ],
+      "markets": [
+        "money",
+        "credit",
+        "securities",
+        "equity",
+        "debt",
+        "commodities",
+        "FX",
+        "insurance",
+        "real-estate",
+        "digital-assets"
+      ],
+      "transaction_value_settlement": [
+        "origination",
+        "payment",
+        "trade",
+        "fee",
+        "interest",
+        "premium",
+        "claim",
+        "clearing",
+        "settlement",
+        "reconciliation"
+      ],
+      "records_evidence": [
+        "financial-statement",
+        "transaction",
+        "contract",
+        "valuation",
+        "trade-confirm",
+        "policy",
+        "claim",
+        "statement"
+      ],
+      "rules": [
+        "banking",
+        "securities",
+        "insurance",
+        "AML",
+        "KYC",
+        "tax",
+        "consumer",
+        "capital"
+      ],
+      "technology_access": [
+        "core-banking",
+        "trading",
+        "API",
+        "web",
+        "mobile",
+        "MCP",
+        "agent",
+        "ledger"
+      ],
+      "openness": [
+        "public",
+        "regulated",
+        "authenticated",
+        "member",
+        "institutional",
+        "private"
+      ],
+      "data_intelligence": [
+        "market-data",
+        "credit-risk",
+        "portfolio",
+        "liquidity",
+        "fraud",
+        "valuation",
+        "financial-intelligence"
+      ],
+      "workflow": [
+        "identify",
+        "assess",
+        "originate",
+        "approve",
+        "fund",
+        "trade",
+        "settle",
+        "service",
+        "report",
+        "recover"
+      ],
+      "security": [
+        "identity",
+        "fraud",
+        "transaction-signing",
+        "custody",
+        "privacy",
+        "segregation-of-duties"
+      ],
+      "quality_feedback": [
+        "return",
+        "risk",
+        "liquidity",
+        "service-quality",
+        "settlement-quality",
+        "Pulse"
+      ],
+      "continuity": [
+        "liquidity-continuity",
+        "custody",
+        "records",
+        "beneficiary",
+        "disaster-recovery"
+      ],
+      "interfaces": [
+        "bank",
+        "broker",
+        "wallet",
+        "terminal",
+        "web",
+        "mobile",
+        "API",
+        "MCP",
+        "agent"
+      ],
+      "external_ecosystem": [
+        "banks",
+        "exchanges",
+        "custodians",
+        "insurers",
+        "payment-rails",
+        "regulators"
+      ]
+    }
   }
 }
