@@ -1,0 +1,239 @@
+{
+  "registry": "CARBON_ACTUAL_EXTERNAL_INSTITUTION_AUTHORITY",
+  "version": "2026-09-19",
+  "status": "curated",
+  "purpose": "Map external institutions and authoritative public sources to scoped capabilities without promoting any external institution into Carbon Actual constitutional authority.",
+  "governing_principle": "External authority is scoped to the institution's lawful or operational remit. Carbon Actual/ABBA may discover, contextualize, route and record; it does not infer institutional authority from a name, API, match or data source.",
+  "source_rule": "Prefer current first-party institutional sources. When no single specialized institution exists for a domain, compose the relevant public authorities and explicitly label the boundary rather than inventing a specialized institution.",
+  "reviewed_on": "2026-09-19",
+  "institutions": [
+    {
+      "key": "ng:nimc",
+      "name": "National Identity Management Commission",
+      "jurisdiction": "Nigeria",
+      "domains": ["identity","digital_identity","authentication","interoperability","electronic_trust"],
+      "authority_scope": ["national_identity","NIN","national_PKI_root","digital_public_infrastructure_trust"],
+      "capabilities": ["identity_verification","credential_trust","authoritative_identity_reference","interoperability_reference"],
+      "source": "https://nimc.gov.ng/press-releases/president-tinubu-signs-nimc-act-2026-into-law",
+      "source_type": "official",
+      "freshness": "2026-07",
+      "notes": "NIMC announced that the NIMC Act 2026 designates NIMC as Root Certification Authority for Nigeria's National PKI and DPI and recognizes physical and digital identity credentials linked to NIN."
+    },
+    {
+      "key": "ng:ndpc",
+      "name": "Nigeria Data Protection Commission",
+      "jurisdiction": "Nigeria",
+      "domains": ["privacy","data_protection","compliance","breach_management"],
+      "authority_scope": ["NDPA_compliance","data_controller_processor_obligations","privacy_rights","breach_reporting"],
+      "capabilities": ["privacy_compliance_reference","controller_processor_registration","DPCO_registry","breach_reporting_reference"],
+      "source": "https://www.ndpc.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "Use NDPC as the primary Nigerian public authority reference for personal-data protection and privacy compliance."
+    },
+    {
+      "key": "ng:cac",
+      "name": "Corporate Affairs Commission",
+      "jurisdiction": "Nigeria",
+      "domains": ["companies","corporate_identity","business_registry"],
+      "authority_scope": ["company_registration","company_status","directors_and_registered_details"],
+      "capabilities": ["company_search","verification","registration_reference","corporate_record_reference"],
+      "source": "https://www.cac.gov.ng/services/company-search",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:nrs",
+      "name": "Nigeria Revenue Service",
+      "jurisdiction": "Nigeria",
+      "domains": ["tax","public_revenue","compliance"],
+      "authority_scope": ["tax_administration","federal_tax_collection","tax_compliance"],
+      "capabilities": ["tax_information","tax_forms","tax_calendar","compliance_reference","revenue_dashboard_reference"],
+      "source": "https://www.nrs.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "Nigeria Tax Administration Act 2025 commenced 2026-01-01; NRS is the current federal tax-administration reference."
+    },
+    {
+      "key": "ng:cbn",
+      "name": "Central Bank of Nigeria",
+      "jurisdiction": "Nigeria",
+      "domains": ["banking","payments","open_banking","financial_infrastructure"],
+      "authority_scope": ["banking_supervision","payments_system","open_banking","payment_service_provider_regulation","regulatory_sandbox"],
+      "capabilities": ["payment_rules_reference","PSP_reference","open_banking_registry_reference","sandbox_reference","NUBAN_reference"],
+      "source": "https://www.cbn.gov.ng/PaymentsSystem/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:sec",
+      "name": "Securities and Exchange Commission Nigeria",
+      "jurisdiction": "Nigeria",
+      "domains": ["capital_markets","securities","digital_assets","investment_protection"],
+      "authority_scope": ["capital_market_operator_registration","investment_services_regulation","registered_operator_verification","digital_asset_regulatory_framework"],
+      "capabilities": ["operator_verification","regulatory_notice_reference","fintech_incubation_reference","investor_protection_reference"],
+      "source": "https://sec.gov.ng/for-investors/find-a-registered-operator/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "Never treat an investment platform as regulated merely because it appears in marketing. Query current SEC registration/status before presenting it as an eligible regulated provider."
+    },
+    {
+      "key": "ng:ngx",
+      "name": "Nigerian Exchange (NGX)",
+      "jurisdiction": "Nigeria",
+      "domains": ["capital_markets","market_data","listed_securities"],
+      "authority_scope": ["exchange_market_data","listed_security_reference","market_data_distribution"],
+      "capabilities": ["real_time_market_data","end_of_day_data","historical_data","reference_data","REST_API_market_data"],
+      "source": "https://ngxgroup.com/exchange/data/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "NGX market-data products are distributed directly or through authorized vendors and are subject to the NGX Market Data Agreement."
+    },
+    {
+      "key": "ng:nasd",
+      "name": "NASD OTC Securities Exchange",
+      "jurisdiction": "Nigeria",
+      "domains": ["capital_markets","OTC_securities","market_data"],
+      "authority_scope": ["OTC_market_operations","market_rules","licensed_partner_market_access"],
+      "capabilities": ["market_data_API","reference_data_API","corporate_actions_API","order_API_for_authorized_partners"],
+      "source": "https://docs.nasdng.com/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "NASD states that API access requires authorized vendor credentials and scopes. API keys must never be embedded in client applications or repositories."
+    },
+    {
+      "key": "ng:ncs",
+      "name": "Nigeria Customs Service",
+      "jurisdiction": "Nigeria",
+      "domains": ["trade","customs","import_export","border","logistics"],
+      "authority_scope": ["customs_clearance","trade_processing","customs_licensing","AEO","trade_facilitation"],
+      "capabilities": ["B_Odogwu_trade_portal","customs_verification","AEO_reference","licenses_permits_reference","advance_ruling_reference"],
+      "source": "https://customs.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:nasc",
+      "name": "National Agricultural Seeds Council",
+      "jurisdiction": "Nigeria",
+      "domains": ["seed_sector","agriculture","seed_certification","planting_materials"],
+      "authority_scope": ["seed_industry_regulation","seed_registration","variety_release","seed_certification","seed_quality_control","seed_import_export"],
+      "capabilities": ["seed_company_reference","seed_lot_certification_reference","variety_reference","seed_market_reference","seed_testing_reference"],
+      "source": "https://seedcouncil.gov.ng/what-we-do/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "NASC publishes current seed-sector material including the Nigerian Seed Roadmap Dashboard 2025 and updated 2025 seed registration/release and third-party certification regulations."
+    },
+    {
+      "key": "ng:noun",
+      "name": "National Open University of Nigeria",
+      "jurisdiction": "Nigeria",
+      "domains": ["education","higher_education","student_services","research"],
+      "authority_scope": ["student_records","academic_programmes","assessments","project_administration","institutional_student_services"],
+      "capabilities": ["PAS","student_portal_reference","library_reference","academic_programme_reference"],
+      "source": "https://nou.edu.ng/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "NOUN began deploying PAS 4 in September 2026 to modernize project supervision, assessment, documentation and records management."
+    },
+    {
+      "key": "ng:nelfund",
+      "name": "Nigeria Education Loan Fund",
+      "jurisdiction": "Nigeria",
+      "domains": ["education_finance","student_aid","student_loans"],
+      "authority_scope": ["student_loan_application","education_financing"],
+      "capabilities": ["student_loan_information","loan_application_portal_reference","privacy_notice_reference"],
+      "source": "https://nelf.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:cibn",
+      "name": "The Chartered Institute of Bankers of Nigeria",
+      "jurisdiction": "Nigeria",
+      "domains": ["professional_education","banking_certification"],
+      "authority_scope": ["professional_programmes","certification","examinations","candidate_resources"],
+      "capabilities": ["programme_catalog","exam_timetable_reference","fee_reference","publication_reference"],
+      "source": "https://www.cibng.org/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:npc",
+      "name": "National Population Commission",
+      "jurisdiction": "Nigeria",
+      "domains": ["civil_registration","vital_events","population"],
+      "authority_scope": ["birth_registration","death_registration","civil_registration","population_records"],
+      "capabilities": ["birth_record_reference","death_record_reference","vital_event_registration_reference"],
+      "source": "https://nationalpopulation.gov.ng/",
+      "source_type": "official_or_primary_public_source",
+      "freshness": "2026",
+      "notes": "Use NPC for national civil-registration/vital-event reference. State-level workflows and registrars may still govern local execution details."
+    },
+    {
+      "key": "ng:lagos-probate",
+      "name": "Lagos Probate Registry",
+      "jurisdiction": "Lagos State, Nigeria",
+      "domains": ["probate","estate_administration","succession"],
+      "authority_scope": ["grant_of_probate","letters_of_administration","estate_administration"],
+      "capabilities": ["probate_process_reference","estate_application_reference"],
+      "source": "https://probate.lagosjudiciary.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026",
+      "notes": "Probate is jurisdiction-specific. Do not generalize Lagos procedure to every Nigerian state."
+    },
+    {
+      "key": "ng:nico",
+      "name": "National Institute for Cultural Orientation",
+      "jurisdiction": "Nigeria",
+      "domains": ["culture","cultural_orientation","research","documentation"],
+      "authority_scope": ["cultural_orientation","cultural_research","documentation","cultural_diplomacy"],
+      "capabilities": ["cultural_reference","research_reference","training_reference"],
+      "source": "https://nico.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:ncmm",
+      "name": "National Commission for Museums and Monuments",
+      "jurisdiction": "Nigeria",
+      "domains": ["heritage","museums","monuments","archaeology"],
+      "authority_scope": ["national_cultural_property","museum_collections","monuments","heritage_preservation"],
+      "capabilities": ["artifact_reference","collection_reference","site_reference","heritage_research_reference"],
+      "source": "https://museum.ng/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    },
+    {
+      "key": "ng:nln",
+      "name": "National Library of Nigeria",
+      "jurisdiction": "Nigeria",
+      "domains": ["libraries","publishing","bibliography","legal_deposit"],
+      "authority_scope": ["legal_deposit","national_bibliography","ISBN","ISSN","union_catalogue"],
+      "capabilities": ["ISBN_reference","ISSN_reference","legal_deposit_reference","national_union_catalogue_reference"],
+      "source": "https://www.nln.gov.ng/",
+      "source_type": "official",
+      "freshness": "current-2026"
+    }
+  ],
+  "composite_boundaries": {
+    "rites": {
+      "specialized_national_authority": false,
+      "method": "compose function-specific authorities",
+      "authority_chain": ["ng:nimc","ng:npc","ng:ndpc","jurisdiction_specific_probate_registry","relevant_health_or_religious_institution"],
+      "notes": "RITES is a Carbon Actual continuity product, not a Nigerian government authority. Use the competent institution for each transition instead of inventing a single RITES authority."
+    },
+    "cultural_atlas": {
+      "specialized_national_knowledge_authority": false,
+      "method": "combine cultural, heritage, library and rights-bearing sources",
+      "authority_chain": ["ng:nico","ng:ncmm","ng:nln","community_or_custodian_source","international_reference_where_applicable"],
+      "notes": "The Cultural Atlas is a curated representation. A source can establish evidence/provenance without becoming universal authority."
+    },
+    "omni_tip_trade_and_investment": {
+      "specialized_universal_market_authority": false,
+      "method": "compose regulator + market + provider sources",
+      "authority_chain": ["ng:sec","ng:cbn","ng:ngx","ng:nasd","ng:ncs","ng:nrs"],
+      "notes": "OMNI/TIP should route to the competent regulator or market operator per transaction type and jurisdiction."
+    }
+  }
+}
