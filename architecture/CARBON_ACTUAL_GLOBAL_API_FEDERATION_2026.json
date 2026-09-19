@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_GLOBAL_API_FEDERATION",
-  "version": "2026-09-19.4",
+  "version": "2026-09-19.5",
   "status": "curated-and-discovery-ready",
   "purpose": "Global public API and machine-readable data-source federation for Carbon Actual. It covers Earth, Solar-System, frontier and unknown horizons without treating any provider as constitutional authority.",
   "nonredundancy_rule": "one canonical capability -> many provider adapters -> one governed evidence/result path",
@@ -893,6 +893,42 @@
       "none_for_read",
       "open/public",
       "https://docs.pypi.org/api/json/"
+    ],
+    [
+      "docker-hub",
+      "Docker Hub APIs / Registry API",
+      "containers,software,images,packages,delivery",
+      "https://registry-1.docker.io/",
+      "public_token_or_account",
+      "open-standard/platform",
+      "https://docs.docker.com/reference/api/registry/latest/"
+    ],
+    [
+      "terraform-registry",
+      "Terraform Registry API",
+      "infrastructure,providers,modules,policies,software",
+      "https://registry.terraform.io/v1/",
+      "none",
+      "open/public",
+      "https://developer.hashicorp.com/terraform/registry/api-docs"
+    ],
+    [
+      "openrouter",
+      "OpenRouter APIs",
+      "ai-models,inference,model-routing,agents",
+      "https://openrouter.ai/api/v1/",
+      "api_key",
+      "commercial/public-with-free-options",
+      "https://openrouter.ai/"
+    ],
+    [
+      "glama",
+      "Glama MCP Registry",
+      "mcp,agents,tools,connectors",
+      "https://glama.ai/",
+      "none_for_discovery",
+      "public-index",
+      "https://glama.ai/"
     ]
   ],
   "nigeria": [
@@ -1047,7 +1083,7 @@
     "World/space/unknown horizons are modeled as scope and reality states. No extraterrestrial or alien API is asserted as factual; future/unknown connectors remain candidates until evidence exists.",
     "Directory indexes are the mechanism for continuously discovering the much larger public-API universe rather than pretending a fixed hand-curated list can remain complete."
   ],
-  "provider_count": 99,
+  "provider_count": 103,
   "entity_ecosystem_scope": {
     "actor_classes": [
       "company",
@@ -1128,5 +1164,37 @@
       "community_activity"
     ],
     "completeness_rule": "Do not define global coverage as a static list. Maintain discovery catalogs plus first-party registries plus source-specific adapters and freshness checks."
+  },
+  "sources_and_access": {
+    "organization_sources": [
+      "GLEIF",
+      "ROR",
+      "OpenCorporates",
+      "Companies House",
+      "national corporate/charity registries",
+      "Wikidata"
+    ],
+    "startup_and_product_sources": [
+      "Product Hunt",
+      "GitHub Marketplace",
+      "repository/package registries",
+      "future/funding/news discovery"
+    ],
+    "software_sources": [
+      "GitHub",
+      "npm",
+      "PyPI",
+      "Docker Hub",
+      "Terraform Registry",
+      "Hugging Face",
+      "Open Source Initiative"
+    ],
+    "agent_sources": [
+      "Official MCP Registry",
+      "Glama",
+      "A2A ecosystems",
+      "agent/framework registries"
+    ],
+    "access_rule": "open, public-authenticated, member-only, institutional, restricted and proprietary systems are all catalogable; free/open sources are preferred for actual implementation and paid dependencies are not required to represent a provider."
   }
 }
