@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_GLOBAL_API_FEDERATION",
-  "version": "2026-09-19.1",
+  "version": "2026-09-19.2",
   "status": "curated-and-discovery-ready",
   "purpose": "Global public API and machine-readable data-source federation for Carbon Actual. It covers Earth, Solar-System, frontier and unknown horizons without treating any provider as constitutional authority.",
   "nonredundancy_rule": "one canonical capability -> many provider adapters -> one governed evidence/result path",
@@ -94,6 +94,13 @@
       "machine_source": "https://api.apislist.com/v1/apis/",
       "scope": "hand-checked public API discovery",
       "coverage": "1,970+ APIs across 92 categories",
+      "status": "active_index"
+    },
+    {
+      "id": "directory:postman-api-network",
+      "name": "Postman API Network",
+      "url": "https://www.postman.com/explore/",
+      "scope": "public API/workspace/collection discovery",
       "status": "active_index"
     }
   ],
@@ -688,6 +695,51 @@
       "none_or_tool_contact",
       "official",
       "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+    ],
+    [
+      "github-rest",
+      "GitHub REST API",
+      "source-control,issues,projects,identity,automation",
+      "https://api.github.com/",
+      "none_or_token",
+      "official",
+      "https://docs.github.com/en/rest"
+    ],
+    [
+      "huggingface-hub",
+      "Hugging Face Hub API",
+      "ai-models,datasets,spaces,agents",
+      "https://huggingface.co/api/",
+      "none_or_token",
+      "official/open",
+      "https://huggingface.co/docs/hub/api"
+    ],
+    [
+      "npm-registry",
+      "npm Public Registry API",
+      "software-packages,dependencies,metadata",
+      "https://registry.npmjs.org/",
+      "none_for_read",
+      "official/open",
+      "https://api-docs.npmjs.com/"
+    ],
+    [
+      "pypi-json",
+      "PyPI JSON API",
+      "software-packages,dependencies,metadata",
+      "https://pypi.org/pypi/",
+      "none_for_read",
+      "official/open",
+      "https://docs.pypi.org/api/json/"
+    ],
+    [
+      "iana-registries",
+      "IANA Protocol and Number Registries",
+      "dns,rdap,ip,asn,protocols",
+      "https://www.iana.org/protocols",
+      "none",
+      "official",
+      "https://www.iana.org/protocols"
     ]
   ],
   "nigeria": [
@@ -842,5 +894,5 @@
     "World/space/unknown horizons are modeled as scope and reality states. No extraterrestrial or alien API is asserted as factual; future/unknown connectors remain candidates until evidence exists.",
     "Directory indexes are the mechanism for continuously discovering the much larger public-API universe rather than pretending a fixed hand-curated list can remain complete."
   ],
-  "provider_count": 77
+  "provider_count": 82
 }
