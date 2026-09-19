@@ -53,7 +53,7 @@ function fromApisGuru(payload) {
   for (const [key, entry] of Object.entries(payload ?? {})) {
     const api = entry?.info ?? {};
     const servers = Array.isArray(entry?.servers) ? entry.servers : [];
-    const baseUrl = normalizeUrl(servers[0]?.url ?? entry?.swaggerUrl ?? entry?.openapiVer);
+    const baseUrl = normalizeUrl(servers[0]?.url);
     out.push({
       providerId: `apis-guru:${key}`,
       name: api.title ?? key,
