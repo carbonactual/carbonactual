@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_GLOBAL_API_FEDERATION",
-  "version": "2026-09-19.3",
+  "version": "2026-09-19.4",
   "status": "curated-and-discovery-ready",
   "purpose": "Global public API and machine-readable data-source federation for Carbon Actual. It covers Earth, Solar-System, frontier and unknown horizons without treating any provider as constitutional authority.",
   "nonredundancy_rule": "one canonical capability -> many provider adapters -> one governed evidence/result path",
@@ -758,6 +758,141 @@
       "none",
       "official/public",
       "https://docs.minorplanetcenter.net/mpc-ops-docs/apis/"
+    ],
+    [
+      "gleif",
+      "GLEIF Global Legal Entity Identifier API",
+      "legal-entities,ownership,identifiers,financial-counterparties",
+      "https://api.gleif.org/api/v1/",
+      "none_or_key",
+      "official/open",
+      "https://www.gleif.org/en/lei-data/gleif-api"
+    ],
+    [
+      "ror",
+      "Research Organization Registry API",
+      "research-organizations,institutions,affiliations",
+      "https://api.ror.org/",
+      "none",
+      "open",
+      "https://ror.org/registry/"
+    ],
+    [
+      "companies-house",
+      "UK Companies House API",
+      "companies,corporate-registry,filings",
+      "https://api.company-information.service.gov.uk/",
+      "api_key_or_oauth",
+      "official/public",
+      "https://developer.company-information.service.gov.uk/"
+    ],
+    [
+      "charity-commission-ew",
+      "Charity Commission England and Wales API",
+      "charities,nonprofits,organizations",
+      "https://api-portal.charitycommission.gov.uk/",
+      "api_key",
+      "official/public",
+      "https://api-portal.charitycommission.gov.uk/"
+    ],
+    [
+      "product-hunt",
+      "Product Hunt GraphQL API",
+      "startups,products,launches,trends",
+      "https://api.producthunt.com/v2/api/graphql",
+      "access_token",
+      "commercial/public-with-terms",
+      "https://api.producthunt.com/v2/docs"
+    ],
+    [
+      "deps-dev",
+      "deps.dev API",
+      "software-packages,dependencies,security,licenses",
+      "https://api.deps.dev/v3alpha/",
+      "none",
+      "open",
+      "https://deps.dev/"
+    ],
+    [
+      "wikidata",
+      "Wikidata Query Service",
+      "entities,organizations,places,people,relationships",
+      "https://query.wikidata.org/sparql",
+      "none",
+      "open",
+      "https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service"
+    ],
+    [
+      "iso-3166",
+      "ISO 3166 country and subdivision reference",
+      "countries,territories,subdivisions",
+      "https://www.iso.org/iso-3166-country-codes.html",
+      "license_or_reference",
+      "standard",
+      "https://www.iso.org/iso-3166-country-codes.html"
+    ],
+    [
+      "gadm",
+      "GADM administrative areas dataset",
+      "countries,administrative-divisions,geospatial",
+      "https://gadm.org/",
+      "download/license",
+      "open-data",
+      "https://gadm.org/data.html"
+    ],
+    [
+      "natural-earth",
+      "Natural Earth geodata",
+      "countries,admin-boundaries,physical-geography",
+      "https://www.naturalearthdata.com/",
+      "public-domain",
+      "open-data",
+      "https://www.naturalearthdata.com/"
+    ],
+    [
+      "mcp-registry",
+      "Official MCP Registry",
+      "MCP servers,agents,tools",
+      "https://registry.modelcontextprotocol.io/",
+      "none",
+      "open-registry",
+      "https://registry.modelcontextprotocol.io/docs"
+    ],
+    [
+      "github-marketplace",
+      "GitHub Marketplace",
+      "developer-apps,actions,software-tools",
+      "https://github.com/marketplace",
+      "github_account",
+      "platform",
+      "https://docs.github.com/en/apps/github-marketplace/github-marketplace-overview"
+    ],
+    [
+      "osi-licenses",
+      "Open Source Initiative license registry",
+      "open-source,software-licenses",
+      "https://opensource.org/licenses/",
+      "none",
+      "open-reference",
+      "https://opensource.org/licenses"
+    ],
+    [
+      "npm",
+      "npm Registry API",
+      "software-packages,dependencies",
+      "https://registry.npmjs.org/",
+      "none_for_read",
+      "open/public",
+      "https://api-docs.npmjs.com/"
+    ],
+    [
+      "pypi",
+      "PyPI JSON API",
+      "software-packages,dependencies",
+      "https://pypi.org/pypi/",
+      "none_for_read",
+      "open/public",
+      "https://docs.pypi.org/api/json/"
     ]
   ],
   "nigeria": [
@@ -912,5 +1047,86 @@
     "World/space/unknown horizons are modeled as scope and reality states. No extraterrestrial or alien API is asserted as factual; future/unknown connectors remain candidates until evidence exists.",
     "Directory indexes are the mechanism for continuously discovering the much larger public-API universe rather than pretending a fixed hand-curated list can remain complete."
   ],
-  "provider_count": 84
+  "provider_count": 99,
+  "entity_ecosystem_scope": {
+    "actor_classes": [
+      "company",
+      "corporation",
+      "startup",
+      "scaleup",
+      "sme",
+      "microenterprise",
+      "nonprofit",
+      "charity",
+      "association",
+      "professional_body",
+      "club",
+      "cooperative",
+      "union",
+      "federation",
+      "institution",
+      "school",
+      "university",
+      "hospital",
+      "laboratory",
+      "research_org",
+      "government",
+      "regulator",
+      "intergovernmental_org",
+      "market",
+      "exchange",
+      "marketplace",
+      "platform",
+      "protocol",
+      "software",
+      "app",
+      "service",
+      "AI_model",
+      "AI_agent",
+      "MCP_server",
+      "CLI",
+      "SDK",
+      "plugin",
+      "dataset",
+      "knowledge_graph",
+      "media",
+      "community"
+    ],
+    "access_classes": [
+      "open",
+      "public_authenticated",
+      "member_only",
+      "institutional",
+      "restricted",
+      "private",
+      "proprietary",
+      "unknown"
+    ],
+    "deployment_models": [
+      "open_source",
+      "source_available",
+      "free",
+      "freemium",
+      "commercial",
+      "proprietary",
+      "white_label",
+      "self_hosted",
+      "managed",
+      "on_premise",
+      "hybrid",
+      "unknown"
+    ],
+    "trend_sources": [
+      "product_launches",
+      "repository_activity",
+      "package_activity",
+      "research_publication",
+      "funding_activity",
+      "market_activity",
+      "news_activity",
+      "standards_activity",
+      "community_activity"
+    ],
+    "completeness_rule": "Do not define global coverage as a static list. Maintain discovery catalogs plus first-party registries plus source-specific adapters and freshness checks."
+  }
 }
