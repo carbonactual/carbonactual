@@ -289,6 +289,6 @@ No provider, application, model, queue, database, payment rail, hosting system o
 
 ## 13. Current implementation implication
 
-Education/CPD, trading/investment, management, people, market/marketplace and their API federation are now treated as parts of this same domain-circumference model. The remaining domains above are to be brought to the same level rather than left as thin API catalogs.
+Education/CPD, trading/investment, management, people, market/marketplace and their API federation are now treated as parts of this same domain-circumference model. The remaining domains are represented through dedicated full-circumference scope contracts; their detailed capabilities are grouped into the existing functional SWIRMs and their recurring cross-domain work is represented by reusable TEAM patterns.
 
 ZUJID & CO. remains an independent product boundary and is excluded from this implementation pass.
