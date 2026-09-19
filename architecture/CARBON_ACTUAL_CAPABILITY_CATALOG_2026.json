@@ -1,10 +1,10 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-19.4",
+  "version": "2026-09-19.5",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 216,
+  "count": 292,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
   "families": [
     {
@@ -16,10 +16,34 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:academic-integrity",
+      "name": "Academic Integrity",
+      "key": "academic-integrity",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:accounting",
       "name": "Accounting",
       "key": "accounting",
       "domain": "value",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:accreditation",
+      "name": "Accreditation",
+      "key": "accreditation",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:admissions",
+      "name": "Admissions",
+      "key": "admissions",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -56,6 +80,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:alumni-management",
+      "name": "Alumni Management",
+      "key": "alumni-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:analysis",
       "name": "Data Analysis",
       "key": "analysis",
@@ -88,10 +120,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:appeals-management",
+      "name": "Appeals Management",
+      "key": "appeals-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:archive",
       "name": "Archive",
       "key": "archive",
       "domain": "continuity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:assessment-design",
+      "name": "Assessment Design",
+      "key": "assessment-design",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -104,6 +152,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:asset-lifecycle-management",
+      "name": "Asset Lifecycle Management",
+      "key": "asset-lifecycle-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:astronomy",
       "name": "Astronomy",
       "key": "astronomy",
@@ -112,10 +168,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:attendance-management",
+      "name": "Attendance Management",
+      "key": "attendance-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:attestation",
       "name": "Attestation",
       "key": "attestation",
       "domain": "authority",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:auction-management",
+      "name": "Auction Management",
+      "key": "auction-management",
+      "domain": "commerce",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -200,6 +272,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:bid-management",
+      "name": "Bid Management",
+      "key": "bid-management",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:bidding",
       "name": "Bidding",
       "key": "bidding",
@@ -228,6 +308,30 @@
       "name": "Booking",
       "key": "booking",
       "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:budget-management",
+      "name": "Budget Management",
+      "key": "budget-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:business-continuity",
+      "name": "Business Continuity",
+      "key": "business-continuity",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:business-intelligence",
+      "name": "Business Intelligence",
+      "key": "business-intelligence",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -272,6 +376,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:career-services",
+      "name": "Career Services",
+      "key": "career-services",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:cash-management",
       "name": "Cash Management",
       "key": "cash-management",
@@ -288,10 +400,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:change-management",
+      "name": "Change Management",
+      "key": "change-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:civic-records",
       "name": "Civic Records",
       "key": "civic-records",
       "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:clearing",
+      "name": "Clearing",
+      "key": "clearing",
+      "domain": "finance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -352,6 +480,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:configuration-management",
+      "name": "Configuration Management",
+      "key": "configuration-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:consent",
       "name": "Consent",
       "key": "consent",
@@ -400,10 +536,34 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:corporate-actions",
+      "name": "Corporate Actions",
+      "key": "corporate-actions",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:cost-controls",
       "name": "Cost Controls",
       "key": "cost-controls",
       "domain": "operations",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:course-management",
+      "name": "Course Management",
+      "key": "course-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:cpd-management",
+      "name": "CPD Management",
+      "key": "cpd-management",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -436,6 +596,30 @@
       "name": "Culture",
       "key": "culture",
       "domain": "culture",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:curriculum-management",
+      "name": "Curriculum Management",
+      "key": "curriculum-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:custody",
+      "name": "Custody",
+      "key": "custody",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:customer-relationship-management",
+      "name": "Customer Relationship Management",
+      "key": "customer-relationship-management",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -616,6 +800,22 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:emeritus-continuity",
+      "name": "Emeritus Continuity",
+      "key": "emeritus-continuity",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:enrolment",
+      "name": "Enrolment",
+      "key": "enrolment",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:ens",
       "name": "ENS",
       "key": "ens",
@@ -664,10 +864,42 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:exam-proctoring",
+      "name": "Examination Proctoring",
+      "key": "exam-proctoring",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:examination-management",
+      "name": "Examination Management",
+      "key": "examination-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:experimentation",
       "name": "Experimentation",
       "key": "experimentation",
       "domain": "science",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:facility-management",
+      "name": "Facility Management",
+      "key": "facility-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:fellowship-management",
+      "name": "Fellowship / Honors Management",
+      "key": "fellowship-management",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -684,6 +916,14 @@
       "name": "Forecast",
       "key": "forecast",
       "domain": "science",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:forecast-management",
+      "name": "Forecast Management",
+      "key": "forecast-management",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -724,6 +964,14 @@
       "name": "Geospatial",
       "key": "geospatial",
       "domain": "geospatial",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:grading",
+      "name": "Grading",
+      "key": "grading",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -816,6 +1064,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:incident-management",
+      "name": "Incident Management",
+      "key": "incident-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:insurance",
       "name": "Insurance",
       "key": "insurance",
@@ -832,10 +1088,34 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:internship-placement",
+      "name": "Internship / Placement",
+      "key": "internship-placement",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:interview-assessment",
+      "name": "Interview Assessment",
+      "key": "interview-assessment",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:inventory",
       "name": "Inventory",
       "key": "inventory",
       "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:invigilation",
+      "name": "Invigilation",
+      "key": "invigilation",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -860,6 +1140,14 @@
       "name": "Knowledge",
       "key": "knowledge",
       "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:knowledge-management",
+      "name": "Knowledge Management",
+      "key": "knowledge-management",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -920,6 +1208,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:library-services",
+      "name": "Library Services",
+      "key": "library-services",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:licensing",
       "name": "Licensing",
       "key": "licensing",
@@ -936,6 +1232,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:listing-management",
+      "name": "Listing Management",
+      "key": "listing-management",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:logistics",
       "name": "Logistics",
       "key": "logistics",
@@ -948,6 +1252,38 @@
       "name": "Market Data",
       "key": "market-data",
       "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:market-discovery",
+      "name": "Market Discovery",
+      "key": "market-discovery",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:market-maker",
+      "name": "Market Making",
+      "key": "market-maker",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:market-surveillance",
+      "name": "Market Surveillance",
+      "key": "market-surveillance",
+      "domain": "governance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:marketing-campaigns",
+      "name": "Marketing Campaigns",
+      "key": "marketing-campaigns",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -972,6 +1308,14 @@
       "name": "Matching Engine",
       "key": "matching-engine",
       "domain": "intelligence",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:matching-market",
+      "name": "Market Matching",
+      "key": "matching-market",
+      "domain": "commerce",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1004,6 +1348,22 @@
       "name": "Media Discovery",
       "key": "media-discovery",
       "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:membership-management",
+      "name": "Membership Management",
+      "key": "membership-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:mentoring",
+      "name": "Mentoring",
+      "key": "mentoring",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1088,10 +1448,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:order-management",
+      "name": "Order Management",
+      "key": "order-management",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:orders",
       "name": "Orders",
       "key": "orders",
       "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:organizational-design",
+      "name": "Organizational Design",
+      "key": "organizational-design",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1108,6 +1484,22 @@
       "name": "Financial Messaging",
       "key": "payments-messaging",
       "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:payroll",
+      "name": "Payroll",
+      "key": "payroll",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:performance-management",
+      "name": "Performance Management",
+      "key": "performance-management",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1136,6 +1528,22 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:portfolio-management",
+      "name": "Portfolio Management",
+      "key": "portfolio-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:price-discovery",
+      "name": "Price Discovery",
+      "key": "price-discovery",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:pricing",
       "name": "Pricing",
       "key": "pricing",
@@ -1152,10 +1560,50 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:problem-management",
+      "name": "Problem Management",
+      "key": "problem-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:procurement",
       "name": "Procurement",
       "key": "procurement",
       "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:product-lifecycle",
+      "name": "Product Lifecycle Management",
+      "key": "product-lifecycle",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:programme-management",
+      "name": "Programme Management",
+      "key": "programme-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:project-management",
+      "name": "Project Management",
+      "key": "project-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:project-supervision",
+      "name": "Project Supervision",
+      "key": "project-supervision",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1200,6 +1648,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:quality-management",
+      "name": "Quality Management",
+      "key": "quality-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:queueing",
       "name": "Queueing",
       "key": "queueing",
@@ -1211,6 +1667,14 @@
       "id": "capability-family:quotations",
       "name": "Quotations",
       "key": "quotations",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:quote-management",
+      "name": "Quote Management",
+      "key": "quote-management",
       "domain": "commerce",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
@@ -1264,10 +1728,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:records-management",
+      "name": "Records Management",
+      "key": "records-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:recovery",
       "name": "Recovery",
       "key": "recovery",
       "domain": "continuity",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:recruitment",
+      "name": "Recruitment",
+      "key": "recruitment",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1304,6 +1784,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:research-supervision",
+      "name": "Research Supervision",
+      "key": "research-supervision",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:resource",
       "name": "Resource",
       "key": "resource",
@@ -1324,6 +1812,22 @@
       "name": "REST API",
       "key": "rest-api",
       "domain": "integration",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:results-management",
+      "name": "Results Management",
+      "key": "results-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:rfq-management",
+      "name": "RFQ Management",
+      "key": "rfq-management",
+      "domain": "commerce",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1360,6 +1864,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:sales-pipeline",
+      "name": "Sales Pipeline",
+      "key": "sales-pipeline",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:satellite-tracking",
       "name": "Satellite Tracking",
       "key": "satellite-tracking",
@@ -1372,6 +1884,14 @@
       "name": "Scheduling",
       "key": "scheduling",
       "domain": "service",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:scholarship-management",
+      "name": "Scholarship Management",
+      "key": "scholarship-management",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1536,10 +2056,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:stakeholder-management",
+      "name": "Stakeholder Management",
+      "key": "stakeholder-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:state",
       "name": "State",
       "key": "state",
       "domain": "state",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:strategy-management",
+      "name": "Strategy Management",
+      "key": "strategy-management",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1560,10 +2096,26 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:student-finance",
+      "name": "Student Finance",
+      "key": "student-finance",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:supply",
       "name": "Supply",
       "key": "supply",
       "domain": "economics",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:supply-chain-management",
+      "name": "Supply Chain Management",
+      "key": "supply-chain-management",
+      "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1584,6 +2136,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:teaching",
+      "name": "Teaching",
+      "key": "teaching",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:team-orchestration",
       "name": "TEAM Orchestration",
       "key": "team-orchestration",
@@ -1600,6 +2160,22 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:tender-management",
+      "name": "Tender Management",
+      "key": "tender-management",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:timetable-management",
+      "name": "Timetable Management",
+      "key": "timetable-management",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:tokenization",
       "name": "Tokenization",
       "key": "tokenization",
@@ -1612,6 +2188,14 @@
       "name": "Trade",
       "key": "trade",
       "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:trade-reconciliation",
+      "name": "Trade Reconciliation",
+      "key": "trade-reconciliation",
+      "domain": "finance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -1664,6 +2248,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:tutoring",
+      "name": "Tutoring",
+      "key": "tutoring",
+      "domain": "education",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:utilization",
       "name": "Utilization",
       "key": "utilization",
@@ -1688,6 +2280,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:vendor-management",
+      "name": "Vendor Management",
+      "key": "vendor-management",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
       "id": "capability-family:verification",
       "name": "Verification",
       "key": "verification",
@@ -1700,6 +2300,14 @@
       "name": "Video",
       "key": "video",
       "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:viva-defense",
+      "name": "Viva / Defense",
+      "key": "viva-defense",
+      "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
