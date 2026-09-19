@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_CAPABILITY_READINESS",
-  "version": "2026-09-19.5",
+  "version": "2026-09-19.6",
   "rule": "Every product is a projection over shared capabilities. Product-specific code should consume the shared fabric and should be release-gated on data, adapters, authority, evidence, and deployment readiness.",
   "deployment_policy": "NO production deployment in this pass. Build/test/data-readiness first; deployment becomes a separate promotion step.",
   "shared_capability_families": [
@@ -341,13 +341,17 @@
     "api_registry": "registry:api-endpoint",
     "product_registry": "registry:product",
     "capability_registry": "logical:capability",
-    "capability_nodes_seeded": 292,
+    "capability_nodes_seeded": 335,
     "product_capability_mappings_seeded": 2209,
     "api_provider_nodes_seeded": 103,
     "production_deployments_in_this_pass": 0,
     "api_catalog_sources_seeded": 8,
     "provider_capability_mappings_seeded": 349,
-    "deployment_gate_status": "BUILD_READY_STRUCTURE; PRODUCT_RUNTIME_VALIDATION_AND_PROVIDER_CONFORMANCE_REMAIN_BEFORE_PRODUCTION"
+    "deployment_gate_status": "BUILD_READY_STRUCTURE; PRODUCT_RUNTIME_VALIDATION_AND_PROVIDER_CONFORMANCE_REMAIN_BEFORE_PRODUCTION",
+    "domain_scope_records": 58,
+    "swirms": 35,
+    "team_patterns": 17,
+    "registry_edges_verified_dangling": 0
   },
   "release_gates": [
     "All product capabilities are represented in the shared capability registry before product promotion.",
@@ -358,13 +362,14 @@
     "Provider health, rate limits, license/usage conditions and deprecation are observable.",
     "Consequential operations remain behind authority/policy/approval.",
     "Unknown/alien/future records remain explicitly UNKNOWN/POSSIBLE until evidence supports a stronger reality state.",
-    "ZUJID & CO. remains excluded from codebase and deployment changes."
+    "ZUJID & CO. remains excluded from codebase and deployment changes.",
+    "Domain circumference, SWIRM and TEAM composition must be reconciled before a product is considered substantially built."
   ],
   "last_reconciled": "2026-09-19",
   "global_scope": {
     "universe": "open-world",
     "geographies": "country-by-country and subdivision-by-subdivision",
-    "domains": "full circumference",
+    "domains": "full circumference, including money, transactions, blockchain, minting, tokenization, decentralization, decimalization, fractionalization, education, sourcing, services, software, security, government, justice, technical systems, I/O, property, authority and remaining cross-domain functions",
     "technology": [
       "apps",
       "software",
