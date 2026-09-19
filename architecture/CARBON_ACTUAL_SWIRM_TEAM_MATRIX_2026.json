@@ -322,6 +322,19 @@
         "economics",
         "service"
       ]
+    ],
+    [
+      "risk-insurance",
+      "Risk & Insurance",
+      [
+        "finance",
+        "risk",
+        "property",
+        "health",
+        "transport",
+        "commerce",
+        "continuity"
+      ]
     ]
   ],
   "team_patterns": [
