@@ -228,7 +228,7 @@ const canonicalSurfaces = [
   'README.md','architecture/ECOSYSTEM_KERNEL.md','architecture/ecosystem-kernel.json','architecture/kernel-repo-contract.json',
   'architecture/product-projection-registry.json','architecture/CARBON_ACTUAL_COMMON_LAYER_CANONICAL_1_0.md',
   'architecture/CARBON_ACTUAL_UNIVERSAL_AND_ECOSYSTEM_DENOMINATORS_1_0.md','architecture/CARBON_ACTUAL_CANONICAL_GRAPH_MODEL.md',
-  'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md','architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md',
+  'architecture/CARBON_ACTUAL_CANONICAL_OBJECT_SCHEMA.md','architecture/CARBON_ACTUAL_CAPABILITY_FABRIC.md','architecture/CARBON_ACTUAL_TECHNICAL_STANDARDS_ALIGNMENT_2026.md',
   'architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md','architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md',
   'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_ENGINE.md','architecture/CARBON_ACTUAL_REUSABLE_INSTITUTIONAL_COMPOSITION.md',
   'architecture/CARBON_ACTUAL_AUDUBON_CONTINUUM_ECOLOGICAL_DESIGN_DOCTRINE.md','architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md',
