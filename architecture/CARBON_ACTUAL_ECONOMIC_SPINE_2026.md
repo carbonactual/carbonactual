@@ -22,6 +22,10 @@ The ledger is exact double-entry accounting:
 - every record carries authority, provenance and idempotency references;
 - reversals are records, not destructive edits.
 
+Two read projections now expose the same ledger without replacing it:
+- omnii_economic_account_positions_v1 preserves per-ledger/account activity;
+- omnii_economic_account_balances_v1 aggregates balances by account and unit.
+
 ## Value
 Value is broader than money. Financial value, knowledge, contribution, compute, energy, time, reputation, trust and other measurable forms can be represented under the shared value semantics.
 Money is an instrument; it is not the definition of value.
@@ -29,6 +33,7 @@ Money is an instrument; it is not the definition of value.
 ## Pulse
 Pulse is the feedback/value signal returned from an action or observation. Pulse is not the underlying value, money, ownership or authority.
 The canonical economic feedback record preserves the value given, Pulse returned, classification, evidence and provenance.
+The former compatibility function omnii_record_pulse_and_value(...) is disabled so it cannot silently create records under the obsolete classification rule; new canonical economic records use omnii_record_economic_operation(jsonb).
 
 ## Representation boundaries
 Decimalization ≠ Fractionalization ≠ Tokenization ≠ Minting
@@ -43,10 +48,26 @@ A blockchain rail may provide an external identifier, chain/network settlement, 
 It does not itself create Carbon Actual authority, ownership, identity, value or truth.
 Write operations remain adapter-required and authority-gated. No signing secret is stored in canonical capability or token records.
 
-## Token lifecycle
+## Token lifecycle and operations
 Supported governed lifecycle states are:
 draft → active → frozen/revoked → retired
 Relevant lifecycle events use the existing canonical event vocabulary: authorized, locked, unlocked, revoked, retired, corrected.
+
+Governed token operations are recorded through the existing token lifecycle event table:
+- mint
+- transfer
+- burn
+- redeem
+
+Token holdings are a replay projection from the immutable representation baseline plus signed operation deltas. The baseline is captured separately from mutable current supply so transfers cannot create phantom holdings.
+
+## Settlement
+omnii_settlements is the existing settlement record. It is now linked to economic events and authority/provenance/idempotency context.
+Supported settlement rails remain:
+off_chain, ledger, blockchain, hybrid.
+Supported settlement states remain:
+pending, authorized, processing, settled, failed, reversed, disputed, cancelled.
+Preparation and state changes are service-role-only and require explicit evidence when moving to settled.
 
 ## Database execution
 The live Supabase project uses the existing canonical tables:
@@ -57,9 +78,27 @@ The live Supabase project uses the existing canonical tables:
 - omnii_token_representations
 - omnii_token_identifiers
 - omnii_token_lifecycle_events
-Atomic write entrypoint: omnii_record_economic_operation(jsonb)
-Token lifecycle entrypoint: omnii_transition_token_lifecycle(...)
-Both are restricted to service_role.
+- omnii_settlements
+
+Live write entrypoints include:
+- omnii_record_economic_operation(jsonb)
+- omnii_transition_token_lifecycle(...)
+- omnii_record_token_operation(jsonb)
+- omnii_prepare_settlement(jsonb)
+- omnii_record_settlement_result(...)
+
+These economic/token/settlement write entrypoints are restricted to service_role; runtime adapters additionally apply SealGrant/policy authorization before consequential execution.
+
+## Runtime
+The active runtime exposes the shared economic boundaries through:
+- economic engine
+- value exchange boundary
+- token lifecycle
+- token operations
+- settlement
+- blockchain operation planning
+
+Actual on-chain writes still require a concrete governed blockchain adapter and signer. The current null adapter does not submit transactions.
 
 ## Source/runtime split
 - Constitutional law: active HAPI World Canon.
