@@ -1,0 +1,645 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "2026-09-19.1",
+  "status": "canonical-functional-composition-map",
+  "authority": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "rule": "SWIRM = comparable/related capability field; TEAM = contextual cross-domain composition. Neither is a new authority or constitutional layer.",
+  "swirms": [
+    [
+      "identity-resolution",
+      "Identity & Resolution",
+      [
+        "identity",
+        "people",
+        "data",
+        "knowledge",
+        "security"
+      ]
+    ],
+    [
+      "authority-consent",
+      "Authority, Consent & Delegation",
+      [
+        "authority",
+        "identity",
+        "governance",
+        "rights",
+        "security"
+      ]
+    ],
+    [
+      "intent-planning-mission",
+      "Intent, Planning & Mission",
+      [
+        "intent",
+        "planning",
+        "management",
+        "ai"
+      ]
+    ],
+    [
+      "discovery-matching",
+      "Discovery & Matching",
+      [
+        "capability",
+        "intelligence",
+        "knowledge",
+        "commerce",
+        "service"
+      ]
+    ],
+    [
+      "communication-presence",
+      "Communication & Presence",
+      [
+        "communications",
+        "language",
+        "service"
+      ]
+    ],
+    [
+      "knowledge-search-research",
+      "Knowledge, Search & Research",
+      [
+        "knowledge",
+        "science",
+        "education",
+        "culture",
+        "derived-from-provider-mapping"
+      ]
+    ],
+    [
+      "data-geospatial-resolution",
+      "Data, Geospatial & Entity Resolution",
+      [
+        "data",
+        "geospatial",
+        "knowledge"
+      ]
+    ],
+    [
+      "evidence-provenance-verification",
+      "Evidence, Provenance & Verification",
+      [
+        "evidence",
+        "verification",
+        "security",
+        "rights"
+      ]
+    ],
+    [
+      "workflow-automation",
+      "Workflow & Automation",
+      [
+        "workflow",
+        "automation",
+        "service",
+        "management"
+      ]
+    ],
+    [
+      "management-operations",
+      "Management & Operations",
+      [
+        "management",
+        "operations",
+        "workflow"
+      ]
+    ],
+    [
+      "people-workforce-skills",
+      "People, Workforce & Skills",
+      [
+        "workforce",
+        "people",
+        "education"
+      ]
+    ],
+    [
+      "education-assessment-credential",
+      "Education, Assessment & Credentialing",
+      [
+        "education",
+        "rights",
+        "evidence"
+      ]
+    ],
+    [
+      "commerce-marketplace",
+      "Commerce, Market & Marketplace",
+      [
+        "commerce",
+        "economics"
+      ]
+    ],
+    [
+      "trade-logistics-fulfillment",
+      "Trade, Logistics & Fulfillment",
+      [
+        "transport",
+        "commerce",
+        "resource"
+      ]
+    ],
+    [
+      "investment-market-data-portfolio",
+      "Investment, Market Data & Portfolio",
+      [
+        "finance",
+        "knowledge",
+        "economics"
+      ]
+    ],
+    [
+      "money-payment-credit-banking",
+      "Money, Payment, Credit & Banking",
+      [
+        "finance"
+      ]
+    ],
+    [
+      "clearing-settlement-reconciliation",
+      "Clearing, Settlement & Reconciliation",
+      [
+        "finance",
+        "value"
+      ]
+    ],
+    [
+      "value-ledger-tokenization",
+      "Value, Ledger & Tokenization",
+      [
+        "value",
+        "technology",
+        "finance"
+      ]
+    ],
+    [
+      "rights-law-compliance",
+      "Rights, Law & Compliance",
+      [
+        "rights",
+        "law",
+        "compliance",
+        "governance"
+      ]
+    ],
+    [
+      "property-land-built-environment",
+      "Property, Land & Built Environment",
+      [
+        "property",
+        "construction"
+      ]
+    ],
+    [
+      "health-care",
+      "Health & Care",
+      [
+        "health",
+        "service",
+        "privacy"
+      ]
+    ],
+    [
+      "agriculture-food-natural-systems",
+      "Agriculture, Food & Natural Systems",
+      [
+        "agriculture",
+        "environment",
+        "resource"
+      ]
+    ],
+    [
+      "environment-climate-resilience",
+      "Environment, Climate & Resilience",
+      [
+        "environment",
+        "science",
+        "continuity"
+      ]
+    ],
+    [
+      "transport-mobility-travel",
+      "Transport, Mobility & Travel",
+      [
+        "transport",
+        "service",
+        "geospatial"
+      ]
+    ],
+    [
+      "science-space-measurement",
+      "Science, Space & Measurement",
+      [
+        "science",
+        "space",
+        "data"
+      ]
+    ],
+    [
+      "culture-heritage-media-creative",
+      "Culture, Heritage, Media & Creative",
+      [
+        "culture",
+        "heritage",
+        "media",
+        "rights"
+      ]
+    ],
+    [
+      "procurement-supply-resources",
+      "Procurement, Supply & Resources",
+      [
+        "commerce",
+        "resource",
+        "management"
+      ]
+    ],
+    [
+      "security-trust-privacy",
+      "Security, Trust & Privacy",
+      [
+        "security",
+        "privacy",
+        "authority"
+      ]
+    ],
+    [
+      "continuity-recovery-succession",
+      "Continuity, Recovery & Succession",
+      [
+        "continuity",
+        "management",
+        "evidence"
+      ]
+    ],
+    [
+      "ai-agent-swarm-team",
+      "AI, Agent, Swarm & TEAM Intelligence",
+      [
+        "ai",
+        "intelligence",
+        "intent",
+        "capability"
+      ]
+    ],
+    [
+      "integration-api-mcp-a2a-protocols",
+      "Integration, API, MCP, A2A & Protocols",
+      [
+        "integration",
+        "technology",
+        "ai"
+      ]
+    ],
+    [
+      "civic-governance-public-services",
+      "Civic, Governance & Public Services",
+      [
+        "governance",
+        "government",
+        "law"
+      ]
+    ],
+    [
+      "rights-licensing-ip",
+      "Rights, Licensing & IP",
+      [
+        "rights",
+        "media",
+        "culture",
+        "law"
+      ]
+    ],
+    [
+      "resource-capacity-allocation",
+      "Resource, Capacity & Allocation",
+      [
+        "resource",
+        "planning",
+        "economics",
+        "service"
+      ]
+    ]
+  ],
+  "team_patterns": [
+    [
+      "human-service",
+      "Human Service TEAM",
+      [
+        "identity-resolution",
+        "communication-presence",
+        "discovery-matching",
+        "authority-consent",
+        "evidence-provenance-verification"
+      ],
+      [
+        "people",
+        "service",
+        "governance"
+      ]
+    ],
+    [
+      "education-journey",
+      "Education Journey TEAM",
+      [
+        "identity-resolution",
+        "education-assessment-credential",
+        "communication-presence",
+        "intent-planning-mission",
+        "money-payment-credit-banking",
+        "people-workforce-skills"
+      ],
+      [
+        "education",
+        "workforce",
+        "finance",
+        "people"
+      ]
+    ],
+    [
+      "professional-certification",
+      "Professional Certification TEAM",
+      [
+        "people-workforce-skills",
+        "education-assessment-credential",
+        "evidence-provenance-verification",
+        "authority-consent",
+        "communication-presence",
+        "money-payment-credit-banking"
+      ],
+      [
+        "professional-bodies",
+        "education",
+        "finance"
+      ]
+    ],
+    [
+      "research",
+      "Research TEAM",
+      [
+        "knowledge-search-research",
+        "data-geospatial-resolution",
+        "science-space-measurement",
+        "evidence-provenance-verification",
+        "education-assessment-credential",
+        "value-ledger-tokenization"
+      ],
+      [
+        "science",
+        "education",
+        "knowledge",
+        "finance"
+      ]
+    ],
+    [
+      "trade-execution",
+      "Trade Execution TEAM",
+      [
+        "discovery-matching",
+        "commerce-marketplace",
+        "trade-logistics-fulfillment",
+        "rights-law-compliance",
+        "evidence-provenance-verification",
+        "money-payment-credit-banking",
+        "clearing-settlement-reconciliation"
+      ],
+      [
+        "trade",
+        "commerce",
+        "transport",
+        "finance",
+        "law"
+      ]
+    ],
+    [
+      "investment",
+      "Investment TEAM",
+      [
+        "knowledge-search-research",
+        "investment-market-data-portfolio",
+        "rights-law-compliance",
+        "security-trust-privacy",
+        "clearing-settlement-reconciliation",
+        "value-ledger-tokenization"
+      ],
+      [
+        "investment",
+        "finance",
+        "governance"
+      ]
+    ],
+    [
+      "business-operating",
+      "Business Operating TEAM",
+      [
+        "people-workforce-skills",
+        "management-operations",
+        "money-payment-credit-banking",
+        "procurement-supply-resources",
+        "rights-law-compliance",
+        "integration-api-mcp-a2a-protocols",
+        "continuity-recovery-succession"
+      ],
+      [
+        "management-organization",
+        "technology-software-open-source",
+        "finance",
+        "procurement-supply-chain"
+      ]
+    ],
+    [
+      "property-transaction",
+      "Property Transaction TEAM",
+      [
+        "identity-resolution",
+        "property-land-built-environment",
+        "rights-law-compliance",
+        "evidence-provenance-verification",
+        "money-payment-credit-banking",
+        "discovery-matching"
+      ],
+      [
+        "property-land-housing",
+        "law-rights-compliance",
+        "finance",
+        "commerce"
+      ]
+    ],
+    [
+      "healthcare-care",
+      "Healthcare Care TEAM",
+      [
+        "identity-resolution",
+        "authority-consent",
+        "health-care",
+        "communication-presence",
+        "evidence-provenance-verification",
+        "money-payment-credit-banking",
+        "continuity-recovery-succession"
+      ],
+      [
+        "health-care",
+        "people",
+        "finance",
+        "continuity-resilience-disaster"
+      ]
+    ],
+    [
+      "agriculture-supply",
+      "Agriculture Supply TEAM",
+      [
+        "agriculture-food-natural-systems",
+        "environment-climate-resilience",
+        "discovery-matching",
+        "trade-logistics-fulfillment",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification"
+      ],
+      [
+        "agriculture-food-seed",
+        "environment-climate-water-ocean-biodiversity",
+        "trade",
+        "finance"
+      ]
+    ],
+    [
+      "creative-production",
+      "Creative Production TEAM",
+      [
+        "culture-heritage-media-creative",
+        "rights-licensing-ip",
+        "value-ledger-tokenization",
+        "commerce-marketplace",
+        "communication-presence",
+        "evidence-provenance-verification"
+      ],
+      [
+        "media-creative",
+        "culture-heritage",
+        "commerce",
+        "finance"
+      ]
+    ],
+    [
+      "civic-service",
+      "Civic Service TEAM",
+      [
+        "identity-resolution",
+        "civic-governance-public-services",
+        "workflow-automation",
+        "communication-presence",
+        "authority-consent",
+        "evidence-provenance-verification",
+        "money-payment-credit-banking"
+      ],
+      [
+        "governance-civic-public-services",
+        "people",
+        "finance"
+      ]
+    ],
+    [
+      "disaster-response",
+      "Disaster Response TEAM",
+      [
+        "data-geospatial-resolution",
+        "environment-climate-resilience",
+        "communication-presence",
+        "health-care",
+        "transport-mobility-travel",
+        "procurement-supply-resources",
+        "continuity-recovery-succession"
+      ],
+      [
+        "environment-climate-water-ocean-biodiversity",
+        "health-care",
+        "transport-logistics",
+        "continuity-resilience-disaster"
+      ]
+    ],
+    [
+      "ai-mission",
+      "AI Mission TEAM",
+      [
+        "intent-planning-mission",
+        "knowledge-search-research",
+        "ai-agent-swarm-team",
+        "integration-api-mcp-a2a-protocols",
+        "security-trust-privacy",
+        "authority-consent",
+        "evidence-provenance-verification",
+        "value-ledger-tokenization"
+      ],
+      [
+        "ai-agents",
+        "technology-software-open-source",
+        "knowledge-data-intelligence"
+      ]
+    ],
+    [
+      "construction-delivery",
+      "Construction Delivery TEAM",
+      [
+        "property-land-built-environment",
+        "intent-planning-mission",
+        "procurement-supply-resources",
+        "management-operations",
+        "rights-law-compliance",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification"
+      ],
+      [
+        "construction-infrastructure",
+        "property-land-housing",
+        "procurement-supply-chain",
+        "finance"
+      ]
+    ],
+    [
+      "resource-allocation",
+      "Resource Allocation TEAM",
+      [
+        "discovery-matching",
+        "resource-capacity-allocation",
+        "intent-planning-mission",
+        "management-operations",
+        "evidence-provenance-verification",
+        "value-ledger-tokenization"
+      ],
+      [
+        "resources-capacity",
+        "management-organization",
+        "commerce-marketplace"
+      ]
+    ],
+    [
+      "digital-asset",
+      "Digital Asset TEAM",
+      [
+        "identity-resolution",
+        "value-ledger-tokenization",
+        "commerce-marketplace",
+        "rights-licensing-ip",
+        "security-trust-privacy",
+        "clearing-settlement-reconciliation"
+      ],
+      [
+        "digital-assets-blockchain",
+        "finance",
+        "rights-law-compliance",
+        "commerce"
+      ]
+    ]
+  ],
+  "cross_domain_rules": [
+    "A domain owns its specialized semantics; shared recurring functions are supplied by SWIRMs.",
+    "A TEAM is formed when one intent/mission requires capabilities spanning multiple SWIRMs or domains.",
+    "TEAM membership is a relationship; it does not mint identity or authority.",
+    "A SWIRM is comparative and may contain multiple providers, agents, tools or human roles.",
+    "ABBA may compose and recompose Teams, but authority remains external to intelligence.",
+    "Products consume these compositions; products do not become the owners of the universal capability meanings."
+  ]
+}
