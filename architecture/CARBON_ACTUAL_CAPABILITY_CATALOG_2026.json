@@ -1,10 +1,10 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-19.3",
+  "version": "2026-09-19.4",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 213,
+  "count": 216,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
   "families": [
     {
@@ -52,6 +52,14 @@
       "name": "Allocation",
       "key": "allocation",
       "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:analysis",
+      "name": "Data Analysis",
+      "key": "analysis",
+      "domain": "analytics",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
@@ -555,6 +563,14 @@
       "id": "capability-family:document-processing",
       "name": "Document Processing",
       "key": "document-processing",
+      "domain": "documents",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:documentation",
+      "name": "Documentation",
+      "key": "documentation",
       "domain": "documents",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
@@ -1476,6 +1492,14 @@
       "name": "Social",
       "key": "social",
       "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:software-discovery",
+      "name": "Software Discovery",
+      "key": "software-discovery",
+      "domain": "software",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
     },
