@@ -192,3 +192,7 @@ A new integration does not require a new constitutional primitive unless the cap
 ## 19. Safety invariant
 
 **Nothing becomes canonical because a provider exposes it. Nothing becomes trusted because a provider returns it. Nothing becomes executable because a provider can execute it. Nothing becomes Actual merely because an external system claims success.**
+
+## 20. Global API federation
+
+The global public-API universe is catalogued by **CARBON_ACTUAL_GLOBAL_API_FEDERATION_2026.json** and refreshed through **CARBON_ACTUAL_GLOBAL_API_INGESTION_AND_PROMOTION_2026.md**. Directory indexes provide discovery only; first-party sources and provider-specific evidence determine conformance. The registry is intentionally open-world and covers Nigeria, Earth, Solar-System, future/frontier and explicitly unknown horizons. Unknown or extraterrestrial claims remain unpromoted until evidence supports them.
