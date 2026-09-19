@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "2026-09-19.1",
+  "version": "2026-09-19.2",
   "status": "canonical-functional-composition-map",
   "authority": "carbonactual/carbonactual",
   "constitutional_authority": "carbonactual/hapi-world/CANON.md",
@@ -644,6 +644,234 @@
         "finance",
         "rights-law-compliance",
         "commerce"
+      ]
+    ],
+    [
+      "money-movement",
+      "Money Movement TEAM",
+      [
+        "identity-resolution",
+        "authority-consent",
+        "money-payment-credit-banking",
+        "clearing-settlement-reconciliation",
+        "security-trust-privacy",
+        "evidence-provenance-verification"
+      ],
+      [
+        "money",
+        "payments-settlement",
+        "finance"
+      ]
+    ],
+    [
+      "transaction-processing",
+      "Transaction Processing TEAM",
+      [
+        "intent-planning-mission",
+        "authority-consent",
+        "commerce-marketplace",
+        "workflow-automation",
+        "money-payment-credit-banking",
+        "clearing-settlement-reconciliation",
+        "evidence-provenance-verification"
+      ],
+      [
+        "transactions",
+        "commerce-marketplace",
+        "finance"
+      ]
+    ],
+    [
+      "tokenization-issuance",
+      "Tokenization & Issuance TEAM",
+      [
+        "identity-resolution",
+        "evidence-provenance-verification",
+        "value-ledger-tokenization",
+        "rights-licensing-ip",
+        "security-trust-privacy",
+        "clearing-settlement-reconciliation"
+      ],
+      [
+        "tokenization",
+        "digital-assets-blockchain",
+        "finance"
+      ]
+    ],
+    [
+      "decentralized-governance",
+      "Decentralized Governance TEAM",
+      [
+        "identity-resolution",
+        "authority-consent",
+        "civic-governance-public-services",
+        "security-trust-privacy",
+        "evidence-provenance-verification",
+        "value-ledger-tokenization"
+      ],
+      [
+        "decentralization",
+        "governance-civic-public-services",
+        "digital-assets-blockchain"
+      ]
+    ],
+    [
+      "sourcing",
+      "Sourcing TEAM",
+      [
+        "discovery-matching",
+        "procurement-supply-resources",
+        "commerce-marketplace",
+        "evidence-provenance-verification",
+        "rights-law-compliance",
+        "trade-logistics-fulfillment"
+      ],
+      [
+        "sourcing",
+        "procurement-supply-chain",
+        "commerce-marketplace",
+        "trade"
+      ]
+    ],
+    [
+      "service-delivery",
+      "Service Delivery TEAM",
+      [
+        "discovery-matching",
+        "people-workforce-skills",
+        "communication-presence",
+        "workflow-automation",
+        "authority-consent",
+        "evidence-provenance-verification",
+        "commerce-marketplace"
+      ],
+      [
+        "services",
+        "people",
+        "management-organization",
+        "commerce-marketplace"
+      ]
+    ],
+    [
+      "software-delivery",
+      "Software Delivery TEAM",
+      [
+        "intent-planning-mission",
+        "integration-api-mcp-a2a-protocols",
+        "security-trust-privacy",
+        "workflow-automation",
+        "evidence-provenance-verification",
+        "continuity-recovery-succession"
+      ],
+      [
+        "software",
+        "technology-software-open-source",
+        "technicalities"
+      ]
+    ],
+    [
+      "security-response",
+      "Security Response TEAM",
+      [
+        "identity-resolution",
+        "authority-consent",
+        "security-trust-privacy",
+        "evidence-provenance-verification",
+        "workflow-automation",
+        "continuity-recovery-succession"
+      ],
+      [
+        "security",
+        "software",
+        "continuity-resilience-disaster"
+      ]
+    ],
+    [
+      "justice-case",
+      "Justice Case TEAM",
+      [
+        "identity-resolution",
+        "rights-law-compliance",
+        "evidence-provenance-verification",
+        "authority-consent",
+        "workflow-automation",
+        "knowledge-search-research",
+        "civic-governance-public-services"
+      ],
+      [
+        "justice",
+        "law-rights-compliance",
+        "government"
+      ]
+    ],
+    [
+      "public-administration",
+      "Public Administration TEAM",
+      [
+        "civic-governance-public-services",
+        "authority-consent",
+        "identity-resolution",
+        "management-operations",
+        "workflow-automation",
+        "evidence-provenance-verification",
+        "communication-presence"
+      ],
+      [
+        "government",
+        "governance-civic-public-services",
+        "management-organization"
+      ]
+    ],
+    [
+      "authority-decision",
+      "Authority Decision TEAM",
+      [
+        "identity-resolution",
+        "authority-consent",
+        "rights-law-compliance",
+        "evidence-provenance-verification",
+        "security-trust-privacy"
+      ],
+      [
+        "authority",
+        "governance-civic-public-services",
+        "security"
+      ]
+    ],
+    [
+      "io-flow",
+      "I/O Flow TEAM",
+      [
+        "intent-planning-mission",
+        "transport-mobility-travel",
+        "trade-logistics-fulfillment",
+        "resource-capacity-allocation",
+        "workflow-automation",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification"
+      ],
+      [
+        "input-output",
+        "transport-logistics",
+        "trade",
+        "finance"
+      ]
+    ],
+    [
+      "technical-operations",
+      "Technical Operations TEAM",
+      [
+        "management-operations",
+        "integration-api-mcp-a2a-protocols",
+        "security-trust-privacy",
+        "resource-capacity-allocation",
+        "workflow-automation",
+        "continuity-recovery-succession"
+      ],
+      [
+        "technicalities",
+        "software",
+        "security"
       ]
     ]
   ],
