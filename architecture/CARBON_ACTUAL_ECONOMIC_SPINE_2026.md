@@ -40,7 +40,7 @@ Decimalization ≠ Fractionalization ≠ Tokenization ≠ Minting
 Decimalization changes quantity representation/precision.
 Fractionalization expresses divisible rights or units.
 Tokenization creates a digital representation of an underlying object/right/value reference.
-Minting is the governed creation/issuance step and remains authority- and adapter-bound.
+Minting is the governed creation/issuance step and remains authority- and adapter-bound. Token mint execution consumes an existing authorized Mint issuance; Token does not become a second Mint authority.
 
 ## Blockchain
 Blockchain is an implementation/settlement rail, not a constitutional primitive.
@@ -53,7 +53,7 @@ Supported governed lifecycle states are:
 draft → active → frozen/revoked → retired
 Relevant lifecycle events use the existing canonical event vocabulary: authorized, locked, unlocked, revoked, retired, corrected.
 
-Governed token operations are recorded through the existing token lifecycle event table:
+Governed token operations are recorded through the existing token lifecycle event table. Mint execution is linked to the existing omnii_mint_issuances record and requires exact authority, issuer, underlying-object, settlement-rail and quantity agreement.
 - mint
 - transfer
 - burn
