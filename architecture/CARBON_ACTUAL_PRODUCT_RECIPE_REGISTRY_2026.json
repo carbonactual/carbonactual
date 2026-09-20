@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY",
-  "version": "2026.1",
+  "version": "2026.2",
   "status": "canonical-declarative-composition-index",
   "authority": "carbonactual/hapi-world/CANON.md",
   "operating_spine": "carbonactual/carbonactual",
@@ -64,7 +64,10 @@
         "logistics",
         "finance",
         "property",
-        "digital-assets"
+        "digital-assets",
+        "economic-intelligence",
+        "markets",
+        "capital"
       ],
       "common_capabilities": [
         "identity",
@@ -80,7 +83,44 @@
         "payment",
         "settlement",
         "market-data",
-        "trade"
+        "trade",
+        "monetization",
+        "income-generation",
+        "brokerage",
+        "arbitrage",
+        "investment-analysis",
+        "trading",
+        "futures",
+        "options",
+        "derivatives",
+        "hedging",
+        "leverage",
+        "margin",
+        "capital-markets",
+        "venture-capital",
+        "private-capital",
+        "financial-modeling",
+        "financial-analysis",
+        "financial-forecasting",
+        "market-intelligence",
+        "news-intelligence",
+        "economic-intelligence",
+        "opportunity-intelligence",
+        "deal-intelligence",
+        "liquidity-management",
+        "cash-flow-management",
+        "exchange",
+        "position-management",
+        "order-execution",
+        "portfolio-analysis",
+        "financial-command",
+        "pricing",
+        "valuation",
+        "risk",
+        "simulation",
+        "accounting",
+        "treasury",
+        "settlement-reconciliation"
       ],
       "swirms": [
         "discovery-matching",
@@ -130,7 +170,10 @@
       "workflows": [
         "discover -> qualify -> match -> contract -> execute -> deliver -> settle -> reconcile",
         "source -> due-diligence -> offer -> order -> fulfillment",
-        "asset -> ownership-evidence -> valuation -> financing/transfer -> settlement"
+        "asset -> ownership-evidence -> valuation -> financing/transfer -> settlement",
+        "market -> news/evidence -> thesis -> instrument -> position -> risk gate -> order -> execution -> acknowledgement -> verification -> settlement -> reconciliation",
+        "opportunity -> sourcing -> qualification -> economics -> financing -> contract -> execution -> delivery -> settlement -> review",
+        "price discrepancy -> cost normalization -> net arbitrage assessment -> risk gate -> authorized execution -> settlement"
       ],
       "evidence": [
         "identity",
@@ -142,7 +185,15 @@
         "delivery",
         "payment",
         "settlement",
-        "provenance"
+        "provenance",
+        "market-source",
+        "price-source",
+        "news-source",
+        "trade-confirmation",
+        "financial-statement",
+        "valuation",
+        "risk-analysis",
+        "settlement-confirmation"
       ],
       "state_machine": [
         "identified",
@@ -158,6 +209,25 @@
         "reconciled",
         "disputed/reversed/expired",
         "archived"
+      ],
+      "authority_gates": [
+        "identity",
+        "authority/Seal",
+        "policy",
+        "eligibility/suitability where applicable",
+        "context",
+        "evidence/readiness",
+        "risk gate",
+        "human approval where required",
+        "execution",
+        "external acknowledgement",
+        "verification",
+        "Actual",
+        "ledger/settlement",
+        "audit"
+      ],
+      "shared_fabrics": [
+        "architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json"
       ]
     },
     "SPOTIST": {
@@ -246,7 +316,11 @@
         "intelligence",
         "orchestration",
         "mission",
-        "integration"
+        "integration",
+        "economic-intelligence",
+        "finance",
+        "commerce",
+        "markets"
       ],
       "common_capabilities": [
         "identity",
@@ -260,7 +334,47 @@
         "analytics",
         "evidence",
         "state",
-        "observability"
+        "observability",
+        "monetization",
+        "income-generation",
+        "affiliate-marketing",
+        "brokerage",
+        "arbitrage",
+        "investment-analysis",
+        "trading",
+        "futures",
+        "options",
+        "derivatives",
+        "hedging",
+        "leverage",
+        "margin",
+        "capital-markets",
+        "venture-capital",
+        "private-capital",
+        "financial-modeling",
+        "financial-analysis",
+        "financial-forecasting",
+        "market-intelligence",
+        "news-intelligence",
+        "economic-intelligence",
+        "opportunity-intelligence",
+        "deal-intelligence",
+        "liquidity-management",
+        "cash-flow-management",
+        "exchange",
+        "position-management",
+        "order-execution",
+        "portfolio-analysis",
+        "financial-command",
+        "market-data",
+        "pricing",
+        "valuation",
+        "risk",
+        "simulation",
+        "accounting",
+        "treasury",
+        "settlement",
+        "settlement-reconciliation"
       ],
       "swirms": [
         "intent-planning-mission",
@@ -269,7 +383,12 @@
         "integration-api-mcp-a2a-protocols",
         "security-trust-privacy",
         "authority-consent",
-        "evidence-provenance-verification"
+        "evidence-provenance-verification",
+        "investment-market-data-portfolio",
+        "money-payment-credit-banking",
+        "commerce-marketplace",
+        "procurement-supply-resources",
+        "clearing-settlement-reconciliation"
       ],
       "team_pattern": "ai-mission",
       "objects": [
@@ -283,10 +402,55 @@
         "decision",
         "provider",
         "adapter",
-        "result"
+        "result",
+        "asset",
+        "liability",
+        "ownership",
+        "value",
+        "money",
+        "currency",
+        "account",
+        "wallet",
+        "ledger",
+        "transaction",
+        "order",
+        "trade",
+        "contract",
+        "market",
+        "instrument",
+        "portfolio",
+        "position",
+        "opportunity",
+        "deal",
+        "company",
+        "fund",
+        "loan",
+        "collateral",
+        "liquidity",
+        "price",
+        "quote",
+        "risk",
+        "return",
+        "revenue",
+        "cost",
+        "profit",
+        "cash-flow",
+        "capital",
+        "equity",
+        "debt",
+        "token",
+        "news",
+        "signal",
+        "strategy",
+        "authorization",
+        "settlement"
       ],
       "workflows": [
-        "intent -> discovery -> composition -> readiness -> authority -> execution -> observation -> result -> learning"
+        "intent -> discovery -> composition -> readiness -> authority -> execution -> observation -> result -> learning",
+        "objective -> economic-state -> opportunity/market research -> analysis -> scenario -> strategy -> authority/risk gate -> authorized execution -> observation -> verification -> Actual -> ledger/settlement -> learning",
+        "news -> source -> event -> affected entities -> mechanism -> measurable impact -> scenario -> opportunity/risk",
+        "asset -> ownership evidence -> valuation -> liquidity -> financing/transfer -> settlement -> reconciliation",
+        "price-A + price-B -> cost normalization -> net spread -> risk gate -> authorized arbitrage execution"
       ],
       "evidence": [
         "source",
@@ -294,7 +458,16 @@
         "tool-result",
         "execution-trace",
         "approval",
-        "outcome"
+        "outcome",
+        "market-source",
+        "price-source",
+        "news-source",
+        "financial-statement",
+        "ownership-record",
+        "contract",
+        "trade-confirmation",
+        "settlement-confirmation",
+        "simulation-output"
       ],
       "state_machine": [
         "received",
@@ -308,7 +481,41 @@
         "observing",
         "completed",
         "escalated",
-        "archived"
+        "archived",
+        "simulated",
+        "proposed",
+        "risk_blocked",
+        "settlement_pending",
+        "reconciled"
+      ],
+      "authority_gates": [
+        "identity",
+        "authority/Seal",
+        "policy",
+        "eligibility/suitability where applicable",
+        "context",
+        "evidence/readiness",
+        "risk gate",
+        "human approval where required",
+        "execution",
+        "external acknowledgement",
+        "verification",
+        "Actual",
+        "ledger/settlement",
+        "audit"
+      ],
+      "economic_operations": [
+        "decimalization",
+        "fractionalization",
+        "tokenization",
+        "minting",
+        "decentralization",
+        "democratization",
+        "ledgering",
+        "settlement"
+      ],
+      "shared_fabrics": [
+        "architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json"
       ]
     },
     "HAPI World": {
@@ -1437,5 +1644,8 @@
       "Unknown/future/simulated objects cannot silently become Actual.",
       "Provider-specific integrations belong in adapters and do not become constitutional semantics."
     ]
+  },
+  "shared_fabrics": {
+    "economic_financial_intelligence": "architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json"
   }
 }
