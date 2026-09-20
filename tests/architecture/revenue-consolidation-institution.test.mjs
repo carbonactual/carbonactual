@@ -1,0 +1,18 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+const root=process.cwd();
+const read=async r=>readFile(path.join(root,r),"utf8");
+const c=JSON.parse(await read("architecture/CARBON_ACTUAL_CAPABILITY_CATALOG_2026.json"));
+const f=JSON.parse(await read("architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json"));
+const r=JSON.parse(await read("architecture/CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY_2026.json"));
+const keys=new Set(c.families.map(x=>x.key));
+for(const k of ["revenue","consolidation","chess-moves","establishment","mentor","role-model","institution","essential"]) assert.ok(keys.has(k),"missing capability: "+k);
+assert.ok(f.engines.some(x=>x.id==="revenue-consolidation-strategy"));
+assert.ok(f.engines.some(x=>x.id==="institution-mentorship-essential"));
+assert.equal(f.safety.consolidation_requires_authority,true);
+assert.equal(f.safety.strategic_moves_are_analysis,true);
+assert.equal(f.safety.institution_establishment_requires_governance,true);
+assert.equal(f.safety.mentorship_requires_relationship_consent,true);
+for(const name of ["ABBA","TIP"]) for(const k of ["revenue","consolidation","chess-moves","establishment","mentor","role-model","institution","essential"]) assert.ok(r.recipes[name].common_capabilities.includes(k));
+console.log("REVENUE_CONSOLIDATION_STRATEGY_INSTITUTION_CONFORMANCE_PASSED");
