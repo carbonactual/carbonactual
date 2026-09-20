@@ -28,10 +28,24 @@
     "presence",
     "session",
     "representation",
-    "media-provenance"
+    "media-provenance",
+    "event-observation",
+    "event-reconstruction",
+    "external-media-ingestion"
   ],
   "canonical_capability_contracts": [
     "architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md",
-    "architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json"
+    "architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md"
+  ],
+  "composition_contracts": [
+    "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_SPINE_2026.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_ENTITY_CAPABILITY_PROFILE_2026.md",
+    "architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json",
+    "architecture/CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY_2026.json"
+  ],
+  "economic_contracts": [
+    "architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json",
+    "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
   ]
 }
