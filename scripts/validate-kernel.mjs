@@ -26,6 +26,7 @@ const compositionSpinePath = 'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_S
 const universalEventInteractionPath = 'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md';
 const economicObjectUniversePath = 'architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json';
 const productRecipeContractPath = 'architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json';
+const entityCapabilityProfilePath = 'architecture/CARBON_ACTUAL_UNIVERSAL_ENTITY_CAPABILITY_PROFILE_2026.md';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -48,6 +49,7 @@ const economicObjectUniverse = await readJson(economicObjectUniversePath);
 const productRecipeContract = await readJson(productRecipeContractPath);
 const compositionSpine = await readFile(compositionSpinePath, 'utf8');
 const universalEventInteraction = await readFile(universalEventInteractionPath, 'utf8');
+const entityCapabilityProfile = await readFile(entityCapabilityProfilePath, 'utf8');
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
@@ -82,6 +84,10 @@ for (const objectFamily of ['fiat','crypto-asset','mineral','food','energy','wat
 if (productRecipeContract.authority !== 'carbonactual/hapi-world/CANON.md') fail('product recipe constitutional authority drift');
 if (!Array.isArray(productRecipeContract.template?.interfaces) || !productRecipeContract.template.interfaces.includes('mcp')) fail('product recipe must support MCP projection');
 if (!Array.isArray(productRecipeContract.template?.economic_operations) || productRecipeContract.template.economic_operations.length < 7) fail('product recipe economic operation surface is incomplete');
+for (const marker of ['Universal Entity Capability Profile','Full capability means the entity can be composed','identity -> authority/Seal -> policy -> capability']) {
+  if (!entityCapabilityProfile.includes(marker)) fail('universal entity capability profile marker missing: ' + marker);
+}
+
 for (const marker of ['UNIVERSAL COMPOSITION SPINE','build once -> strengthen once -> compose many','CANON','SWIRMs','TEAM / MISSION']) {
   if (!compositionSpine.includes(marker)) fail('composition spine marker missing: ' + marker);
 }
