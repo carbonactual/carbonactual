@@ -1,0 +1,16 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+const root=process.cwd();
+const read=async rel=>readFile(path.join(root,rel),"utf8");
+const cat=JSON.parse(await read("architecture/CARBON_ACTUAL_CAPABILITY_CATALOG_2026.json"));
+const fab=JSON.parse(await read("architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json"));
+const reg=JSON.parse(await read("architecture/CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY_2026.json"));
+const keys=new Set(cat.families.map(x=>x.key));
+for(const k of ["retail","distribution","wholesale","production","exploration","partnerships","share","swap","purchase","index","betting","predictions","gambling","dares","challenges","boost"]) assert.ok(keys.has(k),"missing capability: "+k);
+assert.ok(fab.engines.some(x=>x.id==="commerce-production-distribution"));
+assert.ok(fab.engines.some(x=>x.id==="prediction-challenge-incentive"));
+assert.equal(fab.safety.regulated_gaming_requires_jurisdiction,true);
+assert.equal(fab.safety.regulated_gaming_requires_eligibility,true);
+for(const k of ["retail","wholesale","distribution","prediction","gambling"]) assert.ok(reg.recipes.ABBA.common_capabilities.includes(k==="prediction"?"predictions":k));
+console.log("ECONOMIC_COMMERCE_PARTICIPATION_CONFORMANCE_PASSED");
