@@ -1,0 +1,134 @@
+{
+  "blueprint": "CARBON_ACTUAL_NASC_SULEJA_GOVERNANCE_BUILD_RECIPE",
+  "version": "2026.1",
+  "status": "implementation-ready_blueprint_deployment-gated",
+  "constitutional_authority": "applicable Nigerian law and competent public authority; Carbon Actual does not itself confer public authority",
+  "operating_spine": "carbonactual/carbonactual",
+  "composition_spine": "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_SPINE_2026.md",
+  "objective": "Compose a reusable Suleja Local Government public-administration and revenue-governance system, beginning with IBB Market and transport, while preserving legitimate collector roles and creating auditable collection, reconciliation and service workflows.",
+  "initial_scope": {
+    "jurisdiction": "Suleja Local Government Area, Niger State, Nigeria",
+    "starting_surfaces": [
+      "IBB Market",
+      "transport operations"
+    ],
+    "expansion_rule": "Add additional revenue/service surfaces by configuration after the initial control cycle is verified."
+  },
+  "shared_entities": [
+    "person",
+    "household",
+    "company",
+    "government-authority",
+    "market",
+    "stall/unit",
+    "vehicle",
+    "route",
+    "operator",
+    "collector",
+    "permit",
+    "assessment",
+    "invoice/obligation",
+    "payment",
+    "receipt",
+    "ledger-entry",
+    "service",
+    "complaint/case",
+    "inspection",
+    "evidence",
+    "location"
+  ],
+  "common_capabilities": [
+    "identity",
+    "authority",
+    "intent",
+    "capability-discovery",
+    "registry",
+    "geospatial",
+    "workflow",
+    "communications",
+    "payment",
+    "settlement",
+    "ledger",
+    "audit",
+    "evidence",
+    "state",
+    "analytics",
+    "case-management"
+  ],
+  "swirms": [
+    "identity-resolution",
+    "authority-consent",
+    "civic-governance-public-services",
+    "management-operations",
+    "procurement-supply-resources",
+    "transport-mobility-travel",
+    "money-payment-credit-banking",
+    "clearing-settlement-reconciliation",
+    "evidence-provenance-verification",
+    "security-trust-privacy"
+  ],
+  "team_patterns": [
+    "public-administration",
+    "civic-service",
+    "money-movement",
+    "io-flow",
+    "transaction-processing",
+    "authority-decision",
+    "security-response"
+  ],
+  "core_workflows": [
+    "authority/registry -> actor verification -> role/capacity assignment -> service/revenue operation",
+    "market registration -> unit/occupancy record -> assessment -> collection -> receipt -> daily reconciliation -> audit",
+    "transport registration -> route/operator/vehicle record -> assessment/collection -> receipt -> reconciliation",
+    "exception -> evidence -> case -> authorized review -> resolution -> audit trail",
+    "field observation -> inspection/evidence -> correction or escalation -> state update"
+  ],
+  "control_principles": [
+    "Collectors remain recognized operational roles; the system strengthens attribution, reconciliation and oversight rather than assuming abolition.",
+    "Discovery is not authority; official registries and competent authorities determine authoritative records.",
+    "A receipt is evidence of a recorded transaction, not by itself proof that the underlying obligation was lawful or complete.",
+    "Cash, bank money and e-money may be represented through the common economic fabric; settlement remains authority/provider gated.",
+    "Tokenization, minting, decentralization, decimalization and fractionalization remain available shared operations but are not prerequisites for LGA revenue collection.",
+    "Unknown or disputed records remain explicitly unresolved until evidence supports reconciliation."
+  ],
+  "minimum_evidence": [
+    "official authority mandate",
+    "approved revenue/rate schedule",
+    "collector/role registry",
+    "market and transport registry",
+    "payment/receipt source",
+    "treasury/settlement destination",
+    "daily collection records",
+    "reconciliation statements",
+    "inspection records",
+    "complaints/resolution evidence",
+    "audit history"
+  ],
+  "interfaces": [
+    "web",
+    "mobile",
+    "pwa",
+    "api",
+    "mcp",
+    "a2a",
+    "agent",
+    "field/low-bandwidth"
+  ],
+  "deployment_targets": [
+    "institutional",
+    "self-hosted",
+    "vercel"
+  ],
+  "promotion_gates": [
+    "legal/administrative authority verified",
+    "official source registries verified",
+    "approved rates and obligations loaded",
+    "payment/settlement rails verified",
+    "identity/role controls verified",
+    "field connectivity and offline continuity tested",
+    "audit/reconciliation tests passed",
+    "Supabase production data reconciled",
+    "security/privacy review passed"
+  ],
+  "reuse_rule": "After the Suleja control loop is verified, the same recipe is parameterized for additional LGAs and public-service/revenue domains without creating a separate governance ontology."
+}
