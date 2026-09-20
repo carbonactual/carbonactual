@@ -250,3 +250,25 @@ test('canonical control surfaces contain no obsolete operating-spine identity', 
     assert.equal(content.includes(obsoleteSpineIdentity), false, `${path} contains obsolete operating-spine naming`);
   }
 });
+
+
+test('composition spine is the reusable product assembly rule', async () => {
+  const spine = await readFile('architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_SPINE_2026.md', 'utf8');
+  assert.match(spine, /identity -> authority -> intent -> capability -> relationship -> event -> evidence -> state -> value/);
+  assert.match(spine, /build once -> strengthen once -> compose many/);
+  assert.match(spine, /TEAM \/ MISSION/);
+});
+
+test('universal event interaction fabric covers material session forms', async () => {
+  const fabric = await readFile('architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md', 'utf8');
+  for (const mode of ['in-person','virtual','remote/async','media/broadcast-only','hybrid','externally hosted and observed']) {
+    assert.equal(fabric.includes(mode), true, mode);
+  }
+  assert.equal(fabric.includes('Capacity is session-scoped'), true);
+});
+
+test('economic object universe keeps representation operations and asset families explicit', async () => {
+  const universe = JSON.parse(await readFile('architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json', 'utf8'));
+  for (const op of ['decimalization','fractionalization','tokenization','minting','decentralization']) assert.equal(universe.operations.includes(op), true);
+  for (const family of ['fiat','crypto-asset','mineral','food','pawned-item','capacity','opportunity']) assert.equal(universe.object_families.includes(family), true);
+});
