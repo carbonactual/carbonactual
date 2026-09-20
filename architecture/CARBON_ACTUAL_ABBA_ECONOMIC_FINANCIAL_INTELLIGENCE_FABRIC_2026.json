@@ -120,6 +120,14 @@
     {
       "id": "intelligence-economics",
       "purpose": "combine intelligence, economics, markets and evidence into structured causal, comparative and scenario analysis"
+    },
+    {
+      "id": "revenue-consolidation-strategy",
+      "purpose": "revenue realization, consolidation, strategic move analysis, sequencing and scenario planning"
+    },
+    {
+      "id": "institution-mentorship-essential",
+      "purpose": "institution formation, essential capability mapping, mentorship, role-model relationships and developmental pathways"
     }
   ],
   "lifecycle": [
@@ -166,6 +174,10 @@
     "challenge_requires_safety_policy": true,
     "clipping_requires_provenance": true,
     "clipping_requires_rights_policy": true,
-    "social_media_source_attribution": true
+    "social_media_source_attribution": true,
+    "consolidation_requires_authority": true,
+    "strategic_moves_are_analysis": true,
+    "institution_establishment_requires_governance": true,
+    "mentorship_requires_relationship_consent": true
   }
 }
