@@ -22,6 +22,10 @@ const ecosystemOverviewPath = 'architecture/CARBON_ACTUAL_ECOSYSTEM_OVERVIEW_ALI
 const domainCircumferencePath = 'architecture/CARBON_ACTUAL_DOMAIN_CIRCUMFERENCE_2026.json';
 const ecosystemDomainAtlasPath = 'architecture/CARBON_ACTUAL_ECOSYSTEM_DOMAIN_ATLAS_2026.json';
 const swirmTeamMatrixPath = 'architecture/CARBON_ACTUAL_SWIRM_TEAM_MATRIX_2026.json';
+const compositionSpinePath = 'architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_SPINE_2026.md';
+const universalEventInteractionPath = 'architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md';
+const economicObjectUniversePath = 'architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json';
+const productRecipeContractPath = 'architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -40,6 +44,10 @@ const swarmTeamTraceability = await readJson(swarmTeamTraceabilityPath);
 const domainCircumference = await readJson(domainCircumferencePath);
 const ecosystemDomainAtlas = await readJson(ecosystemDomainAtlasPath);
 const swirmTeamMatrix = await readJson(swirmTeamMatrixPath);
+const economicObjectUniverse = await readJson(economicObjectUniversePath);
+const productRecipeContract = await readJson(productRecipeContractPath);
+const compositionSpine = await readFile(compositionSpinePath, 'utf8');
+const universalEventInteraction = await readFile(universalEventInteractionPath, 'utf8');
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
@@ -63,6 +71,24 @@ if (ecosystemDomainAtlas.authority !== 'carbonactual/carbonactual') fail('ecosys
 if (ecosystemDomainAtlas.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('ecosystem domain atlas constitutional authority drift');
 if (ecosystemDomainAtlas.kernel?.join('|') !== expectedFacets.join('|')) fail('ecosystem domain atlas kernel drift');
 if (!Array.isArray(ecosystemDomainAtlas.domains) || ecosystemDomainAtlas.domains.length < 35) fail('ecosystem domain atlas is unexpectedly small');
+if (economicObjectUniverse.authority !== 'carbonactual/hapi-world/CANON.md') fail('economic object universe constitutional authority drift');
+if (economicObjectUniverse.version !== '2026.1') fail('economic object universe version drift');
+for (const op of ['decimalization','fractionalization','tokenization','minting','decentralization','democratization','ledgering','settlement']) {
+  if (!economicObjectUniverse.operations?.includes(op)) fail('economic operation missing from shared universe: ' + op);
+}
+for (const objectFamily of ['fiat','crypto-asset','mineral','food','energy','water','property','collateral','pawned-item','capability','capacity','opportunity']) {
+  if (!economicObjectUniverse.object_families?.includes(objectFamily)) fail('economic object family missing from shared universe: ' + objectFamily);
+}
+if (productRecipeContract.authority !== 'carbonactual/hapi-world/CANON.md') fail('product recipe constitutional authority drift');
+if (!Array.isArray(productRecipeContract.template?.interfaces) || !productRecipeContract.template.interfaces.includes('mcp')) fail('product recipe must support MCP projection');
+if (!Array.isArray(productRecipeContract.template?.economic_operations) || productRecipeContract.template.economic_operations.length < 7) fail('product recipe economic operation surface is incomplete');
+for (const marker of ['UNIVERSAL COMPOSITION SPINE','build once -> strengthen once -> compose many','CANON','SWIRMs','TEAM / MISSION']) {
+  if (!compositionSpine.includes(marker)) fail('composition spine marker missing: ' + marker);
+}
+for (const marker of ['in-person','virtual','remote/async','media/broadcast-only','hybrid','externally hosted and observed','Capacity is session-scoped']) {
+  if (!universalEventInteraction.includes(marker)) fail('universal event interaction marker missing: ' + marker);
+}
+
 if (swirmTeamMatrix.authority !== 'carbonactual/carbonactual') fail('SWIRM/TEAM matrix authority drift');
 if (swirmTeamMatrix.constitutional_authority !== 'carbonactual/hapi-world/CANON.md') fail('SWIRM/TEAM matrix constitutional authority drift');
 if (!Array.isArray(swirmTeamMatrix.swirms) || swirmTeamMatrix.swirms.length < 30) fail('SWIRM matrix is unexpectedly small');
