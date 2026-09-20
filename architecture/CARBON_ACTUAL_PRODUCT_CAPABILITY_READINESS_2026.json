@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_CAPABILITY_READINESS",
-  "version": "2026-09-19.7",
+  "version": "2026-09-20.1",
   "rule": "Every product is a projection over shared capabilities. Product-specific code should consume the shared fabric and should be release-gated on data, adapters, authority, evidence, and deployment readiness.",
   "deployment_policy": "Production promotion is permitted only after the shared capability/data/authority/evidence/runtime gates pass. This closure pass has one verified NOUN BOT production promotion; other products remain individually gated.",
   "shared_capability_families": [
@@ -404,5 +404,40 @@
     "ungrouped_capabilities": 0,
     "scope_projection_gaps": 0,
     "dangling_edges": 0
+  },
+  "composition_build_layer": {
+    "composition_spine": "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_SPINE_2026.md",
+    "entity_profile": "architecture/CARBON_ACTUAL_UNIVERSAL_ENTITY_CAPABILITY_PROFILE_2026.md",
+    "event_fabric": "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md",
+    "economic_universe": "architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json",
+    "product_recipe_contract": "architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json",
+    "product_recipe_registry": "architecture/CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY_2026.json",
+    "executable_composer": "scripts/compose-product-recipe.mjs",
+    "supabase_recipe_projection": "public.ecosystem_composition_recipes"
+  },
+  "governance_build_projection": {
+    "blueprint": "architecture/CARBON_ACTUAL_NASC_SULEJA_GOVERNANCE_BUILD_RECIPE_2026.json",
+    "persistence": {
+      "supabase_tables": [
+        "public.governance_territories",
+        "public.governance_revenue_streams",
+        "public.governance_collection_points",
+        "public.governance_collector_roles",
+        "public.governance_receipts",
+        "public.governance_reconciliations",
+        "public.governance_leakage_cases",
+        "public.governance_audit_events",
+        "public.governance_projects",
+        "public.governance_service_metrics"
+      ],
+      "current_suleja_streams": [
+        "ibb_market",
+        "transport"
+      ],
+      "current_suleja_collection_points": 2,
+      "current_suleja_collector_roles": 2,
+      "rate_source_status": "rate_source:not_loaded",
+      "deployment_status": "deployment-gated"
+    }
   }
 }
