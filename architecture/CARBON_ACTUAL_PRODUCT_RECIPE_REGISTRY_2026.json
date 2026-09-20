@@ -1,0 +1,1027 @@
+{
+  "registry": "CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY",
+  "version": "2026.1",
+  "status": "canonical-declarative-composition-index",
+  "authority": "carbonactual/hapi-world/CANON.md",
+  "operating_spine": "carbonactual/carbonactual",
+  "contract": "architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json",
+  "composition_spine": "architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_SPINE_2026.md",
+  "event_fabric": "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md",
+  "economic_universe": "architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json",
+  "rule": "A product is a projection of shared capabilities, SWIRMs, TEAMs, workflows and domain configuration. This registry does not grant authority or production readiness.",
+  "defaults": {
+    "authority_gate": "identity -> authority/Seal -> policy -> capability -> context -> evidence/readiness -> execution -> audit",
+    "interfaces": [
+      "web",
+      "mobile",
+      "pwa",
+      "api",
+      "cli",
+      "mcp",
+      "a2a",
+      "agent"
+    ],
+    "deployment_targets": [
+      "vercel",
+      "self-hosted",
+      "institutional"
+    ],
+    "economic_operations": [
+      "decimalization",
+      "fractionalization",
+      "tokenization",
+      "minting",
+      "decentralization",
+      "ledgering",
+      "settlement"
+    ]
+  },
+  "recipes": {
+    "TIP": {
+      "repo": "carbonactual/tip",
+      "objective": "Trade and investment platform spanning sourcing, markets, transactions, ownership/evidence, logistics and settlement.",
+      "domains": [
+        "trade",
+        "investment",
+        "market",
+        "sourcing",
+        "procurement",
+        "logistics",
+        "finance",
+        "property",
+        "digital-assets"
+      ],
+      "common_capabilities": [
+        "identity",
+        "authority",
+        "intent",
+        "capability-discovery",
+        "search",
+        "geospatial",
+        "workflow",
+        "evidence",
+        "state",
+        "value",
+        "payment",
+        "settlement",
+        "market-data",
+        "trade"
+      ],
+      "swirms": [
+        "discovery-matching",
+        "commerce-marketplace",
+        "trade-logistics-fulfillment",
+        "investment-market-data-portfolio",
+        "money-payment-credit-banking",
+        "clearing-settlement-reconciliation",
+        "rights-law-compliance",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "trade-execution",
+      "objects": [
+        "fiat",
+        "bank-money",
+        "e-money",
+        "crypto-asset",
+        "token",
+        "security",
+        "equity",
+        "debt",
+        "credit",
+        "commodity",
+        "mineral",
+        "food",
+        "agriculture-output",
+        "energy",
+        "water",
+        "environmental-unit",
+        "property",
+        "land",
+        "inventory",
+        "machinery",
+        "vehicle",
+        "data-right",
+        "ip-right",
+        "license",
+        "permit",
+        "certificate",
+        "contract",
+        "lease",
+        "subscription",
+        "collateral",
+        "pawned-item",
+        "opportunity"
+      ],
+      "workflows": [
+        "discover -> qualify -> match -> contract -> execute -> deliver -> settle -> reconcile",
+        "source -> due-diligence -> offer -> order -> fulfillment",
+        "asset -> ownership-evidence -> valuation -> financing/transfer -> settlement"
+      ],
+      "evidence": [
+        "identity",
+        "ownership",
+        "authority",
+        "source",
+        "inspection",
+        "contract",
+        "delivery",
+        "payment",
+        "settlement",
+        "provenance"
+      ],
+      "state_machine": [
+        "identified",
+        "qualified",
+        "offered",
+        "matched",
+        "contracted",
+        "committed",
+        "executing",
+        "delivered/custodied",
+        "accounted",
+        "settled",
+        "reconciled",
+        "disputed/reversed/expired",
+        "archived"
+      ]
+    },
+    "SPOTIST": {
+      "repo": "carbonactual/spotist",
+      "objective": "Universal seek, discovery, matching and opportunity-routing surface.",
+      "domains": [
+        "discovery",
+        "services",
+        "sourcing",
+        "opportunities",
+        "marketplace",
+        "geospatial"
+      ],
+      "common_capabilities": [
+        "identity",
+        "intent",
+        "capability-discovery",
+        "search",
+        "knowledge",
+        "geospatial",
+        "matching",
+        "availability",
+        "request",
+        "workflow",
+        "evidence",
+        "state"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "discovery-matching",
+        "data-geospatial-resolution",
+        "knowledge-search-research",
+        "resource-capacity-allocation",
+        "communication-presence",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "sourcing",
+      "objects": [
+        "service",
+        "capability",
+        "capacity",
+        "labor",
+        "opportunity",
+        "resource",
+        "property",
+        "asset",
+        "contract",
+        "project",
+        "grant",
+        "scholarship",
+        "job",
+        "data-right",
+        "permit"
+      ],
+      "workflows": [
+        "intent -> search -> qualify -> match -> availability -> request -> response -> outcome",
+        "opportunity -> evidence -> eligibility -> match -> application -> workflow"
+      ],
+      "evidence": [
+        "identity",
+        "availability",
+        "eligibility",
+        "source",
+        "qualification",
+        "application",
+        "outcome"
+      ],
+      "state_machine": [
+        "discovered",
+        "qualified",
+        "available",
+        "matched",
+        "requested",
+        "accepted",
+        "in-progress",
+        "completed",
+        "closed",
+        "expired"
+      ]
+    },
+    "ABBA": {
+      "repo": "carbonactual/abba",
+      "objective": "Master intelligence for interpretation, planning, discovery, routing, composition, monitoring and governed execution.",
+      "domains": [
+        "ai",
+        "intelligence",
+        "orchestration",
+        "mission",
+        "integration"
+      ],
+      "common_capabilities": [
+        "identity",
+        "authority",
+        "intent",
+        "capability-discovery",
+        "knowledge",
+        "search",
+        "workflow",
+        "automation",
+        "analytics",
+        "evidence",
+        "state",
+        "observability"
+      ],
+      "swirms": [
+        "intent-planning-mission",
+        "knowledge-search-research",
+        "ai-agent-swarm-team",
+        "integration-api-mcp-a2a-protocols",
+        "security-trust-privacy",
+        "authority-consent",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "ai-mission",
+      "objects": [
+        "ai-entity",
+        "capability",
+        "task",
+        "workflow",
+        "mission",
+        "evidence",
+        "policy",
+        "decision",
+        "provider",
+        "adapter",
+        "result"
+      ],
+      "workflows": [
+        "intent -> discovery -> composition -> readiness -> authority -> execution -> observation -> result -> learning"
+      ],
+      "evidence": [
+        "source",
+        "reasoning-context",
+        "tool-result",
+        "execution-trace",
+        "approval",
+        "outcome"
+      ],
+      "state_machine": [
+        "received",
+        "interpreting",
+        "planning",
+        "composing",
+        "ready",
+        "blocked",
+        "authorized",
+        "executing",
+        "observing",
+        "completed",
+        "escalated",
+        "archived"
+      ]
+    },
+    "HAPI World": {
+      "repo": "carbonactual/hapi-world",
+      "objective": "Constitutional world and AI-side operating environment bound to human identity, authority and governed relationships.",
+      "domains": [
+        "human-api",
+        "ai-world",
+        "identity",
+        "authority",
+        "relationships",
+        "world-model"
+      ],
+      "common_capabilities": [
+        "identity",
+        "authority",
+        "intent",
+        "relationship",
+        "capability-discovery",
+        "communication",
+        "evidence",
+        "state",
+        "value",
+        "security"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "authority-consent",
+        "communication-presence",
+        "evidence-provenance-verification",
+        "security-trust-privacy",
+        "ai-agent-swarm-team",
+        "knowledge-search-research"
+      ],
+      "team_pattern": "human-service",
+      "objects": [
+        "person",
+        "household",
+        "ai-entity",
+        "company",
+        "government",
+        "institution",
+        "place",
+        "relationship",
+        "credential",
+        "capability",
+        "event",
+        "evidence"
+      ],
+      "workflows": [
+        "human -> identity -> minting/relationship -> Seal -> governed interaction",
+        "intent -> authority -> capability -> interaction -> evidence -> state"
+      ],
+      "evidence": [
+        "human-identity-link",
+        "Seal",
+        "attestation",
+        "event",
+        "media",
+        "provenance"
+      ],
+      "state_machine": [
+        "unknown",
+        "identified",
+        "bound",
+        "active",
+        "restricted",
+        "suspended",
+        "retired",
+        "archived"
+      ]
+    },
+    "NAIRE": {
+      "repo": "carbonactual/naire",
+      "objective": "Human operating environment for identity, household, services, opportunities, commerce and communications.",
+      "domains": [
+        "human",
+        "household",
+        "services",
+        "commerce",
+        "opportunities",
+        "communications"
+      ],
+      "common_capabilities": [
+        "identity",
+        "relationship",
+        "intent",
+        "capability-discovery",
+        "search",
+        "communications",
+        "workflow",
+        "evidence",
+        "state",
+        "value",
+        "payment"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "human-service",
+        "discovery-matching",
+        "communication-presence",
+        "service-delivery",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "human-service",
+      "objects": [
+        "person",
+        "household",
+        "service",
+        "opportunity",
+        "job",
+        "contract",
+        "asset",
+        "payment",
+        "credential",
+        "appointment",
+        "event",
+        "document"
+      ],
+      "workflows": [
+        "need -> discovery -> eligibility -> request -> service -> result",
+        "profile -> opportunity -> application -> selection -> engagement"
+      ],
+      "evidence": [
+        "identity",
+        "eligibility",
+        "application",
+        "service-delivery",
+        "payment",
+        "outcome"
+      ],
+      "state_machine": [
+        "draft",
+        "active",
+        "requested",
+        "accepted",
+        "in-progress",
+        "completed",
+        "disputed",
+        "closed"
+      ]
+    },
+    "NGIN": {
+      "repo": "carbonactual/ngin",
+      "objective": "Organization, institution and territory operating environment covering registry, compliance, payments, procurement, tax and workforce.",
+      "domains": [
+        "organization",
+        "institution",
+        "government",
+        "territory",
+        "management",
+        "compliance",
+        "procurement"
+      ],
+      "common_capabilities": [
+        "identity",
+        "authority",
+        "relationship",
+        "capability-discovery",
+        "workflow",
+        "automation",
+        "analytics",
+        "audit",
+        "evidence",
+        "state",
+        "value",
+        "payment",
+        "settlement"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "authority-consent",
+        "business-operating",
+        "civic-governance-public-services",
+        "procurement-supply-resources",
+        "rights-law-compliance",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "business-operating",
+      "objects": [
+        "company",
+        "institution",
+        "government",
+        "territory",
+        "employee",
+        "vendor",
+        "contract",
+        "permit",
+        "license",
+        "tax-obligation",
+        "asset",
+        "inventory",
+        "budget",
+        "payment",
+        "procurement"
+      ],
+      "workflows": [
+        "register -> qualify -> authorize -> operate -> account -> audit",
+        "need -> procurement -> bid/offer -> contract -> delivery -> payment -> reconciliation",
+        "obligation -> assessment -> filing -> payment -> audit"
+      ],
+      "evidence": [
+        "registry",
+        "identity",
+        "authority",
+        "contract",
+        "invoice",
+        "receipt",
+        "filing",
+        "inspection",
+        "audit"
+      ],
+      "state_machine": [
+        "prospect",
+        "registered",
+        "verified",
+        "authorized",
+        "operating",
+        "restricted",
+        "suspended",
+        "closed",
+        "archived"
+      ]
+    },
+    "NOUN BOT": {
+      "repo": "carbonactual/noun-student-bot",
+      "objective": "Academic companion composed from education, professional-body, communication and human-service capabilities.",
+      "domains": [
+        "education",
+        "professional-body",
+        "student-services",
+        "knowledge",
+        "communications"
+      ],
+      "common_capabilities": [
+        "identity",
+        "intent",
+        "search",
+        "knowledge",
+        "communications",
+        "document",
+        "workflow",
+        "education",
+        "evidence",
+        "state"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "education-assessment-credential",
+        "knowledge-search-research",
+        "communication-presence",
+        "professional-certification",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "education-journey",
+      "objects": [
+        "learner",
+        "course",
+        "assessment",
+        "exam",
+        "result",
+        "credential",
+        "institution",
+        "service",
+        "appointment",
+        "document",
+        "payment"
+      ],
+      "workflows": [
+        "question -> answer -> service-route",
+        "course -> eligibility -> enrollment -> learning -> assessment -> result",
+        "issue -> evidence -> escalation -> resolution"
+      ],
+      "evidence": [
+        "student-record",
+        "course-mapping",
+        "assessment",
+        "exam-attempt",
+        "official-source",
+        "service-resolution"
+      ],
+      "state_machine": [
+        "new",
+        "identified",
+        "enrolled",
+        "active",
+        "assessment",
+        "result",
+        "escalated",
+        "resolved",
+        "closed"
+      ]
+    },
+    "MCP BOT": {
+      "repo": "carbonactual/mcp-bot",
+      "objective": "Professional certification-preparation companion under the shared education and service fabric.",
+      "domains": [
+        "education",
+        "professional-certification",
+        "study",
+        "finance",
+        "communications"
+      ],
+      "common_capabilities": [
+        "identity",
+        "intent",
+        "knowledge",
+        "search",
+        "communications",
+        "education",
+        "workflow",
+        "payment",
+        "evidence",
+        "state"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "education-assessment-credential",
+        "professional-certification",
+        "knowledge-search-research",
+        "communication-presence",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "professional-certification",
+      "objects": [
+        "learner",
+        "professional-body",
+        "course",
+        "exam",
+        "assessment",
+        "credential",
+        "payment",
+        "document",
+        "service"
+      ],
+      "workflows": [
+        "enquiry -> mapping -> eligibility -> study -> assessment -> result",
+        "service-request -> evidence -> routing -> resolution"
+      ],
+      "evidence": [
+        "official-guidance",
+        "course-map",
+        "exam-rule",
+        "assessment",
+        "payment",
+        "service-record"
+      ],
+      "state_machine": [
+        "new",
+        "mapped",
+        "eligible",
+        "studying",
+        "assessed",
+        "passed/failed",
+        "escalated",
+        "resolved"
+      ]
+    },
+    "I/O": {
+      "repo": "carbonactual/io",
+      "objective": "Movement, transport, value-flow and handoff operations across physical and economic systems.",
+      "domains": [
+        "input-output",
+        "transport",
+        "logistics",
+        "movement",
+        "settlement"
+      ],
+      "common_capabilities": [
+        "identity",
+        "intent",
+        "workflow",
+        "geospatial",
+        "transport",
+        "trade",
+        "payment",
+        "settlement",
+        "evidence",
+        "state"
+      ],
+      "swirms": [
+        "io-flow",
+        "transport-mobility-travel",
+        "trade-logistics-fulfillment",
+        "resource-capacity-allocation",
+        "money-payment-credit-banking",
+        "clearing-settlement-reconciliation",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "io-flow",
+      "objects": [
+        "shipment",
+        "route",
+        "vehicle",
+        "inventory",
+        "resource",
+        "service",
+        "order",
+        "payment",
+        "settlement",
+        "asset",
+        "handoff"
+      ],
+      "workflows": [
+        "request -> allocate -> route -> move -> handoff -> deliver -> account -> reconcile"
+      ],
+      "evidence": [
+        "order",
+        "custody",
+        "location",
+        "inspection",
+        "handoff",
+        "delivery",
+        "payment",
+        "settlement"
+      ],
+      "state_machine": [
+        "planned",
+        "allocated",
+        "dispatched",
+        "in-transit",
+        "arrived",
+        "delivered",
+        "accounted",
+        "reconciled",
+        "disputed",
+        "closed"
+      ]
+    },
+    "Open Bank": {
+      "repo": "carbonactual/open-bank",
+      "objective": "Banking operations composed from consent, accounts, payments, ledger, reconciliation, risk and compliance capabilities.",
+      "domains": [
+        "banking",
+        "payments",
+        "money",
+        "credit",
+        "ledger",
+        "compliance"
+      ],
+      "common_capabilities": [
+        "identity",
+        "authority",
+        "consent",
+        "workflow",
+        "payment",
+        "settlement",
+        "value",
+        "audit",
+        "risk",
+        "compliance",
+        "evidence",
+        "state"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "authority-consent",
+        "money-payment-credit-banking",
+        "clearing-settlement-reconciliation",
+        "value-ledger-tokenization",
+        "security-trust-privacy",
+        "rights-law-compliance",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "money-movement",
+      "objects": [
+        "fiat",
+        "bank-money",
+        "e-money",
+        "account",
+        "payment",
+        "credit",
+        "debt",
+        "collateral",
+        "ledger-entry",
+        "transaction"
+      ],
+      "workflows": [
+        "consent -> account -> instruction -> authorization -> payment -> clearing -> settlement -> reconciliation",
+        "credit-request -> eligibility -> underwriting -> approval -> disbursement -> repayment"
+      ],
+      "evidence": [
+        "identity",
+        "consent",
+        "mandate",
+        "payment-instruction",
+        "ledger",
+        "settlement",
+        "reconciliation",
+        "compliance"
+      ],
+      "state_machine": [
+        "initiated",
+        "authorized",
+        "accepted",
+        "processing",
+        "cleared",
+        "settled",
+        "reconciled",
+        "reversed",
+        "disputed",
+        "closed"
+      ]
+    },
+    "Value System": {
+      "repo": "carbonactual/value-system",
+      "objective": "Shared value semantics, full-cost accounting, asset/liability classification and governed value feedback.",
+      "domains": [
+        "value",
+        "accounting",
+        "economics",
+        "pulse",
+        "asset-liability"
+      ],
+      "common_capabilities": [
+        "value",
+        "analytics",
+        "accounting",
+        "ledger",
+        "evidence",
+        "state",
+        "audit",
+        "settlement"
+      ],
+      "swirms": [
+        "value-ledger-tokenization",
+        "clearing-settlement-reconciliation",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification",
+        "management-operations"
+      ],
+      "team_pattern": "transaction-processing",
+      "objects": [
+        "asset",
+        "liability",
+        "value-observation",
+        "ledger-entry",
+        "fiat",
+        "token",
+        "commodity",
+        "service",
+        "capability",
+        "capacity",
+        "opportunity"
+      ],
+      "workflows": [
+        "observe -> qualify -> classify -> account -> settle -> reconcile -> pulse",
+        "representation -> evidence -> valuation -> ledger -> feedback"
+      ],
+      "evidence": [
+        "source",
+        "measurement",
+        "valuation",
+        "transaction",
+        "ledger",
+        "settlement",
+        "pulse-observation"
+      ],
+      "state_machine": [
+        "identified",
+        "measured",
+        "qualified",
+        "classified",
+        "accounted",
+        "settled",
+        "reconciled",
+        "adjusted",
+        "archived"
+      ]
+    },
+    "Open Ballot": {
+      "repo": "carbonactual/open-ballot",
+      "objective": "Civic/election engine using common identity, eligibility, authority, event, evidence, workflow and publication semantics.",
+      "domains": [
+        "civic",
+        "election",
+        "governance",
+        "public-service"
+      ],
+      "common_capabilities": [
+        "identity",
+        "authority",
+        "workflow",
+        "communications",
+        "evidence",
+        "state",
+        "audit",
+        "registry"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "authority-consent",
+        "civic-governance-public-services",
+        "workflow-automation",
+        "communication-presence",
+        "evidence-provenance-verification",
+        "security-trust-privacy"
+      ],
+      "team_pattern": "civic-service",
+      "objects": [
+        "election",
+        "office",
+        "candidate",
+        "elector",
+        "ballot",
+        "eligibility",
+        "vote",
+        "result",
+        "audit-record",
+        "publication"
+      ],
+      "workflows": [
+        "register -> verify -> publish -> vote -> tabulate -> audit -> publish-results"
+      ],
+      "evidence": [
+        "eligibility",
+        "ballot",
+        "chain-of-custody",
+        "tabulation",
+        "audit",
+        "publication"
+      ],
+      "state_machine": [
+        "planned",
+        "registered",
+        "open",
+        "voting",
+        "closed",
+        "tabulating",
+        "auditing",
+        "certified/published",
+        "archived"
+      ]
+    },
+    "RITES": {
+      "repo": "carbonactual/RITES",
+      "objective": "Continuity, event-memory, institutional reference and succession workflows.",
+      "domains": [
+        "continuity",
+        "events",
+        "records",
+        "succession",
+        "institutional-memory"
+      ],
+      "common_capabilities": [
+        "identity",
+        "relationship",
+        "event",
+        "document",
+        "evidence",
+        "state",
+        "continuity",
+        "search",
+        "knowledge",
+        "audit"
+      ],
+      "swirms": [
+        "continuity-recovery-succession",
+        "identity-resolution",
+        "knowledge-search-research",
+        "evidence-provenance-verification",
+        "communication-presence",
+        "rights-law-compliance"
+      ],
+      "team_pattern": "justice-case",
+      "objects": [
+        "person",
+        "household",
+        "event",
+        "document",
+        "record",
+        "estate",
+        "succession",
+        "credential",
+        "institution",
+        "evidence"
+      ],
+      "workflows": [
+        "event -> record -> evidence -> verification -> continuity",
+        "death/probate -> identity -> estate -> authority -> evidence -> succession/transfer"
+      ],
+      "evidence": [
+        "vital-record",
+        "document",
+        "attestation",
+        "authority",
+        "property-record",
+        "event-evidence"
+      ],
+      "state_machine": [
+        "unknown",
+        "identified",
+        "recorded",
+        "verified",
+        "active",
+        "superseded",
+        "archived"
+      ]
+    }
+  },
+  "validation": {
+    "required_recipe_fields": [
+      "objective",
+      "domains",
+      "common_capabilities",
+      "swirms",
+      "team_pattern",
+      "objects",
+      "workflows",
+      "event_fabric",
+      "evidence",
+      "state_machine",
+      "authority_gates",
+      "economic_operations",
+      "interfaces",
+      "adapters",
+      "deployment_targets"
+    ],
+    "consistency_rules": [
+      "Every referenced SWIRM must exist in CARBON_ACTUAL_SWIRM_TEAM_MATRIX_2026.json.",
+      "Every referenced TEAM pattern must exist in CARBON_ACTUAL_SWIRM_TEAM_MATRIX_2026.json.",
+      "Every product recipe remains subordinate to HAPI World CANON.md and Carbon Actual kernel.",
+      "Recipe capability is composability, not permission.",
+      "Unknown/future/simulated objects cannot silently become Actual.",
+      "Provider-specific integrations belong in adapters and do not become constitutional semantics."
+    ]
+  }
+}
