@@ -95,6 +95,11 @@ Core controls:
 - `architecture/CARBON_ACTUAL_LEGACY_ARCHITECTURE_CROSSWALK.json` — machine-checked coverage of historical architecture sources.
 - migration registry — historical compatibility and repository provenance control.
 
+## ECONOMIC & FINANCIAL INTELLIGENCE FABRIC — 2026
+
+The shared economic fabric is implemented at architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.md with a machine-readable registry at architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json.
+It provides 22 reusable engines covering monetisation, income, opportunity discovery, markets/news, trading, sourcing/deals, exchange, money, credit/leverage, liquidity, risk, portfolios, ownership, venture/private capital, arbitrage, derivatives, financial education, business intelligence, accounting/operations, tokenisation and financial command.
+ABBA and TIP compose it; products do not create parallel economic semantics.
 ## BOUNDARIES
 
 HAPI World defines constitutional meaning. Carbon Actual provides the operating-spine semantics and cross-product contracts. ABBA operationalizes those contracts through intelligence and orchestration. Products specialize interfaces and workflows without creating parallel universes.
