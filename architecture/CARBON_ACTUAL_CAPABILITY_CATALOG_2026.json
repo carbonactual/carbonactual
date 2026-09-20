@@ -1,10 +1,10 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-19.6",
+  "version": "2026-09-20.1",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 335,
+  "count": 366,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
   "families": [
     {
@@ -46,6 +46,14 @@
       "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:affiliate-marketing",
+      "name": "Affiliate Marketing",
+      "key": "affiliate-marketing",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:agent",
@@ -134,6 +142,14 @@
       "domain": "authority",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:arbitrage",
+      "name": "Arbitrage",
+      "key": "arbitrage",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:archive",
@@ -360,6 +376,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:brokerage",
+      "name": "Brokerage",
+      "key": "brokerage",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:budget-management",
       "name": "Budget Management",
       "key": "budget-management",
@@ -424,6 +448,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:capital-markets",
+      "name": "Capital Markets",
+      "key": "capital-markets",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:career-services",
       "name": "Career Services",
       "key": "career-services",
@@ -438,6 +470,14 @@
       "domain": "governance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:cash-flow-management",
+      "name": "Cash Flow Management",
+      "key": "cash-flow-management",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:cash-management",
@@ -736,6 +776,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:deal-intelligence",
+      "name": "Deal Intelligence",
+      "key": "deal-intelligence",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:decentralization",
       "name": "Decentralization",
       "key": "decentralization",
@@ -782,6 +830,14 @@
       "domain": "governance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:derivatives",
+      "name": "Derivatives",
+      "key": "derivatives",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:design",
@@ -904,6 +960,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:economic-intelligence",
+      "name": "Economic Intelligence",
+      "key": "economic-intelligence",
+      "domain": "economics",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:economics",
       "name": "Economics",
       "key": "economics",
@@ -1016,6 +1080,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:exchange",
+      "name": "Exchange",
+      "key": "exchange",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:experimentation",
       "name": "Experimentation",
       "key": "experimentation",
@@ -1038,6 +1110,38 @@
       "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:financial-analysis",
+      "name": "Financial Analysis",
+      "key": "financial-analysis",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:financial-command",
+      "name": "Financial Command",
+      "key": "financial-command",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:financial-forecasting",
+      "name": "Financial Forecasting",
+      "key": "financial-forecasting",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:financial-modeling",
+      "name": "Financial Modeling",
+      "key": "financial-modeling",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:flow-management",
@@ -1094,6 +1198,14 @@
       "domain": "security",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:futures",
+      "name": "Futures",
+      "key": "futures",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:geocoding",
@@ -1160,6 +1272,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:hedging",
+      "name": "Hedging",
+      "key": "hedging",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:heritage",
       "name": "Heritage",
       "key": "heritage",
@@ -1224,6 +1344,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:income-generation",
+      "name": "Income Generation",
+      "key": "income-generation",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:infrastructure-management",
       "name": "Infrastructure Management",
       "key": "infrastructure-management",
@@ -1278,6 +1406,14 @@
       "domain": "governance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:investment-analysis",
+      "name": "Investment Analysis",
+      "key": "investment-analysis",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:invigilation",
@@ -1384,6 +1520,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:leverage",
+      "name": "Leverage",
+      "key": "leverage",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:liability",
       "name": "Liability",
       "key": "liability",
@@ -1416,6 +1560,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:liquidity-management",
+      "name": "Liquidity Management",
+      "key": "liquidity-management",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:listing-management",
       "name": "Listing Management",
       "key": "listing-management",
@@ -1432,6 +1584,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:margin",
+      "name": "Margin",
+      "key": "margin",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:market-data",
       "name": "Market Data",
       "key": "market-data",
@@ -1446,6 +1606,14 @@
       "domain": "commerce",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:market-intelligence",
+      "name": "Market Intelligence",
+      "key": "market-intelligence",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:market-maker",
@@ -1584,12 +1752,28 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:monetization",
+      "name": "Monetisation",
+      "key": "monetization",
+      "domain": "economics",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:money",
       "name": "Money",
       "key": "money",
       "domain": "finance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:news-intelligence",
+      "name": "News Intelligence",
+      "key": "news-intelligence",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:notification",
@@ -1630,6 +1814,30 @@
       "domain": "resource",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:opportunity-intelligence",
+      "name": "Opportunity Intelligence",
+      "key": "opportunity-intelligence",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:options",
+      "name": "Options",
+      "key": "options",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:order-execution",
+      "name": "Order Execution",
+      "key": "order-execution",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:order-management",
@@ -1712,12 +1920,28 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:portfolio-analysis",
+      "name": "Portfolio Analysis",
+      "key": "portfolio-analysis",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:portfolio-management",
       "name": "Portfolio Management",
       "key": "portfolio-management",
       "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:position-management",
+      "name": "Position Management",
+      "key": "position-management",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:price-discovery",
@@ -1742,6 +1966,14 @@
       "domain": "privacy",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:private-capital",
+      "name": "Private Capital",
+      "key": "private-capital",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:problem-management",
@@ -2496,6 +2728,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:trading",
+      "name": "Trading",
+      "key": "trading",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:traffic",
       "name": "Traffic",
       "key": "traffic",
@@ -2614,6 +2854,14 @@
       "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:venture-capital",
+      "name": "Venture Capital",
+      "key": "venture-capital",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:verification",
