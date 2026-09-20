@@ -107,7 +107,7 @@ for (const [name, recipe] of Object.entries(productRecipeRegistry.recipes ?? {})
     if (!hasLocal && !hasDefault) fail(`product recipe ${name} missing ${field} and no registry default exists`);
   }
   if (!recipe.repo) fail(`product recipe ${name} is missing repository`);
-  if (!registeredProductRepositories.has(recipe.repo)) fail(`product recipe ${name} points to an unregistered product repository: ${recipe.repo}`);
+  if (!Object.values(products.products ?? {}).some((product) => product.repository === recipe.repo)) fail(`product recipe ${name} points to an unregistered product repository: ${recipe.repo}`);
   for (const swirm of recipe.swirms ?? []) if (!swirmIds.has(swirm)) fail(`product recipe ${name} references unknown SWIRM: ${swirm}`);
   if (!teamIds.has(recipe.team_pattern)) fail(`product recipe ${name} references unknown TEAM pattern: ${recipe.team_pattern}`);
   const effectiveEconomicOps = recipe.economic_operations ?? productRecipeRegistry.defaults.economic_operations;
