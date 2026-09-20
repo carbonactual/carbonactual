@@ -409,7 +409,7 @@
         "identity-resolution",
         "discovery-matching",
         "communication-presence",
-        "service-delivery",
+        "people-workforce-skills",
         "money-payment-credit-banking",
         "evidence-provenance-verification"
       ],
@@ -481,7 +481,7 @@
       "swirms": [
         "identity-resolution",
         "authority-consent",
-        "business-operating",
+        "management-operations",
         "civic-governance-public-services",
         "procurement-supply-resources",
         "rights-law-compliance",
