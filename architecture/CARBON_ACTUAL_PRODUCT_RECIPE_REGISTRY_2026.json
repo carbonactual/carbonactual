@@ -35,6 +35,20 @@
       "democratization",
       "ledgering",
       "settlement"
+    ],
+    "event_fabric": "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md",
+    "authority_gates": [
+      "identity",
+      "authority/Seal",
+      "policy",
+      "capability",
+      "context",
+      "evidence/readiness",
+      "execution",
+      "audit"
+    ],
+    "adapters": [
+      "provider-neutral capability adapters"
     ]
   },
   "recipes": {
