@@ -1,0 +1,46 @@
+{
+  "system": "Audubon Design System (AODS)",
+  "version": "3.0.0-universal",
+  "source": "architecture/audubon-plate-manifest.json",
+  "plateRange": [
+    1,
+    435
+  ],
+  "defaults": {
+    "mode": "light-pristine",
+    "ratio": "60-30-10",
+    "glassBlurPx": 16
+  },
+  "motion": {
+    "thermalGlide": "cubic-bezier(0.16,1,0.3,1)",
+    "raptorSwoop": "cubic-bezier(0.11,0.95,0.12,1)",
+    "tactileSpring": "spring(stiffness=500,damping=30,mass=0.8)",
+    "aquaticCurrent": "spring(stiffness=120,damping=30,mass=1)"
+  },
+  "anchors": {
+    "1": {
+      "name": "Wild Turkey",
+      "family": "Forest Floor & Soil"
+    },
+    "12": {
+      "name": "Baltimore Oriole",
+      "family": "Deep Canopy & Timber"
+    },
+    "66": {
+      "name": "Ivory-billed Woodpecker",
+      "family": "Deep Canopy & Timber"
+    },
+    "72": {
+      "name": "Swallow-tailed Hawk",
+      "family": "High Aerial & Sky"
+    },
+    "311": {
+      "name": "American White Pelican",
+      "family": "Open Marine Waters"
+    },
+    "431": {
+      "name": "American Flamingo",
+      "family": "Coastal Salt Lagoon"
+    }
+  }
+}
