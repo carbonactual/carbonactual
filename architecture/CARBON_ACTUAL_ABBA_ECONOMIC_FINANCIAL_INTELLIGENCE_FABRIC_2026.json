@@ -104,6 +104,14 @@
     {
       "id": "financial-command",
       "purpose": "objective + resources -> authorized economic workflow"
+    },
+    {
+      "id": "commerce-production-distribution",
+      "purpose": "retail, wholesale, distribution, purchasing, production, exploration and partnership orchestration"
+    },
+    {
+      "id": "prediction-challenge-incentive",
+      "purpose": "prediction, challenge, dare, boost and regulated betting/gaming workflows with eligibility and jurisdiction gates"
     }
   ],
   "lifecycle": [
@@ -144,6 +152,9 @@
     "no_profit_guarantees": true,
     "simulation_not_actual": true,
     "provider_output_not_truth": true,
-    "capability_not_authority": true
+    "capability_not_authority": true,
+    "regulated_gaming_requires_jurisdiction": true,
+    "regulated_gaming_requires_eligibility": true,
+    "challenge_requires_safety_policy": true
   }
 }
