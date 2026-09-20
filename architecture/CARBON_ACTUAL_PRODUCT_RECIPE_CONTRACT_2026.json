@@ -56,6 +56,10 @@
       "vercel",
       "self-hosted",
       "institutional"
+    ],
+    "shared_fabrics": [
+      "provider-neutral capability fabric",
+      "architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json"
     ]
   },
   "invariants": [
@@ -64,6 +68,8 @@
     "provider adapters remain replaceable",
     "consequential actions remain authority-gated",
     "evidence and provenance remain attached to material claims",
-    "current state is distinct from historical events"
+    "current state is distinct from historical events",
+    "economic and financial intelligence is composed through the shared fabric rather than product-local economic universes",
+    "financial recommendations and simulations do not create authority or Actual state"
   ]
 }
