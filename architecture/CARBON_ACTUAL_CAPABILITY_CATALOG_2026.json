@@ -1,10 +1,10 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-20.2",
+  "version": "2026-09-20.3",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 382,
+  "count": 385,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
   "families": [
     {
@@ -558,6 +558,14 @@
       "domain": "environment",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:clipping",
+      "name": "Clipping / Content Extraction",
+      "key": "clipping",
+      "domain": "media",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:commerce",
@@ -1430,6 +1438,14 @@
       "domain": "finance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:intelligence",
+      "name": "Intelligence",
+      "key": "intelligence",
+      "domain": "knowledge",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:intent",
@@ -2606,6 +2622,14 @@
       "domain": "communications",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:social-media",
+      "name": "Social Media",
+      "key": "social-media",
+      "domain": "communications",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:software-deployment",
