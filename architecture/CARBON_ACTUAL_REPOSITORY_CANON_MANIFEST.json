@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "repository": "carbonactual/carbonactual",
+  "constitutional_authority": "carbonactual/hapi-world/CANON.md",
+  "semantic_authority": "carbonactual/carbonactual",
+  "required_documents": [
+    ".github/CANON_LAW.md",
+    "architecture/CARBON_ACTUAL_AODS_CANON.md",
+    "architecture/CARBON_ACTUAL_HAPI_WORLD_TIER_II.md",
+    "architecture/audubon-plate-manifest.json",
+    "architecture/CARBON_ACTUAL_REPOSITORY_CANON_MANIFEST.json",
+    "scripts/validate-canon-law.mjs"
+  ],
+  "enforcement": {
+    "workflow": ".github/workflows/canon-law.yml",
+    "validator": "scripts/validate-canon-law.mjs"
+  },
+  "principles": [
+    "lower authority may implement but never redefine higher authority",
+    "unknown is not malicious",
+    "capability is not authority",
+    "ABBA recommendation is not authorization",
+    "products consume shared primitives"
+  ]
+}

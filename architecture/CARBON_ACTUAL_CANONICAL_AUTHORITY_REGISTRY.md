@@ -64,3 +64,7 @@ Protected concepts include Carbon Actual, OMNI, Being, Becoming, ABBA, Value, Pu
 ## Relationship to implementation
 
 The registry governs architecture only. It does not freeze providers, databases, model vendors, SDKs, infrastructure, pricing, exact economic formulas or product UI.
+
+## AODS / HAPI World Tier II additions — 2026-09-20
+
+Canonical technical extensions registered under existing authority: `architecture/CARBON_ACTUAL_AODS_CANON.md`, `architecture/CARBON_ACTUAL_HAPI_WORLD_TIER_II.md`, `architecture/audubon-plate-manifest.json`, and `.github/CANON_LAW.md`. These remain subordinate to `carbonactual/hapi-world/CANON.md` and do not create a competing constitutional kernel.

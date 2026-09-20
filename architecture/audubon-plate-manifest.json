@@ -1,0 +1,2259 @@
+{
+  "system": "Audubon Design System (AODS)",
+  "version": "3.0.0-universal",
+  "authority": "carbonactual/hapi-world/CANON.md",
+  "operating_spine": "carbonactual/carbonactual",
+  "plate_range": {
+    "min": 1,
+    "max": 435
+  },
+  "coverage_rule": "Every plate ordinal 1-435 is addressable. A plate is promoted to verified/canonical identity only when first-party or otherwise authoritative evidence is recorded.",
+  "plate_policy": "Unmapped ordinals are valid registry members but carry no invented species, scientific name, palette, habitat, or SVG facts.",
+  "habitat_families": [
+    "High Aerial & Sky",
+    "Deep Canopy & Timber",
+    "Coastal Salt Lagoon",
+    "Wetlands & River Basins",
+    "Open Marine Waters",
+    "Forest Floor & Soil",
+    "Tropical & Exo-Canopy",
+    "Nocturnal & Ridge"
+  ],
+  "plates": [
+    {
+      "number": 1,
+      "status": "curated_anchor",
+      "name": "Wild Turkey",
+      "family": "Forest Floor & Soil",
+      "habitat": "Oak Woodlands & Clay Forest Floor",
+      "domainMapping": "Governance, Legal Systems & Architecture",
+      "provenance": "declared-design-anchor",
+      "visual_tokens": {
+        "canvas": "#FDFBF7",
+        "surface": "#FFFFFF",
+        "glass": "rgba(255,255,255,0.80)",
+        "ratio": "60-30-10"
+      }
+    },
+    {
+      "number": 2,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 3,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 4,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 5,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 6,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 7,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 8,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 9,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 10,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 11,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 12,
+      "status": "curated_anchor",
+      "name": "Baltimore Oriole",
+      "family": "Deep Canopy & Timber",
+      "habitat": "Canopy Foliage & Open Woodlands",
+      "domainMapping": "Messaging, Protocol & Networks",
+      "provenance": "declared-design-anchor",
+      "visual_tokens": {
+        "canvas": "#FAF8F5",
+        "surface": "#FFFFFF",
+        "glass": "rgba(255,255,255,0.80)",
+        "ratio": "60-30-10"
+      }
+    },
+    {
+      "number": 13,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 14,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 15,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 16,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 17,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 18,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 19,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 20,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 21,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 22,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 23,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 24,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 25,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 26,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 27,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 28,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 29,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 30,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 31,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 32,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 33,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 34,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 35,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 36,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 37,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 38,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 39,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 40,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 41,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 42,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 43,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 44,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 45,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 46,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 47,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 48,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 49,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 50,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 51,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 52,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 53,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 54,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 55,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 56,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 57,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 58,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 59,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 60,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 61,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 62,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 63,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 64,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 65,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 66,
+      "status": "curated_anchor",
+      "name": "Ivory-billed Woodpecker",
+      "family": "Deep Canopy & Timber",
+      "habitat": "Deep Cypress Swamps & Old-Growth Timber",
+      "domainMapping": "Data Vault, Deep Storage & Security Cryptography",
+      "provenance": "declared-design-anchor",
+      "visual_tokens": {
+        "canvas": "#F7F8F6",
+        "surface": "#FFFFFF",
+        "glass": "rgba(255,255,255,0.80)",
+        "ratio": "60-30-10"
+      }
+    },
+    {
+      "number": 67,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 68,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 69,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 70,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 71,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 72,
+      "status": "curated_anchor",
+      "name": "Swallow-tailed Hawk",
+      "family": "High Aerial & Sky",
+      "habitat": "High-Altitude Air Currents & Sky Thermal Currents",
+      "domainMapping": "High-Speed Execution, Telemetry & API Gateways",
+      "provenance": "declared-design-anchor",
+      "visual_tokens": {
+        "canvas": "#F8FAFC",
+        "surface": "#FFFFFF",
+        "glass": "rgba(255,255,255,0.80)",
+        "ratio": "60-30-10"
+      }
+    },
+    {
+      "number": 73,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 74,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 75,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 76,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 77,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 78,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 79,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 80,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 81,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 82,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 83,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 84,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 85,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 86,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 87,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 88,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 89,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 90,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 91,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 92,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 93,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 94,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 95,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 96,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 97,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 98,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 99,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 100,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 101,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 102,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 103,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 104,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 105,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 106,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 107,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 108,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 109,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 110,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 111,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 112,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 113,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 114,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 115,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 116,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 117,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 118,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 119,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 120,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 121,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 122,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 123,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 124,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 125,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 126,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 127,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 128,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 129,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 130,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 131,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 132,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 133,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 134,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 135,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 136,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 137,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 138,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 139,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 140,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 141,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 142,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 143,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 144,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 145,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 146,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 147,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 148,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 149,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 150,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 151,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 152,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 153,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 154,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 155,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 156,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 157,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 158,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 159,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 160,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 161,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 162,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 163,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 164,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 165,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 166,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 167,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 168,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 169,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 170,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 171,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 172,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 173,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 174,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 175,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 176,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 177,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 178,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 179,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 180,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 181,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 182,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 183,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 184,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 185,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 186,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 187,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 188,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 189,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 190,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 191,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 192,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 193,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 194,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 195,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 196,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 197,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 198,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 199,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 200,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 201,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 202,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 203,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 204,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 205,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 206,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 207,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 208,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 209,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 210,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 211,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 212,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 213,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 214,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 215,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 216,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 217,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 218,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 219,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 220,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 221,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 222,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 223,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 224,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 225,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 226,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 227,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 228,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 229,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 230,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 231,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 232,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 233,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 234,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 235,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 236,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 237,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 238,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 239,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 240,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 241,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 242,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 243,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 244,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 245,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 246,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 247,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 248,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 249,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 250,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 251,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 252,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 253,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 254,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 255,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 256,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 257,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 258,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 259,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 260,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 261,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 262,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 263,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 264,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 265,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 266,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 267,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 268,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 269,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 270,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 271,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 272,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 273,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 274,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 275,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 276,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 277,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 278,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 279,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 280,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 281,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 282,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 283,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 284,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 285,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 286,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 287,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 288,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 289,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 290,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 291,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 292,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 293,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 294,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 295,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 296,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 297,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 298,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 299,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 300,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 301,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 302,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 303,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 304,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 305,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 306,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 307,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 308,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 309,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 310,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 311,
+      "status": "curated_anchor",
+      "name": "American White Pelican",
+      "family": "Open Marine Waters",
+      "habitat": "Open Coastal Waters & Tidal Reaches",
+      "domainMapping": "Search, Discovery & Global Vector Indexing",
+      "provenance": "declared-design-anchor",
+      "visual_tokens": {
+        "canvas": "#F0F9FF",
+        "surface": "#FFFFFF",
+        "glass": "rgba(255,255,255,0.80)",
+        "ratio": "60-30-10"
+      }
+    },
+    {
+      "number": 312,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 313,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 314,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 315,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 316,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 317,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 318,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 319,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 320,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 321,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 322,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 323,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 324,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 325,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 326,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 327,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 328,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 329,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 330,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 331,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 332,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 333,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 334,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 335,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 336,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 337,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 338,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 339,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 340,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 341,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 342,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 343,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 344,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 345,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 346,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 347,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 348,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 349,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 350,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 351,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 352,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 353,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 354,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 355,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 356,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 357,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 358,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 359,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 360,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 361,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 362,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 363,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 364,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 365,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 366,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 367,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 368,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 369,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 370,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 371,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 372,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 373,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 374,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 375,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 376,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 377,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 378,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 379,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 380,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 381,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 382,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 383,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 384,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 385,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 386,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 387,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 388,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 389,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 390,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 391,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 392,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 393,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 394,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 395,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 396,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 397,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 398,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 399,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 400,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 401,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 402,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 403,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 404,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 405,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 406,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 407,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 408,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 409,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 410,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 411,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 412,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 413,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 414,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 415,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 416,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 417,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 418,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 419,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 420,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 421,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 422,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 423,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 424,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 425,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 426,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 427,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 428,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 429,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 430,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 431,
+      "status": "curated_anchor",
+      "name": "American Flamingo",
+      "family": "Coastal Salt Lagoon",
+      "habitat": "Coastal Salt Lagoons & Estuaries",
+      "domainMapping": "Fintech, Wealth, Value Exchange & Tokenomics",
+      "provenance": "declared-design-anchor",
+      "visual_tokens": {
+        "canvas": "#FAF8F6",
+        "surface": "#FFFFFF",
+        "glass": "rgba(255,255,255,0.80)",
+        "ratio": "60-30-10"
+      }
+    },
+    {
+      "number": 432,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 433,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 434,
+      "status": "unmapped",
+      "visual_tokens": null
+    },
+    {
+      "number": 435,
+      "status": "unmapped",
+      "visual_tokens": null
+    }
+  ]
+}

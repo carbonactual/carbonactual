@@ -1,0 +1,35 @@
+name: Canon Law Conformance
+
+on:
+  push:
+    paths:
+      - ".github/CANON_LAW.md"
+      - "architecture/CARBON_ACTUAL_AODS_CANON.md"
+      - "architecture/CARBON_ACTUAL_HAPI_WORLD_TIER_II.md"
+      - "architecture/audubon-plate-manifest.json"
+      - "architecture/CARBON_ACTUAL_REPOSITORY_CANON_MANIFEST.json"
+      - "scripts/validate-canon-law.mjs"
+      - "tests/architecture/canon-law.test.mjs"
+  pull_request:
+    paths:
+      - ".github/CANON_LAW.md"
+      - "architecture/CARBON_ACTUAL_AODS_CANON.md"
+      - "architecture/CARBON_ACTUAL_HAPI_WORLD_TIER_II.md"
+      - "architecture/audubon-plate-manifest.json"
+      - "architecture/CARBON_ACTUAL_REPOSITORY_CANON_MANIFEST.json"
+      - "scripts/validate-canon-law.mjs"
+      - "tests/architecture/canon-law.test.mjs"
+
+jobs:
+  canon-law:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+      - run: node scripts/validate-canon-law.mjs
+      - run: node --test tests/architecture/canon-law.test.mjs
