@@ -84,7 +84,7 @@ for (const objectFamily of ['fiat','crypto-asset','mineral','food','energy','wat
 if (productRecipeContract.authority !== 'carbonactual/hapi-world/CANON.md') fail('product recipe constitutional authority drift');
 if (!Array.isArray(productRecipeContract.template?.interfaces) || !productRecipeContract.template.interfaces.includes('mcp')) fail('product recipe must support MCP projection');
 if (!Array.isArray(productRecipeContract.template?.economic_operations) || productRecipeContract.template.economic_operations.length < 7) fail('product recipe economic operation surface is incomplete');
-for (const marker of ['Carbon Actual Universal Entity & Capability Profile','Full capability means composability with relevant registered capabilities','identity -> authority/Seal -> policy -> capability']) {
+for (const marker of ['Carbon Actual Universal Entity & Capability Profile','Any entity may be composed with any relevant registered capability','identity -> authority/Seal -> policy -> capability']) {
   if (!entityCapabilityProfile.includes(marker)) fail('universal entity capability profile marker missing: ' + marker);
 }
 
