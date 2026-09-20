@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY",
-  "version": "2026.4",
+  "version": "2026.5",
   "status": "canonical-declarative-composition-index",
   "authority": "carbonactual/hapi-world/CANON.md",
   "operating_spine": "carbonactual/carbonactual",
@@ -140,7 +140,15 @@
         "clipping",
         "social-media",
         "intelligence",
-        "economics"
+        "economics",
+        "revenue",
+        "consolidation",
+        "chess-moves",
+        "establishment",
+        "mentor",
+        "role-model",
+        "institution",
+        "essential"
       ],
       "swirms": [
         "discovery-matching",
@@ -197,7 +205,9 @@
         "source -> wholesale/retail/distribution -> purchase -> logistics -> delivery -> settlement",
         "exploration -> qualification -> production/supply -> partnership -> contract -> distribution -> sale -> reconciliation",
         "index/basket -> market data -> valuation -> exposure -> risk -> authorized transaction -> settlement",
-        "social/news/media -> clip/source -> verify -> market/economic signal -> analysis -> opportunity/risk"
+        "social/news/media -> clip/source -> verify -> market/economic signal -> analysis -> opportunity/risk",
+        "business/asset set -> consolidation analysis -> ownership/obligations/evidence -> valuation -> governance -> authorized restructuring",
+        "market/business objective -> strategic moves -> scenario analysis -> risk gate -> authorized execution -> measurement"
       ],
       "evidence": [
         "identity",
@@ -418,7 +428,15 @@
         "clipping",
         "social-media",
         "intelligence",
-        "economics"
+        "economics",
+        "revenue",
+        "consolidation",
+        "chess-moves",
+        "establishment",
+        "mentor",
+        "role-model",
+        "institution",
+        "essential"
       ],
       "swirms": [
         "intent-planning-mission",
@@ -501,7 +519,11 @@
         "prediction -> evidence -> model -> scenario -> probability/odds -> eligibility/policy gate -> participation -> outcome -> settlement",
         "challenge/dare -> eligibility -> safety policy -> participation -> evidence -> outcome -> reward/boost -> reconciliation",
         "media/social source -> capture/clip -> provenance -> rights/context -> extract -> index -> analyze -> evidence -> publish/reuse",
-        "intelligence -> economic data -> causal/context analysis -> scenario -> opportunity/risk -> decision support"
+        "intelligence -> economic data -> causal/context analysis -> scenario -> opportunity/risk -> decision support",
+        "economic-state -> revenue recognition/realization -> consolidation -> reconciliation",
+        "objective -> board/state model -> candidate strategic moves -> scenario/simulation -> consequences -> authority gate -> authorized move -> observation -> learning",
+        "need -> essential capability map -> institution/service selection or establishment -> governance -> operation -> evidence",
+        "human -> mentor/role-model relationship -> goals -> interaction -> learning/development -> outcome -> continuity"
       ],
       "evidence": [
         "source",
