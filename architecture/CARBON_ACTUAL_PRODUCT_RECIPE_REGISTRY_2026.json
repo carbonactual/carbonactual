@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY",
-  "version": "2026.3",
+  "version": "2026.4",
   "status": "canonical-declarative-composition-index",
   "authority": "carbonactual/hapi-world/CANON.md",
   "operating_spine": "carbonactual/carbonactual",
@@ -136,7 +136,11 @@
         "gambling",
         "dares",
         "challenges",
-        "boost"
+        "boost",
+        "clipping",
+        "social-media",
+        "intelligence",
+        "economics"
       ],
       "swirms": [
         "discovery-matching",
@@ -192,7 +196,8 @@
         "price discrepancy -> cost normalization -> net arbitrage assessment -> risk gate -> authorized execution -> settlement",
         "source -> wholesale/retail/distribution -> purchase -> logistics -> delivery -> settlement",
         "exploration -> qualification -> production/supply -> partnership -> contract -> distribution -> sale -> reconciliation",
-        "index/basket -> market data -> valuation -> exposure -> risk -> authorized transaction -> settlement"
+        "index/basket -> market data -> valuation -> exposure -> risk -> authorized transaction -> settlement",
+        "social/news/media -> clip/source -> verify -> market/economic signal -> analysis -> opportunity/risk"
       ],
       "evidence": [
         "identity",
@@ -409,7 +414,11 @@
         "gambling",
         "dares",
         "challenges",
-        "boost"
+        "boost",
+        "clipping",
+        "social-media",
+        "intelligence",
+        "economics"
       ],
       "swirms": [
         "intent-planning-mission",
@@ -490,7 +499,9 @@
         "resource -> exploration -> qualification -> production -> offer -> distribution -> sale -> accounting",
         "counterparty -> partnership -> terms -> participation/share -> performance -> revenue/value reconciliation",
         "prediction -> evidence -> model -> scenario -> probability/odds -> eligibility/policy gate -> participation -> outcome -> settlement",
-        "challenge/dare -> eligibility -> safety policy -> participation -> evidence -> outcome -> reward/boost -> reconciliation"
+        "challenge/dare -> eligibility -> safety policy -> participation -> evidence -> outcome -> reward/boost -> reconciliation",
+        "media/social source -> capture/clip -> provenance -> rights/context -> extract -> index -> analyze -> evidence -> publish/reuse",
+        "intelligence -> economic data -> causal/context analysis -> scenario -> opportunity/risk -> decision support"
       ],
       "evidence": [
         "source",
