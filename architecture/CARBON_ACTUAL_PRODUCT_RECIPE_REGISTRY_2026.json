@@ -1,6 +1,6 @@
 {
   "registry": "CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY",
-  "version": "2026.2",
+  "version": "2026.3",
   "status": "canonical-declarative-composition-index",
   "authority": "carbonactual/hapi-world/CANON.md",
   "operating_spine": "carbonactual/carbonactual",
@@ -120,7 +120,23 @@
         "simulation",
         "accounting",
         "treasury",
-        "settlement-reconciliation"
+        "settlement-reconciliation",
+        "retail",
+        "distribution",
+        "wholesale",
+        "production",
+        "exploration",
+        "partnerships",
+        "share",
+        "swap",
+        "purchase",
+        "index",
+        "betting",
+        "predictions",
+        "gambling",
+        "dares",
+        "challenges",
+        "boost"
       ],
       "swirms": [
         "discovery-matching",
@@ -173,7 +189,10 @@
         "asset -> ownership-evidence -> valuation -> financing/transfer -> settlement",
         "market -> news/evidence -> thesis -> instrument -> position -> risk gate -> order -> execution -> acknowledgement -> verification -> settlement -> reconciliation",
         "opportunity -> sourcing -> qualification -> economics -> financing -> contract -> execution -> delivery -> settlement -> review",
-        "price discrepancy -> cost normalization -> net arbitrage assessment -> risk gate -> authorized execution -> settlement"
+        "price discrepancy -> cost normalization -> net arbitrage assessment -> risk gate -> authorized execution -> settlement",
+        "source -> wholesale/retail/distribution -> purchase -> logistics -> delivery -> settlement",
+        "exploration -> qualification -> production/supply -> partnership -> contract -> distribution -> sale -> reconciliation",
+        "index/basket -> market data -> valuation -> exposure -> risk -> authorized transaction -> settlement"
       ],
       "evidence": [
         "identity",
@@ -374,7 +393,23 @@
         "accounting",
         "treasury",
         "settlement",
-        "settlement-reconciliation"
+        "settlement-reconciliation",
+        "retail",
+        "distribution",
+        "wholesale",
+        "production",
+        "exploration",
+        "partnerships",
+        "share",
+        "swap",
+        "purchase",
+        "index",
+        "betting",
+        "predictions",
+        "gambling",
+        "dares",
+        "challenges",
+        "boost"
       ],
       "swirms": [
         "intent-planning-mission",
@@ -450,7 +485,12 @@
         "objective -> economic-state -> opportunity/market research -> analysis -> scenario -> strategy -> authority/risk gate -> authorized execution -> observation -> verification -> Actual -> ledger/settlement -> learning",
         "news -> source -> event -> affected entities -> mechanism -> measurable impact -> scenario -> opportunity/risk",
         "asset -> ownership evidence -> valuation -> liquidity -> financing/transfer -> settlement -> reconciliation",
-        "price-A + price-B -> cost normalization -> net spread -> risk gate -> authorized arbitrage execution"
+        "price-A + price-B -> cost normalization -> net spread -> risk gate -> authorized arbitrage execution",
+        "need -> purchase -> source -> wholesale/retail/distribution -> fulfillment -> settlement",
+        "resource -> exploration -> qualification -> production -> offer -> distribution -> sale -> accounting",
+        "counterparty -> partnership -> terms -> participation/share -> performance -> revenue/value reconciliation",
+        "prediction -> evidence -> model -> scenario -> probability/odds -> eligibility/policy gate -> participation -> outcome -> settlement",
+        "challenge/dare -> eligibility -> safety policy -> participation -> evidence -> outcome -> reward/boost -> reconciliation"
       ],
       "evidence": [
         "source",
