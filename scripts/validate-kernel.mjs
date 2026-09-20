@@ -27,6 +27,7 @@ const universalEventInteractionPath = 'architecture/CARBON_ACTUAL_UNIVERSAL_EVEN
 const economicObjectUniversePath = 'architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json';
 const productRecipeContractPath = 'architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json';
 const entityCapabilityProfilePath = 'architecture/CARBON_ACTUAL_UNIVERSAL_ENTITY_CAPABILITY_PROFILE_2026.md';
+const productRecipeRegistryPath = 'architecture/CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY_2026.json';
 
 const kernel = await readJson('architecture/ecosystem-kernel.json');
 const contract = await readJson('architecture/kernel-repo-contract.json');
@@ -50,6 +51,7 @@ const productRecipeContract = await readJson(productRecipeContractPath);
 const compositionSpine = await readFile(compositionSpinePath, 'utf8');
 const universalEventInteraction = await readFile(universalEventInteractionPath, 'utf8');
 const entityCapabilityProfile = await readFile(entityCapabilityProfilePath, 'utf8');
+const productRecipeRegistry = await readJson(productRecipeRegistryPath);
 
 const expectedFacets = ['identity','authority','intent','capability','relationship','event','evidence','state','value'];
 if (communicationPresence.canonical_source !== 'carbonactual/carbonactual/architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md') fail('communication/presence registry must resolve to canonical fabric');
@@ -86,6 +88,36 @@ if (!Array.isArray(productRecipeContract.template?.interfaces) || !productRecipe
 if (!Array.isArray(productRecipeContract.template?.economic_operations) || productRecipeContract.template.economic_operations.length < 7) fail('product recipe economic operation surface is incomplete');
 for (const marker of ['Carbon Actual Universal Entity & Capability Profile','Any entity may be composed with any relevant registered capability','identity -> authority/Seal -> policy -> capability']) {
   if (!entityCapabilityProfile.includes(marker)) fail('universal entity capability profile marker missing: ' + marker);
+}
+
+if (productRecipeRegistry.authority !== 'carbonactual/hapi-world/CANON.md') fail('product recipe registry constitutional authority drift');
+if (productRecipeRegistry.operating_spine !== 'carbonactual/carbonactual') fail('product recipe registry operating spine drift');
+if (productRecipeRegistry.contract !== 'architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json') fail('product recipe registry contract drift');
+if (productRecipeRegistry.composition_spine !== compositionSpinePath) fail('product recipe registry composition spine drift');
+if (productRecipeRegistry.event_fabric !== universalEventInteractionPath) fail('product recipe registry event fabric drift');
+if (productRecipeRegistry.economic_universe !== economicObjectUniversePath) fail('product recipe registry economic universe drift');
+const swirmIds = new Set((swirmTeamMatrix.swirms ?? []).map((entry) => entry[0]));
+const teamIds = new Set((swirmTeamMatrix.team_patterns ?? []).map((entry) => entry[0]));
+const requiredRecipeFields = productRecipeRegistry.validation?.required_recipe_fields ?? [];
+if (Object.keys(productRecipeRegistry.recipes ?? {}).length < 15) fail('product recipe registry unexpectedly small');
+for (const [name, recipe] of Object.entries(productRecipeRegistry.recipes ?? {})) {
+  for (const field of requiredRecipeFields) {
+    const hasLocal = recipe[field] !== undefined;
+    const hasDefault = productRecipeRegistry.defaults?.[field] !== undefined;
+    if (!hasLocal && !hasDefault) fail(`product recipe ${name} missing ${field} and no registry default exists`);
+  }
+  if (!recipe.repo) fail(`product recipe ${name} is missing repository`);
+  if (!registeredProductRepositories.has(recipe.repo)) fail(`product recipe ${name} points to an unregistered product repository: ${recipe.repo}`);
+  for (const swirm of recipe.swirms ?? []) if (!swirmIds.has(swirm)) fail(`product recipe ${name} references unknown SWIRM: ${swirm}`);
+  if (!teamIds.has(recipe.team_pattern)) fail(`product recipe ${name} references unknown TEAM pattern: ${recipe.team_pattern}`);
+  const effectiveEconomicOps = recipe.economic_operations ?? productRecipeRegistry.defaults.economic_operations;
+  for (const op of effectiveEconomicOps) if (!economicObjectUniverse.operations.includes(op)) fail(`product recipe ${name} references unknown economic operation: ${op}`);
+  const effectiveInterfaces = recipe.interfaces ?? productRecipeRegistry.defaults.interfaces;
+  if (!effectiveInterfaces.includes('mcp') || !effectiveInterfaces.includes('agent')) fail(`product recipe ${name} must expose MCP and agent projections`);
+  const effectiveEventFabric = recipe.event_fabric ?? productRecipeRegistry.defaults.event_fabric;
+  if (effectiveEventFabric !== universalEventInteractionPath) fail(`product recipe ${name} event fabric drift`);
+  const effectiveGate = recipe.authority_gates ?? productRecipeRegistry.defaults.authority_gates;
+  if (!effectiveGate.some((gate) => String(gate).includes('authority'))) fail(`product recipe ${name} has no authority gate`);
 }
 
 for (const marker of ['Carbon Actual Universal Composition Spine','build once -> strengthen once -> compose many','CANON','SWIRMs','TEAM / MISSION']) {
@@ -272,6 +304,7 @@ const canonicalSurfaces = [
   'architecture/CARBON_ACTUAL_PROJECTION_BOUNDARY.md','architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md',
   'architecture/CARBON_ACTUAL_ASH_PHOENIX_CONTINUITY_BOUNDARY.md','architecture/CARBON_ACTUAL_PROPOSAL_CONTRADICTION_INTAKE.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_FABRIC.md','architecture/CARBON_ACTUAL_COMMUNICATION_PRESENCE_REGISTRY.json','architecture/CARBON_ACTUAL_PHYSICAL_WORLD_INTEROPERABILITY_CONTRACT.md','architecture/CARBON_ACTUAL_HUMAN_ACCESSIBILITY_LOCALIZATION_CONTRACT.md','architecture/CARBON_ACTUAL_ECONOMIC_REVENUE_MONETIZATION_BOUNDARY.md','architecture/CARBON_ACTUAL_UNIVERSAL_ARCHITECTURE_FREEZE_COVERAGE.json','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_DOMAIN_CONTRACT.md','architecture/CARBON_ACTUAL_CREATIVE_ECONOMY_CAPABILITY_REGISTRY.json','architecture/CARBON_ACTUAL_CAPABILITY_OWNERSHIP.json','architecture/CARBON_ACTUAL_REPOSITORY_ROUTING_MAP.json','architecture/CARBON_ACTUAL_PRODUCT_TAXONOMY.json','architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md','architecture/CARBON_ACTUAL_SWARM_TEAM_TRACEABILITY.json',ecosystemOverviewPath,domainCircumferencePath,ecosystemDomainAtlasPath,swirmTeamMatrixPath,'architecture/CARBON_ACTUAL_INTEGRATION_PROVIDER_POLICY.md',
   'architecture/CARBON_ACTUAL_RUNTIME_OBSERVABILITY_BOUNDARY.md','architecture/CARBON_ACTUAL_SECURITY_POSTURE_AND_PROVIDER_BOUNDARIES.md',
+  compositionSpinePath,universalEventInteractionPath,economicObjectUniversePath,productRecipeContractPath,entityCapabilityProfilePath,productRecipeRegistryPath,
   'docs/superpowers/specs/2026-09-17-carbon-actual-operating-spine.md','docs/superpowers/plans/2026-09-17-carbon-actual-operating-spine.md'
 ];
 for (const path of canonicalSurfaces) {
