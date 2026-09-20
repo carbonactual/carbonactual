@@ -1,10 +1,10 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-20.3",
+  "version": "2026-09-20.4",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 385,
+  "count": 393,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
   "families": [
     {
@@ -528,6 +528,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:chess-moves",
+      "name": "Strategic Move / Chess-Move Analysis",
+      "key": "chess-moves",
+      "domain": "strategy",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:civic-records",
       "name": "Civic Records",
       "key": "civic-records",
@@ -646,6 +654,14 @@
       "domain": "environment",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:consolidation",
+      "name": "Consolidation",
+      "key": "consolidation",
+      "domain": "management",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:constraint",
@@ -1088,6 +1104,22 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:essential",
+      "name": "Essential Capability / Need",
+      "key": "essential",
+      "domain": "resource",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:establishment",
+      "name": "Establishment / Formation",
+      "key": "establishment",
+      "domain": "institution",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:event-streaming",
       "name": "Event Streaming",
       "key": "event-streaming",
@@ -1430,6 +1462,14 @@
       "domain": "technology",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:institution",
+      "name": "Institution",
+      "key": "institution",
+      "domain": "institution",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:insurance",
@@ -1790,6 +1830,14 @@
       "domain": "education",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:mentor",
+      "name": "Mentorship",
+      "key": "mentor",
+      "domain": "people",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:mentoring",
@@ -2384,6 +2432,14 @@
       "reviewed_on": "2026-09-20"
     },
     {
+      "id": "capability-family:revenue",
+      "name": "Revenue",
+      "key": "revenue",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:revocation",
       "name": "Revocation",
       "key": "revocation",
@@ -2422,6 +2478,14 @@
       "domain": "governance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:role-model",
+      "name": "Role Model",
+      "key": "role-model",
+      "domain": "people",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:routing",
