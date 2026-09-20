@@ -127,3 +127,26 @@ Disputed, reversed, expired, unknown and failed states remain preserved for cont
 ## 15. Acceptance rule
 
 Every economic capability must map to the shared kernel; declare inputs, outputs, evidence and side effects; state authority requirements; distinguish Actual from simulation; preserve provenance; remain provider-neutral; and compose into products without creating competing universal primitives.
+
+## 16. Commerce, Production & Participation Extension
+
+The economic fabric also covers:
+- retail, wholesale and distribution;
+- purchase, supply, inventory and fulfillment;
+- production, manufacturing and capacity;
+- exploration, discovery and extraction-stage opportunity workflows;
+- partnerships, joint ventures, referrals and revenue participation;
+- share/split/participation operations, distinct from legal equity where rights differ;
+- swaps and exchange structures;
+- indices/baskets and benchmark representations;
+- predictions, challenges, dares and boosts as participation/incentive patterns.
+
+These are compositions over the existing economic objects and do not create a second commerce or finance ontology.
+
+## 17. Prediction, Betting & Gambling Boundary
+
+Prediction can mean forecasting, probabilistic analysis, prediction contests or regulated prediction-market activity. Betting and gambling are regulated activities where applicable and therefore require jurisdiction, eligibility/age, responsible-play, funding, fraud/AML, limits, settlement and licensing/policy checks before any execution.
+
+ABBA can model scenarios, explain odds/probabilities and analyze markets where permitted. Capability does not itself authorize wagering or gambling.
+
+Dares/challenges are modeled as engagement or contest primitives. Safety policy must prevent harmful, coercive, illegal or materially dangerous challenges. Boosts are incentives or multipliers whose funding source, eligibility, limits and accounting remain explicit.
