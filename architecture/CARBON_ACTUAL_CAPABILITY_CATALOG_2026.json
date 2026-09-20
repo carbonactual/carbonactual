@@ -1,10 +1,10 @@
 {
   "name": "Carbon Actual Capability Catalog",
-  "version": "2026-09-20.1",
+  "version": "2026-09-20.2",
   "status": "canonical-registry-projection",
   "source_registry": "logical:capability",
   "scope": "open-world",
-  "count": 366,
+  "count": 382,
   "rule": "Capability meanings are canonical shared objects. Providers implement them; products consume them; authority is not inferred from capability.",
   "families": [
     {
@@ -320,6 +320,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:betting",
+      "name": "Betting",
+      "key": "betting",
+      "domain": "regulated-commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:bid-management",
       "name": "Bid Management",
       "key": "bid-management",
@@ -366,6 +374,14 @@
       "domain": "service",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:boost",
+      "name": "Boost / Incentive",
+      "key": "boost",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:bridge-interoperability",
@@ -494,6 +510,14 @@
       "domain": "knowledge",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:challenges",
+      "name": "Challenges",
+      "key": "challenges",
+      "domain": "engagement",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:change-management",
@@ -752,6 +776,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:dares",
+      "name": "Dares",
+      "key": "dares",
+      "domain": "social",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:data-export",
       "name": "Data Export",
       "key": "data-export",
@@ -918,6 +950,14 @@
       "domain": "technology",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:distribution",
+      "name": "Distribution",
+      "key": "distribution",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:document",
@@ -1096,6 +1136,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:exploration",
+      "name": "Exploration",
+      "key": "exploration",
+      "domain": "industry",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:facility-management",
       "name": "Facility Management",
       "key": "facility-management",
@@ -1204,6 +1252,14 @@
       "name": "Futures",
       "key": "futures",
       "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:gambling",
+      "name": "Gambling",
+      "key": "gambling",
+      "domain": "regulated-commerce",
       "global_scope": true,
       "reviewed_on": "2026-09-20"
     },
@@ -1347,6 +1403,14 @@
       "id": "capability-family:income-generation",
       "name": "Income Generation",
       "key": "income-generation",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
+      "id": "capability-family:index",
+      "name": "Index / Basket",
+      "key": "index",
       "domain": "finance",
       "global_scope": true,
       "reviewed_on": "2026-09-20"
@@ -1864,6 +1928,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:partnerships",
+      "name": "Partnerships",
+      "key": "partnerships",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:payment",
       "name": "Payment",
       "key": "payment",
@@ -1944,6 +2016,14 @@
       "reviewed_on": "2026-09-20"
     },
     {
+      "id": "capability-family:predictions",
+      "name": "Predictions",
+      "key": "predictions",
+      "domain": "forecasting",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:price-discovery",
       "name": "Price Discovery",
       "key": "price-discovery",
@@ -1998,6 +2078,14 @@
       "domain": "management",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:production",
+      "name": "Production",
+      "key": "production",
+      "domain": "industry",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:programme-management",
@@ -2078,6 +2166,14 @@
       "domain": "value",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:purchase",
+      "name": "Purchase",
+      "key": "purchase",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:quality-management",
@@ -2264,6 +2360,14 @@
       "reviewed_on": "2026-09-19"
     },
     {
+      "id": "capability-family:retail",
+      "name": "Retail",
+      "key": "retail",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
+    },
+    {
       "id": "capability-family:revocation",
       "name": "Revocation",
       "key": "revocation",
@@ -2438,6 +2542,14 @@
       "domain": "finance",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:share",
+      "name": "Share / Participation",
+      "key": "share",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:shipping",
@@ -2646,6 +2758,14 @@
       "domain": "security",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:swap",
+      "name": "Swap",
+      "key": "swap",
+      "domain": "finance",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:swarm",
@@ -2926,6 +3046,14 @@
       "domain": "integration",
       "global_scope": true,
       "reviewed_on": "2026-09-19"
+    },
+    {
+      "id": "capability-family:wholesale",
+      "name": "Wholesale",
+      "key": "wholesale",
+      "domain": "commerce",
+      "global_scope": true,
+      "reviewed_on": "2026-09-20"
     },
     {
       "id": "capability-family:workflow",
