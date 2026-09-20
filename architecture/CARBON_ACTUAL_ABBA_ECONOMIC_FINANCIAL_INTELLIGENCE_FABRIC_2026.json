@@ -112,6 +112,14 @@
     {
       "id": "prediction-challenge-incentive",
       "purpose": "prediction, challenge, dare, boost and regulated betting/gaming workflows with eligibility and jurisdiction gates"
+    },
+    {
+      "id": "media-clipping-social",
+      "purpose": "capture, clip, extract, annotate, attribute, index, publish and reuse media/social content under provenance and rights controls"
+    },
+    {
+      "id": "intelligence-economics",
+      "purpose": "combine intelligence, economics, markets and evidence into structured causal, comparative and scenario analysis"
     }
   ],
   "lifecycle": [
@@ -155,6 +163,9 @@
     "capability_not_authority": true,
     "regulated_gaming_requires_jurisdiction": true,
     "regulated_gaming_requires_eligibility": true,
-    "challenge_requires_safety_policy": true
+    "challenge_requires_safety_policy": true,
+    "clipping_requires_provenance": true,
+    "clipping_requires_rights_policy": true,
+    "social_media_source_attribution": true
   }
 }
