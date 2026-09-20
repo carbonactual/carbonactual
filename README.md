@@ -149,3 +149,16 @@ Carbon Actual is the canonical ecosystem name and operating-spine identity. Prod
 7. **Historical repositories** — provenance/recovery only unless explicitly promoted by amendment.
 
 The canonical architecture intentionally separates frozen invariants from replaceable implementations. New domains are composed from existing facets before any new universal primitive is considered.
+
+## COMPOSITION BUILD LAYER — 2026
+
+The build layer is now declarative and reusable:
+
+- `architecture/CARBON_ACTUAL_UNIVERSAL_COMPOSITION_SPINE_2026.md` — master coupling rule.
+- `architecture/CARBON_ACTUAL_UNIVERSAL_ENTITY_CAPABILITY_PROFILE_2026.md` — one capability-bearing profile for people, households, AI/entities, companies, governments, institutions, products, assets, places, events and knowledge objects.
+- `architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md` — one event/session model across in-person, virtual, remote, broadcast-only, hybrid and observed/external forms.
+- `architecture/CARBON_ACTUAL_ECONOMIC_OBJECT_UNIVERSE_2026.json` — open economic object and representation-operation boundaries.
+- `architecture/CARBON_ACTUAL_PRODUCT_RECIPE_CONTRACT_2026.json` — declarative product recipe contract.
+- `architecture/CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY_2026.json` — current product compositions over the shared fabric.
+
+**Build law:** build once → strengthen once → compose many → specialize only at the edge.
