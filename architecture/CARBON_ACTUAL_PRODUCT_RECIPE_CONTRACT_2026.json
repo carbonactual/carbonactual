@@ -1,0 +1,68 @@
+{
+  "version": "2026.1",
+  "authority": "carbonactual/hapi-world/CANON.md",
+  "template": {
+    "objective": "string",
+    "domains": [
+      "domain-id"
+    ],
+    "common_capabilities": [
+      "capability-key"
+    ],
+    "swirms": [
+      "swirm-id"
+    ],
+    "team_pattern": "team-pattern-id",
+    "objects": [
+      "object-family"
+    ],
+    "workflows": [
+      "workflow-id"
+    ],
+    "event_fabric": "CARBON_ACTUAL_UNIVERSAL_EVENT_INTERACTION_FABRIC_2026.md",
+    "evidence": [
+      "evidence-type"
+    ],
+    "state_machine": [
+      "state"
+    ],
+    "authority_gates": [
+      "authority-condition"
+    ],
+    "economic_operations": [
+      "decimalization",
+      "fractionalization",
+      "tokenization",
+      "minting",
+      "decentralization",
+      "ledgering",
+      "settlement"
+    ],
+    "interfaces": [
+      "web",
+      "mobile",
+      "pwa",
+      "api",
+      "cli",
+      "mcp",
+      "a2a",
+      "agent"
+    ],
+    "adapters": [
+      "provider-adapter"
+    ],
+    "deployment_targets": [
+      "vercel",
+      "self-hosted",
+      "institutional"
+    ]
+  },
+  "invariants": [
+    "recipe is declarative and not authority",
+    "product projection does not redefine shared semantics",
+    "provider adapters remain replaceable",
+    "consequential actions remain authority-gated",
+    "evidence and provenance remain attached to material claims",
+    "current state is distinct from historical events"
+  ]
+}

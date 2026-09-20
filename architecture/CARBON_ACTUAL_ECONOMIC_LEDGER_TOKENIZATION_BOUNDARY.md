@@ -55,3 +55,27 @@ The underlying governed object or right remains primary. Token state cannot manu
 ## Anti-duplication rule
 
 A financial product may add domain workflows, products, interfaces and settlement adapters, but may not create a second economic constitution, universal ledger ontology or independent authority system.
+
+## Representation-operation boundary
+The following are distinct, composable operations:
+- decimalization: changes representational precision or quantity granularity.
+- fractionalization: expresses divisible units, participations or rights.
+- tokenization: creates a digital representation referencing an underlying governed object, right or value.
+- minting: creates an ecosystem-recognized representation or issuance after applicable eligibility, authority, provenance and policy gates.
+- decentralization: distributes control, validation, execution or governance across independently authorized participants or infrastructure.
+- democratization: broadens access or participation under explicit eligibility and authority rules.
+- ledgering: records durable accounting, state or provenance.
+- settlement: fulfills an obligation or exchange through an authorized rail.
+None of these operations alone establishes truth, legal ownership, authority or value creation.
+
+## Open economic object universe
+Supported object families include: fiat, bank-money, e-money, crypto-asset, token, security, equity, debt, credit, commodity, mineral, metal, food, agriculture-output, energy, water, carbon/environmental-unit, property, land, inventory, machinery, vehicle, digital-product, data-right, IP-right, license, permit, certificate, credential, contract, lease, subscription, membership, franchise, collateral, pawned-item, capability, capacity, service, labor, attention, reputation and opportunity.
+Domain-specific classifications may extend these families with explicit parent semantics and jurisdictional constraints.
+
+## Pawn and collateral boundary
+Pawn is a financing and custody workflow, not a new asset primitive:
+object -> valuation -> custody -> loan/obligation -> redemption/expiry -> release/realization -> evidence/reconciliation
+Pawned-item status does not itself transfer underlying ownership.
+
+## Economic state machine
+identified -> qualified -> offered -> matched -> contracted -> committed -> executing -> delivered/custodied -> accounted -> settled -> reconciled -> disputed/reversed/expired -> archived

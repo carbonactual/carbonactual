@@ -324,3 +324,10 @@ Products may add workflow-specific behavior but do not create duplicate universa
 8. A transport is not the communication object.
 9. Privacy does not create hidden authority.
 10. Historical communication remains reconstructable where evidence permits.
+
+## 20. Universal Event & Interaction Fabric extension
+CPF supports in-person, virtual, remote/async, media/broadcast-only, hybrid and externally observed sessions.
+Sessions may be hosted by Carbon Actual, hosted externally and referenced, observed/indexed from external media, or reconstructed from evidence.
+Capacity is evaluated per session and role context. Compatible multiple roles may coexist only when session policy permits; conflicting roles require explicit separation or policy resolution.
+Session records may carry capacity/role, principal represented, delegation basis, attendance, floor/speaking state, witness/notary/inspector/observer status, agenda, minutes, materials, claims, findings, decisions, actions, evidence, media, timeline, protocol and realtime recognition/update state.
+External ingestion never converts third-party media into constitutional authority automatically.
