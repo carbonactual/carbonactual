@@ -25,7 +25,7 @@ export async function validateRepoCanon(rootDir=process.cwd()){
     }
   }
   const law=await read(".github/CANON_LAW.md");
-  for(const t of ["HAPI World CANON.md","AODS","435","Unknown is not malicious"]) if(law&&!law.includes(t)) violations.push("law-marker:"+t);
+  for(const t of ["HAPI World CANON.md","AODS","435","Unknown does not imply malicious"]) if(law&&!law.includes(t)) violations.push("law-marker:"+t);
   const aods=await read("architecture/CARBON_ACTUAL_AODS_CANON.md");
   for(const t of ["435-plate coverage","Eight working habitat families","60/30/10","AODS never overrides identity"]) if(aods&&!aods.includes(t)) violations.push("aods-marker:"+t);
   const tier=await read("architecture/CARBON_ACTUAL_HAPI_WORLD_TIER_II.md");
