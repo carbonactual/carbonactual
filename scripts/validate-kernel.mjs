@@ -84,11 +84,11 @@ for (const objectFamily of ['fiat','crypto-asset','mineral','food','energy','wat
 if (productRecipeContract.authority !== 'carbonactual/hapi-world/CANON.md') fail('product recipe constitutional authority drift');
 if (!Array.isArray(productRecipeContract.template?.interfaces) || !productRecipeContract.template.interfaces.includes('mcp')) fail('product recipe must support MCP projection');
 if (!Array.isArray(productRecipeContract.template?.economic_operations) || productRecipeContract.template.economic_operations.length < 7) fail('product recipe economic operation surface is incomplete');
-for (const marker of ['Universal Entity Capability Profile','Full capability means the entity can be composed','identity -> authority/Seal -> policy -> capability']) {
+for (const marker of ['Carbon Actual Universal Entity & Capability Profile','Full capability means composability with relevant registered capabilities','identity -> authority/Seal -> policy -> capability']) {
   if (!entityCapabilityProfile.includes(marker)) fail('universal entity capability profile marker missing: ' + marker);
 }
 
-for (const marker of ['UNIVERSAL COMPOSITION SPINE','build once -> strengthen once -> compose many','CANON','SWIRMs','TEAM / MISSION']) {
+for (const marker of ['Carbon Actual Universal Composition Spine','build once -> strengthen once -> compose many','CANON','SWIRMs','TEAM / MISSION']) {
   if (!compositionSpine.includes(marker)) fail('composition spine marker missing: ' + marker);
 }
 for (const marker of ['in-person','virtual','remote/async','media/broadcast-only','hybrid','externally hosted and observed','Capacity is session-scoped']) {
