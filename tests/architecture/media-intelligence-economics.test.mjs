@@ -1,0 +1,17 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+const root=process.cwd();
+const read=async r=>readFile(path.join(root,r),"utf8");
+const c=JSON.parse(await read("architecture/CARBON_ACTUAL_CAPABILITY_CATALOG_2026.json"));
+const f=JSON.parse(await read("architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json"));
+const r=JSON.parse(await read("architecture/CARBON_ACTUAL_PRODUCT_RECIPE_REGISTRY_2026.json"));
+const keys=new Set(c.families.map(x=>x.key));
+for(const k of ["clipping","social-media","intelligence","economics"]) assert.ok(keys.has(k),"missing capability: "+k);
+assert.ok(f.engines.some(x=>x.id==="media-clipping-social"));
+assert.ok(f.engines.some(x=>x.id==="intelligence-economics"));
+assert.equal(f.safety.clipping_requires_provenance,true);
+assert.equal(f.safety.clipping_requires_rights_policy,true);
+assert.equal(f.safety.social_media_source_attribution,true);
+for(const name of ["ABBA","TIP"]) for(const k of ["clipping","social-media","intelligence","economics"]) assert.ok(r.recipes[name].common_capabilities.includes(k));
+console.log("MEDIA_INTELLIGENCE_ECONOMICS_CONFORMANCE_PASSED");
