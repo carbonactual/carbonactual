@@ -67,3 +67,30 @@ One semantic recipe can project into web, mobile, PWA, API, CLI, MCP, A2A, agent
 
 ## Strengthening law
 build once -> strengthen once -> compose many -> specialize only at the edge
+## Universal Entity Capability Profile
+
+Every recognized operational entity can be represented through one shared capability-bearing profile. Entity class changes context, legal meaning and available boundaries; it does not create a separate operating ontology.
+
+Entity classes may include:
+- person/human
+- household
+- AI/entity
+- company/enterprise
+- government/public authority
+- nonprofit/association/cooperative
+- institution/professional body
+- product/service
+- asset/resource
+- place/territory
+- event/session
+- knowledge/media/document object
+
+A capability-bearing profile may expose, as applicable:
+identity references; roles; relationships; rights; obligations; resources; capabilities; credentials; authority/delegations; schedules; locations; communication surfaces; workflow participation; evidence/provenance; state; value; continuity; security policy; interfaces/adapters.
+
+Full capability means the entity can be composed with any relevant registered capability. It does not mean the entity automatically possesses permission to exercise every capability.
+
+Execution is constrained by:
+identity -> authority/Seal -> policy -> capability -> context -> evidence/readiness -> execution -> outcome -> audit
+
+Products should therefore not create separate human/company/government/AI capability stacks. They project the same shared capability-bearing model with domain-specific extensions.
