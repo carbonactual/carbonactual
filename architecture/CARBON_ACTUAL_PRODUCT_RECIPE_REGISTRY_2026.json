@@ -32,6 +32,7 @@
       "tokenization",
       "minting",
       "decentralization",
+      "democratization",
       "ledgering",
       "settlement"
     ]
@@ -392,7 +393,6 @@
       ],
       "swirms": [
         "identity-resolution",
-        "human-service",
         "discovery-matching",
         "communication-presence",
         "service-delivery",
@@ -545,9 +545,9 @@
       "swirms": [
         "identity-resolution",
         "education-assessment-credential",
+        "people-workforce-skills",
         "knowledge-search-research",
         "communication-presence",
-        "professional-certification",
         "evidence-provenance-verification"
       ],
       "team_pattern": "education-journey",
@@ -614,7 +614,7 @@
       "swirms": [
         "identity-resolution",
         "education-assessment-credential",
-        "professional-certification",
+        "people-workforce-skills",
         "knowledge-search-research",
         "communication-presence",
         "money-payment-credit-banking",
@@ -678,7 +678,7 @@
         "state"
       ],
       "swirms": [
-        "io-flow",
+        "intent-planning-mission",
         "transport-mobility-travel",
         "trade-logistics-fulfillment",
         "resource-capacity-allocation",
@@ -994,6 +994,406 @@
         "active",
         "superseded",
         "archived"
+      ]
+    },
+    "InstituteGPT": {
+      "repo": "carbonactual/institutegpt",
+      "objective": "Education and AI platform spanning learning, research, credentials, knowledge and professional development.",
+      "domains": [
+        "education",
+        "professional-education",
+        "research",
+        "credentials",
+        "ai"
+      ],
+      "common_capabilities": [
+        "identity",
+        "intent",
+        "search",
+        "knowledge",
+        "workflow",
+        "education",
+        "evidence",
+        "state",
+        "communications"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "education-assessment-credential",
+        "knowledge-search-research",
+        "people-workforce-skills",
+        "communication-presence",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "education-journey",
+      "objects": [
+        "learner",
+        "course",
+        "assessment",
+        "credential",
+        "institution",
+        "library",
+        "research-output",
+        "scholarship",
+        "service"
+      ],
+      "workflows": [
+        "discover -> enroll -> learn -> assess -> credential",
+        "question -> research -> evidence -> answer -> learning"
+      ],
+      "evidence": [
+        "identity",
+        "learning-record",
+        "assessment",
+        "credential",
+        "source",
+        "research-output"
+      ],
+      "state_machine": [
+        "discovered",
+        "enrolled",
+        "active",
+        "assessed",
+        "credentialed",
+        "alumni",
+        "archived"
+      ]
+    },
+    "HERITAGE": {
+      "repo": "carbonactual/heritage",
+      "objective": "Lineage, archival discovery, provenance, rights and digitization metadata.",
+      "domains": [
+        "heritage",
+        "archives",
+        "lineage",
+        "rights",
+        "knowledge"
+      ],
+      "common_capabilities": [
+        "identity",
+        "relationship",
+        "search",
+        "knowledge",
+        "document",
+        "evidence",
+        "provenance",
+        "rights",
+        "state",
+        "audit"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "knowledge-search-research",
+        "culture-heritage-media-creative",
+        "rights-licensing-ip",
+        "evidence-provenance-verification",
+        "continuity-recovery-succession"
+      ],
+      "team_pattern": "creative-production",
+      "objects": [
+        "person",
+        "place",
+        "event",
+        "document",
+        "artifact",
+        "collection",
+        "archive",
+        "record",
+        "right",
+        "license",
+        "media"
+      ],
+      "workflows": [
+        "discover -> identify -> provenance -> rights -> digitize -> publish",
+        "record -> evidence -> lineage -> archive -> continuity"
+      ],
+      "evidence": [
+        "source",
+        "provenance",
+        "custody",
+        "rights",
+        "attestation",
+        "media"
+      ],
+      "state_machine": [
+        "discovered",
+        "identified",
+        "qualified",
+        "rights-cleared",
+        "digitized",
+        "published",
+        "archived"
+      ]
+    },
+    "SEED": {
+      "repo": "carbonactual/seed",
+      "objective": "Genesis and incubation environment for ideas, projects, capability/resource matching and governed progression.",
+      "domains": [
+        "genesis",
+        "incubation",
+        "projects",
+        "funding",
+        "opportunities"
+      ],
+      "common_capabilities": [
+        "identity",
+        "intent",
+        "capability-discovery",
+        "matching",
+        "workflow",
+        "resource",
+        "value",
+        "evidence",
+        "state",
+        "communications"
+      ],
+      "swirms": [
+        "intent-planning-mission",
+        "discovery-matching",
+        "resource-capacity-allocation",
+        "management-operations",
+        "money-payment-credit-banking",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "resource-allocation",
+      "objects": [
+        "person",
+        "company",
+        "idea",
+        "project",
+        "capability",
+        "capacity",
+        "resource",
+        "funding",
+        "grant",
+        "opportunity",
+        "contract"
+      ],
+      "workflows": [
+        "idea -> qualify -> capability-match -> resources -> mission -> execution -> outcome",
+        "project -> funding -> approval -> execution -> milestone -> completion"
+      ],
+      "evidence": [
+        "identity",
+        "proposal",
+        "eligibility",
+        "funding",
+        "milestone",
+        "outcome"
+      ],
+      "state_machine": [
+        "submitted",
+        "screening",
+        "qualified",
+        "matched",
+        "funded",
+        "active",
+        "completed",
+        "closed"
+      ]
+    },
+    "BUNK": {
+      "repo": "carbonactual/bunk",
+      "objective": "Property and companion environment for geospatial discovery, rights, valuation, transactions and custody.",
+      "domains": [
+        "property",
+        "land",
+        "housing",
+        "geospatial",
+        "valuation",
+        "rights"
+      ],
+      "common_capabilities": [
+        "identity",
+        "geospatial",
+        "search",
+        "discovery",
+        "rights",
+        "workflow",
+        "evidence",
+        "value",
+        "payment",
+        "state"
+      ],
+      "swirms": [
+        "identity-resolution",
+        "property-land-built-environment",
+        "rights-law-compliance",
+        "evidence-provenance-verification",
+        "money-payment-credit-banking",
+        "discovery-matching"
+      ],
+      "team_pattern": "property-transaction",
+      "objects": [
+        "property",
+        "land",
+        "building",
+        "unit",
+        "asset",
+        "owner",
+        "rights",
+        "valuation",
+        "lease",
+        "contract",
+        "collateral"
+      ],
+      "workflows": [
+        "discover -> identify -> inspect -> verify-rights -> value -> offer -> contract -> settle",
+        "property -> custody -> maintenance -> transfer"
+      ],
+      "evidence": [
+        "title/rights",
+        "survey",
+        "inspection",
+        "valuation",
+        "contract",
+        "payment",
+        "custody"
+      ],
+      "state_machine": [
+        "listed",
+        "qualified",
+        "verified",
+        "offered",
+        "contracted",
+        "committed",
+        "transacting",
+        "settled",
+        "reconciled",
+        "archived"
+      ]
+    },
+    "Nigerian Cultural Atlas": {
+      "repo": "carbonactual/nigerian-cultural-atlas",
+      "objective": "Cultural curation, provenance-aware publishing and discovery over people, places, traditions, media and heritage.",
+      "domains": [
+        "culture",
+        "heritage",
+        "publishing",
+        "media",
+        "geospatial"
+      ],
+      "common_capabilities": [
+        "identity",
+        "search",
+        "knowledge",
+        "geospatial",
+        "document",
+        "media",
+        "evidence",
+        "provenance",
+        "rights",
+        "state"
+      ],
+      "swirms": [
+        "culture-heritage-media-creative",
+        "knowledge-search-research",
+        "data-geospatial-resolution",
+        "rights-licensing-ip",
+        "evidence-provenance-verification",
+        "communication-presence"
+      ],
+      "team_pattern": "creative-production",
+      "objects": [
+        "person",
+        "place",
+        "event",
+        "tradition",
+        "artifact",
+        "collection",
+        "document",
+        "media",
+        "publication",
+        "right",
+        "license"
+      ],
+      "workflows": [
+        "discover -> curate -> source -> verify -> rights -> publish",
+        "place -> people -> tradition -> evidence -> atlas-projection"
+      ],
+      "evidence": [
+        "source",
+        "provenance",
+        "media",
+        "attestation",
+        "rights",
+        "location"
+      ],
+      "state_machine": [
+        "discovered",
+        "sourced",
+        "curated",
+        "verified",
+        "rights-cleared",
+        "published",
+        "superseded",
+        "archived"
+      ]
+    },
+    "OMNI": {
+      "repo": "carbonactual/omni",
+      "objective": "Universal interface and operating surface for discovering and composing shared capabilities and product services.",
+      "domains": [
+        "universal-interface",
+        "discovery",
+        "services",
+        "integration",
+        "orchestration"
+      ],
+      "common_capabilities": [
+        "identity",
+        "intent",
+        "capability-discovery",
+        "search",
+        "matching",
+        "availability",
+        "workflow",
+        "communications",
+        "evidence",
+        "state"
+      ],
+      "swirms": [
+        "discovery-matching",
+        "communication-presence",
+        "workflow-automation",
+        "integration-api-mcp-a2a-protocols",
+        "intent-planning-mission",
+        "evidence-provenance-verification"
+      ],
+      "team_pattern": "software-delivery",
+      "objects": [
+        "person",
+        "company",
+        "government",
+        "service",
+        "capability",
+        "opportunity",
+        "asset",
+        "event",
+        "workflow",
+        "request"
+      ],
+      "workflows": [
+        "intent -> discover -> context -> availability -> request -> workflow -> result",
+        "capability -> provider -> adapter -> execution -> evidence -> state"
+      ],
+      "evidence": [
+        "identity",
+        "provider-source",
+        "availability",
+        "request",
+        "execution",
+        "result"
+      ],
+      "state_machine": [
+        "discovered",
+        "selected",
+        "requested",
+        "accepted",
+        "in-progress",
+        "completed",
+        "failed",
+        "closed"
       ]
     }
   },
