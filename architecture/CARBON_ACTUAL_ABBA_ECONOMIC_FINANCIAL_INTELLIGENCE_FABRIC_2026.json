@@ -1,0 +1,149 @@
+{
+  "registry": "CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC",
+  "version": "2026.1",
+  "status": "canonical-composition-registry",
+  "authority": "carbonactual/hapi-world/CANON.md",
+  "operating_spine": "carbonactual/carbonactual",
+  "doctrine": "architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.md",
+  "universal_kernel": [
+    "identity",
+    "authority",
+    "intent",
+    "capability",
+    "relationship",
+    "event",
+    "evidence",
+    "state",
+    "value"
+  ],
+  "engines": [
+    {
+      "id": "monetization",
+      "purpose": "value -> revenue/income"
+    },
+    {
+      "id": "income",
+      "purpose": "resources/capabilities -> earning pathways"
+    },
+    {
+      "id": "opportunity-intelligence",
+      "purpose": "need/gap -> opportunity"
+    },
+    {
+      "id": "market-intelligence",
+      "purpose": "market observations -> structured market state"
+    },
+    {
+      "id": "news-intelligence",
+      "purpose": "sourced event -> economic impact map"
+    },
+    {
+      "id": "trading-intelligence",
+      "purpose": "research -> governed market execution"
+    },
+    {
+      "id": "sourcing-deal-intelligence",
+      "purpose": "need -> verified counterparties/deals"
+    },
+    {
+      "id": "exchange",
+      "purpose": "economic object/right -> exchange/settlement"
+    },
+    {
+      "id": "fiat-money",
+      "purpose": "money -> accounts/payments/treasury"
+    },
+    {
+      "id": "credit-leverage",
+      "purpose": "capacity + collateral -> financing"
+    },
+    {
+      "id": "liquidity-intelligence",
+      "purpose": "asset/value -> realizability"
+    },
+    {
+      "id": "risk-volatility",
+      "purpose": "exposure -> risk state/scenarios"
+    },
+    {
+      "id": "portfolio-intelligence",
+      "purpose": "positions -> portfolio state"
+    },
+    {
+      "id": "equity-ownership",
+      "purpose": "entity -> rights/cap table"
+    },
+    {
+      "id": "venture-private-capital",
+      "purpose": "opportunity -> capital lifecycle"
+    },
+    {
+      "id": "arbitrage",
+      "purpose": "price/term differences -> net opportunity"
+    },
+    {
+      "id": "derivatives",
+      "purpose": "exposure -> derivative/hedge state"
+    },
+    {
+      "id": "financial-training",
+      "purpose": "knowledge need -> learning/simulation"
+    },
+    {
+      "id": "business-intelligence",
+      "purpose": "business state -> economic intelligence"
+    },
+    {
+      "id": "financial-operations",
+      "purpose": "economic events -> accounting/reconciliation"
+    },
+    {
+      "id": "tokenization-fractionalization",
+      "purpose": "qualified object/right -> representation"
+    },
+    {
+      "id": "financial-command",
+      "purpose": "objective + resources -> authorized economic workflow"
+    }
+  ],
+  "lifecycle": [
+    "observe",
+    "discover",
+    "verify",
+    "analyze",
+    "value",
+    "price",
+    "source",
+    "structure",
+    "finance",
+    "authorize",
+    "execute",
+    "settle",
+    "reconcile",
+    "measure",
+    "learn",
+    "reinvest/exit/restructure"
+  ],
+  "economic_operations": [
+    "decimalization",
+    "fractionalization",
+    "tokenization",
+    "minting",
+    "decentralization",
+    "democratization",
+    "ledgering",
+    "settlement"
+  ],
+  "quantitative_controls": {
+    "opportunity_net_economics": "gross spread - fees - taxes - financing - transport - slippage - settlement risk cost - time cost",
+    "cash": "opening cash + inflows - outflows = closing cash",
+    "exposure": "quantity x reference price"
+  },
+  "safety": {
+    "lawful_loopholes_only": true,
+    "no_profit_guarantees": true,
+    "simulation_not_actual": true,
+    "provider_output_not_truth": true,
+    "capability_not_authority": true
+  }
+}
