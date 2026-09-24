@@ -11,11 +11,19 @@
   "requiredEventSchema": {
     "type": "object",
     "properties": {
-      "eventId": { "type": "string", "format": "uuid" },
+      "eventId": {
+        "type": "string",
+        "format": "uuid"
+      },
       "eventType": {
         "type": "string",
         "enum": [
           "agent_created",
+          "agent_terminated",
+          "agent_suspended",
+          "agent_activated",
+          "agent_capabilities_bound",
+          "agent_registered",
           "agent_task_started",
           "agent_task_completed",
           "resource_consumed",
@@ -35,27 +43,64 @@
           "reconciliation_completed"
         ]
       },
-      "actorEntityId": { "type": "string" },
-      "principalEntityId": { "type": "string" },
-      "subjectRef": { "type": "string" },
-      "authorityRef": { "type": "string" },
-      "timestamp": { "type": "string", "format": "date-time" },
-      "recordedAt": { "type": "string", "format": "date-time" },
-      "correlationId": { "type": "string" },
-      "causationId": { "type": "string" },
-      "idempotencyKey": { "type": "string" },
-      "schemaVersion": { "type": "string" },
-      "provenance": { "type": "object" },
-      "payload": { "type": "object" },
-      "authoritySignature": { "type": "string" },
+      "actorEntityId": {
+        "type": "string"
+      },
+      "principalEntityId": {
+        "type": "string"
+      },
+      "subjectRef": {
+        "type": "string"
+      },
+      "authorityRef": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "recordedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "correlationId": {
+        "type": "string"
+      },
+      "causationId": {
+        "type": "string"
+      },
+      "idempotencyKey": {
+        "type": "string"
+      },
+      "schemaVersion": {
+        "type": "string"
+      },
+      "provenance": {
+        "type": "object"
+      },
+      "payload": {
+        "type": "object"
+      },
+      "authoritySignature": {
+        "type": "string"
+      },
       "pulseImpact": {
         "type": "object",
         "properties": {
-          "deltaValue": { "type": "number" },
-          "computeUnitsUsed": { "type": "number" },
-          "decimalizedUnits": { "type": "string" }
+          "deltaValue": {
+            "type": "number"
+          },
+          "computeUnitsUsed": {
+            "type": "number"
+          },
+          "decimalizedUnits": {
+            "type": "string"
+          }
         },
-        "required": ["deltaValue", "computeUnitsUsed"]
+        "required": [
+          "deltaValue",
+          "computeUnitsUsed"
+        ]
       }
     },
     "required": [
