@@ -188,7 +188,7 @@ export class ABBARuntimeOrchestrator {
       ...(communicationIntelligence?.outcomes.filter(item => !item.completed).map(item => `COMMUNICATION_OUTCOME:${item.communicationId}:${item.reasons.join('|')}`) ?? []),
       ...(workspaceArtifactIntelligence?.workspace.findings.filter(item => item.severity === 'HIGH' || item.severity === 'CRITICAL').map(item => `WORKSPACE_FINDING:${item.findingId}:${item.kind}`) ?? []),
       ...(workspaceArtifactIntelligence?.migrations.filter(item => !item.allowed).map(item => `MIGRATION_BLOCKED:${item.migrationId}:${item.reasons.join('|')}`) ?? []),
-      ...(workspaceArtifactIntelligence?.recoveries.filter(item => !item.feasible).map(item => `RECOVERY_BLOCKED:${item.recoveryId}:${item.reasons.join('|')}`) ?? [])
+      ...(workspaceArtifactIntelligence?.recoveries.filter(item => !item.feasible).map(item => `RECOVERY_BLOCKED:${item.recoveryId}:${item.reasons.join('|')}`) ?? []),
       ...reasoningAssessments.filter((assessment) => !assessment.valid).map((assessment) => `REASONING_BOUNDARY:${assessment.artifactId}:${assessment.reasons.join('|')}`),
       ...(missionIntelligence?.intent.clarificationRequired ? ['INTENT_CLARIFICATION_REQUIRED'] : []),
       ...(missionIntelligence?.decomposition.unresolvedDependencies ?? []).map((dep) => `MISSION_DEPENDENCY_UNRESOLVED:${dep}`),
