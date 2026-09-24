@@ -14,18 +14,21 @@ test('ABBA core job graph is sequential and ends in governed continuation/stop',
 
 test('closed-loop runtime preserves the observation-to-proposal boundary', () => {
   assert.match(runtime, /processTelemetry\(signal\)/);
-  assert.match(runtime, /capabilityDiscovery\.discover\(query\)/);
+  assert.match(runtime, /contextEngine\.buildContext/);
+  assert.match(runtime, /contextEngine\.synthesize/);
+  assert.match(runtime, /responsePlanner\.buildPlan/);
+  assert.match(runtime, /capabilityDiscovery\.discover/);
   assert.match(runtime, /curateSpecializedTeam/);
+  assert.match(runtime, /responseProposalStore\.record/);
   assert.match(runtime, /teamProposalStore\.record/);
-  assert.match(runtime, /observationStore\.record/);
   assert.match(runtime, /Promise\.all\(/);
   assert.doesNotMatch(runtime, /append_canonical_event/);
   assert.doesNotMatch(runtime, /supabase/);
 });
 
 test('closed-loop runtime blocks invalid or persistence-failed signals before composition', () => {
-  assert.match(runtime, /!processing\.isValid/);
-  assert.match(runtime, /OBSERVATION_PERSISTENCE_FAILED/);
-  assert.match(runtime, /kind: 'BLOCKED'/);
-  assert.match(runtime, /blockedSignalIds/);
+  assert.match(runtime, /item\.processing\.isValid && item\.observationPersisted/);
+  assert.match(runtime, /PERSIST_RESPONSE/);
+  assert.match(runtime, /responsePersistenceFailed/);
+  assert.match(runtime, /PERSIST_PROPOSAL/);
 });
