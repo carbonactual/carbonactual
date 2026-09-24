@@ -6,6 +6,7 @@ on:
       - 'architecture/canonical/**'
       - 'supabase/migrations/**'
       - 'tests/architecture/canonical-contract.test.mjs'
+      - 'tests/architecture/canonical-sql.test.mjs'
       - '.github/workflows/canonical-conformance.yml'
   pull_request:
     paths:
@@ -30,4 +31,4 @@ jobs:
       - name: Run canonical repository validator
         run: node scripts/validate-kernel.mjs
       - name: Run Phase 0/1 contract tests
-        run: node --test tests/architecture/canonical-contract.test.mjs
+        run: node --test tests/architecture/canonical-contract.test.mjs tests/architecture/canonical-sql.test.mjs
