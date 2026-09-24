@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
@@ -27,7 +27,9 @@
     "Production event persistence is adapted to the existing omnii event ingress where that substrate is authoritative.",
     "A substrate adapter must not create semantic duplicate event or state universes.",
     "Technical substrate readiness is distinct from authority and policy authorization.",
-    "A missing, degraded or duplicated substrate surface blocks consequential execution until repaired or explicitly adjudicated."
+    "A missing, degraded or duplicated substrate surface blocks consequential execution until repaired or explicitly adjudicated.",
+    "Source provenance, freshness and independence remain distinct from evidence and truth.",
+    "External observations retain reality state and are not silently promoted to canonical fact."
   ],
   "jobSequence": [
     {
@@ -711,6 +713,87 @@
         "ABBACORE-75"
       ],
       "output": "next_jobs_or_terminal_state"
+    },
+    {
+      "jobId": "ABBACORE-86",
+      "name": "DISCOVER_EVIDENCE_SOURCES",
+      "phase": "OBSERVE",
+      "dependsOn": [
+        "ABBACORE-76"
+      ],
+      "output": "evidence_source_set"
+    },
+    {
+      "jobId": "ABBACORE-87",
+      "name": "VERIFY_SOURCE_PROVENANCE",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-86"
+      ],
+      "output": "source_provenance_assessment"
+    },
+    {
+      "jobId": "ABBACORE-88",
+      "name": "CHECK_SOURCE_FRESHNESS",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-87"
+      ],
+      "output": "source_freshness_assessment"
+    },
+    {
+      "jobId": "ABBACORE-89",
+      "name": "ASSESS_SOURCE_INDEPENDENCE",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-88"
+      ],
+      "output": "source_independence_assessment"
+    },
+    {
+      "jobId": "ABBACORE-90",
+      "name": "BUILD_EVIDENCE_CHAIN",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-89"
+      ],
+      "output": "evidence_chain"
+    },
+    {
+      "jobId": "ABBACORE-91",
+      "name": "PRESERVE_SOURCE_CONTRADICTIONS",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-90"
+      ],
+      "output": "source_conflict_set"
+    },
+    {
+      "jobId": "ABBACORE-92",
+      "name": "CLASSIFY_EXTERNAL_REALITY_STATE",
+      "phase": "INTERPRET",
+      "dependsOn": [
+        "ABBACORE-91"
+      ],
+      "output": "external_reality_state"
+    },
+    {
+      "jobId": "ABBACORE-93",
+      "name": "UPDATE_PROVENANCE_BOUND_KNOWLEDGE",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-92"
+      ],
+      "output": "provenance_knowledge_update"
+    },
+    {
+      "jobId": "ABBACORE-94",
+      "name": "CONTINUE_OR_STOP",
+      "phase": "CONTINUE",
+      "dependsOn": [
+        "ABBACORE-93"
+      ],
+      "output": "next_jobs_or_terminal_state"
     }
   ],
   "continuation": {
@@ -766,7 +849,10 @@
     "probe_live_substrate",
     "evaluate_substrate_readiness",
     "reconcile_substrate_health",
-    "audit_substrate_binding_provenance"
+    "audit_substrate_binding_provenance",
+    "discover_evidence_sources",
+    "verify_source_provenance",
+    "preserve_source_contradictions"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -776,6 +862,7 @@
     "STEWARDSHIP",
     "UNIVERSAL_KNOWLEDGE_MASTERY",
     "REASONING_SUBSTRATE_BINDING",
-    "LIVE_SUBSTRATE_HEALTH"
+    "LIVE_SUBSTRATE_HEALTH",
+    "EVIDENCE_SOURCE_INTELLIGENCE"
   ]
 }
