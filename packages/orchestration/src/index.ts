@@ -26,3 +26,6 @@ export * from './knowledgeIntegrityEngine';
 export * from './languageCapabilityEngine';
 export * from './masteryEngine';
 export * from './universalKnowledgeMasteryPack';
+export * from './capabilityBenchmarkEngine';
+export * from './providerHealthEngine';
+export * from './providerFallbackEngine';
