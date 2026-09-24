@@ -55,3 +55,6 @@ export * from './workspaceIntelligenceEngine';
 export * from './artifactMigrationEngine';
 export * from './workspaceRecoveryEngine';
 export * from './workspaceArtifactIntelligencePack';
+export * from './roleIntelligenceEngine';
+export * from './accountabilityEngine';
+export * from './institutionalRoleIntelligencePack';

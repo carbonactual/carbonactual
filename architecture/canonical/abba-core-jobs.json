@@ -40,7 +40,9 @@
     "A failed or unacknowledged communication cannot be represented as successful completion.",
     "Workspace artifacts, branches and repositories retain lineage and provenance across migration and recovery.",
     "Duplicate content is not automatically duplicate semantic identity.",
-    "Destructive artifact deletion is not an autonomous default."
+    "Destructive artifact deletion is not an autonomous default.",
+    "Roles, responsibilities, capabilities, permissions, consent and authority remain distinct.",
+    "Segregation-of-duties and dual-control findings become explicit governance inputs and never self-resolve."
   ],
   "jobSequence": [
     {
@@ -1074,7 +1076,12 @@
     "detect_workspace_drift",
     "plan_artifact_migration",
     "build_workspace_recovery_point",
-    "reconcile_workspace"
+    "reconcile_workspace",
+    "resolve_role_assignments",
+    "check_responsibility_coverage",
+    "check_segregation_of_duties",
+    "check_dual_control",
+    "detect_accountability_gaps"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -1090,6 +1097,7 @@
     "OPERATIONAL_SAFETY_ENVELOPE",
     "IDENTITY_RELATIONSHIP_PRIVACY",
     "UNIVERSAL_COMMUNICATION",
-    "WORKSPACE_ARTIFACT_INTELLIGENCE"
+    "WORKSPACE_ARTIFACT_INTELLIGENCE",
+    "ROLE_RESPONSIBILITY_ACCOUNTABILITY"
   ]
 }
