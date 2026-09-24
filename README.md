@@ -136,6 +136,10 @@ ABBA capability discovery now has a separate assurance layer for provenance, ava
 
 Reference: `architecture/canonical/abba-capability-benchmarking.json` and `packages/orchestration/src/capabilityRoutingAssurance.ts`.
 
+## LIVE SUBSTRATE HEALTH — 2026
+
+ABBA now evaluates technical substrate readiness separately from authority: presence, RLS, direct-write closure, privileged ingress, semantic duplication and reconciliation health are checked before the Authority + Policy + Consent Gate. Reference: `architecture/canonical/abba-live-substrate-health.json` and `architecture/CARBON_ACTUAL_ABBA_LIVE_SUBSTRATE_HEALTH_2026.md`.
+
 ## BOUNDARIES
 
 HAPI World defines constitutional meaning. Carbon Actual provides the operating-spine semantics and cross-product contracts. ABBA operationalizes those contracts through intelligence and orchestration. Products specialize interfaces and workflows without creating parallel universes.
