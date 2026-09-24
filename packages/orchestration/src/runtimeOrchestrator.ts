@@ -116,7 +116,12 @@ export class ABBARuntimeOrchestrator {
       blockers: completionProof.blockers,
       terminalReason: completionProof.terminalReason,
       proofFingerprint: completionProof.proofFingerprint,
-      provenance: { source: 'ABBARuntimeOrchestrator', proofId: completionProof.proofId }
+      provenance: {
+        source: 'ABBARuntimeOrchestrator',
+        proofId: completionProof.proofId,
+        evidenceAssessments,
+        reasoningAssessments
+      }
     });
 
     return {
