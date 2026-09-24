@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IdentityAndAuthorityModel",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "canonicalSources": [
+    "architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md",
+    "architecture/CARBON_ACTUAL_CONTROL_PLANE.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md"
+  ],
+  "entities": {
+    "identityReference": "canonical_id_or_#",
+    "entityTypes": [
+      "HUMAN_AUTHORITY",
+      "ORCHESTRATOR_ABBA",
+      "HAPI_AGENT",
+      "INSTITUTIONAL_BODY",
+      "PRODUCT",
+      "ASSET_OR_RESOURCE",
+      "PLACE_OR_TERRITORY",
+      "EVENT_OR_SESSION",
+      "KNOWLEDGE_OR_MEDIA"
+    ],
+    "status": [
+      "ACTIVE",
+      "RESTRICTED",
+      "SUSPENDED",
+      "REVOKED",
+      "PROVISIONAL",
+      "HISTORICAL"
+    ]
+  },
+  "authorityContext": {
+    "requiredFields": [
+      "principal",
+      "delegation",
+      "authority",
+      "scope",
+      "jurisdiction",
+      "capability",
+      "policyVersion",
+      "intent",
+      "riskClass",
+      "correlationId",
+      "idempotencyKey",
+      "provenance",
+      "expiry"
+    ],
+    "authorityBasis": [
+      "SealGrant",
+      "SealConsent",
+      "constitutional_rule",
+      "delegated_role",
+      "jurisdictional_permission"
+    ]
+  },
+  "authorityBoundaries": {
+    "humanOverride": true,
+    "abbaControlPlane": {
+      "canSelfAuthorize": false,
+      "canAuthorizeStateMutations": false,
+      "canProposeStateMutations": true,
+      "canInvokeCapabilities": true,
+      "canBypassPolicies": false,
+      "canCreateAuthority": false,
+      "canRedefineCanonicalSemantics": false
+    }
+  },
+  "ordinalGateCompatibility": {
+    "enabledForLocalExecutionGatesOnly": true,
+    "levels": {
+      "0": "NO_AUTHORITY",
+      "1": "LOW_RISK_DELEGATED_EXECUTION",
+      "2": "AUTHORIZED_OPERATIONAL_CONTROL",
+      "3": "AGENT_PROVISIONING_OR_BOUNDARY_CONTROL",
+      "4": "HIGH_CONSEQUENCE_TERMINATION_OR_EQUIVALENT",
+      "5": "HIGHEST_GOVERNED_AUTHORITY"
+    },
+    "rule": "Ordinal levels are implementation-side gates and never replace SealGrant, constitutional authority, legal scope, consent, or jurisdiction."
+  },
+  "rules": [
+    "Capability never implies authority.",
+    "Identity never implies authority.",
+    "A discovered provider never implies authority.",
+    "Authority must be explicit, scoped, attributable and time-bounded where applicable.",
+    "Revoked or expired authority cannot be reused for consequential execution.",
+    "No lower-authority artifact may redefine a higher-authority boundary."
+  ]
+}
