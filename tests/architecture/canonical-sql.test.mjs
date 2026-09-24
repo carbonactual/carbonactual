@@ -5,7 +5,7 @@ import test from 'node:test';
 const sql = await readFile('supabase/migrations/20260924000000_canonical_init.sql', 'utf8');
 const ingress = await readFile('supabase/migrations/20260924000002_canonical_event_ingress_and_pulse.sql', 'utf8');
 const feedback = await readFile('supabase/migrations/20260924000003_feedback_observation_and_proposals.sql', 'utf8');
-const response = await readFile('supabase/migrations/20260924000004_abba_response_proposals.sql', 'utf8');
+const response = await readFile('supabase/migrations/20260924000004_abba_response_proposals.sql', 'utf8');\nconst supervisor = await readFile('supabase/migrations/20260924000005_abba_supervisor_and_substrate_bindings.sql', 'utf8');\nconst reconciliation = await readFile('supabase/migrations/20260924000006_abba_reconciliation_and_completion.sql', 'utf8');\nconst executions = await readFile('supabase/migrations/20260924000007_abba_execution_attempt_ledger.sql', 'utf8');
 
 test('canonical migration preserves append-only event history', () => {
   assert.match(sql, /BEFORE UPDATE OR DELETE ON public\.canonical_events/);
