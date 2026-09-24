@@ -34,7 +34,7 @@ test('certification and competency records are durable and the core lifecycle re
   assert.match(migration, /upsert_abba_competency_state/);
   assert.match(migration, /append_abba_certification_record/);
   assert.match(migration, /REVOKE ALL ON public\.abba_competency_states/);
-  assert.equal(graph.jobSequence.length, 54);
+  assert.equal(graph.jobSequence.length, 61);
   assert.equal(graph.jobSequence.at(-1).name, 'CONTINUE_OR_STOP');
   assert(graph.jobSequence.some((job) => job.name === 'VERIFY_EXTERNAL_CERTIFICATION'));
 });
