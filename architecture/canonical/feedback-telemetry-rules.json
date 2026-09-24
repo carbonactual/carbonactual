@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBATelemetryAndFeedbackPipeline",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
@@ -52,7 +52,16 @@
     "rawSignalRetention": "append_or_provenance_preserving",
     "sensitivePayloadRule": "minimum_required_context",
     "derivedObservationRule": "derived_observation_must_reference_source_signals",
-    "contradictionRule": "preserve_conflict_and_classify_before_resolution"
+    "contradictionRule": "preserve_conflict_and_classify_before_resolution",
+    "persistence": "durable_observation_store_before_action_proposal",
+    "idempotency": "signalId uniquely identifies an observation",
+    "failureMode": "do_not_compose_team_when_observation_persistence_fails"
+  },
+  "proposalRules": {
+    "durableProposalStore": "ABBA team proposals are persisted separately from canonical state events",
+    "idempotency": "proposal writes use an idempotency key derived from source signal and objective",
+    "authorization": "authorization_required is always true until an independent authority/policy gate records approval",
+    "executionBoundary": "proposal persistence never executes the proposed Team or workflow"
   },
   "curationEngine": {
     "dynamicTeamFormationAllowed": true,
