@@ -1,0 +1,15 @@
+{
+  "name":"@carbon-actual/canonical-spine",
+  "version":"0.1.0",
+  "private":true,
+  "type":"module",
+  "workspaces":["packages/*","apps/*"],
+  "scripts":{
+    "typecheck":"tsc --noEmit",
+    "test:contracts":"node --test tests/architecture/canonical-contract.test.mjs tests/architecture/canonical-sql.test.mjs",
+    "test":"npm run test:contracts"
+  },
+  "devDependencies":{
+    "typescript":"5.9.2"
+  }
+}
