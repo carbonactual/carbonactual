@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HAPIAgentStateMachine",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "states": [
+    "UNINITIALIZED",
+    "REGISTERED",
+    "PROVISIONED",
+    "ACTIVE",
+    "EXECUTING",
+    "PAUSED",
+    "TERMINATED"
+  ],
+  "initialState": "UNINITIALIZED",
+  "transitionRules": [
+    {
+      "from": "UNINITIALIZED",
+      "to": "REGISTERED",
+      "requiredEvent": "agent_registered",
+      "requiredAuthorityLevel": 3
+    },
+    {
+      "from": "REGISTERED",
+      "to": "PROVISIONED",
+      "requiredEvent": "agent_capabilities_bound",
+      "requiredAuthorityLevel": 3
+    },
+    {
+      "from": "PROVISIONED",
+      "to": "ACTIVE",
+      "requiredEvent": "agent_activated",
+      "requiredAuthorityLevel": 2
+    },
+    {
+      "from": "ACTIVE",
+      "to": "EXECUTING",
+      "requiredEvent": "agent_task_started",
+      "requiredAuthorityLevel": 1
+    },
+    {
+      "from": "EXECUTING",
+      "to": "ACTIVE",
+      "requiredEvent": "agent_task_completed",
+      "requiredAuthorityLevel": 1
+    },
+    {
+      "from": "ACTIVE",
+      "to": "PAUSED",
+      "requiredEvent": "agent_suspended",
+      "requiredAuthorityLevel": 2
+    },
+    {
+      "from": "*",
+      "to": "TERMINATED",
+      "requiredEvent": "agent_terminated",
+      "requiredAuthorityLevel": 4
+    }
+  ],
+  "authorityRequirement": "Transitions must pass identity, authority, policy and event validation; numeric levels are local execution gates only.",
+  "recoveryRules": [
+    "A corrupted projection must be rebuildable from accepted event/evidence history.",
+    "TERMINATED is not silently reversible; reactivation requires a new governed lifecycle transition."
+  ]
+}
