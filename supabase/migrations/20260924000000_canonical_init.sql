@@ -192,6 +192,12 @@ DECLARE
   v_entry_id UUID := CASE WHEN TG_OP = 'DELETE' THEN OLD.entry_id ELSE NEW.entry_id END;
   v_unbalanced_units TEXT;
 BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM public.ledger_lines WHERE entry_id = v_entry_id
+  ) THEN
+    RAISE EXCEPTION 'Ledger entry % must contain at least one debit and one credit line', v_entry_id;
+  END IF;
+
   SELECT string_agg(unit, ', ' ORDER BY unit)
   INTO v_unbalanced_units
   FROM (
