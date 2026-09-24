@@ -40,3 +40,6 @@ export class ABBAUncertaintyLedger {
     };
   }
 }
+
+
+export function assessUncertaintyMany(ledger: ABBAUncertaintyLedger, records: UncertaintyRecord[]): UncertaintyAssessment[] { return records.map((record) => ledger.assess(record)); }
