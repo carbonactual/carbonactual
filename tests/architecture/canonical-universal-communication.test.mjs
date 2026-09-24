@@ -7,6 +7,8 @@ const jobs=JSON.parse(await readFile('architecture/canonical/abba-universal-comm
 const intelligence=await readFile('packages/orchestration/src/communicationIntelligenceEngine.ts','utf8');
 const routing=await readFile('packages/orchestration/src/communicationRoutingEngine.ts','utf8');
 const outcome=await readFile('packages/orchestration/src/deliveryOutcomeEngine.ts','utf8');
+const runtime=await readFile('packages/orchestration/src/runtimeOrchestrator.ts','utf8');
+const specialistPacks=JSON.parse(await readFile('architecture/canonical/abba-intelligence-specialist-packs.json','utf8'));
 
 test('communication lifecycle separates delivery from acknowledgement',()=>{
   assert.match(JSON.stringify(contract),/Delivery is not acknowledgement/i);
@@ -27,5 +29,7 @@ test('channel routing is language, privacy and reliability aware',()=>{
 
 test('communication specialist pack is complete and execution-disabled',()=>{
   assert.equal(jobs.jobs.length,14);
+  assert.ok(specialistPacks.packs.some(pack => pack.packId === 'UNIVERSAL_COMMUNICATION'));
+  assert.match(runtime,/communicationPack\.assess/);
   assert.match(JSON.stringify(jobs),/executionAllowed/);
 });
