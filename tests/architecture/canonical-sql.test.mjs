@@ -5,6 +5,7 @@ import test from 'node:test';
 const sql = await readFile('supabase/migrations/20260924000000_canonical_init.sql', 'utf8');
 const ingress = await readFile('supabase/migrations/20260924000002_canonical_event_ingress_and_pulse.sql', 'utf8');
 const feedback = await readFile('supabase/migrations/20260924000003_feedback_observation_and_proposals.sql', 'utf8');
+const response = await readFile('supabase/migrations/20260924000004_abba_response_proposals.sql', 'utf8');
 
 test('canonical migration preserves append-only event history', () => {
   assert.match(sql, /BEFORE UPDATE OR DELETE ON public\.canonical_events/);
@@ -41,7 +42,7 @@ test('Privileged canonical RPC and Pulse trigger exist', () => {
 test('feedback observation storage is durable and closed to direct writes', () => {
   assert.match(feedback, /CREATE TABLE IF NOT EXISTS public\.feedback_observations/);
   assert.match(feedback, /signal_id text NOT NULL UNIQUE/);
-  assert( feedback.includes('append_feedback_observation'));
+  assert(feedback.includes('append_feedback_observation'));
   assert(feedback.includes('GRANT EXECUTE ON FUNCTION public.append_feedback_observation(jsonb) TO service_role'));
   assert(feedback.includes('REVOKE ALL ON public.feedback_observations FROM PUBLIC, anon, authenticated, service_role'));
 });
@@ -52,4 +53,13 @@ test('ABBA proposal storage is idempotent and cannot authorize itself', () => {
   assert.match(feedback, /authorization_required boolean NOT NULL DEFAULT true CHECK \(authorization_required = true\)/);
   assert(feedback.includes('append_abba_team_proposal'));
   assert(feedback.includes('GRANT EXECUTE ON FUNCTION public.append_abba_team_proposal(jsonb) TO service_role'));
+});
+
+test('ABBA response proposals are durable and execution-disabled until gated', () => {
+  assert.match(response, /CREATE TABLE IF NOT EXISTS public\.abba_response_proposals/);
+  assert(response.includes('idempotency_key text NOT NULL UNIQUE'));
+  assert(response.includes('authority_required boolean NOT NULL DEFAULT true CHECK (authority_required = true)'));
+  assert(response.includes('execution_allowed boolean NOT NULL DEFAULT false CHECK (execution_allowed = false)'));
+  assert(response.includes('append_abba_response_proposal'));
+  assert(response.includes('GRANT EXECUTE ON FUNCTION public.append_abba_response_proposal(jsonb) TO service_role'));
 });
