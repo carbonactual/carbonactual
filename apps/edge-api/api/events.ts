@@ -1,3 +1,5 @@
+declare const process: { env: Record<string, string | undefined> };
+
 import { handleIncomingEventRequest, type EdgeEnvironment } from '../src/routes/events';
 
 export const config = { runtime: 'edge' };
