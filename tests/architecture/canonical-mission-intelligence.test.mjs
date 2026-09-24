@@ -13,7 +13,7 @@ const runtime=await readFile('packages/orchestration/src/runtimeOrchestrator.ts'
 const graph=JSON.parse(await readFile('architecture/canonical/abba-core-jobs.json','utf8'));
 
 test('specialist packs cover mission intelligence, capability assurance, outcomes and stewardship',()=>{
-  assert.equal(contract.packs.length,14)
+  assert.equal(contract.packs.length,15)
   assert.match(JSON.stringify(contract),/MISSION_INTELLIGENCE/);
   assert.match(JSON.stringify(contract),/CAPABILITY_ASSURANCE/);
   assert.match(JSON.stringify(contract),/OUTCOME_ANALYSIS/);
