@@ -72,6 +72,17 @@
         "REPAIR_KNOWLEDGE_GRAPH",
         "EXPLAIN_MASTERY_STATE"
       ]
+    },
+    {
+      "packId": "CAPABILITY_BENCHMARK_AND_FALLBACK",
+      "insertionPoint": "CAPABILITY_DISCOVERY_AND_READINESS",
+      "jobs": [
+        "BENCHMARK_CAPABILITY_CANDIDATES",
+        "VERIFY_PROVIDER_HEALTH",
+        "PROPOSE_PRIMARY_PROVIDER",
+        "PROPOSE_FALLBACK_PROVIDERS",
+        "REASSESS_PROVIDER_ROUTE"
+      ]
     }
   ],
   "boundary": {
