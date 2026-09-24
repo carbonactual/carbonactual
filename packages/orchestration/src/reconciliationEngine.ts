@@ -17,6 +17,7 @@ export interface ReconciliationInput {
   canonicalUpdatedAt?: string;
   substrateUpdatedAt?: string;
   duplicateCount?: number;
+  readError?: string;
   evidenceRefs: string[];
 }
 
@@ -48,6 +49,18 @@ export class ABBAReconciliationEngine {
   public reconcile(input: ReconciliationInput): ReconciliationResult {
     const evidenceRefs = [...new Set(input.evidenceRefs)];
     const duplicateCount = input.duplicateCount ?? 0;
+
+    if (input.readError) {
+      return {
+        canonicalRef: input.canonicalRef,
+        substrateKind: input.substrateKind,
+        substrateRef: input.substrateRef,
+        status: 'UNKNOWN',
+        reason: `SUBSTRATE_READ_FAILED:${input.readError}`,
+        evidenceRefs,
+        repairRequired: true
+      };
+    }
 
     if (duplicateCount > 1) {
       return {
