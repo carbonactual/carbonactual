@@ -5,7 +5,7 @@ import { ABBALiveSubstrateReconciler, LiveSubstrateBindingSpec } from './liveSub
 import { ABBAReasoningAssuranceEngine, ReasoningArtifact, ReasoningAssessment } from './reasoningAssuranceEngine';
 import { ABBAMissionIntelligencePack, MissionIntelligenceInput, MissionIntelligenceResult } from './missionIntelligencePack';
 import { ABBAEvidenceSourceIntelligencePack, EvidenceSourceIntelligenceInput, EvidenceSourceIntelligenceResult } from './evidenceSourceIntelligencePack';
-import { ABBAHumanCoordinationPack, HumanCoordinationInput, HumanCoordinationResult } from './humanCoordinationPack';
+import { ABBAHumanCoordinationPack, HumanCoordinationInput, HumanCoordinationResult, HumanCoordinationStore } from './humanCoordinationPack';
 import { ABBAUniversalKnowledgeMasteryPack, UniversalKnowledgeMasteryInput, UniversalKnowledgeMasteryResult } from './universalKnowledgeMasteryPack';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
@@ -47,6 +47,8 @@ export interface ABBARuntimeCycleResult {
   knowledgeMastery?: UniversalKnowledgeMasteryResult;
   evidenceSourceIntelligence?: EvidenceSourceIntelligenceResult;
   humanCoordination?: HumanCoordinationResult;
+  humanCoordinationRequestIds: string[];
+  humanDecisionIds: string[];
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -61,6 +63,7 @@ export class ABBARuntimeOrchestrator {
     private readonly knowledgeMasteryPack: ABBAUniversalKnowledgeMasteryPack,
     private readonly evidenceSourceIntelligencePack: ABBAEvidenceSourceIntelligencePack,
     private readonly humanCoordinationPack: ABBAHumanCoordinationPack,
+    private readonly humanCoordinationStore: HumanCoordinationStore | undefined,
     private readonly reconciliationWriter: ReconciliationWriter,
     private readonly completionWriter: CompletionProofWriter
   ) {}
@@ -107,6 +110,42 @@ export class ABBARuntimeOrchestrator {
     const humanCoordination = input.humanCoordinationInput
       ? this.humanCoordinationPack.assess(input.humanCoordinationInput)
       : undefined;
+    const humanCoordinationRequestIds: string[] = [];
+    const humanDecisionIds: string[] = [];
+    if (humanCoordination && input.humanCoordinationInput && this.humanCoordinationStore) {
+      for (const request of input.humanCoordinationInput.requests) {
+        humanCoordinationRequestIds.push(await this.humanCoordinationStore.recordRequest({
+          requestId: request.requestId,
+          correlationId: input.cycle.cycleId,
+          requestType: request.type,
+          humanRef: request.humanRef,
+          objective: request.objective,
+          contextRefs: request.contextRefs,
+          evidenceRefs: request.evidenceRefs,
+          decisionRequired: request.decisionRequired,
+          expiresAt: request.expiresAt,
+          status: request.status,
+          minimumContext: request.minimumContext,
+          provenance: { ...request.provenance, source: 'ABBARuntimeOrchestrator' },
+          idempotencyKey: 'abba:human-request:' + request.requestId
+        }));
+      }
+      for (const authorization of input.humanCoordinationInput.authorizations) {
+        humanDecisionIds.push(await this.humanCoordinationStore.recordDecision({
+          requestId: authorization.requestId,
+          humanRef: authorization.humanRef,
+          decisionType: authorization.decision,
+          decisionPayload: { decisionRef: authorization.decisionRef, scope: authorization.scope },
+          evidenceRefs: authorization.evidenceRefs,
+          authorityRef: authorization.authorityRef,
+          signatureRef: authorization.signatureRef,
+          recordedBy: authorization.humanRef,
+          decidedAt: authorization.decidedAt,
+          provenance: { ...authorization.provenance, source: 'ABBARuntimeOrchestrator' },
+          idempotencyKey: 'abba:human-decision:' + authorization.authorizationId
+        }));
+      }
+    }
     const evidenceComplete =
       input.evidenceItems !== undefined &&
       input.evidenceItems.length > 0 &&
@@ -176,6 +215,8 @@ export class ABBARuntimeOrchestrator {
       knowledgeMastery,
       evidenceSourceIntelligence,
       humanCoordination,
+      humanCoordinationRequestIds,
+      humanDecisionIds,
       reconciliationRecordIds,
       completionProofRecordId
     };
