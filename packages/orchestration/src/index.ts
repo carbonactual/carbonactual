@@ -30,3 +30,5 @@ export * from './capabilityBenchmarkEngine';
 export * from './providerHealthEngine';
 export * from './providerFallbackEngine';
 export * from './capabilityRoutingAssurance';
+export * from './reasoningSubstrateBinding';
+export * from './governedReasoningSubstrateBridge';
