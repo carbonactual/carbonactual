@@ -124,7 +124,7 @@ export function createSupabaseTableReader(
 export class SupabaseCanonicalEventWriter implements CanonicalEventWriter {
   constructor(private readonly rpc: SupabaseRpcClient) {}
   async append(event: CanonicalEventEnvelope): Promise<string> {
-    return rpcId(await this.rpc.call('append_canonical_event', { event }));
+    return rpcId(await this.rpc.call('append_canonical_event', event as unknown as Record<string, unknown>));
   }
 }
 
@@ -279,7 +279,7 @@ export interface SupabaseReconciliationStore {
 export class SupabaseReconciliationWriter implements SupabaseReconciliationStore {
   constructor(private readonly rpc: SupabaseRpcClient) {}
   async append(input: Record<string, unknown>): Promise<string> {
-    return rpcId(await this.rpc.call('append_abba_reconciliation_record', { record: input }));
+    return rpcId(await this.rpc.call('append_abba_reconciliation_record', input));
   }
 }
 
@@ -290,7 +290,7 @@ export interface SupabaseCompletionStore {
 export class SupabaseCompletionWriter implements SupabaseCompletionStore {
   constructor(private readonly rpc: SupabaseRpcClient) {}
   async append(input: Record<string, unknown>): Promise<string> {
-    return rpcId(await this.rpc.call('append_abba_completion_proof', { proof: input }));
+    return rpcId(await this.rpc.call('append_abba_completion_proof', input));
   }
 }
 
@@ -299,11 +299,9 @@ export class SupabaseExecutionAttemptStore implements ExecutionAttemptStore {
 
   async reserve(input: { executionId: string; actionId: string; idempotencyKey: string }): Promise<import('./executionGateway').ExecutionAttemptReservationResult> {
     const result = rpcObject(await this.rpc.call('reserve_abba_execution_attempt', {
-      execution: {
-        executionId: input.executionId,
-        actionId: input.actionId,
-        idempotencyKey: input.idempotencyKey
-      }
+      executionId: input.executionId,
+      actionId: input.actionId,
+      idempotencyKey: input.idempotencyKey
     }));
     const reservation = String(result.reservation) as ExecutionAttemptReservation;
     return {
@@ -314,7 +312,7 @@ export class SupabaseExecutionAttemptStore implements ExecutionAttemptStore {
 
   private async update(executionId: string, status: ExecutionAttempt['status'], extra: Record<string, unknown> = {}): Promise<void> {
     await this.rpc.call('update_abba_execution_attempt', {
-      execution: { executionId, status, ...extra }
+      executionId, status, ...extra
     });
   }
 
