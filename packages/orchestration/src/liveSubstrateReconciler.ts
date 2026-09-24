@@ -8,6 +8,7 @@ export interface LiveSubstrateBindingSpec {
   substrateRef: string;
   identityColumns: string[];
   canonicalFingerprint?: string;
+  lookup?: Record<string, string>;
 }
 
 export interface LiveSubstrateObservation {
@@ -34,7 +35,7 @@ function fingerprint(rows: Array<Record<string, unknown>>, identityColumns: stri
   return stable(normalized.sort((a,b) => stable(a).localeCompare(stable(b))));
 }
 
-export class ABBAInternationalSubstrateReconciler {
+export class ABBALiveSubstrateReconciler {
   constructor(private readonly reader: SupabaseTableReader) {}
 
   async scan(specs: LiveSubstrateBindingSpec[]): Promise<LiveSubstrateObservation[]> {
@@ -42,7 +43,7 @@ export class ABBAInternationalSubstrateReconciler {
 
     for (const binding of specs) {
       try {
-        const rows = await this.reader.select(binding.substrateRef, { limit: 1000 });
+        const rows = await this.reader.select(binding.substrateRef, { limit: 1000, filters: binding.lookup });
         const substrateFingerprint = fingerprint(rows, binding.identityColumns);
         observations.push({
           binding,
@@ -54,7 +55,7 @@ export class ABBAInternationalSubstrateReconciler {
             substrateKind: binding.substrateKind,
             substrateRef: binding.substrateRef,
             substrateFingerprint,
-            duplicateCount: rows.length > 1000 ? rows.length - 1000 : undefined,
+            duplicateCount: binding.lookup && rows.length > 1 ? rows.length : undefined,
             evidenceRefs: [`substrate-scan:${binding.substrateRef}`]
           }
         });
@@ -68,8 +69,8 @@ export class ABBAInternationalSubstrateReconciler {
             substrateKind: binding.substrateKind,
             substrateRef: binding.substrateRef,
             evidenceRefs: [`substrate-scan-error:${binding.substrateRef}`],
-            reasonHint: error instanceof Error ? error.message : 'SUBSTRATE_READ_FAILED'
-          } as ReconciliationInput
+            readError: error instanceof Error ? error.message : 'SUBSTRATE_READ_FAILED'
+          }
         });
       }
     }
