@@ -8,7 +8,7 @@ const migration = await readFile('supabase/migrations/20260924000005_abba_superv
 test('ABBA supervisor supports idempotent leases, retries and continuation', () => {
   assert.match(supervisor, /idempotencyKey/);
   assert.match(supervisor, /leaseExpiresAt/);
-  assert.match(supervisor, /checkpointFailure/);
+  assert.match(supervisor, /checkpointFailure/);\n  assert.match(supervisor, /recoverExpiredLease/);\n  assert.match(supervisor, /retryBaseSeconds/);
   assert.match(supervisor, /maxAttempts/);
   assert.match(supervisor, /ACTIVE_JOBS_REMAIN/);
   assert.match(supervisor, /ELIGIBLE_DEPENDENT_JOBS_AVAILABLE/);
