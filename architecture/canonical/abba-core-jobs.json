@@ -37,7 +37,10 @@
     "Minimum-context routing defaults to privacy-preserving redaction and never exposes secret data by default.",
     "Communication delivery, provider acknowledgement and recipient acknowledgement remain separate states.",
     "A communication route does not imply consent or authority.",
-    "A failed or unacknowledged communication cannot be represented as successful completion."
+    "A failed or unacknowledged communication cannot be represented as successful completion.",
+    "Workspace artifacts, branches and repositories retain lineage and provenance across migration and recovery.",
+    "Duplicate content is not automatically duplicate semantic identity.",
+    "Destructive artifact deletion is not an autonomous default."
   ],
   "jobSequence": [
     {
@@ -1065,7 +1068,13 @@
     "select_language_and_modality",
     "verify_provider_receipt",
     "verify_recipient_acknowledgement",
-    "reconcile_communication_outcome"
+    "reconcile_communication_outcome",
+    "detect_workspace_duplicates",
+    "detect_workspace_orphans",
+    "detect_workspace_drift",
+    "plan_artifact_migration",
+    "build_workspace_recovery_point",
+    "reconcile_workspace"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -1080,6 +1089,7 @@
     "HUMAN_COORDINATION",
     "OPERATIONAL_SAFETY_ENVELOPE",
     "IDENTITY_RELATIONSHIP_PRIVACY",
-    "UNIVERSAL_COMMUNICATION"
+    "UNIVERSAL_COMMUNICATION",
+    "WORKSPACE_ARTIFACT_INTELLIGENCE"
   ]
 }

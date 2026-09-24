@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Workspace and Artifact Intelligence",
+  "version":"1.0.0",
+  "status":"canonical-derived-workspace-extension",
+  "artifactKinds":["FILE","FOLDER","REPOSITORY","BRANCH","COMMIT","PULL_REQUEST","RELEASE","DOCUMENT","DATASET","ASSET","CONFIGURATION"],
+  "functions":["DISCOVERY","LINEAGE","DUPLICATE_DETECTION","ORPHAN_DETECTION","DRIFT_DETECTION","MIGRATION","RECOVERY","ARCHIVE","PROVENANCE_RECONSTRUCTION"],
+  "rules":[
+    "Artifact identity is distinct from artifact activity.",
+    "Canonical and historical surfaces remain distinguishable.",
+    "Duplicate content does not imply duplicate semantic identity.",
+    "Historical provenance must be preserved during migration.",
+    "Destructive deletion is not an autonomous default.",
+    "Migrations require fingerprint and lineage verification.",
+    "Recovery preserves the current state before reconstructing or restoring.",
+    "Archive is preferred to deletion when continuity matters.",
+    "Workspace intelligence never grants authority."
+  ],
+  "executionBoundary":"WORKSPACE_ANALYSIS → SAFETY → AUTHORITY_POLICY_CONSENT → EXECUTION"
+}

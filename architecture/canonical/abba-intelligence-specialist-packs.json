@@ -197,6 +197,25 @@
         "VERIFY_RECIPIENT_ACKNOWLEDGEMENT",
         "RECONCILE_COMMUNICATION_OUTCOME"
       ]
+    },
+    {
+      "packId": "WORKSPACE_ARTIFACT_INTELLIGENCE",
+      "insertionPoint": "BEFORE_MIGRATION_RECOVERY_AND_STEWARDSHIP",
+      "jobs": [
+        "DISCOVER_WORKSPACE_ARTIFACTS",
+        "CLASSIFY_ARTIFACT_KIND",
+        "RESOLVE_ARTIFACT_LINEAGE",
+        "DETECT_DUPLICATES",
+        "DETECT_ORPHANS",
+        "DETECT_DRIFT",
+        "VERIFY_PROVENANCE",
+        "PLAN_MIGRATION",
+        "PLAN_ARCHIVE",
+        "BUILD_RECOVERY_POINT",
+        "PLAN_RECOVERY",
+        "VERIFY_POST_REPAIR_STATE",
+        "RECONCILE_WORKSPACE"
+      ]
     }
   ],
   "boundary": {
