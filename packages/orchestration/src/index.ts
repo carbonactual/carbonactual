@@ -22,3 +22,7 @@ export * from './reasoningAssuranceEngine';
 export * from './missionIntelligencePack';
 export * from './capabilityProvenanceEngine';
 export * from './outcomeSimulationEngine';
+export * from './knowledgeIntegrityEngine';
+export * from './languageCapabilityEngine';
+export * from './masteryEngine';
+export * from './universalKnowledgeMasteryPack';
