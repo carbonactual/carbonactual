@@ -17,3 +17,4 @@ export * from './liveSubstrateReconciler';
 export * from './evidenceQualityEngine';
 export * from './completionProof';
 export * from './runtimeOrchestrator';
+export * from './deploymentPreflight';
