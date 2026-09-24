@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Identity Relationship Privacy Jobs",
+  "version":"1.0.0",
+  "status":"canonical-derived-specialist-job-pack",
+  "packId":"IDENTITY_RELATIONSHIP_PRIVACY",
+  "jobs":[
+    "RESOLVE_IDENTITY",
+    "CHECK_IDENTITY_STATUS",
+    "RESOLVE_RELATIONSHIP",
+    "VERIFY_RELATIONSHIP_SCOPE",
+    "CLASSIFY_DATA",
+    "CHECK_PURPOSE",
+    "APPLY_MINIMUM_CONTEXT",
+    "REDACT_BLOCKED_CONTEXT",
+    "AUDIT_PRIVACY_ROUTING"
+  ],
+  "boundary":{"authorityInferred":false,"permissionInferred":false,"secretsExposed":false}
+}
