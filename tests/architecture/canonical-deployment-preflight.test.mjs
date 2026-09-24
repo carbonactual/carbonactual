@@ -19,6 +19,7 @@ test('runtime preflight rejects destructive migration surfaces and checks canoni
   assert.match(preflight, /DROP TABLE|DROP COLUMN|TRUNCATE|DELETE FROM/);
   assert.match(preflight, /omnii_append_event/);
   assert.match(preflight, /20260924000010_reasoning_substrate_binding/);
+  assert.match(preflight, /20260924000013_reasoning_binding_update_rpc_text/);
   assert.match(preflight, /RLS/);
 });
 
