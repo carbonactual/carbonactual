@@ -9,7 +9,7 @@ test('ABBA substrate map reuses existing runtime surfaces without granting autho
   assert(map.bindings.length >= 10);
   assert(map.bindings.some((binding) => binding.substrate === 'public.omnii_process_tasks'));
   assert(map.bindings.some((binding) => binding.substrate === 'public.omnii_execution_controls'));
-  assert.match(map.integrationRules.join(' '), /availability never implies authority/i);
+  assert.match(JSON.stringify(map), /capability availability never implies authority/i);
 });
 
 test('reconciliation detects stale, duplicate, missing and mismatched bindings', () => {
