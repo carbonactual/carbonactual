@@ -350,3 +350,46 @@ export class SupabaseReasoningSubstrateBindingStore implements import('./governe
     });
   }
 }
+
+import type { CanonicalEventType } from '../../events/src/types';
+
+export class SupabaseOmniiEventWriter implements CanonicalEventWriter {
+  constructor(private readonly rpc: SupabaseRpcClient) {}
+
+  async append(event: CanonicalEventEnvelope): Promise<string> {
+    const actor = event.actorEntityId;
+    const source = 'carbonactual/abba';
+    const payload = { ...event.payload, authorityRef: event.authorityRef };
+    const result = await this.rpc.call('omnii_append_event', {
+      p_id: crypto.randomUUID(),
+      p_event_type: event.eventType as CanonicalEventType,
+      p_event_version: '1',
+      p_schema_version: event.schemaVersion,
+      p_lifecycle: 'active',
+      p_status: 'accepted',
+      p_occurred_at: new Date().toISOString(),
+      p_recorded_at: new Date().toISOString(),
+      p_actor_ref: actor,
+      p_subject_ref: typeof event.payload.subjectRef === 'string' ? event.payload.subjectRef : null,
+      p_institution_ref: typeof event.payload.institutionRef === 'string' ? event.payload.institutionRef : null,
+      p_operating_context_id: typeof event.payload.operatingContextId === 'string' ? event.payload.operatingContextId : null,
+      p_correlation_id: event.correlationId,
+      p_causation_id: event.causationId ?? null,
+      p_parent_event_id: typeof event.payload.parentEventId === 'string' ? event.payload.parentEventId : null,
+      p_reality_state: typeof event.payload.realityState === 'string' ? event.payload.realityState : 'actual',
+      p_authority_ref: event.authorityRef,
+      p_source: source,
+      p_provenance: event.provenance,
+      p_evidence_refs: event.payload.evidenceRefs ?? [],
+      p_metadata: {
+        principalEntityId: event.principalEntityId ?? null,
+        policyVersion: event.policyVersion,
+        schemaVersion: event.schemaVersion
+      },
+      p_payload: payload,
+      p_idempotency_key: event.idempotencyKey
+    });
+
+    return rpcId(result);
+  }
+}
