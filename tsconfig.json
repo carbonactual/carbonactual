@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "lib": ["ES2022", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@carbon-actual/events": ["packages/events/src/index.ts"],
+      "@carbon-actual/orchestration": ["packages/orchestration/src/index.ts"]
+    }
+  },
+  "include": [
+    "packages/events/src/**/*.ts",
+    "packages/orchestration/src/**/*.ts",
+    "apps/edge-api/src/**/*.ts",
+    "apps/edge-api/api/**/*.ts"
+  ]
+}
