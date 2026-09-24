@@ -51,3 +51,7 @@ export * from './communicationIntelligenceEngine';
 export * from './communicationRoutingEngine';
 export * from './deliveryOutcomeEngine';
 export * from './communicationIntelligencePack';
+export * from './workspaceIntelligenceEngine';
+export * from './artifactMigrationEngine';
+export * from './workspaceRecoveryEngine';
+export * from './workspaceArtifactIntelligencePack';
