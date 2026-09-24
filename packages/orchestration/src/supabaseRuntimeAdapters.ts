@@ -335,3 +335,18 @@ export class SupabaseExecutionAttemptStore implements ExecutionAttemptStore {
     await this.update(executionId, 'RECOVERY_REQUIRED', { error: reason, evidenceRef });
   }
 }
+
+export class SupabaseReasoningSubstrateBindingStore implements import('./governedReasoningSubstrateBridge').ReasoningSubstrateBindingStore {
+  constructor(private readonly rpc: SupabaseRpcClient) {}
+
+  async append(input: Record<string, unknown>): Promise<string> {
+    return rpcId(await this.rpc.call('append_abba_reasoning_substrate_binding', input));
+  }
+
+  async update(bindingId: string, update: Record<string, unknown>): Promise<void> {
+    await this.rpc.call('update_abba_reasoning_substrate_binding', {
+      bindingId,
+      ...update
+    });
+  }
+}
