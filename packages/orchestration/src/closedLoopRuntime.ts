@@ -66,12 +66,13 @@ export class ABBAClosedLoopRuntime {
   constructor(
     private readonly feedbackEngine: ABBAFeedbackEngine,
     private readonly capabilityDiscovery: CapabilityDiscovery,
-    private readonly observationStore?: ObservationStore,
-    private readonly teamProposalStore?: TeamProposalStore
+    private readonly observationStore: ObservationStore,
+    private readonly teamProposalStore: TeamProposalStore
   ) {}
 
   /**
-   * Runs the observation-to-proposal stages concurrently per signal.
+   * Runs observation-to-proposal stages concurrently per signal.
+   * Durable observation is mandatory before capability composition.
    * This stage never executes a consequential action or writes canonical state.
    */
   public async executeObservationCycle(
@@ -84,9 +85,7 @@ export class ABBAClosedLoopRuntime {
       incomingSignals.map(async (signal) => this.processSignal(signal, objective, cycleId))
     );
 
-    const successfulResults = results.filter(
-      (result): result is Extract<(typeof results)[number], { kind: 'PROPOSAL' }> => result.kind === 'PROPOSAL'
-    );
+    const successfulResults = results.filter((result) => result.kind === 'PROPOSAL');
 
     return {
       cycleId,
@@ -120,21 +119,20 @@ export class ABBAClosedLoopRuntime {
         disposition: 'REJECTED',
         anomalyReason: 'FEEDBACK_ENGINE_PROCESSING_ERROR'
       };
-      const failure: ClosedLoopFailure = {
-        signalId,
-        stage: 'OBSERVE',
-        reason: error instanceof Error ? error.message : 'UNKNOWN_FEEDBACK_ENGINE_ERROR'
-      };
-      await this.persistObservationSafely(signal, processing);
+      const observationPersisted = await this.persistObservationSafely(signal, processing);
       return {
         kind: 'BLOCKED' as const,
         signalId,
-        observationPersisted: false,
+        observationPersisted,
         anomaly: true,
         actionable: false,
         discoveryCount: 0,
         blocked: true,
-        failures: [failure]
+        failures: [{
+          signalId,
+          stage: 'OBSERVE' as const,
+          reason: error instanceof Error ? error.message : 'UNKNOWN_FEEDBACK_ENGINE_ERROR'
+        }]
       };
     }
 
@@ -226,23 +224,22 @@ export class ABBAClosedLoopRuntime {
 
     let proposalPersisted = false;
     const failures: ClosedLoopFailure[] = [];
-    if (this.teamProposalStore) {
-      const idempotencyKey = `abba:team:${signal.signalId}:${query.objective}`;
-      try {
-        await this.teamProposalStore.record(proposal, {
-          cycleId,
-          correlationId: signal.correlationId,
-          sourceSignalIds: [signal.signalId],
-          idempotencyKey
-        });
-        proposalPersisted = true;
-      } catch (error) {
-        failures.push({
-          signalId,
-          stage: 'PERSIST_PROPOSAL',
-          reason: error instanceof Error ? error.message : 'PROPOSAL_PERSISTENCE_FAILED'
-        });
-      }
+    const idempotencyKey = `abba:team:${signal.signalId}:${query.objective}`;
+
+    try {
+      await this.teamProposalStore.record(proposal, {
+        cycleId,
+        correlationId: signal.correlationId,
+        sourceSignalIds: [signal.signalId],
+        idempotencyKey
+      });
+      proposalPersisted = true;
+    } catch (error) {
+      failures.push({
+        signalId,
+        stage: 'PERSIST_PROPOSAL',
+        reason: error instanceof Error ? error.message : 'PROPOSAL_PERSISTENCE_FAILED'
+      });
     }
 
     return {
@@ -263,7 +260,6 @@ export class ABBAClosedLoopRuntime {
     signal: TelemetrySignal,
     processing: TelemetryProcessingResult
   ): Promise<boolean> {
-    if (!this.observationStore) return true;
     try {
       await this.observationStore.record(signal, processing);
       return true;
