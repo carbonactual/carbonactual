@@ -7,6 +7,8 @@ import { ABBAMissionIntelligencePack, MissionIntelligenceInput, MissionIntellige
 import { ABBAEvidenceSourceIntelligencePack, EvidenceSourceIntelligenceInput, EvidenceSourceIntelligenceResult } from './evidenceSourceIntelligencePack';
 import { ABBAHumanCoordinationPack, HumanCoordinationInput, HumanCoordinationResult, HumanCoordinationStore } from './humanCoordinationPack';
 import { ABBAUniversalKnowledgeMasteryPack, UniversalKnowledgeMasteryInput, UniversalKnowledgeMasteryResult } from './universalKnowledgeMasteryPack';
+import type { ContextField, ContextRequest, RoutedContext } from './minimumContextRouter';
+import { ABBAMinimumContextRouter } from './minimumContextRouter';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
 import type { ClosedLoopObjective, ClosedLoopCycleResult } from './closedLoopRuntime';
@@ -35,6 +37,7 @@ export interface ABBARuntimeCycleInput {
   knowledgeMasteryInput?: UniversalKnowledgeMasteryInput;
   evidenceSourceIntelligenceInput?: EvidenceSourceIntelligenceInput;
   humanCoordinationInput?: HumanCoordinationInput;
+  privacyContext?: { fields: ContextField[]; request: ContextRequest };
 }
 
 export interface ABBARuntimeCycleResult {
@@ -49,6 +52,7 @@ export interface ABBARuntimeCycleResult {
   humanCoordination?: HumanCoordinationResult;
   humanCoordinationRequestIds: string[];
   humanDecisionIds: string[];
+  routedContext?: RoutedContext;
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -65,10 +69,14 @@ export class ABBARuntimeOrchestrator {
     private readonly humanCoordinationPack: ABBAHumanCoordinationPack,
     private readonly reconciliationWriter: ReconciliationWriter,
     private readonly completionWriter: CompletionProofWriter,
-    private readonly humanCoordinationStore: HumanCoordinationStore | undefined = undefined
+    private readonly humanCoordinationStore: HumanCoordinationStore | undefined = undefined,
+    private readonly privacyRouter: ABBAMinimumContextRouter = new ABBAMinimumContextRouter()
   ) {}
 
   public async run(input: ABBARuntimeCycleInput): Promise<ABBARuntimeCycleResult> {
+    const routedContext = input.privacyContext
+      ? this.privacyRouter.route(input.privacyContext.fields, input.privacyContext.request)
+      : undefined;
     const substrateObservations = await this.substrateReconciler.scan(input.substrateSpecs);
     const coreResult = await this.coreSupervisor.observeAndSteer(
       input.cycle,
@@ -159,6 +167,8 @@ export class ABBARuntimeOrchestrator {
     const blockers = [
       ...coreResult.repairs.map((repair) => `REPAIR_REQUIRED:${repair.action}`),
       ...coreResult.cycle.failures.map((failure) => `CYCLE_FAILURE:${failure.stage}:${failure.reason}`),
+      ...(routedContext?.blockedPaths.map(path => `PRIVACY_BLOCKED:${path}`) ?? []),
+      ...(routedContext?.reasons.map(reason => `PRIVACY_CONTEXT:${reason}`) ?? []),
       ...reasoningAssessments.filter((assessment) => !assessment.valid).map((assessment) => `REASONING_BOUNDARY:${assessment.artifactId}:${assessment.reasons.join('|')}`),
       ...(missionIntelligence?.intent.clarificationRequired ? ['INTENT_CLARIFICATION_REQUIRED'] : []),
       ...(missionIntelligence?.decomposition.unresolvedDependencies ?? []).map((dep) => `MISSION_DEPENDENCY_UNRESOLVED:${dep}`),
@@ -217,6 +227,7 @@ export class ABBARuntimeOrchestrator {
       humanCoordination,
       humanCoordinationRequestIds,
       humanDecisionIds,
+      routedContext,
       reconciliationRecordIds,
       completionProofRecordId
     };

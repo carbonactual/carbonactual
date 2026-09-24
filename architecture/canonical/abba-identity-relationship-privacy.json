@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Identity Relationship Privacy Fabric",
+  "version":"1.0.0",
+  "status":"canonical-derived-context-and-identity-contract",
+  "facets":["ACTUAL","LEGAL","OPERATIONAL","ECONOMIC","DIGITAL","RELATIONSHIP"],
+  "dataClasses":["PUBLIC","INTERNAL","CONFIDENTIAL","RESTRICTED","SECRET"],
+  "rules":[
+    "Identity is not Activity.",
+    "Identity status is evidence-bearing and may be provisional or contested.",
+    "Relationships are scoped, time-bound and evidence-bearing.",
+    "A relationship does not infer authority.",
+    "Identity does not infer permission.",
+    "Permission does not infer consent.",
+    "Secret data is not exposed by default.",
+    "Minimum-context routing selects only fields required for the stated purpose and allowed data class.",
+    "Redaction is explicit and reconstructable.",
+    "Privacy routing never grants authority."
+  ],
+  "routingOrder":["IDENTITY_RESOLUTION","RELATIONSHIP_RESOLUTION","DATA_CLASSIFICATION","PURPOSE_CHECK","MINIMUM_CONTEXT","AUTHORITY_POLICY_CONSENT"],
+  "executionBoundary":"PRIVACY_CONTEXT_ROUTING → AUTHORITY_POLICY_CONSENT → EXECUTION"
+}

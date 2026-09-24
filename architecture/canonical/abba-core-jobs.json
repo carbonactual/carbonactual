@@ -32,7 +32,9 @@
     "External observations retain reality state and are not silently promoted to canonical fact.",
     "ABBA may request human action but cannot fabricate human input, consent, authorization or acknowledgement.",
     "Human coordination requests are evidence-bearing control objects, not automatic authority grants.",
-    "Resumption after human interaction re-enters the governed lifecycle."
+    "Resumption after human interaction re-enters the governed lifecycle.",
+    "Identity and relationship context do not infer authority, permission or consent.",
+    "Minimum-context routing defaults to privacy-preserving redaction and never exposes secret data by default."
   ],
   "jobSequence": [
     {
@@ -1049,7 +1051,12 @@
     "check_data_egress",
     "check_reversibility",
     "check_circuit_breaker",
-    "select_safety_mitigations"
+    "select_safety_mitigations",
+    "resolve_identity",
+    "resolve_relationship",
+    "classify_data",
+    "apply_minimum_context",
+    "audit_privacy_routing"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -1062,6 +1069,7 @@
     "LIVE_SUBSTRATE_HEALTH",
     "EVIDENCE_SOURCE_INTELLIGENCE",
     "HUMAN_COORDINATION",
-    "OPERATIONAL_SAFETY_ENVELOPE"
+    "OPERATIONAL_SAFETY_ENVELOPE",
+    "IDENTITY_RELATIONSHIP_PRIVACY"
   ]
 }
