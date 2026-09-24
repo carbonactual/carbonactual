@@ -9,6 +9,8 @@ const intent=await readFile('packages/orchestration/src/intentResolutionEngine.t
 const mission=await readFile('packages/orchestration/src/missionDecompositionEngine.ts','utf8');
 const uncertainty=await readFile('packages/orchestration/src/uncertaintyLedger.ts','utf8');
 const stewardship=await readFile('packages/orchestration/src/stewardshipImpactEngine.ts','utf8');
+const runtime=await readFile('packages/orchestration/src/runtimeOrchestrator.ts','utf8');
+const graph=JSON.parse(await readFile('architecture/canonical/abba-core-jobs.json','utf8'));
 
 test('specialist packs cover mission intelligence, capability assurance, outcomes and stewardship',()=>{
   assert.equal(contract.packs.length,4);
@@ -40,6 +42,12 @@ test('capability provenance cannot grant permission or authority',()=>{
 test('simulation is analysis only',()=>{
   assert.match(simulation,/analysisOnly: true/);
   assert.match(simulation,/isEvidenceOfFutureOutcome: false/);
+});
+
+test('core graph exposes specialist packs without changing the governing core',()=>{
+  assert.deepEqual(graph.specialistPacks,['MISSION_INTELLIGENCE','CAPABILITY_ASSURANCE','OUTCOME_ANALYSIS','STEWARDSHIP']);
+  assert.match(runtime,/missionIntelligencePack/);
+  assert.match(runtime,/INTENT_CLARIFICATION_REQUIRED/);
 });
 
 test('stewardship covers waste, risk, people, environment and continuity',()=>{
