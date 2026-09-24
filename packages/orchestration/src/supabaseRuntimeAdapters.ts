@@ -1,3 +1,4 @@
+import type { HumanCoordinationStore } from './humanCoordinationPack';
 import type { CanonicalEventEnvelope, CanonicalEventWriter } from './executionGateway';
 import type { ReasoningSubstrateBindingStore } from './governedReasoningSubstrateBridge';
 import type {
@@ -399,5 +400,17 @@ export class SupabaseOmniiEventWriter implements CanonicalEventWriter {
     });
 
     return rpcId(result);
+  }
+}
+
+export class SupabaseHumanCoordinationStore implements HumanCoordinationStore {
+  constructor(private readonly rpc: SupabaseRpcClient) {}
+
+  async recordRequest(input: Record<string, unknown>): Promise<string> {
+    return rpcId(await this.rpc.call('append_abba_human_coordination_request', input));
+  }
+
+  async recordDecision(input: Record<string, unknown>): Promise<string> {
+    return rpcId(await this.rpc.call('append_abba_human_decision', input));
   }
 }

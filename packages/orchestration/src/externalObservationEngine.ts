@@ -1,3 +1,5 @@
+import type { SourceRecord } from './sourceIntelligenceEngine';
+
 export interface ExternalObservationEnvelope {
   observationId: string;
   source: SourceRecord;

@@ -38,3 +38,7 @@ export * from './sourceIntelligenceEngine';
 export * from './evidenceChainEngine';
 export * from './externalObservationEngine';
 export * from './evidenceSourceIntelligencePack';
+export * from './humanCoordinationEngine';
+export * from './consentBoundary';
+export * from './humanAuthorizationBoundary';
+export * from './humanCoordinationPack';

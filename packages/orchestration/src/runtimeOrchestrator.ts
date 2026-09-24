@@ -5,6 +5,7 @@ import { ABBALiveSubstrateReconciler, LiveSubstrateBindingSpec } from './liveSub
 import { ABBAReasoningAssuranceEngine, ReasoningArtifact, ReasoningAssessment } from './reasoningAssuranceEngine';
 import { ABBAMissionIntelligencePack, MissionIntelligenceInput, MissionIntelligenceResult } from './missionIntelligencePack';
 import { ABBAEvidenceSourceIntelligencePack, EvidenceSourceIntelligenceInput, EvidenceSourceIntelligenceResult } from './evidenceSourceIntelligencePack';
+import { ABBAHumanCoordinationPack, HumanCoordinationInput, HumanCoordinationResult, HumanCoordinationStore } from './humanCoordinationPack';
 import { ABBAUniversalKnowledgeMasteryPack, UniversalKnowledgeMasteryInput, UniversalKnowledgeMasteryResult } from './universalKnowledgeMasteryPack';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
@@ -33,6 +34,7 @@ export interface ABBARuntimeCycleInput {
   missionIntelligenceInput?: MissionIntelligenceInput;
   knowledgeMasteryInput?: UniversalKnowledgeMasteryInput;
   evidenceSourceIntelligenceInput?: EvidenceSourceIntelligenceInput;
+  humanCoordinationInput?: HumanCoordinationInput;
 }
 
 export interface ABBARuntimeCycleResult {
@@ -44,6 +46,9 @@ export interface ABBARuntimeCycleResult {
   missionIntelligence?: MissionIntelligenceResult;
   knowledgeMastery?: UniversalKnowledgeMasteryResult;
   evidenceSourceIntelligence?: EvidenceSourceIntelligenceResult;
+  humanCoordination?: HumanCoordinationResult;
+  humanCoordinationRequestIds: string[];
+  humanDecisionIds: string[];
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -57,8 +62,10 @@ export class ABBARuntimeOrchestrator {
     private readonly missionIntelligencePack: ABBAMissionIntelligencePack,
     private readonly knowledgeMasteryPack: ABBAUniversalKnowledgeMasteryPack,
     private readonly evidenceSourceIntelligencePack: ABBAEvidenceSourceIntelligencePack,
+    private readonly humanCoordinationPack: ABBAHumanCoordinationPack,
     private readonly reconciliationWriter: ReconciliationWriter,
-    private readonly completionWriter: CompletionProofWriter
+    private readonly completionWriter: CompletionProofWriter,
+    private readonly humanCoordinationStore: HumanCoordinationStore | undefined = undefined
   ) {}
 
   public async run(input: ABBARuntimeCycleInput): Promise<ABBARuntimeCycleResult> {
@@ -100,6 +107,45 @@ export class ABBARuntimeOrchestrator {
     const evidenceSourceIntelligence = input.evidenceSourceIntelligenceInput
       ? this.evidenceSourceIntelligencePack.analyze(input.evidenceSourceIntelligenceInput)
       : undefined;
+    const humanCoordination = input.humanCoordinationInput
+      ? this.humanCoordinationPack.assess(input.humanCoordinationInput)
+      : undefined;
+    const humanCoordinationRequestIds: string[] = [];
+    const humanDecisionIds: string[] = [];
+    if (humanCoordination && input.humanCoordinationInput && this.humanCoordinationStore) {
+      for (const request of input.humanCoordinationInput.requests) {
+        humanCoordinationRequestIds.push(await this.humanCoordinationStore.recordRequest({
+          requestId: request.requestId,
+          correlationId: input.cycle.cycleId,
+          requestType: request.type,
+          humanRef: request.humanRef,
+          objective: request.objective,
+          contextRefs: request.contextRefs,
+          evidenceRefs: request.evidenceRefs,
+          decisionRequired: request.decisionRequired,
+          expiresAt: request.expiresAt,
+          status: request.status,
+          minimumContext: request.minimumContext,
+          provenance: { ...request.provenance, source: 'ABBARuntimeOrchestrator' },
+          idempotencyKey: 'abba:human-request:' + request.requestId
+        }));
+      }
+      for (const authorization of input.humanCoordinationInput.authorizations) {
+        humanDecisionIds.push(await this.humanCoordinationStore.recordDecision({
+          requestId: authorization.requestId,
+          humanRef: authorization.humanRef,
+          decisionType: authorization.decision,
+          decisionPayload: { decisionRef: authorization.decisionRef, scope: authorization.scope },
+          evidenceRefs: authorization.evidenceRefs,
+          authorityRef: authorization.authorityRef,
+          signatureRef: authorization.signatureRef,
+          recordedBy: authorization.humanRef,
+          decidedAt: authorization.decidedAt,
+          provenance: { ...authorization.provenance, source: 'ABBARuntimeOrchestrator' },
+          idempotencyKey: 'abba:human-decision:' + authorization.authorizationId
+        }));
+      }
+    }
     const evidenceComplete =
       input.evidenceItems !== undefined &&
       input.evidenceItems.length > 0 &&
@@ -121,7 +167,9 @@ export class ABBARuntimeOrchestrator {
       ...(knowledgeMastery?.mastery.filter((item) => !item.promotable && item.reasons.length > 0).map((item) => `MASTERY_ASSURANCE:${item.capabilityRef}:${item.reasons.join('|')}`) ?? []),
       ...(evidenceSourceIntelligence?.sources.filter((item) => !item.provenanceAccepted).map((item) => `SOURCE_PROVENANCE:${item.sourceId}:${item.reasons.join('|')}`) ?? []),
       ...(evidenceSourceIntelligence?.claims.filter((item) => !item.valid).map((item) => `EVIDENCE_CHAIN:${item.claimId}:${item.reasons.join('|')}`) ?? []),
-      ...(evidenceSourceIntelligence?.observations.filter((item) => !item.accepted).map((item) => `EXTERNAL_OBSERVATION:${item.observationId}:${item.reasons.join('|')}`) ?? [])
+      ...(evidenceSourceIntelligence?.observations.filter((item) => !item.accepted).map((item) => `EXTERNAL_OBSERVATION:${item.observationId}:${item.reasons.join('|')}`) ?? []),
+      ...(humanCoordination?.blockingRequestIds.map((id) => `HUMAN_COORDINATION_REQUIRED:${id}`) ?? []),
+      ...(humanCoordination?.authorizations.filter((item) => !item.valid).map((item) => `HUMAN_AUTHORIZATION_INVALID:${item.authorizationId}:${item.reasons.join('|')}`) ?? [])
     ];
 
     const completionProof = await buildCompletionProof({
@@ -152,7 +200,8 @@ export class ABBARuntimeOrchestrator {
         reasoningAssessments,
         missionIntelligence,
         knowledgeMastery,
-        evidenceSourceIntelligence
+        evidenceSourceIntelligence,
+        humanCoordination
       }
     });
 
@@ -165,6 +214,9 @@ export class ABBARuntimeOrchestrator {
       missionIntelligence,
       knowledgeMastery,
       evidenceSourceIntelligence,
+      humanCoordination,
+      humanCoordinationRequestIds,
+      humanDecisionIds,
       reconciliationRecordIds,
       completionProofRecordId
     };
