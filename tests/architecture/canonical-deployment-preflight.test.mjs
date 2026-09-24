@@ -8,9 +8,9 @@ const preflight = await readFile('packages/orchestration/src/deploymentPreflight
 
 test('core job graph extends the governed lifecycle to phase6 assurance', () => {
   assert.equal(jobs.version, '1.4.0');
-  assert.equal(jobs.jobSequence.length, 61);
+  assert.equal(jobs.jobSequence.length, 69);
   assert.equal(jobs.jobSequence.at(-1).name, 'CONTINUE_OR_STOP');
-  assert.equal(jobs.jobSequence.at(-1).dependsOn[0], 'ABBACORE-60');
+  assert.equal(jobs.jobSequence.at(-1).dependsOn[0], 'ABBACORE-68');
   assert.equal(jobs.jobSequence.find((job) => job.name === 'RECONCILE_LIVE_SUBSTRATE').dependsOn[0], 'ABBACORE-46');
 });
 
