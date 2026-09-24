@@ -19,7 +19,8 @@
     "ABBA may reason, plan, compose, route, and request authorization; ABBA cannot self-authorize or bypass policy.",
     "Pulse is measurement/feedback and must not silently become currency, authority, permission, ownership, or factual evidence.",
     "Tokenization, minting, decimalization, and fractionalization do not create underlying ownership, authority, truth, or value by themselves.",
-    "Historical material remains traceable and cannot become current authority by chronology alone."
+    "Historical material remains traceable and cannot become current authority by chronology alone.",
+    "ABBA continuation never bypasses the authority/policy boundary, even when choose-all-and-continue is selected."
   ],
   "canonicalPrecedence": [
     "CONSTITUTIONAL",
@@ -43,7 +44,8 @@
     "relationship-boundaries.json",
     "traceability-rules.json",
     "execution-contracts.json",
-    "feedback-telemetry-rules.json"
+    "feedback-telemetry-rules.json",
+    "abba-core-jobs.json"
   ],
   "canonicalSources": [
     "architecture/ECOSYSTEM_KERNEL.md",
@@ -53,7 +55,8 @@
     "architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md",
     "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md",
     "architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md",
-    "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
+    "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+    "architecture/CARBON_ACTUAL_ABBA_CORE_JOB_GRAPH_2026.md"
   ],
   "provenance": {
     "derivedFrom": [
@@ -72,7 +75,8 @@
     "Capability does not imply permission or authority; policy and authority gates remain independent of orchestration.",
     "Agent lifecycle, workflow composition, telemetry synthesis, and economic feedback are coordinated through ABBA while durable state remains governed by canonical contracts.",
     "Every consequential execution is attributable, policy-gated, idempotency-aware, evidentiary, and reconstructable.",
-    "Runtime telemetry is observability input; it does not automatically become truth, evidence, Pulse, Value, authority, or permission."
+    "Runtime telemetry is observability input; it does not automatically become truth, evidence, Pulse, Value, authority, or permission.",
+    "ABBA must continue or explicitly stop governed work and retain a traceable reason for the terminal condition."
   ],
   "feedbackLoop": {
     "enabled": true,
