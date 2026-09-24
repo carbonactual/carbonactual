@@ -18,11 +18,12 @@ test('Phase 0 canonical module set is complete and machine-readable', async () =
   assert.equal(system.provenance.historicalRepository, 'carbonactual/omnii');
   assert.equal(system.provenance.historicalRepositoryStatus, 'ARCHIVED_PROVENANCE_ONLY');
   assert.equal(system.provenance.liveCanonicalRepository, 'carbonactual/carbonactual');
-  assert.equal(system.modules.length, 15);
+  assert.equal(system.modules.length, 16);
   for (const moduleName of system.modules) await assert.doesNotReject(() => load(moduleName));
   assert(system.modules.includes('feedback-telemetry-rules.json'));
   assert(system.modules.includes('abba-core-jobs.json'));
   assert(system.modules.includes('abba-substrate-binding-map.json'));
+  assert(system.modules.includes('abba-learning-certification-loop.json'));
 });
 
 test('ABBA remains an orchestrator, not a self-authorizing authority', async () => {
