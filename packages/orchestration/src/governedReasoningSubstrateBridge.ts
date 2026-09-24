@@ -10,6 +10,7 @@ export interface ReasoningSubstrateBindingStore {
 export interface GovernedReasoningExecutionInput {
   reasoningChainId: string;
   steps: ReasoningSubstrateStep[];
+  actorEntityId: string;
   authorityContext: AuthorityContext;
   authoritySignature: string;
   eventType: string;
@@ -39,7 +40,7 @@ export class ABBAGovernedReasoningSubstrateBridge {
       input.reasoningChainId,
       input.steps,
       {
-        actorEntityId: input.authorityContext.principalEntityId,
+        actorEntityId: input.actorEntityId,
         authorityRef: input.authorityContext.authorityRef ?? '',
         authoritySignature: input.authoritySignature,
         correlationId: input.authorityContext.correlationId,
@@ -76,6 +77,8 @@ export class ABBAGovernedReasoningSubstrateBridge {
       });
       return { bindingId, preparation, gate };
     }
+
+    await this.bindingStore.update(bindingId, { bindingStatus: 'GATED' });
 
     const execution = await this.executionGateway.execute({
       gateDecision: 'ALLOW',
