@@ -43,6 +43,6 @@ jobs:
       - name: Run contract tests
         run: npm run test:contracts
       - name: Run runtime boundary tests
-        run: node --test tests/architecture/canonical-runtime-static.test.mjs
+        run: node --test tests/architecture/canonical-runtime-static.test.mjs tests/architecture/canonical-feedback.test.mjs
       - name: Typecheck orchestration and edge primitives
         run: npm run typecheck
