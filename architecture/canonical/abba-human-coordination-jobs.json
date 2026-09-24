@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Human Coordination Jobs",
+  "version": "1.0.0",
+  "status": "canonical-derived-specialist-job-pack",
+  "packId": "HUMAN_COORDINATION",
+  "jobs": [
+    "DETECT_HUMAN_INPUT_REQUIREMENT",
+    "PREPARE_MINIMUM_HUMAN_CONTEXT",
+    "REQUEST_CLARIFICATION",
+    "REQUEST_AUTHORIZATION",
+    "REQUEST_CONSENT",
+    "REQUEST_REVIEW",
+    "ESCALATE_TO_HUMAN",
+    "CAPTURE_HUMAN_DECISION",
+    "VERIFY_HUMAN_DECISION_EVIDENCE",
+    "RESUME_GOVERNED_CONTINUATION"
+  ],
+  "boundary": {
+    "executionAllowed": false,
+    "humanAuthorityFabricated": false
+  }
+}
