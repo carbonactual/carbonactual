@@ -103,7 +103,7 @@ BEGIN
 
   RETURN jsonb_build_object('reservation','RESERVED','executionId',v_execution_id);
 END;
-$;
+$$;
 
 CREATE OR REPLACE FUNCTION public.abba_job_status_transition_allowed(
   p_current text,
@@ -121,7 +121,7 @@ AS $
     WHEN p_current IN ('SUCCEEDED','FAILED','CANCELLED') THEN false
     ELSE false
   END
-$;
+$$;
 
 CREATE OR REPLACE FUNCTION public.append_abba_job_run(p_run jsonb)
 RETURNS jsonb
@@ -177,7 +177,7 @@ BEGIN
 
   RETURN jsonb_build_object('cycleId',v_cycle_id,'jobId',v_job_id,'idempotencyKey',v_key,'status',v_incoming_status);
 END;
-$;
+$$;
 
 CREATE OR REPLACE FUNCTION public.abba_execution_status_transition_allowed(
   p_current text,
@@ -194,7 +194,7 @@ AS $
     WHEN p_current IN ('SUCCEEDED','FAILED','RECOVERY_REQUIRED') THEN false
     ELSE false
   END
-$;
+$$;
 
 CREATE OR REPLACE FUNCTION public.update_abba_execution_attempt(p_execution jsonb)
 RETURNS void
@@ -234,7 +234,7 @@ BEGIN
       updated_at = now()
   WHERE execution_id = v_execution_id;
 END;
-$;
+$$;
 
 CREATE OR REPLACE FUNCTION public.recover_expired_abba_job_runs()
 RETURNS integer
@@ -259,7 +259,7 @@ BEGIN
   GET DIAGNOSTICS v_recovered = ROW_COUNT;
   RETURN v_recovered;
 END;
-$;
+$$;
 
 CREATE OR REPLACE FUNCTION public.append_abba_control_cycle(p_cycle jsonb)
 RETURNS text
