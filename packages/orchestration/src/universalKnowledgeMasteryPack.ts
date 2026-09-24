@@ -15,6 +15,7 @@ export interface UniversalKnowledgeMasteryInput {
   knowledgeAtoms: KnowledgeAtom[];
   languageCapabilities: LanguageCapability[];
   masteryRecords: MasteryRecord[];
+  certificationProvider?: string;
 }
 
 export interface UniversalKnowledgeMasteryResult {
@@ -35,7 +36,7 @@ export class ABBAUniversalKnowledgeMasteryPack {
   assess(input: UniversalKnowledgeMasteryInput): UniversalKnowledgeMasteryResult {
     const knowledge = input.knowledgeAtoms.map(atom => this.knowledgeEngine.assess(atom));
     const language = input.languageCapabilities.map(capability => this.languageEngine.assess(capability));
-    const mastery = input.masteryRecords.map(record => this.masteryEngine.assess(record));
+    const mastery = input.masteryRecords.map(record => this.masteryEngine.assess({ ...record, certificationProvider: record.certificationProvider ?? input.certificationProvider }));
     const learningPaths = input.masteryRecords.map(record => {
       const advanced = ['MASTER','EMERITUS'].includes(record.level);
       return {
