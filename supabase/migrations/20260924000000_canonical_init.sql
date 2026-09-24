@@ -263,6 +263,16 @@ REVOKE INSERT, UPDATE, DELETE ON public.ledger_entries FROM anon, authenticated;
 REVOKE INSERT, UPDATE, DELETE ON public.ledger_lines FROM anon, authenticated;
 REVOKE INSERT, UPDATE, DELETE ON public.pulse_observations FROM anon, authenticated;
 
+-- Even the privileged API identity uses the canonical RPC for consequential writes.
+REVOKE INSERT, UPDATE, DELETE ON public.entities FROM service_role;
+REVOKE INSERT, UPDATE, DELETE ON public.authority_grants FROM service_role;
+REVOKE INSERT, UPDATE, DELETE ON public.hapi_agents FROM service_role;
+REVOKE INSERT, UPDATE, DELETE ON public.canonical_events FROM service_role;
+REVOKE INSERT, UPDATE, DELETE ON public.ledger_accounts FROM service_role;
+REVOKE INSERT, UPDATE, DELETE ON public.ledger_entries FROM service_role;
+REVOKE INSERT, UPDATE, DELETE ON public.ledger_lines FROM service_role;
+REVOKE INSERT, UPDATE, DELETE ON public.pulse_observations FROM service_role;
+
 COMMENT ON TABLE public.canonical_events IS 'Append-only canonical occurrence/evidence index. Direct client mutation is prohibited.';
 COMMENT ON TABLE public.ledger_entries IS 'Double-entry posting header linked to one canonical event.';
 COMMENT ON TABLE public.ledger_lines IS 'Double-entry debit/credit lines; posting must balance.';
