@@ -4,12 +4,14 @@ import test from 'node:test';
 
 const contract = JSON.parse(await readFile('architecture/canonical/feedback-telemetry-rules.json','utf8'));
 const engine = await readFile('packages/orchestration/src/feedbackEngine.ts','utf8');
+const runtime = await readFile('packages/orchestration/src/closedLoopRuntime.ts','utf8');
 
 test('feedback contract anchors ABBA without granting self-authority', () => {
   assert.equal(contract.masterIntelligence, 'ABBA');
   assert.equal(contract.observabilityMode, 'GOVERNED_OBSERVABILITY');
   assert.equal(contract.curationEngine.authorityEligibilityRequired, true);
   assert.equal(contract.curationEngine.riskAssessmentRequired, true);
+  assert.equal(contract.proposalRules.authorization, 'authorization_required is always true until an independent authority/policy gate records approval');
 });
 
 test('feedback engine requires cryptographic verification to validate a signal', () => {
@@ -32,4 +34,14 @@ test('curation accounts for capability coverage and operational fit', () => {
   assert.match(engine, /reliability/);
   assert.match(engine, /latencyMs/);
   assert.match(engine, /contextFit/);
+});
+
+test('closed-loop runtime is concurrent and requires durable stores before composition', () => {
+  assert.match(runtime, /Promise\.all\(/);
+  assert.match(runtime, /private readonly observationStore: ObservationStore/);
+  assert.match(runtime, /private readonly teamProposalStore: TeamProposalStore/);
+  assert.match(runtime, /OBSERVATION_PERSISTENCE_FAILED/);
+  assert.match(runtime, /teamProposalStore\.record/);
+  assert.doesNotMatch(runtime, /append_canonical_event/);
+  assert.doesNotMatch(runtime, /supabase/i);
 });
