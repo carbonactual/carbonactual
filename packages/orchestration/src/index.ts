@@ -29,3 +29,4 @@ export * from './universalKnowledgeMasteryPack';
 export * from './capabilityBenchmarkEngine';
 export * from './providerHealthEngine';
 export * from './providerFallbackEngine';
+export * from './capabilityRoutingAssurance';
