@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS public.abba_job_runs (
   idempotency_key text NOT NULL UNIQUE,
   leased_by text,
   lease_expires_at timestamptz,
+  next_attempt_at timestamptz,
   output jsonb,
   error text,
   created_at timestamptz NOT NULL DEFAULT now(),
@@ -122,7 +123,7 @@ BEGIN
 
   INSERT INTO public.abba_job_runs (
     cycle_id, job_id, status, attempt, idempotency_key, leased_by,
-    lease_expires_at, output, error
+    lease_expires_at, next_attempt_at, output, error
   )
   VALUES (
     v_cycle_id,
@@ -132,6 +133,7 @@ BEGIN
     v_key,
     p_run->>'leasedBy',
     nullif(p_run->>'leaseExpiresAt','')::timestamptz,
+    nullif(p_run->>'nextAttemptAt','')::timestamptz,
     p_run->'output',
     p_run->>'error'
   )
@@ -140,6 +142,7 @@ BEGIN
     attempt = EXCLUDED.attempt,
     leased_by = EXCLUDED.leased_by,
     lease_expires_at = EXCLUDED.lease_expires_at,
+    next_attempt_at = EXCLUDED.next_attempt_at,
     output = EXCLUDED.output,
     error = EXCLUDED.error,
     updated_at = now();
