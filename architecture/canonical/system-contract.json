@@ -46,7 +46,8 @@
     "execution-contracts.json",
     "feedback-telemetry-rules.json",
     "abba-core-jobs.json",
-    "abba-substrate-binding-map.json"
+    "abba-substrate-binding-map.json",
+    "abba-learning-certification-loop.json"
   ],
   "canonicalSources": [
     "architecture/ECOSYSTEM_KERNEL.md",
