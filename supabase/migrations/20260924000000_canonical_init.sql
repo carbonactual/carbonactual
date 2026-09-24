@@ -84,7 +84,26 @@ CREATE TABLE IF NOT EXISTS public.hapi_agents (
 
 CREATE TABLE IF NOT EXISTS public.canonical_events (
   event_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  event_type TEXT NOT NULL,
+  event_type TEXT NOT NULL CHECK (event_type IN (
+    'agent_created',
+    'agent_task_started',
+    'agent_task_completed',
+    'resource_consumed',
+    'capability_used',
+    'value_created',
+    'value_transferred',
+    'payment_received',
+    'liability_created',
+    'asset_created',
+    'asset_consumed',
+    'agent_contract_formed',
+    'agent_contract_settled',
+    'pulse_observed',
+    'ledger_posted',
+    'settlement_confirmed',
+    'settlement_failed',
+    'reconciliation_completed'
+  )),
   actor_entity_id UUID NOT NULL REFERENCES public.entities(entity_id),
   principal_entity_id UUID REFERENCES public.entities(entity_id),
   subject_ref TEXT,
@@ -94,7 +113,7 @@ CREATE TABLE IF NOT EXISTS public.canonical_events (
   recorded_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   correlation_id TEXT,
   causation_id TEXT,
-  idempotency_key TEXT UNIQUE,
+  idempotency_key TEXT NOT NULL UNIQUE,
   schema_version TEXT NOT NULL,
   provenance JSONB NOT NULL DEFAULT '{}'::jsonb,
   payload JSONB NOT NULL,
@@ -163,28 +182,35 @@ FOR EACH ROW EXECUTE FUNCTION public.prevent_canonical_event_mutation();
 CREATE OR REPLACE FUNCTION public.enforce_balanced_ledger_entry()
 RETURNS TRIGGER
 LANGUAGE plpgsql
-AS $$
+AS $
 DECLARE
-  debit_total NUMERIC(38,18);
-  credit_total NUMERIC(38,18);
+  v_entry_id UUID := CASE WHEN TG_OP = 'DELETE' THEN OLD.entry_id ELSE NEW.entry_id END;
+  v_unbalanced_units TEXT;
 BEGIN
-  SELECT COALESCE(SUM(amount) FILTER (WHERE side='DEBIT'),0),
-         COALESCE(SUM(amount) FILTER (WHERE side='CREDIT'),0)
-  INTO debit_total, credit_total
-  FROM public.ledger_lines
-  WHERE entry_id = NEW.entry_id;
+  SELECT string_agg(unit, ', ' ORDER BY unit)
+  INTO v_unbalanced_units
+  FROM (
+    SELECT unit
+    FROM public.ledger_lines
+    WHERE entry_id = v_entry_id
+    GROUP BY unit
+    HAVING COALESCE(SUM(amount) FILTER (WHERE side='DEBIT'),0)
+        <> COALESCE(SUM(amount) FILTER (WHERE side='CREDIT'),0)
+       OR COUNT(*) FILTER (WHERE side='DEBIT') = 0
+       OR COUNT(*) FILTER (WHERE side='CREDIT') = 0
+  ) u;
 
-  IF debit_total <> credit_total THEN
-    RAISE EXCEPTION 'Ledger entry % is not balanced: debit %, credit %',
-      NEW.entry_id, debit_total, credit_total;
+  IF v_unbalanced_units IS NOT NULL THEN
+    RAISE EXCEPTION 'Ledger entry % is not balanced by unit: %', v_entry_id, v_unbalanced_units;
   END IF;
-  RETURN NEW;
+
+  RETURN CASE WHEN TG_OP = 'DELETE' THEN OLD ELSE NEW END;
 END;
-$$;
+$;
 
 DROP TRIGGER IF EXISTS trg_enforce_balanced_ledger_entry ON public.ledger_lines;
 CREATE CONSTRAINT TRIGGER trg_enforce_balanced_ledger_entry
-AFTER INSERT OR UPDATE ON public.ledger_lines
+AFTER INSERT OR UPDATE OR DELETE ON public.ledger_lines
 DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW EXECUTE FUNCTION public.enforce_balanced_ledger_entry();
 
@@ -235,3 +261,63 @@ REVOKE INSERT, UPDATE, DELETE ON public.pulse_observations FROM anon, authentica
 COMMENT ON TABLE public.canonical_events IS 'Append-only canonical occurrence/evidence index. Direct client mutation is prohibited.';
 COMMENT ON TABLE public.ledger_entries IS 'Double-entry posting header linked to one canonical event.';
 COMMENT ON TABLE public.ledger_lines IS 'Double-entry debit/credit lines; posting must balance.';
+
+
+CREATE OR REPLACE FUNCTION public.validate_canonical_event()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+DECLARE
+  v_consequential BOOLEAN := NEW.event_type IN (
+    'agent_created',
+    'agent_task_started',
+    'agent_task_completed',
+    'value_transferred',
+    'payment_received',
+    'liability_created',
+    'asset_created',
+    'asset_consumed',
+    'agent_contract_formed',
+    'agent_contract_settled',
+    'ledger_posted',
+    'settlement_confirmed',
+    'settlement_failed',
+    'reconciliation_completed'
+  );
+BEGIN
+  IF v_consequential AND (NEW.authority_ref IS NULL OR NEW.authority_signature IS NULL OR length(NEW.authority_signature) = 0) THEN
+    RAISE EXCEPTION 'CONSEQUENTIAL_EVENT_REQUIRES_AUTHORITY';
+  END IF;
+
+  IF NEW.authority_ref IS NOT NULL AND NOT EXISTS (
+    SELECT 1
+    FROM public.authority_grants g
+    WHERE g.grant_id = NEW.authority_ref
+      AND g.grantee_entity_id = NEW.actor_entity_id
+      AND g.status = 'ACTIVE'
+      AND g.valid_from <= NEW.timestamp
+      AND (g.valid_until IS NULL OR g.valid_until > NEW.timestamp)
+  ) THEN
+    RAISE EXCEPTION 'AUTHORITY_GRANT_INVALID_OR_EXPIRED';
+  END IF;
+
+  IF NEW.schema_version IS NULL OR length(trim(NEW.schema_version)) = 0 THEN
+    RAISE EXCEPTION 'SCHEMA_VERSION_REQUIRED';
+  END IF;
+
+  IF NEW.provenance IS NULL THEN
+    RAISE EXCEPTION 'PROVENANCE_REQUIRED';
+  END IF;
+
+  RETURN NEW;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS trg_validate_canonical_event ON public.canonical_events;
+CREATE TRIGGER trg_validate_canonical_event
+BEFORE INSERT ON public.canonical_events
+FOR EACH ROW EXECUTE FUNCTION public.validate_canonical_event();
+
+
+-- Canonical event audit records are append-only. Corrections are represented by
+-- compensating/reversal events rather than mutations to historical events.
