@@ -21,4 +21,5 @@ test('technical readiness is evaluated before authorization but never grants aut
 test('production event and reasoning binding ingress are explicitly mapped',()=>{
   assert.match(JSON.stringify(manifest),/omnii_append_event/);
   assert.match(JSON.stringify(manifest),/append_abba_reasoning_substrate_binding/);
+  assert.match(JSON.stringify(manifest),/HEALTH_RECONCILED/);
 });
