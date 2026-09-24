@@ -3,7 +3,6 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 const binder=await readFile('packages/orchestration/src/reasoningSubstrateBinding.ts','utf8');
-const bridge=await readFile('packages/orchestration/src/governedReasoningSubstrateBridge.ts','utf8');
 const migration=await readFile('supabase/migrations/20260924000010_reasoning_substrate_binding.sql','utf8');
 const rls=await readFile('supabase/migrations/20260924000011_postgis_rls_remediation.sql','utf8');
 const adapters=await readFile('packages/orchestration/src/supabaseRuntimeAdapters.ts','utf8');
