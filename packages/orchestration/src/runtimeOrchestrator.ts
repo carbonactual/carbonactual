@@ -178,7 +178,7 @@ export class ABBARuntimeOrchestrator {
       ...(routedContext?.reasons.map(reason => `PRIVACY_CONTEXT:${reason}`) ?? []),
       ...(communicationIntelligence?.assessments.filter(item => !item.valid).map(item => `COMMUNICATION_ASSESSMENT:${item.communicationId}:${item.reasons.join('|')}`) ?? []),
       ...(communicationIntelligence?.routes.filter(item => !item.routeProposed).map(item => `COMMUNICATION_ROUTE:${item.communicationId}:${item.reasons.join('|')}`) ?? []),
-      ...(communicationIntelligence?.outcomes.filter(item => !item.completed).map(item => `COMMUNICATION_OUTCOME:${item.communicationId}:${item.reasons.join('|')}`) ?? [])
+      ...(communicationIntelligence?.outcomes.filter(item => !item.completed).map(item => `COMMUNICATION_OUTCOME:${item.communicationId}:${item.reasons.join('|')}`) ?? []),
       ...reasoningAssessments.filter((assessment) => !assessment.valid).map((assessment) => `REASONING_BOUNDARY:${assessment.artifactId}:${assessment.reasons.join('|')}`),
       ...(missionIntelligence?.intent.clarificationRequired ? ['INTENT_CLARIFICATION_REQUIRED'] : []),
       ...(missionIntelligence?.decomposition.unresolvedDependencies ?? []).map((dep) => `MISSION_DEPENDENCY_UNRESOLVED:${dep}`),
