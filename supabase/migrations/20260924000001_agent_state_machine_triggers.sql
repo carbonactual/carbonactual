@@ -52,6 +52,9 @@ BEGIN
 
     WHEN 'agent_suspended' THEN
       v_required_level := 2;
+      IF v_current <> 'ACTIVE' THEN
+        RAISE EXCEPTION 'INVALID_AGENT_TRANSITION: % -> PAUSED', v_current;
+      END IF;
 
     WHEN 'agent_terminated' THEN
       v_required_level := 4;
