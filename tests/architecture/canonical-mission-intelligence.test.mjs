@@ -13,7 +13,7 @@ const runtime=await readFile('packages/orchestration/src/runtimeOrchestrator.ts'
 const graph=JSON.parse(await readFile('architecture/canonical/abba-core-jobs.json','utf8'));
 
 test('specialist packs cover mission intelligence, capability assurance, outcomes and stewardship',()=>{
-  assert.equal(contract.packs.length,7);
+  assert.equal(contract.packs.length,8);
   assert.match(JSON.stringify(contract),/MISSION_INTELLIGENCE/);
   assert.match(JSON.stringify(contract),/CAPABILITY_ASSURANCE/);
   assert.match(JSON.stringify(contract),/OUTCOME_ANALYSIS/);
@@ -45,7 +45,7 @@ test('simulation is analysis only',()=>{
 });
 
 test('core graph exposes specialist packs without changing the governing core',()=>{
-  assert.deepEqual(graph.specialistPacks,['MISSION_INTELLIGENCE','CAPABILITY_ASSURANCE','CAPABILITY_BENCHMARK_AND_FALLBACK','OUTCOME_ANALYSIS','STEWARDSHIP','UNIVERSAL_KNOWLEDGE_MASTERY','REASONING_SUBSTRATE_BINDING']);
+  assert.deepEqual(graph.specialistPacks,['MISSION_INTELLIGENCE','CAPABILITY_ASSURANCE','CAPABILITY_BENCHMARK_AND_FALLBACK','OUTCOME_ANALYSIS','STEWARDSHIP','UNIVERSAL_KNOWLEDGE_MASTERY','REASONING_SUBSTRATE_BINDING','LIVE_SUBSTRATE_HEALTH']);
   assert.match(runtime,/missionIntelligencePack/);
   assert.match(runtime,/INTENT_CLARIFICATION_REQUIRED/);
 });
