@@ -1,10 +1,14 @@
 import { ABBAFeedbackEngine } from './feedbackEngine';
+import { ABBAContextEngine } from './contextEngine';
+import { ABBAResponsePlanner } from './responsePlanner';
 import type {
   CuratedCandidate,
   CuratedTeamProposal,
   TelemetrySignal,
   TelemetryProcessingResult
 } from './feedbackEngine';
+import type { ABBAContextBundle, ABBAContextSynthesis } from './contextEngine';
+import type { ResponsePlan, ResponseProposal } from './responsePlanner';
 
 export interface SWIRMCapabilityQuery {
   requiredCapabilities: string[];
@@ -18,18 +22,26 @@ export interface CapabilityDiscovery {
 }
 
 export interface ObservationStore {
-  /** Implementations must be idempotent by signalId. */
   record(signal: TelemetrySignal, processing: TelemetryProcessingResult): Promise<void>;
 }
 
 export interface TeamProposalStore {
-  /** Implementations must be idempotent by metadata.idempotencyKey. */
   record(
     proposal: CuratedTeamProposal,
     metadata: {
       cycleId: string;
       correlationId: string;
       sourceSignalIds: string[];
+      idempotencyKey: string;
+    }
+  ): Promise<void>;
+}
+
+export interface ResponseProposalStore {
+  record(
+    proposal: ResponseProposal,
+    metadata: {
+      responsePlanId: string;
       idempotencyKey: string;
     }
   ): Promise<void>;
@@ -45,7 +57,7 @@ export interface ClosedLoopObjective {
 
 export interface ClosedLoopFailure {
   signalId: string;
-  stage: 'OBSERVE' | 'PERSIST_OBSERVATION' | 'DISCOVER' | 'PERSIST_PROPOSAL';
+  stage: 'OBSERVE' | 'PERSIST_OBSERVATION' | 'SYNTHESIZE' | 'PERSIST_RESPONSE' | 'DISCOVER' | 'PERSIST_PROPOSAL';
   reason: string;
 }
 
@@ -55,6 +67,10 @@ export interface ClosedLoopCycleResult {
   observationsPersistedCount: number;
   anomaliesDetected: number;
   actionableObservationCount: number;
+  context: ABBAContextBundle;
+  synthesis: ABBAContextSynthesis;
+  responsePlan: ResponsePlan;
+  responseProposalsPersistedCount: number;
   capabilityDiscoveryCount: number;
   teamProposalsGenerated: CuratedTeamProposal[];
   teamProposalsPersistedCount: number;
@@ -62,56 +78,105 @@ export interface ClosedLoopCycleResult {
   failures: ClosedLoopFailure[];
 }
 
+type ProcessedSignal = {
+  signal: TelemetrySignal;
+  processing: TelemetryProcessingResult;
+  observationPersisted: boolean;
+};
+
 export class ABBAClosedLoopRuntime {
   constructor(
     private readonly feedbackEngine: ABBAFeedbackEngine,
     private readonly capabilityDiscovery: CapabilityDiscovery,
     private readonly observationStore: ObservationStore,
-    private readonly teamProposalStore: TeamProposalStore
+    private readonly responseProposalStore: ResponseProposalStore,
+    private readonly teamProposalStore: TeamProposalStore,
+    private readonly contextEngine: ABBAContextEngine = new ABBAContextEngine(),
+    private readonly responsePlanner: ABBAResponsePlanner = new ABBAResponsePlanner()
   ) {}
 
   /**
-   * Runs observation-to-proposal stages concurrently per signal.
-   * Durable observation is mandatory before capability composition.
-   * This stage never executes a consequential action or writes canonical state.
+   * Executes the governed core loop. Raw observation handling is concurrent;
+   * synthesis precedes composition; persistence failures fail closed.
+   * No consequential canonical state mutation occurs in this runtime.
    */
   public async executeObservationCycle(
     incomingSignals: TelemetrySignal[],
     objective: ClosedLoopObjective
   ): Promise<ClosedLoopCycleResult> {
     const cycleId = `cycle_${crypto.randomUUID()}`;
+    const processed = await Promise.all(incomingSignals.map((signal) => this.processSignal(signal)));
+    const validSignals = processed.filter((item) => item.processing.isValid && item.observationPersisted).map((item) => item.signal);
 
-    const results = await Promise.all(
-      incomingSignals.map(async (signal) => this.processSignal(signal, objective, cycleId))
-    );
+    const context = this.contextEngine.buildContext(validSignals);
+    const synthesis = this.contextEngine.synthesize(context, validSignals);
+    const responsePlan = this.responsePlanner.buildPlan(context.contextId, synthesis, validSignals);
 
-    const successfulResults = results.filter((result) => result.kind === 'PROPOSAL');
+    const failures: ClosedLoopFailure[] = [];
+    let responseProposalsPersistedCount = 0;
+
+    for (const proposal of responsePlan.proposals) {
+      const idempotencyKey = `abba:response:${context.contextId}:${proposal.type}`;
+      try {
+        await this.responseProposalStore.record(proposal, {
+          responsePlanId: responsePlan.planId,
+          idempotencyKey
+        });
+        responseProposalsPersistedCount++;
+      } catch (error) {
+        failures.push({
+          signalId: proposal.sourceSignalIds[0] ?? 'unknown',
+          stage: 'PERSIST_RESPONSE',
+          reason: error instanceof Error ? error.message : 'RESPONSE_PERSISTENCE_FAILED'
+        });
+      }
+    }
+
+    const responsePersistenceFailed = failures.some((failure) => failure.stage === 'PERSIST_RESPONSE');
+    const proposalsGenerated: CuratedTeamProposal[] = [];
+    let capabilityDiscoveryCount = 0;
+
+    if (!responsePersistenceFailed) {
+      const actionableSignals = validSignals.filter((signal) => this.isActionable(signal));
+      const compositionResults = await Promise.all(
+        actionableSignals.map((signal) => this.composeTeam(signal, objective, cycleId))
+      );
+      capabilityDiscoveryCount = compositionResults.reduce((sum, result) => sum + result.discoveryCount, 0);
+      for (const result of compositionResults) {
+        failures.push(...result.failures);
+        if (result.proposal) proposalsGenerated.push(result.proposal);
+      }
+    }
+
+    const teamProposalsPersistedCount = responsePersistenceFailed
+      ? 0
+      : await this.persistTeamProposals(proposalsGenerated, validSignals, cycleId, failures);
 
     return {
       cycleId,
       telemetryIngestedCount: incomingSignals.length,
-      observationsPersistedCount: results.filter((result) => result.observationPersisted).length,
-      anomaliesDetected: results.filter((result) => result.anomaly).length,
-      actionableObservationCount: results.filter((result) => result.actionable).length,
-      capabilityDiscoveryCount: results.reduce((sum, result) => sum + result.discoveryCount, 0),
-      teamProposalsGenerated: successfulResults.map((result) => result.proposal),
-      teamProposalsPersistedCount: successfulResults.filter((result) => result.proposalPersisted).length,
-      blockedSignalIds: results.filter((result) => result.blocked).map((result) => result.signalId),
-      failures: results.flatMap((result) => result.failures)
+      observationsPersistedCount: processed.filter((item) => item.observationPersisted).length,
+      anomaliesDetected: processed.filter((item) => !item.processing.isValid).length,
+      actionableObservationCount: validSignals.filter((signal) => this.isActionable(signal)).length,
+      context,
+      synthesis,
+      responsePlan,
+      responseProposalsPersistedCount,
+      capabilityDiscoveryCount,
+      teamProposalsGenerated: proposalsGenerated,
+      teamProposalsPersistedCount,
+      blockedSignalIds: processed.filter((item) => !item.processing.isValid || !item.observationPersisted).map((item) => item.signal.signalId),
+      failures
     };
   }
 
-  private async processSignal(
-    signal: TelemetrySignal,
-    objective: ClosedLoopObjective,
-    cycleId: string
-  ) {
+  private async processSignal(signal: TelemetrySignal): Promise<ProcessedSignal> {
     const signalId = signal.signalId || 'unknown';
     let processing: TelemetryProcessingResult;
 
     try {
       processing = await this.feedbackEngine.processTelemetry(signal);
-    } catch (error) {
+    } catch {
       processing = {
         signalId,
         isValid: false,
@@ -119,71 +184,35 @@ export class ABBAClosedLoopRuntime {
         disposition: 'REJECTED',
         anomalyReason: 'FEEDBACK_ENGINE_PROCESSING_ERROR'
       };
-      const observationPersisted = await this.persistObservationSafely(signal, processing);
-      return {
-        kind: 'BLOCKED' as const,
-        signalId,
-        observationPersisted,
-        anomaly: true,
-        actionable: false,
-        discoveryCount: 0,
-        blocked: true,
-        failures: [{
-          signalId,
-          stage: 'OBSERVE' as const,
-          reason: error instanceof Error ? error.message : 'UNKNOWN_FEEDBACK_ENGINE_ERROR'
-        }]
-      };
     }
 
-    const observationPersisted = await this.persistObservationSafely(signal, processing);
-    if (!observationPersisted) {
-      return {
-        kind: 'BLOCKED' as const,
-        signalId,
-        observationPersisted: false,
-        anomaly: false,
-        actionable: false,
-        discoveryCount: 0,
-        blocked: true,
-        failures: [{
-          signalId,
-          stage: 'PERSIST_OBSERVATION' as const,
-          reason: 'OBSERVATION_PERSISTENCE_FAILED'
-        }]
-      };
+    let observationPersisted = false;
+    try {
+      await this.observationStore.record(signal, processing);
+      observationPersisted = true;
+    } catch {
+      observationPersisted = false;
     }
 
-    if (!processing.isValid) {
-      return {
-        kind: 'BLOCKED' as const,
-        signalId,
-        observationPersisted: true,
-        anomaly: true,
-        actionable: false,
-        discoveryCount: 0,
-        blocked: true,
-        failures: [{
-          signalId,
-          stage: 'OBSERVE' as const,
-          reason: processing.anomalyReason ?? 'INVALID_SIGNAL'
-        }]
-      };
-    }
+    return { signal, processing, observationPersisted };
+  }
 
-    if (!processing.actionRequired) {
-      return {
-        kind: 'NO_ACTION' as const,
-        signalId,
-        observationPersisted: true,
-        anomaly: false,
-        actionable: false,
-        discoveryCount: 0,
-        blocked: false,
-        failures: [] as ClosedLoopFailure[]
-      };
-    }
+  private isActionable(signal: TelemetrySignal): boolean {
+    return [
+      'SIGNAL_RESOURCE_PULSE',
+      'SIGNAL_AGENT_HEALTH',
+      'SIGNAL_VALUE_METRIC',
+      'SIGNAL_ANOMALY_LOG',
+      'SIGNAL_POLICY_FRICTION',
+      'SIGNAL_TASK_OUTCOME'
+    ].includes(signal.signalType);
+  }
 
+  private async composeTeam(signal: TelemetrySignal, objective: ClosedLoopObjective, cycleId: string): Promise<{
+    proposal?: CuratedTeamProposal;
+    discoveryCount: number;
+    failures: ClosedLoopFailure[];
+  }> {
     const query: SWIRMCapabilityQuery = {
       requiredCapabilities: this.extractRequiredCapabilities(signal, objective),
       maxRiskClass: objective.riskClass,
@@ -191,81 +220,60 @@ export class ABBAClosedLoopRuntime {
       objective: this.deriveObjective(signal, objective)
     };
 
-    let candidates: CuratedCandidate[];
     try {
-      candidates = await this.capabilityDiscovery.discover(query);
+      const candidates = await this.capabilityDiscovery.discover(query);
+      const proposal = this.feedbackEngine.curateSpecializedTeam(query.objective, candidates, {
+        requiredCapabilities: query.requiredCapabilities,
+        riskClass: query.maxRiskClass,
+        context: {
+          ...(objective.context ?? {}),
+          sourceSignalId: signal.signalId,
+          correlationId: signal.correlationId,
+          cycleId
+        }
+      });
+      return { proposal, discoveryCount: candidates.length, failures: [] };
     } catch (error) {
       return {
-        kind: 'BLOCKED' as const,
-        signalId,
-        observationPersisted: true,
-        anomaly: false,
-        actionable: true,
         discoveryCount: 0,
-        blocked: true,
         failures: [{
-          signalId,
-          stage: 'DISCOVER' as const,
+          signalId: signal.signalId,
+          stage: 'DISCOVER',
           reason: error instanceof Error ? error.message : 'CAPABILITY_DISCOVERY_FAILED'
         }]
       };
     }
-
-    const proposal = this.feedbackEngine.curateSpecializedTeam(query.objective, candidates, {
-      requiredCapabilities: query.requiredCapabilities,
-      riskClass: query.maxRiskClass,
-      context: {
-        ...(objective.context ?? {}),
-        sourceSignalId: signal.signalId,
-        correlationId: signal.correlationId,
-        cycleId
-      }
-    });
-
-    let proposalPersisted = false;
-    const failures: ClosedLoopFailure[] = [];
-    const idempotencyKey = `abba:team:${signal.signalId}:${query.objective}`;
-
-    try {
-      await this.teamProposalStore.record(proposal, {
-        cycleId,
-        correlationId: signal.correlationId,
-        sourceSignalIds: [signal.signalId],
-        idempotencyKey
-      });
-      proposalPersisted = true;
-    } catch (error) {
-      failures.push({
-        signalId,
-        stage: 'PERSIST_PROPOSAL',
-        reason: error instanceof Error ? error.message : 'PROPOSAL_PERSISTENCE_FAILED'
-      });
-    }
-
-    return {
-      kind: 'PROPOSAL' as const,
-      signalId,
-      observationPersisted: true,
-      anomaly: false,
-      actionable: true,
-      discoveryCount: candidates.length,
-      blocked: failures.length > 0,
-      proposal,
-      proposalPersisted,
-      failures
-    };
   }
 
-  private async persistObservationSafely(
-    signal: TelemetrySignal,
-    processing: TelemetryProcessingResult
-  ): Promise<boolean> {
-    try {
-      await this.observationStore.record(signal, processing);
-      return true;
-    } catch {
-      return false;
+  private async persistTeamProposals(
+    proposals: CuratedTeamProposal[],
+    signals: TelemetrySignal[],
+    cycleId: string,
+    failures: ClosedLoopFailure[]
+  ): Promise<number> {
+    let persisted = 0;
+    for (const proposal of proposals) {
+      const sourceSignalId = String(proposal.contextPayload.sourceSignalId ?? 'unknown');
+      const sourceSignal = signals.find((signal) => signal.signalId === sourceSignalId);
+      const correlationId = String(proposal.contextPayload.correlationId ?? sourceSignal?.correlationId ?? cycleId);
+      const idempotencyKey = `abba:team:${sourceSignalId}:${proposal.objective}`;
+      try {
+        await this.teamProposalStore.record(proposal, {
+          cycleId,
+          correlationId,
+          sourceSignalIds: sourceSignal ? [sourceSignal.signalId] : [sourceSignalId],
+          idempotencyKey
+        });
+        persisted++;
+      } catch (error) {
+        failures.push({
+          signalId: sourceSignalId,
+          stage: 'PERSIST_PROPOSAL',
+          reason: error instanceof Error ? error.message : 'PROPOSAL_PERSISTENCE_FAILED'
+        });
+      }
     }
+    return persisted;
   }
 
   private extractRequiredCapabilities(signal: TelemetrySignal, objective: ClosedLoopObjective): string[] {
