@@ -3,10 +3,12 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 const binder=await readFile('packages/orchestration/src/reasoningSubstrateBinding.ts','utf8');
-const bridge=await readFile('packages/orchestration/src/governedReasoningSubstrateBridge.ts','utf8');
 const migration=await readFile('supabase/migrations/20260924000010_reasoning_substrate_binding.sql','utf8');
 const rls=await readFile('supabase/migrations/20260924000011_postgis_rls_remediation.sql','utf8');
 const adapters=await readFile('packages/orchestration/src/supabaseRuntimeAdapters.ts','utf8');
+const bridge=await readFile('packages/orchestration/src/governedReasoningSubstrateBridge.ts','utf8');
+const health=await readFile('packages/orchestration/src/substrateHealthEngine.ts','utf8');
+const readiness=await readFile('packages/orchestration/src/substrateReadinessGate.ts','utf8');
 
 test('substrate binder prepares but never calls canonical persistence',()=>{
   assert.match(binder,/prepareCanonicalEvent/);
@@ -34,6 +36,13 @@ test('live event adapter binds to the existing omnii append-event substrate',()=
   assert.match(adapters,/CANONICAL_EVENT_TYPES\.includes/);
   assert.match(adapters,/authoritySignature: event\.authoritySignature/);
   assert.doesNotMatch(adapters,/canonical_events\s*\(/i);
+});
+
+test('technical substrate readiness precedes authority gate',()=>{
+  assert.match(bridge,/substrateReadinessGate\.evaluate/);
+  assert.match(bridge,/PROCEED_TO_AUTHORITY_GATE/);
+  assert.match(readiness,/executionAllowed:false/);
+  assert.match(health,/DUPLICATE_SEMANTIC_SURFACE/);
 });
 
 test('PostGIS remediation enables RLS and preserves public read-only access',()=>{

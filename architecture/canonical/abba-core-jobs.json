@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
@@ -25,7 +25,9 @@
     "Confidence is an assessment attribute, not a truth claim.",
     "Reasoning substrate binding prepares and records; it does not independently authorize.",
     "Production event persistence is adapted to the existing omnii event ingress where that substrate is authoritative.",
-    "A substrate adapter must not create semantic duplicate event or state universes."
+    "A substrate adapter must not create semantic duplicate event or state universes.",
+    "Technical substrate readiness is distinct from authority and policy authorization.",
+    "A missing, degraded or duplicated substrate surface blocks consequential execution until repaired or explicitly adjudicated."
   ],
   "jobSequence": [
     {
@@ -640,10 +642,73 @@
     },
     {
       "jobId": "ABBACORE-69",
+      "name": "PROBE_LIVE_SUBSTRATE",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-68"
+      ],
+      "output": "live_substrate_probe"
+    },
+    {
+      "jobId": "ABBACORE-70",
+      "name": "VERIFY_SUBSTRATE_RLS_POSTURE",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-69"
+      ],
+      "output": "rls_posture_assessment"
+    },
+    {
+      "jobId": "ABBACORE-71",
+      "name": "VERIFY_SUBSTRATE_INGRESS",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-70"
+      ],
+      "output": "ingress_availability"
+    },
+    {
+      "jobId": "ABBACORE-72",
+      "name": "DETECT_DUPLICATE_SEMANTIC_SURFACE",
+      "phase": "STEWARD",
+      "dependsOn": [
+        "ABBACORE-71"
+      ],
+      "output": "semantic_duplication_assessment"
+    },
+    {
+      "jobId": "ABBACORE-73",
+      "name": "EVALUATE_SUBSTRATE_READINESS",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-72"
+      ],
+      "output": "technical_readiness_decision"
+    },
+    {
+      "jobId": "ABBACORE-74",
+      "name": "RECONCILE_SUBSTRATE_HEALTH",
+      "phase": "RECONCILE",
+      "dependsOn": [
+        "ABBACORE-73"
+      ],
+      "output": "substrate_health_reconciliation"
+    },
+    {
+      "jobId": "ABBACORE-75",
+      "name": "AUDIT_SUBSTRATE_BINDING_PROVENANCE",
+      "phase": "STEWARD",
+      "dependsOn": [
+        "ABBACORE-74"
+      ],
+      "output": "substrate_health_audit"
+    },
+    {
+      "jobId": "ABBACORE-76",
       "name": "CONTINUE_OR_STOP",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-68"
+        "ABBACORE-75"
       ],
       "output": "next_jobs_or_terminal_state"
     }
@@ -697,7 +762,11 @@
     "validate_evidence_chain",
     "verify_recommendation_boundary",
     "validate_substrate_binding",
-    "audit_binding_provenance"
+    "audit_binding_provenance",
+    "probe_live_substrate",
+    "evaluate_substrate_readiness",
+    "reconcile_substrate_health",
+    "audit_substrate_binding_provenance"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -706,6 +775,7 @@
     "OUTCOME_ANALYSIS",
     "STEWARDSHIP",
     "UNIVERSAL_KNOWLEDGE_MASTERY",
-    "REASONING_SUBSTRATE_BINDING"
+    "REASONING_SUBSTRATE_BINDING",
+    "LIVE_SUBSTRATE_HEALTH"
   ]
 }

@@ -1,6 +1,8 @@
 import { ABBASubstrateBinder, ReasoningSubstrateStep, SubstrateBindingResult } from './reasoningSubstrateBinding';
 import { ABBAAuthorityPolicyGate, AuthorityContext, GateResult } from './authorityPolicyGate';
 import { ABBAExecutionGateway, GatedExecutionResult } from './executionGateway';
+import { ABBASubstrateReadinessGate } from './substrateReadinessGate';
+import type { SubstrateRequirement, SubstrateHealthSnapshot } from './substrateHealthEngine';
 
 export interface ReasoningSubstrateBindingStore {
   append(input: Record<string, unknown>): Promise<string>;
@@ -18,6 +20,7 @@ export interface GovernedReasoningExecutionInput {
   actionPayload: Record<string, unknown>;
   pulseImpact: Record<string, unknown>;
   provenance?: Record<string, unknown>;
+  substrateRequirements: SubstrateRequirement[];
 }
 
 export interface GovernedReasoningExecutionResult {
@@ -25,6 +28,7 @@ export interface GovernedReasoningExecutionResult {
   preparation: SubstrateBindingResult;
   gate?: GateResult;
   execution?: GatedExecutionResult;
+  substrateHealth?: SubstrateHealthSnapshot;
 }
 
 export class ABBAGovernedReasoningSubstrateBridge {
@@ -32,10 +36,13 @@ export class ABBAGovernedReasoningSubstrateBridge {
     private readonly binder: ABBASubstrateBinder,
     private readonly gate: ABBAAuthorityPolicyGate,
     private readonly executionGateway: ABBAExecutionGateway,
-    private readonly bindingStore: ReasoningSubstrateBindingStore
+    private readonly bindingStore: ReasoningSubstrateBindingStore,
+    private readonly substrateReadinessGate: ABBASubstrateReadinessGate = new ABBASubstrateReadinessGate()
   ) {}
 
   public async execute(input: GovernedReasoningExecutionInput): Promise<GovernedReasoningExecutionResult> {
+    const substrateReadiness = this.substrateReadinessGate.evaluate(input.substrateRequirements);
+
     const preparation = this.binder.prepareCanonicalEvent(
       input.reasoningChainId,
       input.steps,
@@ -64,8 +71,16 @@ export class ABBAGovernedReasoningSubstrateBridge {
       provenance: { source: 'ABBAGovernedReasoningSubstrateBridge' }
     });
 
+    if (substrateReadiness.decision !== 'PROCEED_TO_AUTHORITY_GATE') {
+      await this.bindingStore.update(bindingId, {
+        bindingStatus: 'BLOCKED',
+        blockingReasons: substrateReadiness.reasons
+      });
+      return { bindingId, preparation, substrateHealth: substrateReadiness.snapshot };
+    }
+
     if (!preparation.isBoundToSubstrate || !preparation.canonicalEventDraft) {
-      return { bindingId, preparation };
+      return { bindingId, preparation, substrateHealth: substrateReadiness.snapshot };
     }
 
     const gate = await this.gate.evaluate(input.authorityContext);
@@ -75,7 +90,7 @@ export class ABBAGovernedReasoningSubstrateBridge {
         bindingStatus: 'BLOCKED',
         blockingReasons: gate.reasons
       });
-      return { bindingId, preparation, gate };
+      return { bindingId, preparation, gate, substrateHealth: substrateReadiness.snapshot };
     }
 
     await this.bindingStore.update(bindingId, { bindingStatus: 'GATED' });
@@ -98,6 +113,6 @@ export class ABBAGovernedReasoningSubstrateBridge {
       blockingReasons: execution.reason ? [execution.reason] : []
     });
 
-    return { bindingId, preparation, gate, execution };
+    return { bindingId, preparation, gate, execution, substrateHealth: substrateReadiness.snapshot };
   }
 }
