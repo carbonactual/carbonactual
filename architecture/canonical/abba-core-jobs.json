@@ -1041,7 +1041,15 @@
     "verify_claim_scope",
     "detect_evidence_gaps",
     "reassess_external_evidence",
-    "generate_evidence_follow_on_jobs"
+    "generate_evidence_follow_on_jobs",
+    "check_cost_ceiling",
+    "check_concurrency_ceiling",
+    "check_retry_ceiling",
+    "check_blast_radius",
+    "check_data_egress",
+    "check_reversibility",
+    "check_circuit_breaker",
+    "select_safety_mitigations"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -1053,6 +1061,7 @@
     "REASONING_SUBSTRATE_BINDING",
     "LIVE_SUBSTRATE_HEALTH",
     "EVIDENCE_SOURCE_INTELLIGENCE",
-    "HUMAN_COORDINATION"
+    "HUMAN_COORDINATION",
+    "OPERATIONAL_SAFETY_ENVELOPE"
   ]
 }
