@@ -65,6 +65,46 @@ AS $$
   END
 $$;
 
+CREATE OR REPLACE FUNCTION public.reserve_abba_execution_attempt(p_execution jsonb)
+RETURNS jsonb
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $
+DECLARE
+  v_execution_id text := nullif(p_execution->>'executionId','');
+  v_action_id text := nullif(p_execution->>'actionId','');
+  v_key text := nullif(p_execution->>'idempotencyKey','');
+  v_existing public.abba_execution_attempts;
+BEGIN
+  IF v_execution_id IS NULL OR v_action_id IS NULL OR v_key IS NULL THEN
+    RAISE EXCEPTION 'INVALID_ABBA_EXECUTION_ATTEMPT';
+  END IF;
+
+  SELECT * INTO v_existing
+  FROM public.abba_execution_attempts
+  WHERE idempotency_key = v_key;
+
+  IF v_existing.execution_id IS NOT NULL THEN
+    RETURN jsonb_build_object(
+      'reservation',
+      CASE v_existing.status
+        WHEN 'SUCCEEDED' THEN 'ALREADY_SUCCEEDED'
+        WHEN 'RUNNING' THEN 'ALREADY_RUNNING'
+        WHEN 'RECOVERY_REQUIRED' THEN 'ALREADY_RECOVERY_REQUIRED'
+        ELSE 'ALREADY_FAILED'
+      END,
+      'executionId', v_existing.execution_id
+    );
+  END IF;
+
+  INSERT INTO public.abba_execution_attempts (execution_id, action_id, idempotency_key, status)
+  VALUES (v_execution_id, v_action_id, v_key, 'RESERVED');
+
+  RETURN jsonb_build_object('reservation','RESERVED','executionId',v_execution_id);
+END;
+$;
+
 CREATE OR REPLACE FUNCTION public.append_abba_control_cycle(p_cycle jsonb)
 RETURNS text
 LANGUAGE plpgsql
