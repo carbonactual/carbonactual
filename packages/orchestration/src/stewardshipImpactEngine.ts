@@ -43,3 +43,6 @@ export class ABBAStewardshipImpactEngine {
     };
   }
 }
+
+
+export function assessStewardshipMany(engine: ABBAStewardshipImpactEngine, impacts: StewardshipImpact[]): StewardshipAssessment[] { return impacts.map((impact) => engine.assess(impact)); }
