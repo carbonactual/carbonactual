@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Evidence and Source Intelligence Fabric",
+  "version": "1.0.0",
+  "status": "canonical-derived-epistemic-extension",
+  "lifecycle": [
+    "DISCOVER_SOURCE",
+    "VERIFY_PROVENANCE",
+    "ASSESS_FRESHNESS",
+    "ASSESS_INDEPENDENCE",
+    "CORROBORATE",
+    "PRESERVE_CONTRADICTION",
+    "BUILD_EVIDENCE_CHAIN",
+    "CLASSIFY_REALITY_STATE",
+    "UPDATE_KNOWLEDGE"
+  ],
+  "sourceKinds": [
+    "PRIMARY_OFFICIAL",
+    "PRIMARY_RESEARCH",
+    "STANDARD_BODY",
+    "ACADEMIC",
+    "PROFESSIONAL",
+    "COMMUNITY",
+    "USER_PROVIDED",
+    "MODEL_DERIVED",
+    "UNKNOWN"
+  ],
+  "rules": [
+    "A source is not truth.",
+    "A source assessment is not truth.",
+    "Consensus does not automatically establish truth.",
+    "Multiple copies of one source are not independent corroboration.",
+    "Stale sources remain provenance-preserved but require reassessment.",
+    "External observations are observations with provenance and reality state, not automatic canonical fact.",
+    "Contradictory evidence remains represented rather than silently discarded.",
+    "Evidence-chain confidence is an assessment, not a truth claim."
+  ],
+  "authorityBoundary": "Evidence and source intelligence cannot authorize consequential execution."
+}

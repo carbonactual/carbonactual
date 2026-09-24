@@ -8,10 +8,10 @@ const preflight = await readFile('packages/orchestration/src/deploymentPreflight
 const bindingMap = await readFile('architecture/canonical/abba-substrate-binding-map.json','utf8');
 
 test('core job graph extends the governed lifecycle to phase6 assurance', () => {
-  assert.equal(jobs.version, '1.6.0');
-  assert.equal(jobs.jobSequence.length, 76);
+  assert.equal(jobs.version, '1.7.0');
+  assert.equal(jobs.jobSequence.length, 94);
   assert.equal(jobs.jobSequence.at(-1).name, 'CONTINUE_OR_STOP');
-  assert.equal(jobs.jobSequence.at(-1).dependsOn[0], 'ABBACORE-75');
+  assert.equal(jobs.jobSequence.at(-1).dependsOn[0], 'ABBACORE-93');
   assert.equal(jobs.jobSequence.find((job) => job.name === 'RECONCILE_LIVE_SUBSTRATE').dependsOn[0], 'ABBACORE-46');
 });
 

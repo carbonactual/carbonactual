@@ -34,3 +34,7 @@ export * from './reasoningSubstrateBinding';
 export * from './governedReasoningSubstrateBridge';
 export * from './substrateHealthEngine';
 export * from './substrateReadinessGate';
+export * from './sourceIntelligenceEngine';
+export * from './evidenceChainEngine';
+export * from './externalObservationEngine';
+export * from './evidenceSourceIntelligencePack';
