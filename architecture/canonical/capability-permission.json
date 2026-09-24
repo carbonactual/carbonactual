@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CapabilityPermissionContract",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "canonicalSource": "architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md",
+  "definitions": {
+    "capability": "A documented ability or reusable ecosystem function.",
+    "permission": "A policy expression that allows or restricts use of a capability under explicit conditions.",
+    "authority": "The governed right or delegated basis to permit a consequential action.",
+    "consent": "An applicable affirmative, informed and bounded authorization where consent is required."
+  },
+  "resolutionOrder": [
+    "identity",
+    "authority",
+    "intent",
+    "capability",
+    "context",
+    "policy",
+    "consent",
+    "eligibility",
+    "evidence/readiness",
+    "execution"
+  ],
+  "permissionRecord": {
+    "required": [
+      "permissionId",
+      "capabilityId",
+      "action",
+      "principal",
+      "scope",
+      "policyVersion",
+      "status"
+    ],
+    "optional": [
+      "subject",
+      "dataClass",
+      "jurisdiction",
+      "riskClass",
+      "consentRequirement",
+      "eligibilityRequirements",
+      "rateLimit",
+      "resourceLimit",
+      "timeWindow",
+      "provenance"
+    ]
+  },
+  "decisionStates": [
+    "ALLOW",
+    "DENY",
+    "REQUIRE_HUMAN_AUTHORIZATION",
+    "REQUIRE_CONSENT",
+    "REQUIRE_EVIDENCE",
+    "REQUIRE_ELIGIBILITY",
+    "DEFER"
+  ],
+  "providerRules": [
+    "Provider availability does not imply authority.",
+    "Provider identity does not become the canonical capability identity.",
+    "External provider output is evidence/input, not automatic truth.",
+    "Adapters must preserve capability semantics and expose explicit degraded health."
+  ],
+  "nonEquivalences": [
+    "capability != permission",
+    "permission != authority",
+    "authority != consent",
+    "match != authorization",
+    "provider_output != truth",
+    "execution != evidence"
+  ]
+}
