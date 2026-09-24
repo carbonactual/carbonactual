@@ -9,6 +9,7 @@ import { ABBAHumanCoordinationPack, HumanCoordinationInput, HumanCoordinationRes
 import { ABBAUniversalKnowledgeMasteryPack, UniversalKnowledgeMasteryInput, UniversalKnowledgeMasteryResult } from './universalKnowledgeMasteryPack';
 import type { ContextField, ContextRequest, RoutedContext } from './minimumContextRouter';
 import { ABBAMinimumContextRouter } from './minimumContextRouter';
+import { ABBACommunicationIntelligencePack, CommunicationIntelligenceInput, CommunicationIntelligenceResult } from './communicationIntelligencePack';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
 import type { ClosedLoopObjective, ClosedLoopCycleResult } from './closedLoopRuntime';
@@ -38,6 +39,7 @@ export interface ABBARuntimeCycleInput {
   evidenceSourceIntelligenceInput?: EvidenceSourceIntelligenceInput;
   humanCoordinationInput?: HumanCoordinationInput;
   privacyContext?: { fields: ContextField[]; request: ContextRequest };
+  communicationInput?: CommunicationIntelligenceInput;
 }
 
 export interface ABBARuntimeCycleResult {
@@ -53,6 +55,7 @@ export interface ABBARuntimeCycleResult {
   humanCoordinationRequestIds: string[];
   humanDecisionIds: string[];
   routedContext?: RoutedContext;
+  communicationIntelligence?: CommunicationIntelligenceResult;
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -70,12 +73,16 @@ export class ABBARuntimeOrchestrator {
     private readonly reconciliationWriter: ReconciliationWriter,
     private readonly completionWriter: CompletionProofWriter,
     private readonly humanCoordinationStore: HumanCoordinationStore | undefined = undefined,
-    private readonly privacyRouter: ABBAMinimumContextRouter = new ABBAMinimumContextRouter()
+    private readonly privacyRouter: ABBAMinimumContextRouter = new ABBAMinimumContextRouter(),
+    private readonly communicationPack: ABBACommunicationIntelligencePack = new ABBACommunicationIntelligencePack()
   ) {}
 
   public async run(input: ABBARuntimeCycleInput): Promise<ABBARuntimeCycleResult> {
     const routedContext = input.privacyContext
       ? this.privacyRouter.route(input.privacyContext.fields, input.privacyContext.request)
+      : undefined;
+    const communicationIntelligence = input.communicationInput
+      ? this.communicationPack.assess(input.communicationInput)
       : undefined;
     const substrateObservations = await this.substrateReconciler.scan(input.substrateSpecs);
     const coreResult = await this.coreSupervisor.observeAndSteer(
@@ -169,6 +176,9 @@ export class ABBARuntimeOrchestrator {
       ...coreResult.cycle.failures.map((failure) => `CYCLE_FAILURE:${failure.stage}:${failure.reason}`),
       ...(routedContext?.blockedPaths.map(path => `PRIVACY_BLOCKED:${path}`) ?? []),
       ...(routedContext?.reasons.map(reason => `PRIVACY_CONTEXT:${reason}`) ?? []),
+      ...(communicationIntelligence?.assessments.filter(item => !item.valid).map(item => `COMMUNICATION_ASSESSMENT:${item.communicationId}:${item.reasons.join('|')}`) ?? []),
+      ...(communicationIntelligence?.routes.filter(item => !item.routeProposed).map(item => `COMMUNICATION_ROUTE:${item.communicationId}:${item.reasons.join('|')}`) ?? []),
+      ...(communicationIntelligence?.outcomes.filter(item => !item.completed).map(item => `COMMUNICATION_OUTCOME:${item.communicationId}:${item.reasons.join('|')}`) ?? [])
       ...reasoningAssessments.filter((assessment) => !assessment.valid).map((assessment) => `REASONING_BOUNDARY:${assessment.artifactId}:${assessment.reasons.join('|')}`),
       ...(missionIntelligence?.intent.clarificationRequired ? ['INTENT_CLARIFICATION_REQUIRED'] : []),
       ...(missionIntelligence?.decomposition.unresolvedDependencies ?? []).map((dep) => `MISSION_DEPENDENCY_UNRESOLVED:${dep}`),
@@ -228,6 +238,7 @@ export class ABBARuntimeOrchestrator {
       humanCoordinationRequestIds,
       humanDecisionIds,
       routedContext,
+      communicationIntelligence,
       reconciliationRecordIds,
       completionProofRecordId
     };
