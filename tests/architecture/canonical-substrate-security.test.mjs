@@ -6,6 +6,7 @@ const binder=await readFile('packages/orchestration/src/reasoningSubstrateBindin
 const bridge=await readFile('packages/orchestration/src/governedReasoningSubstrateBridge.ts','utf8');
 const migration=await readFile('supabase/migrations/20260924000010_reasoning_substrate_binding.sql','utf8');
 const rls=await readFile('supabase/migrations/20260924000011_postgis_rls_remediation.sql','utf8');
+const adapters=await readFile('packages/orchestration/src/supabaseRuntimeAdapters.ts','utf8');
 
 test('substrate binder prepares but never calls canonical persistence',()=>{
   assert.match(binder,/prepareCanonicalEvent/);
@@ -24,6 +25,13 @@ test('reasoning binding persistence is idempotent and monotonic',()=>{
   assert.match(migration,/idempotency_key text not null unique/);
   assert.match(migration,/ABBA_REASONING_BINDING_STATUS_REGRESSION/);
   assert.match(migration,/append_abba_reasoning_substrate_binding/);
+});
+
+test('live event adapter binds to the existing omnii append-event substrate',()=>{
+  assert.match(adapters,/SupabaseOmniiEventWriter/);
+  assert.match(adapters,/omnii_append_event/);
+  assert.match(adapters,/p_idempotency_key: event\.idempotencyKey/);
+  assert.doesNotMatch(adapters,/canonical_events\\s*\\(/i);
 });
 
 test('PostGIS remediation enables RLS and preserves public read-only access',()=>{
