@@ -56,13 +56,11 @@ export class ABBAReasoningAssuranceEngine {
 
     switch (artifact.type) {
       case 'THEORY':
-        if (sourceRefs.length > 0 && basisRefs.some((ref) => sourceRefs.includes(ref))) {
-          reasons.push('THEORY_MUST_NOT_BE_PRESENTED_AS_EVIDENCE');
-        }
+        reasons.push('THEORY_IS_EXPLANATORY_MODEL_NOT_EVIDENCE');
         break;
       case 'HYPOTHESIS':
         if (testPlanRefs.length === 0) reasons.push('HYPOTHESIS_TEST_PLAN_REQUIRED');
-        if (basisRefs.some((ref) => ref.startsWith('evidence:'))) reasons.push('HYPOTHESIS_CANNOT_BE_PROMOTED_TO_EVIDENCE');
+        reasons.push('HYPOTHESIS_REMAINS_HYPOTHESIS');
         break;
       case 'OBSERVATION':
         if (sourceRefs.length === 0) reasons.push('OBSERVATION_SOURCE_REQUIRED');
@@ -90,7 +88,6 @@ export class ABBAReasoningAssuranceEngine {
     }
 
     if (artifact.permissionRef && !artifact.authorityRef) reasons.push('PERMISSION_DOES_NOT_IMPLY_AUTHORITY');
-    if (artifact.consentRef && !artifact.permissionRef) reasons.push('CONSENT_CHAIN_REQUIRES_PERMISSION_CONTEXT');
     if (artifact.type === 'RECOMMENDATION') reasons.push('RECOMMENDATION_IS_NOT_AUTHORIZATION');
     if (artifact.type === 'DECISION') reasons.push('DECISION_REQUIRES_INDEPENDENT_GOVERNANCE_VALIDATION');
 
@@ -98,9 +95,7 @@ export class ABBAReasoningAssuranceEngine {
       'ARTIFACT_ID_REQUIRED',
       'ARTIFACT_STATEMENT_REQUIRED',
       'BASIS_REFS_REQUIRED',
-      'THEORY_MUST_NOT_BE_PRESENTED_AS_EVIDENCE',
       'HYPOTHESIS_TEST_PLAN_REQUIRED',
-      'HYPOTHESIS_CANNOT_BE_PROMOTED_TO_EVIDENCE',
       'OBSERVATION_SOURCE_REQUIRED',
       'EVIDENCE_SOURCE_REQUIRED',
       'RESULT_PROCEDURE_REQUIRED',
@@ -111,7 +106,6 @@ export class ABBAReasoningAssuranceEngine {
       'DECISION_AUTHORITY_REFERENCE_REQUIRED',
       'DECISION_CONSENT_REFERENCE_REQUIRED',
       'PERMISSION_DOES_NOT_IMPLY_AUTHORITY',
-      'CONSENT_CHAIN_REQUIRES_PERMISSION_CONTEXT'
     ];
 
     return {
