@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Human Coordination and Authority Boundary",
+  "version": "1.0.0",
+  "status": "canonical-derived-governance-extension",
+  "functions": [
+    "CLARIFICATION",
+    "CONSENT_REQUEST",
+    "AUTHORIZATION_REQUEST",
+    "REVIEW",
+    "ESCALATION",
+    "NOTIFICATION",
+    "DECISION_CAPTURE",
+    "RESUMABLE_CONTINUATION"
+  ],
+  "rules": [
+    "ABBA may request human input but cannot fabricate human input.",
+    "Clarification requests block consequential action until resolved when ambiguity affects execution.",
+    "Consent is explicit, scoped and time-bound; lack of consent is not consent.",
+    "Human authorization is evidence presented to the authority gate, not authority manufactured by ABBA.",
+    "Declined or expired requests remain auditable and reconstructable.",
+    "Human decisions are distinct from ABBA recommendations.",
+    "Notifications do not imply acknowledgement or consent.",
+    "Escalation does not transfer authority to ABBA."
+  ],
+  "executionBoundary": "AUTHORITY_POLICY_CONSENT_GATE"
+}
