@@ -1,0 +1,11 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Role Responsibility Accountability Fabric",
+  "version":"1.0.0",
+  "status":"canonical-derived-institutional-extension",
+  "distinctions":["ROLE","RESPONSIBILITY","CAPABILITY","PERMISSION","CONSENT","AUTHORITY","DECISION"],
+  "roleKinds":["OWNER","ADMINISTRATOR","DIRECTOR","MANAGER","OPERATOR","ENGINEER","AUDITOR","RECONCILER","REGULATOR","ADVISOR","MENTOR","REVIEWER","APPROVER","CONTROLLER","RECOVERY_LEAD","SECURITY_LEAD","OTHER"],
+  "controls":["ROLE_SCOPE","RESPONSIBILITY_COVERAGE","SEGREGATION_OF_DUTIES","DUAL_CONTROL","BACKUP_COVERAGE","EVIDENCE_COVERAGE"],
+  "rules":["A role does not itself grant authority.","A capability does not make an entity the responsible owner.","Responsibilities require explicit scope and evidence boundaries.","Auditing and operating may require separation of duties.","Approval and operation may require dual control.","Missing owners, backups, evidence or dual control are explicit accountability gaps.","Roles remain time-bound and evidence-bearing.","Recovery roles preserve continuity but do not self-authorize recovery execution."],
+  "executionBoundary":"ROLE_ANALYSIS → SAFETY → AUTHORITY_POLICY_CONSENT → EXECUTION"
+}
