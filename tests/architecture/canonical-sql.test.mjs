@@ -9,6 +9,7 @@ const response = await readFile('supabase/migrations/20260924000004_abba_respons
 const supervisor = await readFile('supabase/migrations/20260924000005_abba_supervisor_and_substrate_bindings.sql', 'utf8');
 const reconciliation = await readFile('supabase/migrations/20260924000006_abba_reconciliation_and_completion.sql', 'utf8');
 const executions = await readFile('supabase/migrations/20260924000007_abba_execution_attempt_ledger.sql', 'utf8');
+const certification = await readFile('supabase/migrations/20260924000008_abba_competency_and_certification.sql', 'utf8');
 
 test('canonical migration preserves append-only event history', () => {
   assert.match(sql, /BEFORE UPDATE OR DELETE ON public\.canonical_events/);
