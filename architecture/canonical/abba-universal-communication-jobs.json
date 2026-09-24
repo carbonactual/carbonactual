@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Universal Communication Jobs",
+  "version": "1.0.0",
+  "status": "canonical-derived-specialist-job-pack",
+  "packId": "UNIVERSAL_COMMUNICATION",
+  "jobs": [
+    "DEFINE_COMMUNICATION_INTENT",
+    "RESOLVE_RECIPIENT",
+    "RESOLVE_RELATIONSHIP_CONTEXT",
+    "CLASSIFY_MESSAGE_DATA",
+    "CHECK_COMMUNICATION_PRIVACY",
+    "SELECT_LANGUAGE_AND_MODALITY",
+    "BENCHMARK_CHANNELS",
+    "PROPOSE_PRIMARY_CHANNEL",
+    "PROPOSE_FALLBACK_CHANNELS",
+    "CROSS_COMMUNICATION_AUTHORITY_CONSENT",
+    "SEND_COMMUNICATION",
+    "VERIFY_PROVIDER_RECEIPT",
+    "VERIFY_RECIPIENT_ACKNOWLEDGEMENT",
+    "RECONCILE_COMMUNICATION_OUTCOME"
+  ],
+  "boundary": {
+    "deliveryIsNotAcknowledgement": true,
+    "executionAllowed": false
+  }
+}
