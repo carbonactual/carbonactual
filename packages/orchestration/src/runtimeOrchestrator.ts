@@ -39,7 +39,7 @@ export interface ABBARuntimeCycleResult {
 export class ABBARuntimeOrchestrator {
   constructor(
     private readonly coreSupervisor: ABBACoreSupervisor,
-    private readonly substrateReconciler: ABBAInternationalSubstrateReconciler,
+    private readonly substrateReconciler: ABBALiveSubstrateReconciler,
     private readonly evidenceEngine: ABBAEvidenceQualityEngine,
     private readonly reconciliationWriter: ReconciliationWriter,
     private readonly completionWriter: CompletionProofWriter
