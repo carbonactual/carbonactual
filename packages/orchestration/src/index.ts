@@ -6,4 +6,8 @@ export * from './responsePlanner';
 export * from './authorityPolicyGate';
 export * from './executionGateway';
 export * from './governedActionCoordinator';
+export * from './reconciliationEngine';
+export * from './learningEngine';
+export * from './abbaSupervisor';
+export * from './abbaCoreSupervisor';
 export * from './closedLoopRuntime';
