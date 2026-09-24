@@ -1,7 +1,7 @@
 import { ABBACoreSupervisor } from './abbaCoreSupervisor';
 import { ABBAEvidenceQualityEngine, EvidenceItem } from './evidenceQualityEngine';
 import { buildCompletionProof, CompletionProof } from './completionProof';
-import { ABBAInternationalSubstrateReconciler, LiveSubstrateBindingSpec } from './liveSubstrateReconciler';
+import { ABBALiveSubstrateReconciler, LiveSubstrateBindingSpec } from './liveSubstrateReconciler';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
 import type { ClosedLoopObjective, ClosedLoopCycleResult } from './closedLoopRuntime';
