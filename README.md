@@ -122,6 +122,14 @@ Core references:
 - architecture/CARBON_ACTUAL_ABBA_REASONING_ASSURANCE_2026.md
 - architecture/CARBON_ACTUAL_ABBA_MISSION_INTELLIGENCE_2026.md
 
+## UNIVERSAL KNOWLEDGE & MASTERY FABRIC — 2026
+
+ABBA treats knowledge as provenance-bound capability rather than undifferentiated memory. The fabric spans words, senses, definitions, grammar, languages, signed/Braille modalities, codes, slang, idioms, literature, cultural objects, documents, files, folders, repositories, courses, exams, research, procedures, standards, models and other structured knowledge objects.
+
+Learning progresses through discovery, acquisition, practice, assessment, evidence capture, external verification, mastery update and reassessment. MASTER and EMERITUS states remain certification-bound; mastery never grants operational authority.
+
+Reference: `architecture/canonical/abba-universal-knowledge-mastery.json`, `architecture/canonical/abba-universal-knowledge-mastery-jobs.json`, and `architecture/CARBON_ACTUAL_ABBA_UNIVERSAL_KNOWLEDGE_MASTERY_2026.md`.
+
 ## BOUNDARIES
 
 HAPI World defines constitutional meaning. Carbon Actual provides the operating-spine semantics and cross-product contracts. ABBA operationalizes those contracts through intelligence and orchestration. Products specialize interfaces and workflows without creating parallel universes.
