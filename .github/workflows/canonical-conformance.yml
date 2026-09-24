@@ -1,0 +1,48 @@
+name: Canonical Conformance
+
+on:
+  push:
+    paths:
+      - 'architecture/canonical/**'
+      - 'packages/**'
+      - 'apps/edge-api/**'
+      - 'supabase/migrations/**'
+      - 'tests/architecture/canonical-*.test.mjs'
+      - 'package.json'
+      - 'tsconfig.json'
+      - '.github/workflows/canonical-conformance.yml'
+  pull_request:
+    paths:
+      - 'architecture/canonical/**'
+      - 'packages/**'
+      - 'apps/edge-api/**'
+      - 'supabase/migrations/**'
+      - 'tests/architecture/canonical-*.test.mjs'
+      - 'package.json'
+      - 'tsconfig.json'
+      - '.github/workflows/canonical-conformance.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Validate canonical repository
+        run: node scripts/validate-kernel.mjs
+      - name: Run contract tests
+        run: npm run test:contracts
+      - name: Run runtime boundary tests
+        run: node --test tests/architecture/canonical-runtime-static.test.mjs tests/architecture/canonical-feedback.test.mjs
+      - name: Typecheck orchestration and edge primitives
+        run: npm run typecheck

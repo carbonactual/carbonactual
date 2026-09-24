@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConsentRules",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "principles": [
+    "Consent is scope-bound.",
+    "Consent does not create authority beyond the grantor's authority.",
+    "Consent does not override constitutional, legal, safety, or policy constraints.",
+    "Consequential consent must be attributable and reconstructable.",
+    "Revocation takes effect according to the applicable contract and must prevent unauthorized future execution."
+  ],
+  "consentRecord": {
+    "required": [
+      "consentId",
+      "grantor",
+      "granteeOrSubject",
+      "scope",
+      "issuedAt",
+      "status",
+      "provenance"
+    ],
+    "optional": [
+      "expiresAt",
+      "purpose",
+      "jurisdiction",
+      "conditions",
+      "revocationReason"
+    ]
+  },
+  "states": [
+    "REQUESTED",
+    "GRANTED",
+    "ACTIVE",
+    "REVOKED",
+    "EXPIRED",
+    "DECLINED"
+  ],
+  "rules": [
+    "Consent cannot be inferred solely from capability, presence, prior behavior or silence when explicit consent is required.",
+    "A revoked consent must not be used to authorize a new consequential action.",
+    "Historical actions remain reconstructable after consent revocation.",
+    "High-impact workflows must explicitly record whether human authorization and consent requirements were met."
+  ]
+}

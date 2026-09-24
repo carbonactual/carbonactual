@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExecutionContracts",
+  "version": "1.0.0",
+  "status": "canonical-derived-runtime-contract",
+  "executionGate": [
+    "identity",
+    "authority",
+    "intent",
+    "capability",
+    "context",
+    "policy",
+    "consent",
+    "eligibility",
+    "readiness",
+    "execution",
+    "evidence",
+    "state",
+    "value"
+  ],
+  "requiredConsequentialControls": [
+    "idempotency",
+    "duplicate_or_replay_detection",
+    "bounded_retries",
+    "timeout",
+    "lease_or_heartbeat",
+    "dead_letter_or_failure_handling",
+    "compensation_or_reversal",
+    "escalation",
+    "external_acknowledgement",
+    "evidence_capture"
+  ],
+  "externalInteraction": [
+    "outbound_intent",
+    "attempt",
+    "acknowledgement",
+    "external_evidence",
+    "verification",
+    "internal_state_transition"
+  ],
+  "stateMutationRule": {
+    "description": "A consequential state mutation is accepted only after the event envelope, identity, authority, policy and execution preconditions validate; the durable event/evidence record and derived state transition must be committed atomically or reconciled through an explicit recovery path.",
+    "noBypass": true
+  },
+  "adapterBoundary": {
+    "externalAdapters": [
+      "Zapier",
+      "webhooks",
+      "providers",
+      "third_party_APIs"
+    ],
+    "mustUse": [
+      "authenticated_boundary",
+      "schema_validation",
+      "authority_policy_gate",
+      "idempotency",
+      "provenance",
+      "audit"
+    ]
+  },
+  "failureRules": [
+    "External failure must not be represented as success without verified evidence.",
+    "Retries must respect operation idempotency characteristics.",
+    "A timeout is not proof of success.",
+    "Provider output is not automatically canonical truth.",
+    "Findings that require authority are recorded and escalated rather than silently corrected."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "contractVersion": "1.0.0",
+  "status": "canonical-derived-execution-contract",
+  "system": "Carbon Actual",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "operatingSpine": "carbonactual/carbonactual",
+  "orchestrationPlane": "ABBA",
+  "operatingOrientation": "Becoming",
+  "executionChain": "Identity -> Authority -> Intent -> Capability -> Relationship -> Event -> Evidence -> State -> Value",
+  "implementationChain": "Contract -> Repository -> Runtime -> Evidence -> Conformance",
+  "strictInvariants": [
+    "Capability does not imply Authority.",
+    "No consequential state mutation may bypass the canonical event and authority-validation gate.",
+    "Canonical events are typed, attributable, validated, idempotency-aware, and durably recorded with their resulting state transition.",
+    "Supabase may be a live-state substrate; it does not redefine canonical semantics.",
+    "GitHub is the source of repository implementation truth, while canonical meaning remains governed by HAPI World Canon and Carbon Actual contracts.",
+    "External adapters such as Zapier must never bypass the authenticated API or Edge validation gate.",
+    "ABBA may reason, plan, compose, route, and request authorization; ABBA cannot self-authorize or bypass policy.",
+    "Pulse is measurement/feedback and must not silently become currency, authority, permission, ownership, or factual evidence.",
+    "Tokenization, minting, decimalization, and fractionalization do not create underlying ownership, authority, truth, or value by themselves.",
+    "Historical material remains traceable and cannot become current authority by chronology alone."
+  ],
+  "canonicalPrecedence": [
+    "CONSTITUTIONAL",
+    "CANONICAL_CONTRACT",
+    "EXPLICIT_AMENDMENT",
+    "DOMAIN_SPECIFICATION",
+    "IMPLEMENTATION",
+    "EXPERIMENT",
+    "CONVERSATION_CHRONOLOGY"
+  ],
+  "modules": [
+    "entity-model.json",
+    "identity-authority.json",
+    "capability-permission.json",
+    "consent-rules.json",
+    "agent-state-machines.json",
+    "economic-event-model.json",
+    "value-pulse-rules.json",
+    "asset-liability-rules.json",
+    "tokenization-rules.json",
+    "relationship-boundaries.json",
+    "traceability-rules.json",
+    "execution-contracts.json",
+    "feedback-telemetry-rules.json"
+  ],
+  "canonicalSources": [
+    "architecture/ECOSYSTEM_KERNEL.md",
+    "architecture/CARBON_ACTUAL_CONTROL_PLANE.md",
+    "architecture/CARBON_ACTUAL_CANONICAL_AUTHORITY_REGISTRY.md",
+    "architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_AGENT_CONTRACT.md",
+    "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md",
+    "architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md",
+    "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
+  ],
+  "provenance": {
+    "derivedFrom": [
+      "carbonactual/hapi-world/CANON.md",
+      "carbonactual/carbonactual canonical architecture"
+    ],
+    "historicalRepository": "carbonactual/omnii",
+    "historicalRepositoryStatus": "ARCHIVED_PROVENANCE_ONLY",
+    "liveCanonicalRepository": "carbonactual/carbonactual"
+  },
+  "masterIntelligence": "ABBA",
+  "orchestrationRole": "MASTER_ECOSYSTEM_ORCHESTRATOR",
+  "corePrinciples": [
+    "ABBA is the master intelligence and orchestrator across ecosystem domains and runtimes.",
+    "ABBA cannot manufacture authority, override constitutional law, or self-authorize consequential execution.",
+    "Capability does not imply permission or authority; policy and authority gates remain independent of orchestration.",
+    "Agent lifecycle, workflow composition, telemetry synthesis, and economic feedback are coordinated through ABBA while durable state remains governed by canonical contracts.",
+    "Every consequential execution is attributable, policy-gated, idempotency-aware, evidentiary, and reconstructable.",
+    "Runtime telemetry is observability input; it does not automatically become truth, evidence, Pulse, Value, authority, or permission."
+  ],
+  "feedbackLoop": {
+    "enabled": true,
+    "masterSink": "ABBA",
+    "mode": "GOVERNED_OBSERVABILITY",
+    "path": "signal -> validation -> observation -> synthesis -> proposal -> authority/policy gate -> execution -> evidence -> feedback",
+    "rule": "ABBA may aggregate ecosystem telemetry and coordinate adaptive responses without becoming the sole source of truth or bypassing domain authority."
+  }
+}

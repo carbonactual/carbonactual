@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "contractVersion": "1.0.0",
+  "status": "canonical-derived-execution-contract",
+  "purpose": "Keep ABBA from terminating useful work at a finite choice boundary; every decision set exposes a terminal choose-all path and a governed continuation loop.",
+  "masterIntelligence": "ABBA",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "behavior": {
+    "terminalChoice": {
+      "required": true,
+      "optionId": "CHOOSE_ALL_AND_CONTINUE",
+      "label": "Choose all",
+      "meaning": "Select all currently eligible options in the decision set, then continue into dependency ordering, validation, execution planning, and follow-on recommendations.",
+      "notMeaning": [
+        "not unconditional authorization",
+        "not permission to bypass policy",
+        "not permission to execute unsafe or out-of-scope work",
+        "not a guarantee that every option is independently executable"
+      ]
+    },
+    "continuation": {
+      "enabled": true,
+      "afterSelection": [
+        "resolve eligibility",
+        "resolve dependencies",
+        "order jobs sequentially",
+        "attach minimum necessary context",
+        "apply authority and policy gates",
+        "execute or queue only permitted work",
+        "capture evidence and outcome",
+        "re-evaluate the objective",
+        "generate follow-on recommendations",
+        "append newly eligible work to the queue",
+        "repeat until convergence or a governed stop condition"
+      ]
+    },
+    "recommendationLoop": {
+      "enabled": true,
+      "sources": [
+        "unmet objective requirements",
+        "dependency completion",
+        "observed bottlenecks",
+        "anomalies",
+        "failed or partial outcomes",
+        "new capabilities",
+        "new evidence",
+        "resource availability",
+        "policy friction",
+        "economic/value feedback",
+        "user demand"
+      ],
+      "rule": "ABBA should proactively identify useful next jobs rather than waiting for a new user prompt, while preserving authority, consent, scope, policy, risk, and resource boundaries."
+    }
+  },
+  "sequencing": {
+    "orderingRules": [
+      "hard dependencies before dependents",
+      "blocking repairs before downstream work",
+      "required capability coverage before optional enrichment",
+      "high-risk work only after prerequisite evidence and authority gates",
+      "idempotent work may be retried according to retry policy",
+      "parallelizable independent work may be grouped internally but must remain separately attributable",
+      "completion must be recorded before follow-on jobs are promoted"
+    ],
+    "contextRule": "Pass only the minimum context required for the current job and its authorization/evidence requirements."
+  },
+  "stopConditions": [
+    "objective_complete",
+    "no_eligible_next_job",
+    "awaiting_human_authorization",
+    "missing_required_evidence",
+    "policy_denied",
+    "resource_exhausted",
+    "safety_or_risk_boundary",
+    "repeated_no_progress",
+    "explicit_human_stop"
+  ],
+  "loopSafety": {
+    "mustDetectNoProgress": true,
+    "mustDeduplicateJobs": true,
+    "mustPreserveCorrelation": true,
+    "mustPreserveCausation": true,
+    "mustBeIdempotent": true,
+    "mustNeverSelfAuthorize": true,
+    "mustNeverRewriteHistory": true
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AssetLiabilityRules",
+  "version": "1.0.0",
+  "status": "canonical-derived-economic-contract",
+  "canonicalSource": "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+  "accountingModel": "Double-entry event-driven ledger where a ledger posting must balance debits and credits.",
+  "classificationPrinciple": "Asset/liability classification is a value-and-obligation classification layer and does not by itself establish legal title, accounting treatment, or jurisdictional status.",
+  "assetTypes": ["TOKENIZED_COMPUTE", "REAL_ESTATE_FRACTION", "INSTITUTIONAL_CREDENTIAL", "SYSTEM_LIQUIDITY"],
+  "liabilityTypes": ["AGENT_CONTRACT_OBLIGATION", "PENDING_SETTLEMENT", "RESOURCE_DEBT"],
+  "rules": {
+    "enforceDoubleEntry": true,
+    "preventNegativeBalance": "where the applicable account/contract policy requires it",
+    "requireEvidenceHashOnSettlement": true,
+    "requireEvidenceForClassification": true,
+    "tokenizationDoesNotCreateAsset": true
+  },
+  "classificationEngine": {
+    "positiveNetContribution": "ASSET",
+    "negativeNetContribution": "LIABILITY",
+    "contingentExposure": "CONTINGENT",
+    "insufficientEvidence": "UNCLASSIFIED",
+    "formula": "NetContribution = RecognizedValue - FullCost - RecognizedObligations"
+  },
+  "rulesOfInterpretation": [
+    "Accounting equality is an implementation accounting invariant, not a replacement for the constitutional value model.",
+    "A liability classification does not automatically establish legal debt.",
+    "Full-cost accounting is preferred for economic measurement.",
+    "Asset and liability state must remain traceable to evidence and source records."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CarbonActualEntityModel",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "canonicalSource": "architecture/CARBON_ACTUAL_UNIVERSAL_ENTITY_CAPABILITY_PROFILE_2026.md",
+  "principle": "Entity classes contextualize identity, authority, relationships, state, evidence and value; they do not create a competing universal ontology.",
+  "entityClasses": [
+    "person",
+    "household",
+    "ai_entity",
+    "company",
+    "government",
+    "nonprofit_association_cooperative",
+    "institution_professional_body",
+    "product_service",
+    "asset_resource",
+    "place_territory",
+    "event_session",
+    "knowledge_media_document"
+  ],
+  "identityRequirements": [
+    "stable_reference",
+    "canonical_id_or_hash_reference",
+    "status",
+    "lineage_reference",
+    "provenance_reference"
+  ],
+  "capabilityBearingProfile": [
+    "identity",
+    "roles",
+    "relationships",
+    "rights",
+    "obligations",
+    "resources",
+    "capabilities",
+    "credentials",
+    "authority_delegations",
+    "schedules",
+    "locations",
+    "communication_surfaces",
+    "workflow_participation",
+    "evidence_provenance",
+    "state",
+    "value",
+    "continuity",
+    "security_policy",
+    "interfaces_adapters"
+  ],
+  "rules": [
+    "Identity is not activity.",
+    "Entity type does not itself grant authority.",
+    "Entity type does not itself grant a capability.",
+    "Unknown or provisional entities may be represented without inventing unsupported authority.",
+    "Entity changes must preserve lineage and provenance."
+  ]
+}

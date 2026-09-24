@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBATelemetryAndFeedbackPipeline",
+  "version": "1.0.0",
+  "status": "canonical-derived-orchestration-contract",
+  "masterIntelligence": "ABBA",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "operatingSpine": "carbonactual/carbonactual",
+  "observabilityMode": "GOVERNED_OBSERVABILITY",
+  "feedbackPath": [
+    "SIGNAL",
+    "AUTHENTICATE",
+    "VALIDATE",
+    "OBSERVE",
+    "SYNTHESIZE",
+    "PROPOSE",
+    "AUTHORITY_POLICY_GATE",
+    "EXECUTE",
+    "EVIDENCE",
+    "FEEDBACK"
+  ],
+  "feedbackLoopInvariants": [
+    "ABBA is the master intelligence and feedback sink for governed ecosystem observations.",
+    "Telemetry is not automatically canonical truth, evidence, Pulse, Value, authority, permission, or ownership.",
+    "Signals must carry attributable source identity, provenance, timestamp, and integrity evidence appropriate to their source.",
+    "Unvalidated or contradictory signals are retained as anomalies or provisional observations rather than silently promoted to truth.",
+    "ABBA may synthesize signals and propose rebalancing, workflow, Team, or policy changes; consequential execution remains separately authority- and policy-gated.",
+    "Sensitive telemetry is minimized and access-scoped; full ecosystem read access is subject to data classification and policy rather than assumed universal visibility.",
+    "Feedback processing must not rewrite historical events or manufacture authority.",
+    "Recomposition preserves correlation, causation, provenance, and authorization lineage."
+  ],
+  "telemetrySignalTypes": [
+    "SIGNAL_RESOURCE_PULSE",
+    "SIGNAL_AGENT_HEALTH",
+    "SIGNAL_VALUE_METRIC",
+    "SIGNAL_ANOMALY_LOG",
+    "SIGNAL_EXTERNAL_ADAPTER",
+    "SIGNAL_USER_DEMAND",
+    "SIGNAL_POLICY_FRICTION",
+    "SIGNAL_NETWORK_LATENCY",
+    "SIGNAL_TASK_OUTCOME"
+  ],
+  "sourceTypes": [
+    "AGENT",
+    "ECONOMIC_ENGINE",
+    "SURFACE",
+    "EXTERNAL_ADAPTER",
+    "HUMAN_OR_OPERATOR",
+    "RUNTIME"
+  ],
+  "observationRules": {
+    "rawSignalRetention": "append_or_provenance_preserving",
+    "sensitivePayloadRule": "minimum_required_context",
+    "derivedObservationRule": "derived_observation_must_reference_source_signals",
+    "contradictionRule": "preserve_conflict_and_classify_before_resolution"
+  },
+  "curationEngine": {
+    "dynamicTeamFormationAllowed": true,
+    "contextualRoutingEnforced": true,
+    "authorityEligibilityRequired": true,
+    "resourceReadinessRequired": true,
+    "riskAssessmentRequired": true,
+    "predictiveRebalancingEnabled": true,
+    "humanForumProposalAllowed": true,
+    "teamSelectionRule": "suitability + availability + reliability + cost + latency + risk/context fit; output is a proposal, not authorization"
+  },
+  "rebalancing": {
+    "allowedOutputs": [
+      "TEAM_PROPOSAL",
+      "WORKFLOW_ADJUSTMENT_PROPOSAL",
+      "RESOURCE_REALLOCATION_PROPOSAL",
+      "POLICY_CHANGE_PROPOSAL",
+      "PULSE_RECALCULATION_REQUEST",
+      "ANOMALY_ESCALATION"
+    ],
+    "requiresAuthorityGateBeforeExecution": true
+  }
+}

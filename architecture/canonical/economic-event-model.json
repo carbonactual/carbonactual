@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CanonicalEconomicEventModel",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "canonicalSources": [
+    "architecture/CARBON_ACTUAL_UNIVERSAL_EVENT_LIFECYCLE.md",
+    "architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md",
+    "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md"
+  ],
+  "requiredEventSchema": {
+    "type": "object",
+    "properties": {
+      "eventId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "eventType": {
+        "type": "string",
+        "enum": [
+          "agent_created",
+          "agent_terminated",
+          "agent_suspended",
+          "agent_activated",
+          "agent_capabilities_bound",
+          "agent_registered",
+          "agent_task_started",
+          "agent_task_completed",
+          "resource_consumed",
+          "capability_used",
+          "value_created",
+          "value_transferred",
+          "payment_received",
+          "liability_created",
+          "asset_created",
+          "asset_consumed",
+          "agent_contract_formed",
+          "agent_contract_settled",
+          "pulse_observed",
+          "ledger_posted",
+          "settlement_confirmed",
+          "settlement_failed",
+          "reconciliation_completed"
+        ]
+      },
+      "actorEntityId": {
+        "type": "string"
+      },
+      "principalEntityId": {
+        "type": "string"
+      },
+      "subjectRef": {
+        "type": "string"
+      },
+      "authorityRef": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "recordedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "correlationId": {
+        "type": "string"
+      },
+      "causationId": {
+        "type": "string"
+      },
+      "idempotencyKey": {
+        "type": "string"
+      },
+      "schemaVersion": {
+        "type": "string"
+      },
+      "provenance": {
+        "type": "object"
+      },
+      "payload": {
+        "type": "object"
+      },
+      "authoritySignature": {
+        "type": "string"
+      },
+      "pulseImpact": {
+        "type": "object",
+        "properties": {
+          "deltaValue": {
+            "type": "number"
+          },
+          "computeUnitsUsed": {
+            "type": "number"
+          },
+          "decimalizedUnits": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "deltaValue",
+          "computeUnitsUsed"
+        ]
+      }
+    },
+    "required": [
+      "eventId",
+      "eventType",
+      "actorEntityId",
+      "timestamp",
+      "payload",
+      "schemaVersion",
+      "provenance"
+    ]
+  },
+  "integrityRules": [
+    "Event identifiers are unique.",
+    "Consequential events carry applicable authority lineage.",
+    "Non-idempotent operations require idempotency protection.",
+    "External events retain source and provenance.",
+    "Event replay must not manufacture authority.",
+    "State projection must be derived from accepted events/evidence and must be idempotent.",
+    "Pulse events remain distinct from raw telemetry and from value itself."
+  ]
+}

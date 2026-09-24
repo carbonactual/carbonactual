@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ValueAndPulseRules",
+  "version": "1.0.0",
+  "status": "canonical-derived-economic-contract",
+  "canonicalSource": "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+  "pulseMeaning": "Activity feedback and measurement across work, resource/compute consumption, value and transfer velocity.",
+  "variables": {
+    "V_created": "Total recognized value created in the measurement window",
+    "C_consumed": "Total recognized compute and operational cost in the measurement window",
+    "N_active_agents": "Number of active state-valid HAPI agents in the measurement scope",
+    "T_velocity": "Normalized transfer/activity velocity factor"
+  },
+  "referenceEquation": {
+    "equation": "PulseScore = ((V_created - C_consumed) * T_velocity) / log2(N_active_agents + 1)",
+    "status": "reference_model",
+    "rule": "The reference equation is a model, not constitutional truth. Domain, jurisdiction and empirical calibration may require a versioned amendment."
+  },
+  "constraints": {
+    "negativePulseAction": "PAUSE_NON_ESSENTIAL_AGENT_EXECUTION",
+    "decimalPrecision": 18,
+    "fractionalizationLimit": "1e-18",
+    "pulseCannotAutomaticallyBecome": [
+      "currency",
+      "authority",
+      "permission",
+      "ownership",
+      "legal_status",
+      "factual_evidence"
+    ]
+  },
+  "measurementRules": [
+    "Compute and operational cost must be measured on a documented basis.",
+    "Value recognition requires an applicable value/evidence contract.",
+    "Pulse is separated from raw telemetry.",
+    "Pulse may trigger a governed operational response but cannot bypass authority or policy.",
+    "A negative Pulse signal is not by itself proof of misconduct or insolvency."
+  ]
+}
