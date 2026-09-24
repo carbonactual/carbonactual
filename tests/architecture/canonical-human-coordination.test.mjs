@@ -8,6 +8,7 @@ const coordination=await readFile('packages/orchestration/src/humanCoordinationE
 const consent=await readFile('packages/orchestration/src/consentBoundary.ts','utf8');
 const auth=await readFile('packages/orchestration/src/humanAuthorizationBoundary.ts','utf8');
 const pack=await readFile('packages/orchestration/src/humanCoordinationPack.ts','utf8');
+const runtime=await readFile('packages/orchestration/src/runtimeOrchestrator.ts','utf8');
 
 test('human coordination covers clarification, authorization, consent, review and escalation',()=>{
   for(const name of ['CLARIFICATION','AUTHORIZATION','CONSENT','REVIEW','ESCALATION']) assert.ok(contract.functions.includes(name));
@@ -28,4 +29,7 @@ test('consent is scoped and explicit',()=>{
 test('human coordination pack is execution-disabled',()=>{
   assert.equal(jobs.jobs.length,10);
   assert.match(pack,/executionAllowed:false/);
+  assert.match(runtime,/humanCoordinationStore/);
+  assert.match(runtime,/recordRequest/);
+  assert.match(runtime,/recordDecision/);
 });
