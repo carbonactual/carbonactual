@@ -14,6 +14,7 @@ test('Phase 6 provides concrete Supabase adapters without hard-coding authority 
   assert.match(adapter, /append_canonical_event|append_feedback_observation/);
   assert.match(adapter, /SupabaseExecutionAttemptStore/);
   assert.match(adapter, /RECOVERY_REQUIRED/);
+  assert.match(adapter, /SupabaseCanonicalEventWriter/);
   assert.match(adapter, /public\./);
   assert.doesNotMatch(adapter, /self-authoriz|grant.*authority/i);
 });
