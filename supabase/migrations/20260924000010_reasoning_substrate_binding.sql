@@ -4,7 +4,7 @@ create table if not exists public.abba_reasoning_substrate_bindings (
   binding_id uuid primary key default gen_random_uuid(),
   reasoning_chain_id text not null,
   cycle_id text,
-  canonical_event_id uuid,
+  canonical_event_id text,
   binding_status text not null check (binding_status in ('PREPARED','GATED','EXECUTED','BLOCKED','RECOVERY_REQUIRED')),
   artifact_count integer not null check (artifact_count >= 0),
   blocking_reasons text[] not null default '{}',
@@ -68,7 +68,7 @@ begin
   values (
     p_binding->>'reasoningChainId',
     p_binding->>'cycleId',
-    nullif(p_binding->>'canonicalEventId','')::uuid,
+    nullif(p_binding->>'canonicalEventId',''),
     p_binding->>'bindingStatus',
     coalesce((p_binding->>'artifactCount')::integer,0),
     array(select value from jsonb_array_elements_text(coalesce(p_binding->'blockingReasons','[]'::jsonb))),
