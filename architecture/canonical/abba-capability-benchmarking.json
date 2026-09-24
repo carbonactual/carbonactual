@@ -7,7 +7,8 @@
     "CAPABILITY_BENCHMARKING",
     "PROVIDER_HEALTH",
     "FAILOVER_AND_FALLBACK",
-    "ROUTE_PROPOSAL"
+    "ROUTE_PROPOSAL",
+    "CAPABILITY_ROUTE_ASSURANCE"
   ],
   "rules": [
     "Benchmark criteria and supporting evidence are explicit.",
