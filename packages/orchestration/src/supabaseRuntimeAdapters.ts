@@ -351,7 +351,7 @@ export class SupabaseReasoningSubstrateBindingStore implements import('./governe
   }
 }
 
-import type { CanonicalEventType } from '../../events/src/types';
+import { CANONICAL_EVENT_TYPES, type CanonicalEventType } from '../../events/src/types';
 
 export class SupabaseOmniiEventWriter implements CanonicalEventWriter {
   constructor(private readonly rpc: SupabaseRpcClient) {}
@@ -359,6 +359,9 @@ export class SupabaseOmniiEventWriter implements CanonicalEventWriter {
   async append(event: CanonicalEventEnvelope): Promise<string> {
     const actor = event.actorEntityId;
     const source = 'carbonactual/abba';
+    if (!CANONICAL_EVENT_TYPES.includes(event.eventType as CanonicalEventType)) {
+      throw new Error(`UNSUPPORTED_CANONICAL_EVENT_TYPE:${event.eventType}`);
+    }
     const payload = { ...event.payload, authorityRef: event.authorityRef };
     const result = await this.rpc.call('omnii_append_event', {
       p_id: crypto.randomUUID(),
@@ -379,7 +382,11 @@ export class SupabaseOmniiEventWriter implements CanonicalEventWriter {
       p_reality_state: typeof event.payload.realityState === 'string' ? event.payload.realityState : 'actual',
       p_authority_ref: event.authorityRef,
       p_source: source,
-      p_provenance: event.provenance,
+      p_provenance: {
+        ...event.provenance,
+        authoritySignature: event.authoritySignature,
+        canonicalAdapter: 'SupabaseOmniiEventWriter'
+      },
       p_evidence_refs: event.payload.evidenceRefs ?? [],
       p_metadata: {
         principalEntityId: event.principalEntityId ?? null,
