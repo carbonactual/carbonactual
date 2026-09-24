@@ -48,16 +48,12 @@ export interface ContinuationPlan {
     | 'EXPLICIT_HUMAN_STOP';
 }
 
-function dedupe(values: string[]): string[] {
-  return [...new Set(values)];
-}
+function dedupe(values: string[]): string[] { return [...new Set(values)]; }
 
 function compareJobs(left: FollowOnJob, right: FollowOnJob): number {
   const riskRank = { LOW: 0, MEDIUM: 1, HIGH: 2 };
-  const leftRisk = riskRank[left.riskClass ?? 'LOW'];
-  const rightRisk = riskRank[right.riskClass ?? 'LOW'];
-  if (leftRisk !== rightRisk) return leftRisk - rightRisk;
-  return left.jobId.localeCompare(right.jobId);
+  const risk = riskRank[left.riskClass ?? 'LOW'] - riskRank[right.riskClass ?? 'LOW'];
+  return risk !== 0 ? risk : left.jobId.localeCompare(right.jobId);
 }
 
 function orderByDependencies(jobs: FollowOnJob[]): FollowOnJob[] {
@@ -70,12 +66,10 @@ function orderByDependencies(jobs: FollowOnJob[]): FollowOnJob[] {
     if (visited.has(job.jobId)) return;
     if (visiting.has(job.jobId)) throw new Error(`DEPENDENCY_CYCLE:${job.jobId}`);
     visiting.add(job.jobId);
-
     for (const dependencyId of dedupe(job.dependsOn)) {
       const dependency = byId.get(dependencyId);
       if (dependency) visit(dependency);
     }
-
     visiting.delete(job.jobId);
     visited.add(job.jobId);
     ordered.push(job);
@@ -93,15 +87,14 @@ export class ABBAContinuationEngine {
     selection: ContinuationSelection,
     followOnCandidates: FollowOnJob[] = []
   ): ContinuationPlan {
-    const selected = selection === 'CHOOSE_ALL_AND_CONTINUE'
-      ? decisionSet.options.filter((option) => option.eligible)
-      : decisionSet.options.filter((option) => option.eligible);
+    if (!decisionSet.allowChooseAll) throw new Error('CHOOSE_ALL_NOT_PERMITTED_BY_DECISION_SET');
 
+    const selected = decisionSet.options.filter((option) => option.eligible);
     const selectedJobs: FollowOnJob[] = selected.map((option) => ({
       jobId: `option:${option.optionId}`,
       title: option.label,
       reason: option.objectiveContribution,
-      dependsOn: option.dependencies ?? [],
+      dependsOn: dedupe(option.dependencies ?? []),
       requiredCapabilities: option.requiredCapabilities,
       riskClass: option.riskClass ?? 'LOW',
       authorityRequired: true,
@@ -114,7 +107,6 @@ export class ABBAContinuationEngine {
 
     const allJobs = [...selectedJobs, ...recommendations]
       .filter((job, index, jobs) => jobs.findIndex((item) => item.jobId === job.jobId) === index);
-
     const orderedJobs = orderByDependencies(allJobs);
 
     return {
@@ -124,7 +116,7 @@ export class ABBAContinuationEngine {
       orderedJobs,
       recommendations,
       authorizationRequired: true,
-      stopCondition: orderedJobs.length ? 'NO_ELIGIBLE_NEXT_JOB' : 'NO_ELIGIBLE_NEXT_JOB'
+      stopCondition: orderedJobs.length ? 'AWAITING_HUMAN_AUTHORIZATION' : 'NO_ELIGIBLE_NEXT_JOB'
     };
   }
 
