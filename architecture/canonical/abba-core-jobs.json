@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
   "operatingSpine": "carbonactual/carbonactual",
-  "purpose": "Define the sequential governed jobs ABBA performs across the ecosystem without turning orchestration capability into authority.",
+  "purpose": "Define the sequential governed jobs ABBA performs across the ecosystem, including evidence assurance, live substrate reconciliation, completion proof and recovery without turning orchestration capability into authority.",
   "invariants": [
     "ABBA is the master intelligence and orchestrator, not the constitutional source of authority.",
     "Capability, permission, consent, and authority remain distinct.",
@@ -15,7 +15,11 @@
     "Every consequential action remains attributable, idempotent, evidentiary, and reconstructable.",
     "Continuation is permitted only while safety, policy, authority, evidence, resource, and explicit human-stop conditions remain satisfied.",
     "ABBA must finish or explicitly stop governed work; it must not silently abandon an active objective.",
-    "Every follow-on consequential job re-enters the same governed sequence."
+    "Every follow-on consequential job re-enters the same governed sequence.",
+    "Live substrate read failures are unknown observations until independently reconciled; they are never silently treated as missing data.",
+    "Completion is represented by a completion proof with evidence and reconciliation state, not by worker termination alone.",
+    "Recovery-required execution attempts are reconciled before any consequential retry.",
+    "Substrate reconciliation never silently repairs or authorizes."
   ],
   "jobSequence": [
     {
@@ -423,19 +427,82 @@
     },
     {
       "jobId": "ABBACORE-46",
+      "name": "VERIFY_EVIDENCE_QUALITY",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-45"
+      ],
+      "output": "evidence_quality_assessment"
+    },
+    {
+      "jobId": "ABBACORE-47",
+      "name": "RECONCILE_LIVE_SUBSTRATE",
+      "phase": "RECONCILE",
+      "dependsOn": [
+        "ABBACORE-46"
+      ],
+      "output": "live_substrate_reconciliation"
+    },
+    {
+      "jobId": "ABBACORE-48",
+      "name": "BUILD_COMPLETION_PROOF",
+      "phase": "CONTINUE",
+      "dependsOn": [
+        "ABBACORE-47"
+      ],
+      "output": "completion_proof"
+    },
+    {
+      "jobId": "ABBACORE-49",
+      "name": "SELECT_REPAIR_STRATEGY",
+      "phase": "STEWARD",
+      "dependsOn": [
+        "ABBACORE-48"
+      ],
+      "output": "repair_strategy"
+    },
+    {
+      "jobId": "ABBACORE-50",
+      "name": "SCHEDULE_RECOVERY",
+      "phase": "STEWARD",
+      "dependsOn": [
+        "ABBACORE-49"
+      ],
+      "output": "recovery_schedule"
+    },
+    {
+      "jobId": "ABBACORE-51",
+      "name": "REASSESS_SYSTEMIC_CAPABILITY",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-50"
+      ],
+      "output": "systemic_capability_reassessment"
+    },
+    {
+      "jobId": "ABBACORE-52",
       "name": "GENERATE_FOLLOW_ON_JOBS",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-45"
+        "ABBACORE-51"
       ],
       "output": "follow_on_job_set"
     },
     {
-      "jobId": "ABBACORE-47",
+      "jobId": "ABBACORE-53",
+      "name": "COMMUNICATE_RESULTS",
+      "phase": "COMMUNICATE",
+      "dependsOn": [
+        "ABBACORE-52"
+      ],
+      "output": "traceable_result_summary"
+    },
+    {
+      "jobId": "ABBACORE-54",
       "name": "CONTINUE_OR_STOP",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-46"
+        "ABBACORE-53"
       ],
       "output": "next_jobs_or_terminal_state"
     }
@@ -478,6 +545,12 @@
     "verify_completion",
     "verify_credential_provenance",
     "detect_skill_decay",
-    "schedule_reassessment"
+    "schedule_reassessment",
+    "verify_evidence_quality",
+    "reconcile_live_substrate",
+    "build_completion_proof",
+    "select_repair_strategy",
+    "schedule_recovery",
+    "reassess_systemic_capability"
   ]
 }
