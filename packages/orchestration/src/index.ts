@@ -18,3 +18,4 @@ export * from './evidenceQualityEngine';
 export * from './completionProof';
 export * from './runtimeOrchestrator';
 export * from './deploymentPreflight';
+export * from './reasoningAssuranceEngine';
