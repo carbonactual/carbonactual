@@ -34,7 +34,10 @@
     "Human coordination requests are evidence-bearing control objects, not automatic authority grants.",
     "Resumption after human interaction re-enters the governed lifecycle.",
     "Identity and relationship context do not infer authority, permission or consent.",
-    "Minimum-context routing defaults to privacy-preserving redaction and never exposes secret data by default."
+    "Minimum-context routing defaults to privacy-preserving redaction and never exposes secret data by default.",
+    "Communication delivery, provider acknowledgement and recipient acknowledgement remain separate states.",
+    "A communication route does not imply consent or authority.",
+    "A failed or unacknowledged communication cannot be represented as successful completion."
   ],
   "jobSequence": [
     {
@@ -1056,7 +1059,13 @@
     "resolve_relationship",
     "classify_data",
     "apply_minimum_context",
-    "audit_privacy_routing"
+    "audit_privacy_routing",
+    "resolve_recipient",
+    "check_communication_privacy",
+    "select_language_and_modality",
+    "verify_provider_receipt",
+    "verify_recipient_acknowledgement",
+    "reconcile_communication_outcome"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -1070,6 +1079,7 @@
     "EVIDENCE_SOURCE_INTELLIGENCE",
     "HUMAN_COORDINATION",
     "OPERATIONAL_SAFETY_ENVELOPE",
-    "IDENTITY_RELATIONSHIP_PRIVACY"
+    "IDENTITY_RELATIONSHIP_PRIVACY",
+    "UNIVERSAL_COMMUNICATION"
   ]
 }
