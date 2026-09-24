@@ -42,3 +42,6 @@ export * from './humanCoordinationEngine';
 export * from './consentBoundary';
 export * from './humanAuthorizationBoundary';
 export * from './humanCoordinationPack';
+export * from './operationalSafetyEnvelope';
+export * from './circuitBreakerEngine';
+export * from './autonomousSafetyGuard';

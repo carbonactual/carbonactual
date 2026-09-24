@@ -1,0 +1,24 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Operational Safety Envelope",
+  "version":"1.0.0",
+  "status":"canonical-derived-execution-safety-contract",
+  "controls":["COST_CEILING","CONCURRENCY_CEILING","RETRY_CEILING","BLAST_RADIUS_CEILING","DATA_EGRESS_CEILING","REVERSIBILITY","CIRCUIT_BREAKER","FAILURE_RATE_THRESHOLD","EVIDENCE_REQUIREMENT"],
+  "actionClasses":["READ","WRITE","VALUE_MOVEMENT","EXTERNAL_COMMUNICATION","IDENTITY_CHANGE","SECURITY_CHANGE","IRREVERSIBLE"],
+  "rules":[
+    "Safety is evaluated before consequential execution.",
+    "Safety disposition does not authorize execution.",
+    "A budget ceiling is not a permission grant.",
+    "A circuit breaker may hold or block work without changing authority.",
+    "Retries are bounded and never override execution idempotency.",
+    "Blast radius must be bounded and preferably split into recoverable steps.",
+    "Data egress is explicitly budgeted and minimized.",
+    "Irreversible actions require an explicit reversibility or compensation path unless separately governed.",
+    "Safety evidence remains distinct from authority and truth."
+  ],
+  "integration":{
+    "bridge":"packages/orchestration/src/governedReasoningSubstrateBridge.ts",
+    "gateOrder":["TECHNICAL_SUBSTRATE_READINESS","OPERATIONAL_SAFETY_ENVELOPE","AUTHORITY_POLICY_CONSENT","EXECUTION"]
+  },
+  "executionBoundary":"TECHNICAL_SAFETY → AUTHORITY_POLICY_CONSENT → EXECUTION"
+}

@@ -145,6 +145,23 @@
         "VERIFY_HUMAN_DECISION_EVIDENCE",
         "RESUME_GOVERNED_CONTINUATION"
       ]
+    },
+    {
+      "packId": "OPERATIONAL_SAFETY_ENVELOPE",
+      "insertionPoint": "BEFORE_AUTHORITY_POLICY_CONSENT_GATE",
+      "jobs": [
+        "CLASSIFY_ACTION_RISK",
+        "CHECK_COST_CEILING",
+        "CHECK_CONCURRENCY_CEILING",
+        "CHECK_RETRY_CEILING",
+        "CHECK_BLAST_RADIUS",
+        "CHECK_DATA_EGRESS",
+        "CHECK_REVERSIBILITY",
+        "CHECK_CIRCUIT_BREAKER",
+        "CHECK_FAILURE_RATE",
+        "SELECT_SAFETY_MITIGATIONS",
+        "PROCEED_TO_AUTHORITY_GATE"
+      ]
     }
   ],
   "boundary": {
