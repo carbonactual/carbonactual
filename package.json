@@ -6,7 +6,7 @@
   "workspaces":["packages/*","apps/*"],
   "scripts":{
     "typecheck":"tsc --noEmit",
-    "test:contracts":"node --test tests/architecture/canonical-contract.test.mjs tests/architecture/canonical-sql.test.mjs",
+    "test:contracts":"node --test tests/architecture/canonical-*.test.mjs",
     "test":"npm run test:contracts"
   },
   "devDependencies":{
