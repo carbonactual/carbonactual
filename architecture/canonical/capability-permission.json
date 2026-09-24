@@ -4,68 +4,37 @@
   "version": "1.0.0",
   "status": "canonical-derived-contract",
   "canonicalSource": "architecture/CARBON_ACTUAL_CAPABILITY_ADAPTER_CONTRACT.md",
-  "definitions": {
-    "capability": "A documented ability or reusable ecosystem function.",
-    "permission": "A policy expression that allows or restricts use of a capability under explicit conditions.",
-    "authority": "The governed right or delegated basis to permit a consequential action.",
-    "consent": "An applicable affirmative, informed and bounded authorization where consent is required."
-  },
-  "resolutionOrder": [
-    "identity",
-    "authority",
-    "intent",
-    "capability",
-    "context",
-    "policy",
-    "consent",
-    "eligibility",
-    "evidence/readiness",
-    "execution"
+  "invariant": "Capability does not imply Permission or Authority.",
+  "capabilities": [
+    {
+      "capabilityId": "cap_agent_spawn",
+      "description": "Ability to propose registration/provisioning of a HAPI agent through the canonical control boundary",
+      "requiredAuthorityLevel": 3,
+      "policyRequirements": ["VERIFIED_AUTHORITY_CONTEXT", "WITHIN_SYSTEM_RESOURCE_BUDGET"]
+    },
+    {
+      "capabilityId": "cap_state_mutation_request",
+      "description": "Ability to submit a validated state-mutation request to the canonical execution boundary; direct database mutation is not a capability granted to ABBA",
+      "requiredAuthorityLevel": 4,
+      "policyRequirements": ["CANONICAL_EVENT_VALIDATED", "AUTHORITY_POLICY_PASSED", "IDEMPOTENCY_KEY_PRESENT"]
+    },
+    {
+      "capabilityId": "cap_value_transfer",
+      "description": "Ability to request an authorized transfer of a qualified economic object, right, or value through an approved settlement workflow",
+      "requiredAuthorityLevel": 2,
+      "policyRequirements": ["IDENTITY_VERIFIED", "AUTHORITY_POLICY_PASSED", "BALANCES_OR_POSITION_STATE_VALID", "SETTLEMENT_GATE_PASSED"]
+    },
+    {
+      "capabilityId": "cap_external_dispatch",
+      "description": "Ability to invoke an external adapter or webhook through the authenticated integration boundary",
+      "requiredAuthorityLevel": 1,
+      "policyRequirements": ["OUTBOUND_ADAPTER_AUTHENTICATED", "NO_ELEVATED_KEYS_EXPOSED", "IDEMPOTENCY_WHERE_REQUIRED"]
+    }
   ],
   "permissionRecord": {
-    "required": [
-      "permissionId",
-      "capabilityId",
-      "action",
-      "principal",
-      "scope",
-      "policyVersion",
-      "status"
-    ],
-    "optional": [
-      "subject",
-      "dataClass",
-      "jurisdiction",
-      "riskClass",
-      "consentRequirement",
-      "eligibilityRequirements",
-      "rateLimit",
-      "resourceLimit",
-      "timeWindow",
-      "provenance"
-    ]
+    "required": ["permissionId", "capabilityId", "action", "principal", "scope", "policyVersion", "status"],
+    "optional": ["subject", "dataClass", "jurisdiction", "riskClass", "consentRequirement", "eligibilityRequirements", "rateLimit", "resourceLimit", "timeWindow", "provenance"]
   },
-  "decisionStates": [
-    "ALLOW",
-    "DENY",
-    "REQUIRE_HUMAN_AUTHORIZATION",
-    "REQUIRE_CONSENT",
-    "REQUIRE_EVIDENCE",
-    "REQUIRE_ELIGIBILITY",
-    "DEFER"
-  ],
-  "providerRules": [
-    "Provider availability does not imply authority.",
-    "Provider identity does not become the canonical capability identity.",
-    "External provider output is evidence/input, not automatic truth.",
-    "Adapters must preserve capability semantics and expose explicit degraded health."
-  ],
-  "nonEquivalences": [
-    "capability != permission",
-    "permission != authority",
-    "authority != consent",
-    "match != authorization",
-    "provider_output != truth",
-    "execution != evidence"
-  ]
+  "decisionStates": ["ALLOW", "DENY", "REQUIRE_HUMAN_AUTHORIZATION", "REQUIRE_CONSENT", "REQUIRE_EVIDENCE", "REQUIRE_ELIGIBILITY", "DEFER"],
+  "nonEquivalences": ["capability != permission", "permission != authority", "authority != consent", "match != authorization", "provider_output != truth", "execution != evidence"]
 }
