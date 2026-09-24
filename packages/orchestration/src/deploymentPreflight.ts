@@ -63,8 +63,8 @@ export function runDeploymentPreflight(files: Record<string, string>): Deploymen
 
   checks.push({
     name: 'canonical-write-boundary',
-    passed: !/insert into public\.canonical_events/i.test(migrationText) && /append_canonical_event/i.test(migrationText + (files['packages/orchestration/src/supabaseRuntimeAdapters.ts'] ?? '')),
-    reason: 'Canonical event writes remain through append_canonical_event'
+    passed: !/insert into public\.canonical_events/i.test(migrationText) && /omnii_append_event/i.test(files['packages/orchestration/src/supabaseRuntimeAdapters.ts'] ?? ''),
+    reason: 'Production canonical event writes remain adapted to the existing omnii append-event substrate'
   });
 
   return { passed: checks.every((check) => check.passed), checks };
