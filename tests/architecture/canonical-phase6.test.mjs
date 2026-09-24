@@ -15,6 +15,12 @@ test('Phase 6 provides concrete Supabase adapters without hard-coding authority 
   assert.match(adapter, /SupabaseExecutionAttemptStore/);
   assert.match(adapter, /RECOVERY_REQUIRED/);
   assert.match(adapter, /SupabaseCanonicalEventWriter/);
+  assert.match(adapter, /append_canonical_event', event/);
+  assert.match(adapter, /append_abba_reconciliation_record', input/);
+  assert.match(adapter, /append_abba_completion_proof', input/);
+  assert.doesNotMatch(adapter, /append_canonical_event', \{ event \}/);
+  assert.doesNotMatch(adapter, /append_abba_reconciliation_record', \{ record: input \}/);
+  assert.doesNotMatch(adapter, /append_abba_completion_proof', \{ proof: input \}/);
   assert.match(adapter, /public\./);
   assert.doesNotMatch(adapter, /self-authoriz|grant.*authority/i);
 });
