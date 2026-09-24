@@ -17,7 +17,8 @@ const requiredFiles = [
   'supabase/migrations/20260924000009_abba_phase6_runtime_assurance.sql',
   'supabase/migrations/20260924000010_reasoning_substrate_binding.sql',
   'supabase/migrations/20260924000011_postgis_rls_remediation.sql',
-  'supabase/migrations/20260924000012_reasoning_binding_event_id_text.sql'
+  'supabase/migrations/20260924000012_reasoning_binding_event_id_text.sql',
+  'supabase/migrations/20260924000013_reasoning_binding_update_rpc_text.sql'
 ];
 
 export function runDeploymentPreflight(files: Record<string, string>): DeploymentPreflightResult {
