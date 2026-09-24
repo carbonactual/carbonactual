@@ -43,7 +43,10 @@ test('ledger balancing is unit-specific and checks debit/credit presence', () =>
   assert.match(sql, /COUNT\(\*\) FILTER \(WHERE side='CREDIT'\)/);
 });
 
-test('Pulse is persisted separately from the event stream', () => {
-  assert.match(sql, /CREATE TABLE IF NOT EXISTS public\.pulse_observations/);
-  assert.match(sql, /pulse_score NUMERIC/);
+test('Privileged canonical RPC and Pulse trigger exist', () => {
+  assert.match(ingress,/append_canonical_event/);
+  assert.match(ingress,/GRANT EXECUTE ON FUNCTION public\.append_canonical_event\(jsonb\) TO service_role/);
+  assert.match(ingress,/trg_calculate_pulse_score/);
+  assert.match(sql,/CREATE TABLE IF NOT EXISTS public\.pulse_observations/);
+  assert.match(sql,/pulse_score NUMERIC/);
 });
