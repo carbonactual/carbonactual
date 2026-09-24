@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Capability Benchmark and Provider Arbitration",
+  "version": "1.0.0",
+  "status": "canonical-derived-core-extension",
+  "functions": [
+    "CAPABILITY_BENCHMARKING",
+    "PROVIDER_HEALTH",
+    "FAILOVER_AND_FALLBACK",
+    "ROUTE_PROPOSAL"
+  ],
+  "rules": [
+    "Benchmark criteria and supporting evidence are explicit.",
+    "A candidate is excluded when unavailable or lacking benchmark evidence.",
+    "Provider health is time-bound and may become stale.",
+    "Fallback is a routing proposal, never authorization.",
+    "Provider preference never creates permission or authority.",
+    "A provider failure does not cause silent duplicate consequential execution; execution idempotency remains authoritative."
+  ],
+  "criteria": [
+    "quality",
+    "reliability",
+    "coverage",
+    "risk",
+    "latency",
+    "cost"
+  ],
+  "executionBoundary": "AUTHORITY_POLICY_CONSENT_GATE"
+}
