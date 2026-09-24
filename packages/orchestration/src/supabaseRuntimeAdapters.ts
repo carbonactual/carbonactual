@@ -1,3 +1,4 @@
+import type { HumanCoordinationStore } from './humanCoordinationPack';
 import type { CanonicalEventEnvelope, CanonicalEventWriter } from './executionGateway';
 import type { ReasoningSubstrateBindingStore } from './governedReasoningSubstrateBridge';
 import type {
