@@ -14,7 +14,10 @@ const requiredFiles = [
   'supabase/migrations/20260924000006_abba_reconciliation_and_completion.sql',
   'supabase/migrations/20260924000007_abba_execution_attempt_ledger.sql',
   'supabase/migrations/20260924000008_abba_competency_and_certification.sql',
-  'supabase/migrations/20260924000009_abba_phase6_runtime_assurance.sql'
+  'supabase/migrations/20260924000009_abba_phase6_runtime_assurance.sql',
+  'supabase/migrations/20260924000010_reasoning_substrate_binding.sql',
+  'supabase/migrations/20260924000011_postgis_rls_remediation.sql',
+  'supabase/migrations/20260924000012_reasoning_binding_event_id_text.sql'
 ];
 
 export function runDeploymentPreflight(files: Record<string, string>): DeploymentPreflightResult {
@@ -42,7 +45,8 @@ export function runDeploymentPreflight(files: Record<string, string>): Deploymen
     'abba_reconciliation_records',
     'abba_completion_checks',
     'abba_execution_attempts',
-    'abba_completion_proofs'
+    'abba_completion_proofs',
+    'abba_reasoning_substrate_bindings'
   ];
 
   const rlsComplete = requiredRlsTables.every((table) =>
