@@ -33,7 +33,7 @@ test('live event adapter binds to the existing omnii append-event substrate',()=
   assert.match(adapters,/p_idempotency_key: event\.idempotencyKey/);
   assert.match(adapters,/CANONICAL_EVENT_TYPES\.includes/);
   assert.match(adapters,/authoritySignature: event\.authoritySignature/);
-  assert.doesNotMatch(adapters,/canonical_events\\s*\\(/i);
+  assert.doesNotMatch(adapters,/canonical_events\s*\(/i);
 });
 
 test('PostGIS remediation enables RLS and preserves public read-only access',()=>{
