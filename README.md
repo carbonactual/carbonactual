@@ -100,6 +100,28 @@ Core controls:
 The shared economic fabric is implemented at architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.md with a machine-readable registry at architecture/CARBON_ACTUAL_ABBA_ECONOMIC_FINANCIAL_INTELLIGENCE_FABRIC_2026.json.
 It provides 22 reusable engines covering monetisation, income, opportunity discovery, markets/news, trading, sourcing/deals, exchange, money, credit/leverage, liquidity, risk, portfolios, ownership, venture/private capital, arbitrage, derivatives, financial education, business intelligence, accounting/operations, tokenisation and financial command.
 ABBA and TIP compose it; products do not create parallel economic semantics.
+
+## ABBA CORE RUNTIME & INTELLIGENCE ASSURANCE — 2026
+
+ABBA is the master ecosystem intelligence and orchestrator. The canonical runtime is governed by an explicit observation → context → reasoning → capability composition → proposal → authority/policy/consent → execution → evidence → reconciliation → learning → stewardship → continuation lifecycle.
+
+The current staged core job graph contains **61 governed jobs**, with explicit completion proof, evidence-quality assurance, live-substrate reconciliation, recovery controls, and reasoning artifact separation. The reasoning boundary distinguishes **THEORY, HYPOTHESIS, OBSERVATION, EVIDENCE, RESULT, CONCLUSION, RECOMMENDATION, and DECISION**.
+
+Mission intelligence is extended through reusable specialist packs:
+- Mission Intelligence — intent, constraints, success criteria, assumptions, uncertainty, decomposition and dependencies.
+- Capability Assurance — capability provenance, availability and certification provenance.
+- Outcome Analysis — scenario, sensitivity and reversibility analysis.
+- Stewardship — value, cost, waste, risk, human, environmental and continuity impact.
+
+These packs never grant authority. Consequential actions continue to re-enter the independent Authority + Policy + Consent Gate.
+
+Core references:
+- architecture/canonical/abba-core-jobs.json
+- architecture/canonical/abba-reasoning-assurance.json
+- architecture/canonical/abba-intelligence-specialist-packs.json
+- architecture/CARBON_ACTUAL_ABBA_REASONING_ASSURANCE_2026.md
+- architecture/CARBON_ACTUAL_ABBA_MISSION_INTELLIGENCE_2026.md
+
 ## BOUNDARIES
 
 HAPI World defines constitutional meaning. Carbon Actual provides the operating-spine semantics and cross-product contracts. ABBA operationalizes those contracts through intelligence and orchestration. Products specialize interfaces and workflows without creating parallel universes.

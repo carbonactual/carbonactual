@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Intelligence Specialist Packs",
+  "version": "1.0.0",
+  "status": "canonical-derived-extension-contract",
+  "principle": "Specialist packs extend the core graph without creating a second orchestration universe.",
+  "packs": [
+    {
+      "packId": "MISSION_INTELLIGENCE",
+      "insertionPoint": "AFTER_OBJECTIVE_IDENTIFICATION",
+      "jobs": [
+        "RESOLVE_INTENT",
+        "IDENTIFY_CONSTRAINTS",
+        "DEFINE_SUCCESS_CRITERIA",
+        "SURFACE_ASSUMPTIONS",
+        "CLASSIFY_UNCERTAINTY",
+        "DECOMPOSE_MISSION",
+        "MAP_DEPENDENCIES"
+      ]
+    },
+    {
+      "packId": "CAPABILITY_ASSURANCE",
+      "insertionPoint": "BEFORE_CAPABILITY_COMPOSITION",
+      "jobs": [
+        "VERIFY_CAPABILITY_PROVENANCE",
+        "VERIFY_CAPABILITY_AVAILABILITY",
+        "VERIFY_CERTIFICATION_PROVENANCE"
+      ]
+    },
+    {
+      "packId": "OUTCOME_ANALYSIS",
+      "insertionPoint": "AFTER_REASONING_BEFORE_RECOMMENDATION",
+      "jobs": [
+        "RUN_SCENARIO_ANALYSIS",
+        "RUN_SENSITIVITY_ANALYSIS",
+        "CHECK_REVERSIBILITY"
+      ]
+    },
+    {
+      "packId": "STEWARDSHIP",
+      "insertionPoint": "BEFORE_GOVERNANCE_GATE",
+      "jobs": [
+        "ASSESS_VALUE_IMPACT",
+        "ASSESS_COST_IMPACT",
+        "ASSESS_WASTE_IMPACT",
+        "ASSESS_RISK_IMPACT",
+        "ASSESS_HUMAN_IMPACT",
+        "ASSESS_ENVIRONMENTAL_IMPACT",
+        "ASSESS_CONTINUITY_IMPACT",
+        "SELECT_MITIGATION"
+      ]
+    }
+  ],
+  "boundary": {
+    "executionAllowed": false,
+    "authorityRequired": true,
+    "allConsequentialActionsReenter": "AUTHORITY_POLICY_CONSENT_GATE"
+  }
+}

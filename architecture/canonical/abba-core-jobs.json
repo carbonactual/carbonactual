@@ -621,5 +621,11 @@
     "separate_reasoning_artifacts",
     "validate_evidence_chain",
     "verify_recommendation_boundary"
+  ],
+  "specialistPacks": [
+    "MISSION_INTELLIGENCE",
+    "CAPABILITY_ASSURANCE",
+    "OUTCOME_ANALYSIS",
+    "STEWARDSHIP"
   ]
 }

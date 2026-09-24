@@ -1,0 +1,33 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Intent Mission Uncertainty Stewardship Contract",
+  "version":"1.0.0",
+  "status":"canonical-derived-core-contract",
+  "layers":[
+    "INTENT_RESOLUTION",
+    "CONSTRAINT_DISCOVERY",
+    "SUCCESS_CRITERIA",
+    "ASSUMPTION_REGISTER",
+    "UNCERTAINTY_LEDGER",
+    "MISSION_DECOMPOSITION",
+    "DEPENDENCY_MAPPING",
+    "CAPABILITY_PROVENANCE",
+    "OUTCOME_SIMULATION",
+    "STEWARDSHIP_IMPACT"
+  ],
+  "rules":[
+    "Explicit human intent outranks inferred intent when compatible with Canon and valid authority boundaries.",
+    "Inferred intent never silently becomes explicit human intent.",
+    "Ambiguous intent is surfaced for clarification rather than guessed through consequential execution.",
+    "Every mission has explicit success criteria or is marked incomplete.",
+    "Constraints are first-class and attributable.",
+    "Assumptions are recorded separately from evidence.",
+    "Unknown, ambiguous, contradictory, provisional, stale and missing evidence remain explicit uncertainty states.",
+    "Mission decomposition may propose tasks but does not authorize execution.",
+    "Capability provenance is evaluated separately from permission and authority.",
+    "Outcome simulation is analysis, not evidence of what will happen.",
+    "Stewardship considers value, cost, waste, risk, human impact, environmental impact, reversibility and continuity.",
+    "No reasoning or planning artifact grants authority."
+  ],
+  "executionBoundary":"All consequential tasks exit through the existing Authority + Policy + Consent Gate."
+}
