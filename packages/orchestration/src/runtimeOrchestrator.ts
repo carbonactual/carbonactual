@@ -4,6 +4,7 @@ import { buildCompletionProof, CompletionProof } from './completionProof';
 import { ABBALiveSubstrateReconciler, LiveSubstrateBindingSpec } from './liveSubstrateReconciler';
 import { ABBAReasoningAssuranceEngine, ReasoningArtifact, ReasoningAssessment } from './reasoningAssuranceEngine';
 import { ABBAMissionIntelligencePack, MissionIntelligenceInput, MissionIntelligenceResult } from './missionIntelligencePack';
+import { ABBAEvidenceSourceIntelligencePack, EvidenceSourceIntelligenceInput, EvidenceSourceIntelligenceResult } from './evidenceSourceIntelligencePack';
 import { ABBAUniversalKnowledgeMasteryPack, UniversalKnowledgeMasteryInput, UniversalKnowledgeMasteryResult } from './universalKnowledgeMasteryPack';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
@@ -31,6 +32,7 @@ export interface ABBARuntimeCycleInput {
   reasoningArtifacts?: ReasoningArtifact[];
   missionIntelligenceInput?: MissionIntelligenceInput;
   knowledgeMasteryInput?: UniversalKnowledgeMasteryInput;
+  evidenceSourceIntelligenceInput?: EvidenceSourceIntelligenceInput;
 }
 
 export interface ABBARuntimeCycleResult {
@@ -41,6 +43,7 @@ export interface ABBARuntimeCycleResult {
   reasoningAssessments: ReasoningAssessment[];
   missionIntelligence?: MissionIntelligenceResult;
   knowledgeMastery?: UniversalKnowledgeMasteryResult;
+  evidenceSourceIntelligence?: EvidenceSourceIntelligenceResult;
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -53,6 +56,7 @@ export class ABBARuntimeOrchestrator {
     private readonly reasoningEngine: ABBAReasoningAssuranceEngine,
     private readonly missionIntelligencePack: ABBAMissionIntelligencePack,
     private readonly knowledgeMasteryPack: ABBAUniversalKnowledgeMasteryPack,
+    private readonly evidenceSourceIntelligencePack: ABBAEvidenceSourceIntelligencePack,
     private readonly reconciliationWriter: ReconciliationWriter,
     private readonly completionWriter: CompletionProofWriter
   ) {}
@@ -93,6 +97,9 @@ export class ABBARuntimeOrchestrator {
     const knowledgeMastery = input.knowledgeMasteryInput
       ? this.knowledgeMasteryPack.assess(input.knowledgeMasteryInput)
       : undefined;
+    const evidenceSourceIntelligence = input.evidenceSourceIntelligenceInput
+      ? this.evidenceSourceIntelligencePack.analyze(input.evidenceSourceIntelligenceInput)
+      : undefined;
     const evidenceComplete =
       input.evidenceItems !== undefined &&
       input.evidenceItems.length > 0 &&
@@ -111,7 +118,10 @@ export class ABBARuntimeOrchestrator {
       ...(missionIntelligence?.decomposition.unresolvedDependencies ?? []).map((dep) => `MISSION_DEPENDENCY_UNRESOLVED:${dep}`),
       ...(missionIntelligence?.uncertainties.filter((item) => item.blocksExecution).map((item) => `UNCERTAINTY_BLOCKER:${item.uncertaintyId}`) ?? []),
       ...(missionIntelligence?.stewardship.filter((item) => item.mitigationRequired).map((item) => `STEWARDSHIP_MITIGATION_REQUIRED:${item.impactId}`) ?? []),
-      ...(knowledgeMastery?.mastery.filter((item) => !item.promotable && item.reasons.length > 0).map((item) => `MASTERY_ASSURANCE:${item.capabilityRef}:${item.reasons.join('|')}`) ?? [])
+      ...(knowledgeMastery?.mastery.filter((item) => !item.promotable && item.reasons.length > 0).map((item) => `MASTERY_ASSURANCE:${item.capabilityRef}:${item.reasons.join('|')}`) ?? []),
+      ...(evidenceSourceIntelligence?.sources.filter((item) => !item.provenanceAccepted).map((item) => `SOURCE_PROVENANCE:${item.sourceId}:${item.reasons.join('|')}`) ?? []),
+      ...(evidenceSourceIntelligence?.claims.filter((item) => !item.valid).map((item) => `EVIDENCE_CHAIN:${item.claimId}:${item.reasons.join('|')}`) ?? []),
+      ...(evidenceSourceIntelligence?.observations.filter((item) => !item.accepted).map((item) => `EXTERNAL_OBSERVATION:${item.observationId}:${item.reasons.join('|')}`) ?? [])
     ];
 
     const completionProof = await buildCompletionProof({
@@ -141,7 +151,8 @@ export class ABBARuntimeOrchestrator {
         evidenceAssessments,
         reasoningAssessments,
         missionIntelligence,
-        knowledgeMastery
+        knowledgeMastery,
+        evidenceSourceIntelligence
       }
     });
 
@@ -153,6 +164,7 @@ export class ABBARuntimeOrchestrator {
       reasoningAssessments,
       missionIntelligence,
       knowledgeMastery,
+      evidenceSourceIntelligence,
       reconciliationRecordIds,
       completionProofRecordId
     };
