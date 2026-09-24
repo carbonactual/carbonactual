@@ -1,7 +1,7 @@
 import { ABBAIntentResolutionEngine, IntentCandidate, ResolvedIntent } from './intentResolutionEngine';
 import { ABBAMissionDecompositionEngine, MissionConstraint, MissionDecomposition, MissionTask } from './missionDecompositionEngine';
-import { ABBAUncertaintyLedger, UncertaintyRecord, UncertaintyAssessment } from './uncertaintyLedger';
-import { ABBAStewardshipImpactEngine, StewardshipImpact, StewardshipAssessment } from './stewardshipImpactEngine';
+import { ABBAUncertaintyLedger, UncertaintyRecord, UncertaintyAssessment, assessUncertaintyMany } from './uncertaintyLedger';
+import { ABBAStewardshipImpactEngine, StewardshipImpact, StewardshipAssessment, assessStewardshipMany } from './stewardshipImpactEngine';
 import { ABBACapabilityProvenanceEngine, CapabilityProvenanceRecord, CapabilityProvenanceAssessment } from './capabilityProvenanceEngine';
 import { ABBAOutcomeSimulationEngine, OutcomeScenario, SimulationResult } from './outcomeSimulationEngine';
 
@@ -45,8 +45,8 @@ export class ABBAMissionIntelligencePack {
   analyze(input: MissionIntelligenceInput): MissionIntelligenceResult {
     const intent = this.intentEngine.resolve(input.intent);
     const decomposition = this.missionEngine.decompose(input.mission);
-    const uncertainties = this.uncertaintyLedger.assessMany(input.uncertainties);
-    const stewardship = this.stewardshipEngine.assessMany(input.stewardshipImpacts);
+    const uncertainties = assessUncertaintyMany(this.uncertaintyLedger, input.uncertainties);
+    const stewardship = assessStewardshipMany(this.stewardshipEngine, input.stewardshipImpacts);
     const capabilityProvenance = this.capabilityProvenanceEngine.assessMany(input.capabilityProvenance);
     const simulation = input.scenarios?.length
       ? this.simulationEngine.simulate({ simulationId: input.mission.missionId + ':simulation', scenarios: input.scenarios })
