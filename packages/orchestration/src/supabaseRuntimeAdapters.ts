@@ -1,3 +1,4 @@
+import type { CanonicalEventEnvelope, CanonicalEventWriter } from './executionGateway';
 import type {
   ABBAControlCycle,
   ABBAJobRun,
@@ -118,6 +119,13 @@ export function createSupabaseTableReader(
       return value.filter((item): item is Record<string, unknown> => !!item && typeof item === 'object');
     }
   };
+}
+
+export class SupabaseCanonicalEventWriter implements CanonicalEventWriter {
+  constructor(private readonly rpc: SupabaseRpcClient) {}
+  async append(event: CanonicalEventEnvelope): Promise<string> {
+    return rpcId(await this.rpc.call('append_canonical_event', { event }));
+  }
 }
 
 export class SupabaseObservationStore implements ObservationStore {
