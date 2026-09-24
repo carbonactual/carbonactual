@@ -8,6 +8,7 @@ export * from './executionGateway';
 export * from './governedActionCoordinator';
 export * from './reconciliationEngine';
 export * from './learningEngine';
+export * from './certificationEngine';
 export * from './abbaSupervisor';
 export * from './abbaCoreSupervisor';
 export * from './closedLoopRuntime';

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBALifelongLearningCertificationLoop",
+  "version": "1.0.0",
+  "status": "canonical-derived-learning-contract",
+  "masterIntelligence": "ABBA",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "loop": [
+    "CAPABILITY_GAP_DETECTION",
+    "CURRICULUM_DISCOVERY",
+    "KNOWLEDGE_ACQUISITION",
+    "PRACTICE",
+    "ASSESSMENT",
+    "EVIDENCE_CAPTURE",
+    "EXTERNAL_CERTIFICATION_VERIFICATION",
+    "COMPETENCY_UPDATE",
+    "CAPABILITY_REGISTRY_UPDATE",
+    "CONTINUOUS_REASSESSMENT"
+  ],
+  "progression": [
+    "FOUNDATION",
+    "PRACTICE",
+    "PROFESSIONAL",
+    "SPECIALIST",
+    "MASTER",
+    "EMERITUS"
+  ],
+  "rules": [
+    "ABBA may learn and practice without granting itself credentials.",
+    "Assessment evidence and certification records must retain provenance.",
+    "External certification authority is distinct from ABBA reasoning.",
+    "Unverified learning remains provisional and cannot silently become certified competency.",
+    "A credential describes verified achievement; it does not itself grant operational authority.",
+    "Capability updates do not imply permission or authority.",
+    "Learning history is append-oriented and corrections preserve prior provenance.",
+    "Reassessment continues after certification as knowledge and standards evolve."
+  ],
+  "certificationAuthority": {
+    "configuredAuthority": "InstituteGPT",
+    "integrationMode": "ADAPTER",
+    "selfCertificationAllowed": false,
+    "issuerMustBeExternalToABBA": true
+  }
+}
