@@ -2,7 +2,7 @@ export interface ActionExecutionInput { actionId: string; payload: Record<string
 export interface ActionExecutionOutcome { status: 'SUCCESS' | 'FAILED'; result: Record<string, unknown>; evidenceRef: string; }
 export interface ActionExecutor { execute(input: ActionExecutionInput): Promise<ActionExecutionOutcome>; }
 
-export type ExecutionAttemptReservation = 'RESERVED' | 'ALREADY_RUNNING' | 'ALREADY_SUCCEEDED' | 'ALREADY_FAILED';
+export type ExecutionAttemptReservation = 'RESERVED' | 'ALREADY_RUNNING' | 'ALREADY_SUCCEEDED' | 'ALREADY_FAILED' | 'ALREADY_RECOVERY_REQUIRED';
 
 export interface ExecutionAttempt {
   executionId: string;
@@ -75,6 +75,7 @@ export class ABBAExecutionGateway {
     if (reservation === 'ALREADY_RUNNING') return { executionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_RUNNING' };
     if (reservation === 'ALREADY_SUCCEEDED') return { executionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_SUCCEEDED' };
     if (reservation === 'ALREADY_FAILED') return { executionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_FAILED_REQUIRES_REVIEW' };
+    if (reservation === 'ALREADY_RECOVERY_REQUIRED') return { executionId, status: 'RECOVERY_REQUIRED', reason: 'EXECUTION_RECOVERY_REQUIRED' };
 
     await this.attemptStore.markRunning(executionId);
 
