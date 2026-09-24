@@ -115,7 +115,7 @@ export class ABBAContextEngine {
 
     return [...assertions.entries()]
       .filter(([, value]) => value.values.length > 1)
-      .map(([assertionKey, value]) => ({
+      .map(([assertionKey, value]): ContradictionRecord => ({
         assertionKey,
         observedValues: value.values,
         sourceSignalIds: [...new Set(value.signalIds)],
