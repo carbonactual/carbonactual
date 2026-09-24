@@ -42,7 +42,8 @@
     "tokenization-rules.json",
     "relationship-boundaries.json",
     "traceability-rules.json",
-    "execution-contracts.json"
+    "execution-contracts.json",
+    "feedback-telemetry-rules.json"
   ],
   "canonicalSources": [
     "architecture/ECOSYSTEM_KERNEL.md",
