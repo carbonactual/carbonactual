@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
@@ -29,7 +29,10 @@
     "Technical substrate readiness is distinct from authority and policy authorization.",
     "A missing, degraded or duplicated substrate surface blocks consequential execution until repaired or explicitly adjudicated.",
     "Source provenance, freshness and independence remain distinct from evidence and truth.",
-    "External observations retain reality state and are not silently promoted to canonical fact."
+    "External observations retain reality state and are not silently promoted to canonical fact.",
+    "ABBA may request human action but cannot fabricate human input, consent, authorization or acknowledgement.",
+    "Human coordination requests are evidence-bearing control objects, not automatic authority grants.",
+    "Resumption after human interaction re-enters the governed lifecycle."
   ],
   "jobSequence": [
     {
@@ -794,6 +797,105 @@
         "ABBACORE-93"
       ],
       "output": "next_jobs_or_terminal_state"
+    },
+    {
+      "jobId": "ABBACORE-94",
+      "name": "DETECT_HUMAN_INPUT_REQUIREMENT",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-94"
+      ],
+      "output": "human_input_requirement"
+    },
+    {
+      "jobId": "ABBACORE-95",
+      "name": "PREPARE_MINIMUM_HUMAN_CONTEXT",
+      "phase": "COMMUNICATE",
+      "dependsOn": [
+        "ABBACORE-94"
+      ],
+      "output": "minimum_human_context"
+    },
+    {
+      "jobId": "ABBACORE-96",
+      "name": "REQUEST_CLARIFICATION",
+      "phase": "COMMUNICATE",
+      "dependsOn": [
+        "ABBACORE-95"
+      ],
+      "output": "clarification_request"
+    },
+    {
+      "jobId": "ABBACORE-97",
+      "name": "REQUEST_AUTHORIZATION",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-96"
+      ],
+      "output": "human_authorization_request"
+    },
+    {
+      "jobId": "ABBACORE-98",
+      "name": "REQUEST_CONSENT",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-97"
+      ],
+      "output": "consent_request"
+    },
+    {
+      "jobId": "ABBACORE-99",
+      "name": "REQUEST_REVIEW",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-98"
+      ],
+      "output": "human_review_request"
+    },
+    {
+      "jobId": "ABBACORE-100",
+      "name": "ESCALATE_TO_HUMAN",
+      "phase": "COMMUNICATE",
+      "dependsOn": [
+        "ABBACORE-99"
+      ],
+      "output": "human_escalation"
+    },
+    {
+      "jobId": "ABBACORE-101",
+      "name": "CAPTURE_HUMAN_DECISION",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-100"
+      ],
+      "output": "human_decision_record"
+    },
+    {
+      "jobId": "ABBACORE-102",
+      "name": "VERIFY_HUMAN_DECISION_EVIDENCE",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-101"
+      ],
+      "output": "human_decision_evidence"
+    },
+    {
+      "jobId": "ABBACORE-103",
+      "name": "RESUME_GOVERNED_CONTINUATION",
+      "phase": "CONTINUE",
+      "dependsOn": [
+        "ABBACORE-102"
+      ],
+      "output": "resumable_continuation"
+    },
+    {
+      "jobId": "ABBACORE-104",
+      "name": "CONTINUE_OR_STOP",
+      "phase": "CONTINUE",
+      "dependsOn": [
+        "ABBACORE-103"
+      ],
+      "output": "next_jobs_or_terminal_state"
     }
   ],
   "continuation": {
@@ -852,7 +954,13 @@
     "audit_substrate_binding_provenance",
     "discover_evidence_sources",
     "verify_source_provenance",
-    "preserve_source_contradictions"
+    "preserve_source_contradictions",
+    "detect_human_input_requirement",
+    "request_clarification",
+    "request_authorization",
+    "request_consent",
+    "escalate_to_human",
+    "verify_human_decision_evidence"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -863,6 +971,7 @@
     "UNIVERSAL_KNOWLEDGE_MASTERY",
     "REASONING_SUBSTRATE_BINDING",
     "LIVE_SUBSTRATE_HEALTH",
-    "EVIDENCE_SOURCE_INTELLIGENCE"
+    "EVIDENCE_SOURCE_INTELLIGENCE",
+    "HUMAN_COORDINATION"
   ]
 }
