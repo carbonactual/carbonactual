@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBALiveSubstrateReconciliation",
+  "version": "1.0.0",
+  "status": "canonical-derived-runtime-integration-contract",
+  "canonicalRepository": "carbonactual/carbonactual",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "masterIntelligence": "ABBA",
+  "purpose": "Bind canonical ABBA orchestration contracts to existing Carbon Actual runtime substrate without semantic duplication.",
+  "readPath": [
+    "LIVE_SUBSTRATE",
+    "ADAPTER",
+    "NORMALIZE",
+    "RECONCILE",
+    "CONTEXT"
+  ],
+  "writePath": [
+    "INTENT",
+    "CAPABILITY_DISCOVERY",
+    "PROPOSAL",
+    "AUTHORITY_POLICY_CONSENT_GATE",
+    "EXECUTION",
+    "EVIDENCE",
+    "CANONICAL_EVENT"
+  ],
+  "substrateKinds": [
+    "LEGACY_ABBA",
+    "PROCESS_TASK",
+    "RUNTIME_RECORD",
+    "ECONOMIC_RECORD",
+    "CUSTOM"
+  ],
+  "bindings": [
+    {"canonicalConcept":"ABBA_MASTER_INTELLIGENCE_PROFILE","substrate":"public.omnii_abba_profiles","identityColumns":["id"],"authorityBoundary":"read_only_unless_governed"},
+    {"canonicalConcept":"ABBA_CONTEXT_SESSION","substrate":"public.omnii_abba_sessions","identityColumns":["id"],"authorityBoundary":"context_record_only"},
+    {"canonicalConcept":"ABBA_PLAN","substrate":"public.omnii_abba_plans","identityColumns":["id"],"authorityBoundary":"proposal_state_only"},
+    {"canonicalConcept":"ABBA_DECISION","substrate":"public.omnii_abba_decisions","identityColumns":["id"],"authorityBoundary":"decision_trace_only"},
+    {"canonicalConcept":"ABBA_TOOL_CALL","substrate":"public.omnii_abba_tool_calls","identityColumns":["id"],"authorityBoundary":"execution_trace_only"},
+    {"canonicalConcept":"ABBA_MEMORY","substrate":"public.omnii_abba_memory_records","identityColumns":["id"],"authorityBoundary":"memory_not_truth"},
+    {"canonicalConcept":"WORKFLOW_TASK","substrate":"public.omnii_process_tasks","identityColumns":["id"],"authorityBoundary":"execution_requires_gate"},
+    {"canonicalConcept":"RUNTIME_RECORD","substrate":"public.canonical_runtime_records","identityColumns":["id"],"authorityBoundary":"runtime_evidence_not_constitution"},
+    {"canonicalConcept":"EXECUTION_CONTROL","substrate":"public.omnii_execution_controls","identityColumns":["id"],"authorityBoundary":"subordinate_control_configuration"},
+    {"canonicalConcept":"EVENT","substrate":"public.omnii_events","identityColumns":["id","idempotency_key"],"authorityBoundary":"projection_must_align_to_canonical_event_contract"},
+    {"canonicalConcept":"STATE","substrate":"public.omnii_state","identityColumns":["id"],"authorityBoundary":"current_projection_not_history"},
+    {"canonicalConcept":"RECONCILIATION","substrate":"public.omnii_reconciliations","identityColumns":["id"],"authorityBoundary":"analysis_and_recovery_record"},
+    {"canonicalConcept":"CAPABILITY_SHELF","substrate":"public.omnii_common_primitives + public.ecosystem_capability_metadata","identityColumns":["key","capability_key"],"authorityBoundary":"availability_never_implies_authority"}
+  ],
+  "invariants": [
+    "Existing substrate is implementation, not semantic authority.",
+    "Capability is not permission.",
+    "Capability is not authority.",
+    "Observation is not evidence.",
+    "Evidence is not automatically truth.",
+    "State is not history.",
+    "Intent is not execution.",
+    "Reconciliation proposes; it does not authorize.",
+    "Recovery never silently repeats a consequential action.",
+    "All consequential writes remain behind Authority + Policy + Consent Gate.",
+    "Historical provenance is preserved."
+  ]
+}

@@ -2,7 +2,12 @@ export interface ActionExecutionInput { actionId: string; payload: Record<string
 export interface ActionExecutionOutcome { status: 'SUCCESS' | 'FAILED'; result: Record<string, unknown>; evidenceRef: string; }
 export interface ActionExecutor { execute(input: ActionExecutionInput): Promise<ActionExecutionOutcome>; }
 
-export type ExecutionAttemptReservation = 'RESERVED' | 'ALREADY_RUNNING' | 'ALREADY_SUCCEEDED' | 'ALREADY_FAILED';
+export type ExecutionAttemptReservation = 'RESERVED' | 'ALREADY_RUNNING' | 'ALREADY_SUCCEEDED' | 'ALREADY_FAILED' | 'ALREADY_RECOVERY_REQUIRED';
+
+export interface ExecutionAttemptReservationResult {
+  reservation: ExecutionAttemptReservation;
+  existingExecutionId?: string;
+}
 
 export interface ExecutionAttempt {
   executionId: string;
@@ -15,7 +20,7 @@ export interface ExecutionAttempt {
 }
 
 export interface ExecutionAttemptStore {
-  reserve(input: { executionId: string; actionId: string; idempotencyKey: string }): Promise<ExecutionAttemptReservation>;
+  reserve(input: { executionId: string; actionId: string; idempotencyKey: string }): Promise<ExecutionAttemptReservationResult>;
   markRunning(executionId: string): Promise<void>;
   markSucceeded(executionId: string, outcome: ActionExecutionOutcome): Promise<void>;
   markFailed(executionId: string, error: string, evidenceRef?: string): Promise<void>;
@@ -71,12 +76,14 @@ export class ABBAExecutionGateway {
       actionId: request.actionId,
       idempotencyKey: request.canonicalEvent.idempotencyKey
     });
+    const effectiveExecutionId = reservation.existingExecutionId ?? executionId;
 
-    if (reservation === 'ALREADY_RUNNING') return { executionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_RUNNING' };
-    if (reservation === 'ALREADY_SUCCEEDED') return { executionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_SUCCEEDED' };
-    if (reservation === 'ALREADY_FAILED') return { executionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_FAILED_REQUIRES_REVIEW' };
+    if (reservation.reservation === 'ALREADY_RUNNING') return { executionId: effectiveExecutionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_RUNNING' };
+    if (reservation.reservation === 'ALREADY_SUCCEEDED') return { executionId: effectiveExecutionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_SUCCEEDED' };
+    if (reservation.reservation === 'ALREADY_FAILED') return { executionId: effectiveExecutionId, status: 'BLOCKED', reason: 'EXECUTION_ALREADY_FAILED_REQUIRES_REVIEW' };
+    if (reservation.reservation === 'ALREADY_RECOVERY_REQUIRED') return { executionId: effectiveExecutionId, status: 'RECOVERY_REQUIRED', reason: 'EXECUTION_RECOVERY_REQUIRED' };
 
-    await this.attemptStore.markRunning(executionId);
+    await this.attemptStore.markRunning(effectiveExecutionId);
 
     let outcome: ActionExecutionOutcome;
     try {
