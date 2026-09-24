@@ -1,4 +1,5 @@
 import type { CanonicalEventEnvelope, CanonicalEventWriter } from './executionGateway';
+import type { ReasoningSubstrateBindingStore } from './governedReasoningSubstrateBridge';
 import type {
   ABBAControlCycle,
   ABBAJobRun,
@@ -336,7 +337,7 @@ export class SupabaseExecutionAttemptStore implements ExecutionAttemptStore {
   }
 }
 
-export class SupabaseReasoningSubstrateBindingStore implements import('./governedReasoningSubstrateBridge').ReasoningSubstrateBindingStore {
+export class SupabaseReasoningSubstrateBindingStore implements ReasoningSubstrateBindingStore {
   constructor(private readonly rpc: SupabaseRpcClient) {}
 
   async append(input: Record<string, unknown>): Promise<string> {
