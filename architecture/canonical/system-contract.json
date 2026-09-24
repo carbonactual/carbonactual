@@ -45,7 +45,8 @@
     "traceability-rules.json",
     "execution-contracts.json",
     "feedback-telemetry-rules.json",
-    "abba-core-jobs.json"
+    "abba-core-jobs.json",
+    "abba-substrate-binding-map.json"
   ],
   "canonicalSources": [
     "architecture/ECOSYSTEM_KERNEL.md",
@@ -76,7 +77,9 @@
     "Agent lifecycle, workflow composition, telemetry synthesis, and economic feedback are coordinated through ABBA while durable state remains governed by canonical contracts.",
     "Every consequential execution is attributable, policy-gated, idempotency-aware, evidentiary, and reconstructable.",
     "Runtime telemetry is observability input; it does not automatically become truth, evidence, Pulse, Value, authority, or permission.",
-    "ABBA must continue or explicitly stop governed work and retain a traceable reason for the terminal condition."
+    "ABBA must continue or explicitly stop governed work and retain a traceable reason for the terminal condition.",
+    "ABBA reuses compatible existing ecosystem substrates through explicit bindings instead of creating parallel semantic universes.",
+    "ABBA completion requires verification of objective, evidence, reconciliation, dependencies, and blockers before terminal state."
   ],
   "feedbackLoop": {
     "enabled": true,
