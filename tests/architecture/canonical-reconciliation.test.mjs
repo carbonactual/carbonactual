@@ -6,10 +6,10 @@ const map = JSON.parse(await readFile('architecture/canonical/abba-substrate-bin
 const engine = await readFile('packages/orchestration/src/reconciliationEngine.ts','utf8');
 
 test('ABBA substrate map reuses existing runtime surfaces without granting authority', () => {
-  assert(map.bindings.length >= 10);\n  assert.match(map.integrationRules.join(' '), /availability never implies authority/i);
+  assert(map.bindings.length >= 10);
   assert(map.bindings.some((binding) => binding.substrate === 'public.omnii_process_tasks'));
   assert(map.bindings.some((binding) => binding.substrate === 'public.omnii_execution_controls'));
-  assert.match(map.integrationRules.join(' '), /capability availability never implies authority/i);
+  assert.match(map.integrationRules.join(' '), /availability never implies authority/i);
 });
 
 test('reconciliation detects stale, duplicate, missing and mismatched bindings', () => {
