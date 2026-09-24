@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Evidence Source Intelligence Jobs",
+  "version": "1.0.0",
+  "status": "canonical-derived-specialist-job-pack",
+  "packId": "EVIDENCE_SOURCE_INTELLIGENCE",
+  "jobs": [
+    "DISCOVER_EVIDENCE_SOURCES",
+    "VERIFY_SOURCE_PROVENANCE",
+    "CHECK_SOURCE_FRESHNESS",
+    "ASSESS_SOURCE_INDEPENDENCE",
+    "CORRELATE_SOURCE_CONSENSUS",
+    "PRESERVE_SOURCE_CONTRADICTIONS",
+    "BUILD_EVIDENCE_CHAIN",
+    "CLASSIFY_EXTERNAL_REALITY_STATE",
+    "UPDATE_PROVENANCE_BOUND_KNOWLEDGE"
+  ],
+  "boundary": {
+    "executionAllowed": false,
+    "truthPromotionAutomatic": false
+  }
+}
