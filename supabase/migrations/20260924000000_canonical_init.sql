@@ -275,6 +275,11 @@ AS $$
 DECLARE
   v_consequential BOOLEAN := NEW.event_type IN (
     'agent_created',
+    'agent_terminated',
+    'agent_suspended',
+    'agent_activated',
+    'agent_capabilities_bound',
+    'agent_registered',
     'agent_task_started',
     'agent_task_completed',
     'value_transferred',
