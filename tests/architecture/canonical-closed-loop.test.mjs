@@ -7,9 +7,10 @@ const runtime = await readFile('packages/orchestration/src/closedLoopRuntime.ts'
 
 test('ABBA core job graph contains the full governed lifecycle', () => {
   assert.equal(graph.masterIntelligence, 'ABBA');
-  assert.equal(graph.version, '1.2.0');
-  assert.equal(graph.jobSequence.length, 47);
+  assert.equal(graph.version, '1.3.0');
+  assert.equal(graph.jobSequence.length, 54);
   assert.equal(graph.jobSequence.at(-1).name, 'CONTINUE_OR_STOP');
+  assert.equal(graph.jobSequence.find((job) => job.name === 'BUILD_COMPLETION_PROOF').dependsOn[0], 'ABBACORE-47');
   assert.equal(graph.continuation.defaultBehavior, 'CHOOSE_ALL_AND_CONTINUE');
 
   for (let index = 1; index < graph.jobSequence.length; index += 1) {
