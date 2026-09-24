@@ -55,4 +55,8 @@ test('Phase 6 migration hardens monotonic cycle state and idempotent assurance r
   assert.match(migration, /idx_abba_completion_proof_fingerprint/);
   assert.match(migration, /CREATE TABLE IF NOT EXISTS public\.abba_completion_proofs/);
   assert.match(migration, /REVOKE ALL ON FUNCTION public\.append_abba_completion_proof/);
+  assert.match(migration, /ALREADY_RECOVERY_REQUIRED/);
+  assert.match(migration, /ABBA_JOB_RUN_STATUS_REGRESSION/);
+  assert.match(migration, /ABBA_EXECUTION_STATUS_REGRESSION/);
+  assert.match(migration, /recover_expired_abba_job_runs/);
 });
