@@ -25,10 +25,11 @@ test('ABBA orchestration package cannot directly mutate persistent state', () =>
   assert.match(orchestration, /policyDecision/);
 });
 
-test('CI includes runtime packages and SQL contract tests', () => {
+test('CI includes the complete canonical suite and typecheck', () => {
   assert.match(workflow, /packages\/\*\*/);
   assert.match(workflow, /apps\/edge-api\/\*\*/);
-  assert.match(workflow, /canonical-sql\.test\.mjs/);
+  assert.match(workflow, /tests\/architecture\/canonical-\*\.test\.mjs/);
+  assert.match(workflow, /npm run test:contracts/);
   assert.match(workflow, /npm run typecheck/);
   assert.match(JSON.stringify(pkg), /typescript/);
 });

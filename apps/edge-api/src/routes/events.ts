@@ -22,11 +22,13 @@ type IncomingEvent = {
   provenance?: { source: string; [key: string]: unknown };
 };
 
-function decodeBase64(value: string): Uint8Array {
+function decodeBase64(value: string): ArrayBuffer {
   const binary = atob(value);
   const bytes = new Uint8Array(binary.length);
   for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
-  return bytes;
+  const buffer = new ArrayBuffer(bytes.byteLength);
+  new Uint8Array(buffer).set(bytes);
+  return buffer;
 }
 
 async function verifyIngressSignature(body: string, header: string, secret: string): Promise<boolean> {
