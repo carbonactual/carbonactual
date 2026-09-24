@@ -22,25 +22,33 @@ type IncomingEvent = {
   provenance?: { source: string; [key: string]: unknown };
 };
 
+function decodeBase64(value: string): Uint8Array {
+  const binary = atob(value);
+  const bytes = new Uint8Array(binary.length);
+  for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+  return bytes;
+}
+
 async function verifyIngressSignature(body: string, header: string, secret: string): Promise<boolean> {
+  if (!secret) return false;
   const presented = header.startsWith('sha256=') ? header.slice(7) : header;
-  const expected = new Uint8Array(
-    await crypto.subtle.sign(
+  try {
+    const key = await crypto.subtle.importKey(
+      'raw',
+      new TextEncoder().encode(secret),
+      { name: 'HMAC', hash: 'SHA-256' },
+      false,
+      ['verify']
+    );
+    return await crypto.subtle.verify(
       'HMAC',
-      await crypto.subtle.importKey(
-        'raw',
-        new TextEncoder().encode(secret),
-        { name: 'HMAC', hash: 'SHA-256' },
-        false,
-        ['sign']
-      ),
+      key,
+      decodeBase64(presented),
       new TextEncoder().encode(body)
-    )
-  );
-  let encoded = '';
-  for (const byte of expected) encoded += String.fromCharCode(byte);
-  const expectedBase64 = btoa(encoded);
-  return presented === expectedBase64;
+    );
+  } catch {
+    return false;
+  }
 }
 
 async function validateUserToken(url: string, apiKey: string, token: string): Promise<boolean> {
@@ -80,6 +88,10 @@ export async function handleIncomingEventRequest(
   }
 
   try {
+    if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY || !env.ABBA_EVENT_SIGNING_SECRET) {
+      return new Response(JSON.stringify({ error: 'SERVER_CONFIGURATION_INVALID' }), { status: 500, headers: { 'content-type': 'application/json' } });
+    }
+
     const authHeader = request.headers.get('Authorization');
     const signatureHeader = request.headers.get('X-Carbon-Actual-Signature');
     if (!authHeader?.startsWith('Bearer ') || !signatureHeader) {
@@ -106,7 +118,12 @@ export async function handleIncomingEventRequest(
       });
     }
 
-    const input = JSON.parse(rawBody) as IncomingEvent;
+    let input: IncomingEvent;
+    try {
+      input = JSON.parse(rawBody) as IncomingEvent;
+    } catch {
+      return new Response(JSON.stringify({ error: 'INVALID_JSON' }), { status: 400, headers: { 'content-type': 'application/json' } });
+    }
     const abba = new ABBAOrchestrator('ABBA_PRIMARY_CONTROL_PLANE');
     const proposal = abba.createMutationProposal(input);
 
