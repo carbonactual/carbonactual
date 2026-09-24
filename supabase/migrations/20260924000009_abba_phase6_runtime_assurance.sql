@@ -105,6 +105,162 @@ BEGIN
 END;
 $;
 
+CREATE OR REPLACE FUNCTION public.abba_job_status_transition_allowed(
+  p_current text,
+  p_next text
+)
+RETURNS boolean
+LANGUAGE sql
+IMMUTABLE
+AS $
+  SELECT CASE
+    WHEN p_current = p_next THEN true
+    WHEN p_current = 'READY' AND p_next IN ('RUNNING','BLOCKED','CANCELLED') THEN true
+    WHEN p_current = 'RUNNING' AND p_next IN ('SUCCEEDED','FAILED','RETRY_WAIT','BLOCKED','CANCELLED') THEN true
+    WHEN p_current = 'RETRY_WAIT' AND p_next IN ('READY','RUNNING','BLOCKED','CANCELLED') THEN true
+    WHEN p_current IN ('SUCCEEDED','FAILED','CANCELLED') THEN false
+    ELSE false
+  END
+$;
+
+CREATE OR REPLACE FUNCTION public.append_abba_job_run(p_run jsonb)
+RETURNS jsonb
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $
+DECLARE
+  v_cycle_id text := nullif(p_run->>'cycleId','');
+  v_job_id text := nullif(p_run->>'jobId','');
+  v_key text := nullif(p_run->>'idempotencyKey','');
+  v_current_status text;
+  v_incoming_status text := nullif(p_run->>'status','');
+BEGIN
+  IF v_cycle_id IS NULL OR v_job_id IS NULL OR v_key IS NULL OR v_incoming_status IS NULL THEN
+    RAISE EXCEPTION 'INVALID_ABBA_JOB_RUN';
+  END IF;
+
+  SELECT status INTO v_current_status
+  FROM public.abba_job_runs
+  WHERE cycle_id = v_cycle_id AND job_id = v_job_id;
+
+  IF v_current_status IS NOT NULL
+     AND NOT public.abba_job_status_transition_allowed(v_current_status, v_incoming_status) THEN
+    RAISE EXCEPTION 'ABBA_JOB_RUN_STATUS_REGRESSION:%:%', v_current_status, v_incoming_status;
+  END IF;
+
+  INSERT INTO public.abba_job_runs (
+    cycle_id, job_id, status, attempt, idempotency_key, leased_by,
+    lease_expires_at, next_attempt_at, output, error
+  )
+  VALUES (
+    v_cycle_id,
+    v_job_id,
+    v_incoming_status,
+    coalesce((p_run->>'attempt')::integer,1),
+    v_key,
+    p_run->>'leasedBy',
+    nullif(p_run->>'leaseExpiresAt','')::timestamptz,
+    nullif(p_run->>'nextAttemptAt','')::timestamptz,
+    p_run->'output',
+    p_run->>'error'
+  )
+  ON CONFLICT (cycle_id, job_id) DO UPDATE SET
+    status = EXCLUDED.status,
+    attempt = EXCLUDED.attempt,
+    leased_by = EXCLUDED.leased_by,
+    lease_expires_at = EXCLUDED.lease_expires_at,
+    next_attempt_at = EXCLUDED.next_attempt_at,
+    output = EXCLUDED.output,
+    error = EXCLUDED.error,
+    updated_at = now();
+
+  RETURN jsonb_build_object('cycleId',v_cycle_id,'jobId',v_job_id,'idempotencyKey',v_key,'status',v_incoming_status);
+END;
+$;
+
+CREATE OR REPLACE FUNCTION public.abba_execution_status_transition_allowed(
+  p_current text,
+  p_next text
+)
+RETURNS boolean
+LANGUAGE sql
+IMMUTABLE
+AS $
+  SELECT CASE
+    WHEN p_current = p_next THEN true
+    WHEN p_current = 'RESERVED' AND p_next = 'RUNNING' THEN true
+    WHEN p_current = 'RUNNING' AND p_next IN ('SUCCEEDED','FAILED','RECOVERY_REQUIRED') THEN true
+    WHEN p_current IN ('SUCCEEDED','FAILED','RECOVERY_REQUIRED') THEN false
+    ELSE false
+  END
+$;
+
+CREATE OR REPLACE FUNCTION public.update_abba_execution_attempt(p_execution jsonb)
+RETURNS void
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $
+DECLARE
+  v_execution_id text := nullif(p_execution->>'executionId','');
+  v_status text := nullif(p_execution->>'status','');
+  v_current_status text;
+BEGIN
+  IF v_execution_id IS NULL OR v_status IS NULL THEN
+    RAISE EXCEPTION 'INVALID_ABBA_EXECUTION_UPDATE';
+  END IF;
+
+  SELECT status INTO v_current_status
+  FROM public.abba_execution_attempts
+  WHERE execution_id = v_execution_id
+  FOR UPDATE;
+
+  IF v_current_status IS NULL THEN
+    RAISE EXCEPTION 'ABBA_EXECUTION_ATTEMPT_NOT_FOUND';
+  END IF;
+
+  IF NOT public.abba_execution_status_transition_allowed(v_current_status, v_status) THEN
+    RAISE EXCEPTION 'ABBA_EXECUTION_STATUS_REGRESSION:%:%', v_current_status, v_status;
+  END IF;
+
+  UPDATE public.abba_execution_attempts
+  SET status = v_status,
+      evidence_ref = coalesce(p_execution->>'evidenceRef', evidence_ref),
+      result = coalesce(p_execution->'result', result),
+      error = coalesce(p_execution->>'error', error),
+      started_at = CASE WHEN v_status = 'RUNNING' AND started_at IS NULL THEN now() ELSE started_at END,
+      completed_at = CASE WHEN v_status IN ('SUCCEEDED','FAILED','RECOVERY_REQUIRED') THEN now() ELSE completed_at END,
+      updated_at = now()
+  WHERE execution_id = v_execution_id;
+END;
+$;
+
+CREATE OR REPLACE FUNCTION public.recover_expired_abba_job_runs()
+RETURNS integer
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $
+DECLARE
+  v_recovered integer;
+BEGIN
+  UPDATE public.abba_job_runs
+  SET status = 'READY',
+      leased_by = NULL,
+      lease_expires_at = NULL,
+      next_attempt_at = now(),
+      error = 'LEASE_EXPIRED_RECOVERED',
+      updated_at = now()
+  WHERE status = 'RUNNING'
+    AND lease_expires_at IS NOT NULL
+    AND lease_expires_at <= now();
+
+  GET DIAGNOSTICS v_recovered = ROW_COUNT;
+  RETURN v_recovered;
+END;
+$;
+
 CREATE OR REPLACE FUNCTION public.append_abba_control_cycle(p_cycle jsonb)
 RETURNS text
 LANGUAGE plpgsql
@@ -303,12 +459,18 @@ END;
 $$;
 
 REVOKE ALL ON FUNCTION public.abba_cycle_status_transition_allowed(text,text) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.abba_job_status_transition_allowed(text,text) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.abba_execution_status_transition_allowed(text,text) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.recover_expired_abba_job_runs() FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION public.append_abba_control_cycle(jsonb) FROM PUBLIC, anon, authenticated, service_role;
 REVOKE ALL ON FUNCTION public.append_abba_reconciliation_record(jsonb) FROM PUBLIC, anon, authenticated, service_role;
 REVOKE ALL ON FUNCTION public.append_abba_completion_check(jsonb) FROM PUBLIC, anon, authenticated, service_role;
 REVOKE ALL ON FUNCTION public.append_abba_completion_proof(jsonb) FROM PUBLIC, anon, authenticated, service_role;
 
 GRANT EXECUTE ON FUNCTION public.abba_cycle_status_transition_allowed(text,text) TO service_role;
+GRANT EXECUTE ON FUNCTION public.abba_job_status_transition_allowed(text,text) TO service_role;
+GRANT EXECUTE ON FUNCTION public.abba_execution_status_transition_allowed(text,text) TO service_role;
+GRANT EXECUTE ON FUNCTION public.recover_expired_abba_job_runs() TO service_role;
 GRANT EXECUTE ON FUNCTION public.append_abba_control_cycle(jsonb) TO service_role;
 GRANT EXECUTE ON FUNCTION public.append_abba_reconciliation_record(jsonb) TO service_role;
 GRANT EXECUTE ON FUNCTION public.append_abba_completion_check(jsonb) TO service_role;
