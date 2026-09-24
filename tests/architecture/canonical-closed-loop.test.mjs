@@ -16,14 +16,16 @@ test('closed-loop runtime preserves the observation-to-proposal boundary', () =>
   assert.match(runtime, /processTelemetry\(signal\)/);
   assert.match(runtime, /capabilityDiscovery\.discover\(query\)/);
   assert.match(runtime, /curateSpecializedTeam/);
-  assert.match(runtime, /teamProposalStore/);
-  assert.match(runtime, /observationStore/);
+  assert.match(runtime, /teamProposalStore\.record/);
+  assert.match(runtime, /observationStore\.record/);
+  assert.match(runtime, /Promise\.all\(/);
   assert.doesNotMatch(runtime, /append_canonical_event/);
   assert.doesNotMatch(runtime, /supabase/);
 });
 
-test('closed-loop runtime keeps invalid signals blocked from team formation', () => {
-  assert.match(runtime, /if \(!processing\.isValid\)/);
+test('closed-loop runtime blocks invalid or persistence-failed signals before composition', () => {
+  assert.match(runtime, /!processing\.isValid/);
+  assert.match(runtime, /OBSERVATION_PERSISTENCE_FAILED/);
+  assert.match(runtime, /kind: 'BLOCKED'/);
   assert.match(runtime, /blockedSignalIds/);
-  assert.match(runtime, /continue;/);
 });
