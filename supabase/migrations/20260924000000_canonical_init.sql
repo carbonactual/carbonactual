@@ -187,7 +187,7 @@ FOR EACH ROW EXECUTE FUNCTION public.prevent_canonical_event_mutation();
 CREATE OR REPLACE FUNCTION public.enforce_balanced_ledger_entry()
 RETURNS TRIGGER
 LANGUAGE plpgsql
-AS $
+AS $$
 DECLARE
   v_entry_id UUID := CASE WHEN TG_OP = 'DELETE' THEN OLD.entry_id ELSE NEW.entry_id END;
   v_unbalanced_units TEXT;
@@ -217,7 +217,7 @@ BEGIN
 
   RETURN CASE WHEN TG_OP = 'DELETE' THEN OLD ELSE NEW END;
 END;
-$;
+$$;
 
 DROP TRIGGER IF EXISTS trg_enforce_balanced_ledger_entry ON public.ledger_lines;
 CREATE CONSTRAINT TRIGGER trg_enforce_balanced_ledger_entry

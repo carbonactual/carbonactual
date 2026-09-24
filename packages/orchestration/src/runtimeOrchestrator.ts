@@ -4,6 +4,7 @@ import { buildCompletionProof, CompletionProof } from './completionProof';
 import { ABBALiveSubstrateReconciler, LiveSubstrateBindingSpec } from './liveSubstrateReconciler';
 import { ABBAReasoningAssuranceEngine, ReasoningArtifact, ReasoningAssessment } from './reasoningAssuranceEngine';
 import { ABBAMissionIntelligencePack, MissionIntelligenceInput, MissionIntelligenceResult } from './missionIntelligencePack';
+import { ABBAUniversalKnowledgeMasteryPack, UniversalKnowledgeMasteryInput, UniversalKnowledgeMasteryResult } from './universalKnowledgeMasteryPack';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
 import type { ClosedLoopObjective, ClosedLoopCycleResult } from './closedLoopRuntime';
@@ -29,6 +30,7 @@ export interface ABBARuntimeCycleInput {
   evidenceItems?: EvidenceItem[];
   reasoningArtifacts?: ReasoningArtifact[];
   missionIntelligenceInput?: MissionIntelligenceInput;
+  knowledgeMasteryInput?: UniversalKnowledgeMasteryInput;
 }
 
 export interface ABBARuntimeCycleResult {
@@ -38,6 +40,7 @@ export interface ABBARuntimeCycleResult {
   evidenceAssessments: ReturnType<ABBAEvidenceQualityEngine['assess']>[];
   reasoningAssessments: ReasoningAssessment[];
   missionIntelligence?: MissionIntelligenceResult;
+  knowledgeMastery?: UniversalKnowledgeMasteryResult;
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -49,6 +52,7 @@ export class ABBARuntimeOrchestrator {
     private readonly evidenceEngine: ABBAEvidenceQualityEngine,
     private readonly reasoningEngine: ABBAReasoningAssuranceEngine,
     private readonly missionIntelligencePack: ABBAMissionIntelligencePack,
+    private readonly knowledgeMasteryPack: ABBAUniversalKnowledgeMasteryPack,
     private readonly reconciliationWriter: ReconciliationWriter,
     private readonly completionWriter: CompletionProofWriter
   ) {}
@@ -86,6 +90,9 @@ export class ABBARuntimeOrchestrator {
     const missionIntelligence = input.missionIntelligenceInput
       ? this.missionIntelligencePack.analyze(input.missionIntelligenceInput)
       : undefined;
+    const knowledgeMastery = input.knowledgeMasteryInput
+      ? this.knowledgeMasteryPack.assess(input.knowledgeMasteryInput)
+      : undefined;
     const evidenceComplete =
       input.evidenceItems !== undefined &&
       input.evidenceItems.length > 0 &&
@@ -103,7 +110,8 @@ export class ABBARuntimeOrchestrator {
       ...(missionIntelligence?.intent.clarificationRequired ? ['INTENT_CLARIFICATION_REQUIRED'] : []),
       ...(missionIntelligence?.decomposition.unresolvedDependencies ?? []).map((dep) => `MISSION_DEPENDENCY_UNRESOLVED:${dep}`),
       ...(missionIntelligence?.uncertainties.filter((item) => item.blocksExecution).map((item) => `UNCERTAINTY_BLOCKER:${item.uncertaintyId}`) ?? []),
-      ...(missionIntelligence?.stewardship.filter((item) => item.mitigationRequired).map((item) => `STEWARDSHIP_MITIGATION_REQUIRED:${item.impactId}`) ?? [])
+      ...(missionIntelligence?.stewardship.filter((item) => item.mitigationRequired).map((item) => `STEWARDSHIP_MITIGATION_REQUIRED:${item.impactId}`) ?? []),
+      ...(knowledgeMastery?.mastery.filter((item) => !item.promotable && item.reasons.length > 0).map((item) => `MASTERY_ASSURANCE:${item.capabilityRef}:${item.reasons.join('|')}`) ?? [])
     ];
 
     const completionProof = await buildCompletionProof({
@@ -132,7 +140,8 @@ export class ABBARuntimeOrchestrator {
         proofId: completionProof.proofId,
         evidenceAssessments,
         reasoningAssessments,
-        missionIntelligence
+        missionIntelligence,
+        knowledgeMastery
       }
     });
 
@@ -143,6 +152,7 @@ export class ABBARuntimeOrchestrator {
       evidenceAssessments,
       reasoningAssessments,
       missionIntelligence,
+      knowledgeMastery,
       reconciliationRecordIds,
       completionProofRecordId
     };

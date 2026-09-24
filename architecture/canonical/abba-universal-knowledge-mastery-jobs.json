@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Universal Knowledge Mastery Job Packs",
+  "version": "1.0.0",
+  "status": "canonical-derived-extension-contract",
+  "packId": "UNIVERSAL_KNOWLEDGE_MASTERY",
+  "insertionPoints": [
+    "CAPABILITY_GAP_DETECTION",
+    "LEARN_AND_UPDATE_MODEL",
+    "UPDATE_CAPABILITY_KNOWLEDGE"
+  ],
+  "jobs": [
+    "DISCOVER_KNOWLEDGE_GAP",
+    "MAP_KNOWLEDGE_DOMAIN",
+    "DISCOVER_SOURCES",
+    "VERIFY_SOURCE_PROVENANCE",
+    "ACQUIRE_KNOWLEDGE_ATOM",
+    "LINK_KNOWLEDGE_OBJECTS",
+    "DETECT_KNOWLEDGE_CONTRADICTION",
+    "PRACTICE_CAPABILITY",
+    "ASSESS_COMPETENCY",
+    "CAPTURE_CERTIFICATION_EVIDENCE",
+    "REQUEST_EXTERNAL_CERTIFICATION",
+    "VERIFY_EXTERNAL_CERTIFICATION",
+    "UPDATE_MASTERY_STATE",
+    "CHECK_MASTERY_DECAY",
+    "SCHEDULE_REASSESSMENT",
+    "REPAIR_KNOWLEDGE_GRAPH",
+    "EXPLAIN_MASTERY_STATE"
+  ],
+  "languageCoverage": [
+    "words",
+    "senses",
+    "definitions",
+    "grammar",
+    "scripts",
+    "spoken",
+    "written",
+    "signed",
+    "braille",
+    "codes",
+    "slang",
+    "idiom",
+    "literature",
+    "cultural_context",
+    "translation",
+    "transcription"
+  ],
+  "knowledgeCoverage": [
+    "education",
+    "science",
+    "engineering",
+    "medicine",
+    "law",
+    "business",
+    "finance",
+    "government",
+    "software",
+    "media",
+    "culture",
+    "practical_knowledge",
+    "stewardship"
+  ],
+  "boundary": {
+    "certificationAuthorityDistinct": true,
+    "operationalAuthorityFromMastery": false,
+    "selfCertification": false
+  }
+}
