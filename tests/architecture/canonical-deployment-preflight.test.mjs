@@ -7,7 +7,7 @@ const migration = await readFile('supabase/migrations/20260924000009_abba_phase6
 const preflight = await readFile('packages/orchestration/src/deploymentPreflight.ts','utf8');
 
 test('core job graph extends the governed lifecycle to phase6 assurance', () => {
-  assert.equal(jobs.version, '1.3.0');
+  assert.equal(jobs.version, '1.4.0');
   assert.equal(jobs.jobSequence.length, 61);
   assert.equal(jobs.jobSequence.at(-1).name, 'CONTINUE_OR_STOP');
   assert.equal(jobs.jobSequence.at(-1).dependsOn[0], 'ABBACORE-53');
