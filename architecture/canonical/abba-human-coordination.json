@@ -5,11 +5,14 @@
   "status": "canonical-derived-governance-extension",
   "functions": [
     "CLARIFICATION",
-    "CONSENT_REQUEST",
-    "AUTHORIZATION_REQUEST",
+    "AUTHORIZATION",
+    "CONSENT",
     "REVIEW",
     "ESCALATION",
     "NOTIFICATION",
+    "CLARIFICATION_REQUEST",
+    "AUTHORIZATION_REQUEST",
+    "CONSENT_REQUEST",
     "DECISION_CAPTURE",
     "RESUMABLE_CONTINUATION"
   ],
