@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Workspace Artifact Intelligence Jobs",
+  "version":"1.0.0",
+  "status":"canonical-derived-specialist-job-pack",
+  "packId":"WORKSPACE_ARTIFACT_INTELLIGENCE",
+  "jobs":["DISCOVER_WORKSPACE_ARTIFACTS","CLASSIFY_ARTIFACT_KIND","RESOLVE_ARTIFACT_LINEAGE","DETECT_DUPLICATES","DETECT_ORPHANS","DETECT_DRIFT","VERIFY_PROVENANCE","PLAN_MIGRATION","PLAN_ARCHIVE","BUILD_RECOVERY_POINT","PLAN_RECOVERY","VERIFY_POST_REPAIR_STATE","RECONCILE_WORKSPACE"],
+  "boundary":{"destructiveAutonomy":false,"executionAllowed":false}
+}
