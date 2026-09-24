@@ -70,7 +70,7 @@ RETURNS jsonb
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
-AS $
+AS $$
 DECLARE
   v_execution_id text := nullif(p_execution->>'executionId','');
   v_action_id text := nullif(p_execution->>'actionId','');
@@ -112,7 +112,7 @@ CREATE OR REPLACE FUNCTION public.abba_job_status_transition_allowed(
 RETURNS boolean
 LANGUAGE sql
 IMMUTABLE
-AS $
+AS $$
   SELECT CASE
     WHEN p_current = p_next THEN true
     WHEN p_current = 'READY' AND p_next IN ('RUNNING','BLOCKED','CANCELLED') THEN true
@@ -128,7 +128,7 @@ RETURNS jsonb
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
-AS $
+AS $$
 DECLARE
   v_cycle_id text := nullif(p_run->>'cycleId','');
   v_job_id text := nullif(p_run->>'jobId','');
@@ -186,7 +186,7 @@ CREATE OR REPLACE FUNCTION public.abba_execution_status_transition_allowed(
 RETURNS boolean
 LANGUAGE sql
 IMMUTABLE
-AS $
+AS $$
   SELECT CASE
     WHEN p_current = p_next THEN true
     WHEN p_current = 'RESERVED' AND p_next = 'RUNNING' THEN true
@@ -201,7 +201,7 @@ RETURNS void
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
-AS $
+AS $$
 DECLARE
   v_execution_id text := nullif(p_execution->>'executionId','');
   v_status text := nullif(p_execution->>'status','');
@@ -241,7 +241,7 @@ RETURNS integer
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
-AS $
+AS $$
 DECLARE
   v_recovered integer;
 BEGIN
