@@ -63,9 +63,9 @@ export class ABBARuntimeOrchestrator {
     private readonly knowledgeMasteryPack: ABBAUniversalKnowledgeMasteryPack,
     private readonly evidenceSourceIntelligencePack: ABBAEvidenceSourceIntelligencePack,
     private readonly humanCoordinationPack: ABBAHumanCoordinationPack,
-    private readonly humanCoordinationStore: HumanCoordinationStore | undefined,
     private readonly reconciliationWriter: ReconciliationWriter,
-    private readonly completionWriter: CompletionProofWriter
+    private readonly completionWriter: CompletionProofWriter,
+    private readonly humanCoordinationStore: HumanCoordinationStore | undefined = undefined
   ) {}
 
   public async run(input: ABBARuntimeCycleInput): Promise<ABBARuntimeCycleResult> {
