@@ -47,3 +47,7 @@ export * from './circuitBreakerEngine';
 export * from './autonomousSafetyGuard';
 export * from './identityRelationshipEngine';
 export * from './minimumContextRouter';
+export * from './communicationIntelligenceEngine';
+export * from './communicationRoutingEngine';
+export * from './deliveryOutcomeEngine';
+export * from './communicationIntelligencePack';

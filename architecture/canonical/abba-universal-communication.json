@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Universal Communication Fabric",
+  "version": "1.0.0",
+  "status": "canonical-derived-communication-extension",
+  "principles": [
+    "Communication intent is explicit.",
+    "Recipient identity must be resolved before sensitive delivery.",
+    "Relationship context is separate from identity and authority.",
+    "Channel selection is a route proposal, not permission.",
+    "Language and modality are capabilities, not authority.",
+    "Delivery is not acknowledgement.",
+    "Provider acknowledgement is not recipient acknowledgement.",
+    "Failed delivery is not successful completion.",
+    "Communication outcomes are evidence-bearing and not automatically truth.",
+    "Sensitive communication remains behind privacy and authority boundaries."
+  ],
+  "lifecycle": [
+    "DEFINE_INTENT",
+    "RESOLVE_RECIPIENT",
+    "RESOLVE_RELATIONSHIP",
+    "CLASSIFY_CONTENT",
+    "CHECK_PRIVACY",
+    "SELECT_LANGUAGE_MODALITY",
+    "PROPOSE_CHANNEL",
+    "APPLY_AUTHORITY_CONSENT",
+    "SEND",
+    "VERIFY_PROVIDER_RECEIPT",
+    "VERIFY_RECIPIENT_ACKNOWLEDGEMENT",
+    "RECONCILE_OUTCOME"
+  ],
+  "executionBoundary": "PRIVACY_CONTEXT → SAFETY → AUTHORITY_POLICY_CONSENT → COMMUNICATION_EXECUTION"
+}
