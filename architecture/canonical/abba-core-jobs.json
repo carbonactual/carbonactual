@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBACoreMasterIntelligenceJobGraph",
+  "version": "1.0.0",
+  "status": "canonical-derived-orchestration-contract",
+  "masterIntelligence": "ABBA",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "operatingSpine": "carbonactual/carbonactual",
+  "purpose": "Define the sequential governed jobs ABBA performs across the ecosystem without turning orchestration capability into authority.",
+  "invariants": [
+    "ABBA is the master intelligence and orchestrator, not the constitutional source of authority.",
+    "Capability, permission, consent, and authority remain distinct.",
+    "Observation is not automatically truth, evidence, Pulse, Value, ownership, or authority.",
+    "Consequential execution requires an independent authority and policy gate.",
+    "Every consequential action remains attributable, idempotent, evidentiary, and reconstructable.",
+    "Continuation is permitted only while safety, policy, authority, evidence, resource, and explicit human-stop conditions remain satisfied.",
+    "ABBA must finish or explicitly stop governed work; it must not silently abandon an active objective."
+  ],
+  "jobSequence": [
+    {"jobId":"ABBACORE-01","name":"RECEIVE_SIGNAL","phase":"OBSERVE","dependsOn":[],"output":"raw_observation"},
+    {"jobId":"ABBACORE-02","name":"AUTHENTICATE_SOURCE","phase":"OBSERVE","dependsOn":["ABBACORE-01"],"output":"authenticated_observation"},
+    {"jobId":"ABBACORE-03","name":"VALIDATE_SIGNAL","phase":"OBSERVE","dependsOn":["ABBACORE-02"],"output":"validated_or_rejected_signal"},
+    {"jobId":"ABBACORE-04","name":"CLASSIFY_OBSERVATION","phase":"INTERPRET","dependsOn":["ABBACORE-03"],"output":"observation_class"},
+    {"jobId":"ABBACORE-05","name":"CORRELATE_CONTEXT","phase":"INTERPRET","dependsOn":["ABBACORE-04"],"output":"context_bundle"},
+    {"jobId":"ABBACORE-06","name":"PRESERVE_CONTRADICTIONS","phase":"INTERPRET","dependsOn":["ABBACORE-05"],"output":"conflict_set_or_consistent_context"},
+    {"jobId":"ABBACORE-07","name":"DETECT_ANOMALY","phase":"INTERPRET","dependsOn":["ABBACORE-06"],"output":"anomaly_assessment"},
+    {"jobId":"ABBACORE-08","name":"SYNTHESIZE_SYSTEM_STATE","phase":"REASON","dependsOn":["ABBACORE-07"],"output":"system_synthesis"},
+    {"jobId":"ABBACORE-09","name":"IDENTIFY_OBJECTIVE","phase":"REASON","dependsOn":["ABBACORE-08"],"output":"objective"},
+    {"jobId":"ABBACORE-10","name":"DISCOVER_CAPABILITIES","phase":"COMPOSE","dependsOn":["ABBACORE-09"],"output":"candidate_capabilities"},
+    {"jobId":"ABBACORE-11","name":"ASSESS_READINESS","phase":"COMPOSE","dependsOn":["ABBACORE-10"],"output":"eligible_candidates"},
+    {"jobId":"ABBACORE-12","name":"FORM_SWARM","phase":"COMPOSE","dependsOn":["ABBACORE-11"],"output":"comparative_capability_field"},
+    {"jobId":"ABBACORE-13","name":"FORM_TEAM","phase":"COMPOSE","dependsOn":["ABBACORE-12"],"output":"team_proposal"},
+    {"jobId":"ABBACORE-14","name":"ROUTE_MINIMUM_CONTEXT","phase":"COMPOSE","dependsOn":["ABBACORE-13"],"output":"context_scoped_team"},
+    {"jobId":"ABBACORE-15","name":"BUILD_WORKFLOW_MISSION","phase":"PLAN","dependsOn":["ABBACORE-14"],"output":"workflow_proposal"},
+    {"jobId":"ABBACORE-16","name":"PREFLIGHT_POLICY_AUTHORITY","phase":"GATE","dependsOn":["ABBACORE-15"],"output":"gate_decision"},
+    {"jobId":"ABBACORE-17","name":"REQUEST_AUTHORIZATION","phase":"GATE","dependsOn":["ABBACORE-16"],"output":"authorization_request_or_allowance"},
+    {"jobId":"ABBACORE-18","name":"EXECUTE_GOVERNED_ACTION","phase":"EXECUTE","dependsOn":["ABBACORE-17"],"output":"execution_result"},
+    {"jobId":"ABBACORE-19","name":"CAPTURE_EVIDENCE","phase":"VERIFY","dependsOn":["ABBACORE-18"],"output":"evidence_bundle"},
+    {"jobId":"ABBACORE-20","name":"RECONCILE_EVENT_STATE","phase":"RECONCILE","dependsOn":["ABBACORE-19"],"output":"reconciled_state"},
+    {"jobId":"ABBACORE-21","name":"RECONCILE_VALUE_PULSE","phase":"RECONCILE","dependsOn":["ABBACORE-20"],"output":"value_and_pulse_feedback"},
+    {"jobId":"ABBACORE-22","name":"LEARN_AND_UPDATE_MODEL","phase":"LEARN","dependsOn":["ABBACORE-21"],"output":"updated_reasoning_context"},
+    {"jobId":"ABBACORE-23","name":"MAINTAIN_RECOVER_REPAIR","phase":"STEWARD","dependsOn":["ABBACORE-22"],"output":"health_and_recovery_actions"},
+    {"jobId":"ABBACORE-24","name":"CONTINUE_OR_STOP","phase":"CONTINUE","dependsOn":["ABBACORE-23"],"output":"next_jobs_or_terminal_state"}
+  ],
+  "continuation": {
+    "defaultBehavior": "CHOOSE_ALL_AND_CONTINUE",
+    "rules": [
+      "Select all eligible requested work when no higher-priority constraint blocks it.",
+      "Add follow-on jobs revealed by dependencies, anomalies, outcomes, resource conditions, value feedback, or unmet objectives.",
+      "Order follow-on jobs by dependency before execution.",
+      "Re-evaluate context, policy, authority, risk, evidence, resources, and idempotency before each consequential execution."
+    ],
+    "terminalConditions": [
+      "OBJECTIVE_COMPLETE",
+      "AWAITING_HUMAN_AUTHORIZATION",
+      "MISSING_REQUIRED_EVIDENCE",
+      "POLICY_DENIED",
+      "RESOURCE_EXHAUSTED",
+      "SAFETY_OR_RISK_BOUNDARY",
+      "REPEATED_NO_PROGRESS",
+      "EXPLICIT_HUMAN_STOP"
+    ]
+  },
+  "stewardshipJobs": [
+    "diagnose",
+    "repair",
+    "maintain",
+    "monitor",
+    "recover",
+    "reconcile",
+    "audit",
+    "explain",
+    "summarize",
+    "communicate",
+    "archive_without_losing_provenance",
+    "detect_drift",
+    "detect_duplication",
+    "detect_waste",
+    "detect_dead_paths",
+    "verify_completion"
+  ]
+}
