@@ -39,7 +39,7 @@ function rpcId(value: unknown): string {
   }
   if (value && typeof value === 'object') {
     const object = value as Record<string, unknown>;
-    const candidate = object.id ?? object.uuid ?? object.proposal_id ?? object.observation_id ?? object.reconciliation_id ?? object.completion_id;
+    const candidate = object.id ?? object.uuid ?? object.proposal_id ?? object.observation_id ?? object.reconciliation_id ?? object.completion_id ?? object.proof_id;
     if (typeof candidate === 'string') return candidate;
   }
   throw new Error('SUPABASE_RPC_IDENTIFIER_NOT_RETURNED');
@@ -283,7 +283,7 @@ export interface SupabaseCompletionStore {
 export class SupabaseCompletionWriter implements SupabaseCompletionStore {
   constructor(private readonly rpc: SupabaseRpcClient) {}
   async append(input: Record<string, unknown>): Promise<string> {
-    return rpcId(await this.rpc.call('append_abba_completion_check', { check: input }));
+    return rpcId(await this.rpc.call('append_abba_completion_proof', { proof: input }));
   }
 }
 
