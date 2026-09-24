@@ -39,8 +39,10 @@ test('curation accounts for capability coverage and operational fit', () => {
 test('closed-loop runtime is concurrent and requires durable stores before composition', () => {
   assert.match(runtime, /Promise\.all\(/);
   assert.match(runtime, /private readonly observationStore: ObservationStore/);
+  assert.match(runtime, /private readonly responseProposalStore: ResponseProposalStore/);
   assert.match(runtime, /private readonly teamProposalStore: TeamProposalStore/);
-  assert.match(runtime, /OBSERVATION_PERSISTENCE_FAILED/);
+  assert.match(runtime, /item\.processing\.isValid && item\.observationPersisted/);
+  assert.match(runtime, /responsePersistenceFailed/);
   assert.match(runtime, /teamProposalStore\.record/);
   assert.doesNotMatch(runtime, /append_canonical_event/);
   assert.doesNotMatch(runtime, /supabase/i);
