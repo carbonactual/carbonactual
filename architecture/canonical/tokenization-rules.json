@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TokenizationRules",
+  "version": "1.0.0",
+  "status": "canonical-derived-economic-contract",
+  "canonicalSource": "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+  "operations": {
+    "decimalization": "Changes representational precision or quantity granularity.",
+    "fractionalization": "Expresses divisible units, participations or rights.",
+    "tokenization": "Creates a digital representation referencing a qualified governed object, right or value.",
+    "minting": "Creates an ecosystem-recognized representation or issuance after applicable gates.",
+    "decentralization": "Distributes control, validation, execution or governance across independently authorized participants or infrastructure.",
+    "democratization": "Broadens access or participation under explicit eligibility and authority rules."
+  },
+  "tokenRecord": {
+    "required": [
+      "tokenId",
+      "underlyingReference",
+      "representationType",
+      "precision",
+      "totalUnits",
+      "issuerOrAuthorityReference",
+      "provenance",
+      "status"
+    ],
+    "recommended": [
+      "custodyReference",
+      "ownershipReference",
+      "rightsReference",
+      "jurisdiction",
+      "transferRules",
+      "redemptionRules",
+      "expiry",
+      "revocationRules"
+    ]
+  },
+  "constraints": {
+    "maxDecimalPlaces": 18,
+    "maxFractionalUnit": "1e-18",
+    "blockchain": "optional implementation or settlement adapter",
+    "underlyingObjectPrimary": true
+  },
+  "lifecycle": [
+    "IDENTIFIED",
+    "QUALIFIED",
+    "AUTHORIZED",
+    "REPRESENTED",
+    "ISSUED",
+    "HELD",
+    "TRANSFERRED",
+    "SETTLED",
+    "RECONCILED",
+    "REVOKED",
+    "EXPIRED"
+  ],
+  "rules": [
+    "A token cannot manufacture ownership or authority.",
+    "A token representation cannot become canonical truth merely because it exists on a ledger or blockchain.",
+    "Supply and fractional unit calculations must be deterministic and auditable.",
+    "Transfers must pass identity, authority, eligibility, policy and settlement gates.",
+    "Revocation/recovery must preserve provenance and underlying rights records."
+  ]
+}
