@@ -86,6 +86,9 @@ CREATE TABLE IF NOT EXISTS public.canonical_events (
   event_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   event_type TEXT NOT NULL CHECK (event_type IN (
     'agent_created',
+    'agent_registered',
+    'agent_capabilities_bound',
+    'agent_activated',
     'agent_task_started',
     'agent_task_completed',
     'resource_consumed',
@@ -102,6 +105,8 @@ CREATE TABLE IF NOT EXISTS public.canonical_events (
     'ledger_posted',
     'settlement_confirmed',
     'settlement_failed',
+    'agent_suspended',
+    'agent_terminated',
     'reconciliation_completed'
   )),
   actor_entity_id UUID NOT NULL REFERENCES public.entities(entity_id),
