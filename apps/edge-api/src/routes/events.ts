@@ -110,8 +110,10 @@ export async function handleIncomingEventRequest(
     }
 
     const userToken = authHeader.slice(7);
-    const authKey = env.SUPABASE_ANON_KEY ?? env.SUPABASE_SERVICE_ROLE_KEY;
-    if (!(await validateUserToken(env.SUPABASE_URL, authKey, userToken))) {
+    if (!env.SUPABASE_ANON_KEY) {
+      return new Response(JSON.stringify({ error: 'SERVER_CONFIGURATION_INVALID' }), { status: 500, headers: { 'content-type': 'application/json' } });
+    }
+    if (!(await validateUserToken(env.SUPABASE_URL, env.SUPABASE_ANON_KEY, userToken))) {
       return new Response(JSON.stringify({ error: 'INVALID_USER_TOKEN' }), {
         status: 401,
         headers: { 'content-type': 'application/json' }
