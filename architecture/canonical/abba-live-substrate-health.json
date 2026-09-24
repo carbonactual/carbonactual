@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Live Substrate Health Contract",
+  "version": "1.0.0",
+  "status": "canonical-derived-runtime-readiness-contract",
+  "checks": [
+    "SUBSTRATE_EXISTS",
+    "RLS_ENABLED",
+    "DIRECT_CLIENT_WRITE_DENIED",
+    "PRIVILEGED_INGRESS_AVAILABLE",
+    "INGRESS_MAPPED",
+    "NO_DUPLICATE_SEMANTIC_SURFACE"
+  ],
+  "decisionOrder": [
+    "TECHNICAL_SUBSTRATE_READINESS",
+    "AUTHORITY_POLICY_CONSENT",
+    "EXECUTION"
+  ],
+  "rules": [
+    "Technical readiness never creates authority.",
+    "A healthy substrate is not automatically an authorization to act.",
+    "A degraded or blocked substrate is surfaced before consequential execution.",
+    "Existing live implementations are preferred through adapters.",
+    "Duplicate semantic surfaces are blocking defects.",
+    "RLS posture is assessed separately from authority policy."
+  ],
+  "observedProductionBindings": [
+    {
+      "canonicalConcept": "EVENT",
+      "substrateRef": "public.omnii_events",
+      "ingressRef": "public.omnii_append_event(...)"
+    },
+    {
+      "canonicalConcept": "STATE",
+      "substrateRef": "public.omnii_state",
+      "ingressRef": "public.omnii_atomic_state_event(...)"
+    },
+    {
+      "canonicalConcept": "EXECUTION_CONTROL",
+      "substrateRef": "public.omnii_execution_controls",
+      "ingressRef": "public.omnii_abba_record_execution_gate(...)"
+    },
+    {
+      "canonicalConcept": "EXECUTION_AUDIT",
+      "substrateRef": "public.omnii_executions + public.omnii_audit",
+      "ingressRef": "public.omnii_atomic_execution_audit(...)"
+    },
+    {
+      "canonicalConcept": "REASONING_BINDING",
+      "substrateRef": "public.abba_reasoning_substrate_bindings",
+      "ingressRef": "public.append_abba_reasoning_substrate_binding(jsonb)"
+    }
+  ]
+}
