@@ -68,6 +68,7 @@ export class ABBARuntimeOrchestrator {
         reason: reconciliation.reason,
         evidenceRefs: reconciliation.evidenceRefs,
         repairRequired: reconciliation.repairRequired,
+        idempotencyKey: `abba:reconciliation:${input.cycle.cycleId}:${reconciliation.canonicalRef}:${reconciliation.substrateKind}:${reconciliation.substrateRef}:${reconciliation.status}`,
         provenance: { source: 'ABBARuntimeOrchestrator' }
       }));
     }
