@@ -9,6 +9,7 @@ export interface MasteryRecord {
   evidenceRefs: string[];
   credentialRefs: string[];
   issuerRefs: string[];
+  certificationProvider?: string;
   lastAssessedAt?: string;
   nextReassessmentAt?: string;
   provenance: Record<string, unknown>;
@@ -35,6 +36,7 @@ export class ABBAMasteryEngine {
     if(decayDetected) reasons.push('MASTERY_REASSESSMENT_DUE');
     const externalVerificationRequired = order.indexOf(record.level) >= order.indexOf('MASTER');
     if(externalVerificationRequired && record.credentialRefs.length===0) reasons.push('EXTERNAL_CREDENTIAL_REQUIRED');
+    if(externalVerificationRequired && record.certificationProvider !== 'InstituteGPT') reasons.push('CONFIGURED_CERTIFICATION_PROVIDER_REQUIRED');
     if(record.state==='SUPERSEDED') reasons.push('MASTERY_SUPERSEDED');
     if(record.state==='STALE') reasons.push('MASTERY_STALE');
     return {
