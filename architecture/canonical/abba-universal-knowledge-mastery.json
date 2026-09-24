@@ -94,5 +94,18 @@
     "Superseded or stale knowledge remains reconstructable and is not silently deleted.",
     "Contradictory sources remain represented as conflicts until resolved or explicitly marked unresolved."
   ],
-  "authorityBoundary": "Knowledge acquisition and mastery update never grant authority or permission to act."
+  "authorityBoundary": "Knowledge acquisition and mastery update never grant authority or permission to act.",
+  "certificationAuthority": {
+    "provider": "InstituteGPT",
+    "mode": "EXTERNAL_VERIFICATION",
+    "selfCertificationAllowed": false
+  },
+  "credentialTypes": [
+    "CERTIFICATE",
+    "DIPLOMA",
+    "DEGREE",
+    "SPECIALIST_CREDENTIAL",
+    "MASTER_CREDENTIAL",
+    "EMERITUS_RECOGNITION"
+  ]
 }
