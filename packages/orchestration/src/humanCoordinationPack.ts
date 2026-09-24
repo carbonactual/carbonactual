@@ -8,12 +8,19 @@ export interface HumanCoordinationInput {
   authorizations: HumanAuthorizationRecord[];
 }
 
+export interface HumanCoordinationStore {
+  recordRequest(input: Record<string, unknown>): Promise<string>;
+  recordDecision(input: Record<string, unknown>): Promise<string>;
+}
+
 export interface HumanCoordinationResult {
   requests: HumanCoordinationAssessment[];
   consents: ConsentDecision[];
   authorizations: AuthorizationAssessment[];
   blockingRequestIds: string[];
   executionAllowed: false;
+  requestIds?: string[];
+  decisionIds?: string[];
 }
 
 export class ABBAHumanCoordinationPack {
