@@ -28,6 +28,6 @@ test('external observations preserve reality state and cannot become truth autom
 });
 
 test('evidence source specialist pack covers the full lifecycle without authorization',()=>{
-  assert.equal(jobs.jobs.length,9);
+  assert.equal(jobs.jobs.length,17);
   assert.match(pack,/executionAllowed:false/);
 });
