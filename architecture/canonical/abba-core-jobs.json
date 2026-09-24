@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
@@ -297,55 +297,145 @@
     },
     {
       "jobId": "ABBACORE-32",
-      "name": "UPDATE_CAPABILITY_KNOWLEDGE",
+      "name": "DETECT_CAPABILITY_GAP",
       "phase": "LEARN",
       "dependsOn": [
         "ABBACORE-31"
       ],
-      "output": "updated_capability_context"
+      "output": "capability_gap"
     },
     {
       "jobId": "ABBACORE-33",
+      "name": "DISCOVER_CURRICULUM",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-32"
+      ],
+      "output": "curriculum_set"
+    },
+    {
+      "jobId": "ABBACORE-34",
+      "name": "ACQUIRE_KNOWLEDGE",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-33"
+      ],
+      "output": "knowledge_update"
+    },
+    {
+      "jobId": "ABBACORE-35",
+      "name": "PRACTICE_CAPABILITY",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-34"
+      ],
+      "output": "practice_evidence"
+    },
+    {
+      "jobId": "ABBACORE-36",
+      "name": "ASSESS_COMPETENCY",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-35"
+      ],
+      "output": "assessment_result"
+    },
+    {
+      "jobId": "ABBACORE-37",
+      "name": "CAPTURE_CERTIFICATION_EVIDENCE",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-36"
+      ],
+      "output": "certification_evidence"
+    },
+    {
+      "jobId": "ABBACORE-38",
+      "name": "REQUEST_EXTERNAL_CERTIFICATION",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-37"
+      ],
+      "output": "certification_request"
+    },
+    {
+      "jobId": "ABBACORE-39",
+      "name": "VERIFY_EXTERNAL_CERTIFICATION",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-38"
+      ],
+      "output": "verified_credential"
+    },
+    {
+      "jobId": "ABBACORE-40",
+      "name": "UPDATE_COMPETENCY_STATE",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-39"
+      ],
+      "output": "competency_state"
+    },
+    {
+      "jobId": "ABBACORE-41",
+      "name": "UPDATE_CAPABILITY_KNOWLEDGE",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-40"
+      ],
+      "output": "updated_capability_context"
+    },
+    {
+      "jobId": "ABBACORE-42",
+      "name": "REASSESS_CERTIFIED_CAPABILITIES",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-41"
+      ],
+      "output": "reassessment_plan"
+    },
+    {
+      "jobId": "ABBACORE-43",
       "name": "MAINTAIN_RECOVER_REPAIR",
       "phase": "STEWARD",
       "dependsOn": [
-        "ABBACORE-32"
+        "ABBACORE-42"
       ],
       "output": "health_and_recovery_actions"
     },
     {
-      "jobId": "ABBACORE-34",
+      "jobId": "ABBACORE-44",
       "name": "COMMUNICATE_RESULTS",
       "phase": "COMMUNICATE",
       "dependsOn": [
-        "ABBACORE-33"
+        "ABBACORE-43"
       ],
       "output": "traceable_result_summary"
     },
     {
-      "jobId": "ABBACORE-35",
+      "jobId": "ABBACORE-45",
       "name": "VERIFY_COMPLETION",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-34"
+        "ABBACORE-44"
       ],
       "output": "completion_assessment"
     },
     {
-      "jobId": "ABBACORE-36",
+      "jobId": "ABBACORE-46",
       "name": "GENERATE_FOLLOW_ON_JOBS",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-35"
+        "ABBACORE-45"
       ],
       "output": "follow_on_job_set"
     },
     {
-      "jobId": "ABBACORE-37",
+      "jobId": "ABBACORE-47",
       "name": "CONTINUE_OR_STOP",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-36"
+        "ABBACORE-46"
       ],
       "output": "next_jobs_or_terminal_state"
     }
@@ -385,6 +475,9 @@
     "detect_duplication",
     "detect_waste",
     "detect_dead_paths",
-    "verify_completion"
+    "verify_completion",
+    "verify_credential_provenance",
+    "detect_skill_decay",
+    "schedule_reassessment"
   ]
 }
