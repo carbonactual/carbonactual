@@ -962,7 +962,7 @@
     },
     {
       "jobId": "ABBACORE-104",
-      "name": "CONTINUE_GOVERNED_CONTINUATION",
+      "name": "CONTINUE_OR_STOP",
       "phase": "CONTINUE",
       "dependsOn": [
         "ABBACORE-103"
