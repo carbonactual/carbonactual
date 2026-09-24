@@ -567,11 +567,20 @@
       "output": "traceable_result_summary"
     },
     {
+      "jobId": "ABBACORE-61",
+      "name": "PREPARE_SUBSTRATE_BINDING",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-60"
+      ],
+      "output": "substrate_binding_preparation"
+    },
+    {
       "jobId": "ABBACORE-62",
       "name": "VALIDATE_SUBSTRATE_BINDING",
       "phase": "BIND",
       "dependsOn": [
-        "ABBACORE-60"
+        "ABBACORE-61"
       ],
       "output": "substrate_binding_validation"
     },
