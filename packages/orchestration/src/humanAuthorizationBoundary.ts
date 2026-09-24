@@ -2,6 +2,7 @@ export interface HumanAuthorizationRecord {
   authorizationId: string;
   humanRef: string;
   decisionRef: string;
+  requestId?: string;
   decision: 'APPROVED' | 'REJECTED' | 'EXPIRED' | 'REVOKED';
   scope: string[];
   authorityRef?: string;
