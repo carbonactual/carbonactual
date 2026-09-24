@@ -11,6 +11,7 @@ import type { ContextField, ContextRequest, RoutedContext } from './minimumConte
 import { ABBAMinimumContextRouter } from './minimumContextRouter';
 import { ABBACommunicationIntelligencePack, CommunicationIntelligenceInput, CommunicationIntelligenceResult } from './communicationIntelligencePack';
 import { ABBAWorkspaceArtifactIntelligencePack, WorkspaceArtifactIntelligenceInput, WorkspaceArtifactIntelligenceResult } from './workspaceArtifactIntelligencePack';
+import { ABBAInstitutionalRoleIntelligencePack, InstitutionalRoleIntelligenceInput, InstitutionalRoleIntelligenceResult } from './institutionalRoleIntelligencePack';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
 import type { ClosedLoopObjective, ClosedLoopCycleResult } from './closedLoopRuntime';
@@ -42,6 +43,7 @@ export interface ABBARuntimeCycleInput {
   privacyContext?: { fields: ContextField[]; request: ContextRequest };
   communicationInput?: CommunicationIntelligenceInput;
   workspaceArtifactInput?: WorkspaceArtifactIntelligenceInput;
+  roleAccountabilityInput?: InstitutionalRoleIntelligenceInput;
 }
 
 export interface ABBARuntimeCycleResult {
@@ -59,6 +61,7 @@ export interface ABBARuntimeCycleResult {
   routedContext?: RoutedContext;
   communicationIntelligence?: CommunicationIntelligenceResult;
   workspaceArtifactIntelligence?: WorkspaceArtifactIntelligenceResult;
+  roleAccountability?: InstitutionalRoleIntelligenceResult;
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -78,7 +81,8 @@ export class ABBARuntimeOrchestrator {
     private readonly humanCoordinationStore: HumanCoordinationStore | undefined = undefined,
     private readonly privacyRouter: ABBAMinimumContextRouter = new ABBAMinimumContextRouter(),
     private readonly communicationPack: ABBACommunicationIntelligencePack = new ABBACommunicationIntelligencePack(),
-    private readonly workspaceArtifactPack: ABBAWorkspaceArtifactIntelligencePack = new ABBAWorkspaceArtifactIntelligencePack()
+    private readonly workspaceArtifactPack: ABBAWorkspaceArtifactIntelligencePack = new ABBAWorkspaceArtifactIntelligencePack(),
+    private readonly roleAccountabilityPack: ABBAInstitutionalRoleIntelligencePack = new ABBAInstitutionalRoleIntelligencePack()
   ) {}
 
   public async run(input: ABBARuntimeCycleInput): Promise<ABBARuntimeCycleResult> {
@@ -90,6 +94,9 @@ export class ABBARuntimeOrchestrator {
       : undefined;
     const workspaceArtifactIntelligence = input.workspaceArtifactInput
       ? this.workspaceArtifactPack.analyze(input.workspaceArtifactInput)
+      : undefined;
+    const roleAccountability = input.roleAccountabilityInput
+      ? this.roleAccountabilityPack.analyze(input.roleAccountabilityInput)
       : undefined;
     const substrateObservations = await this.substrateReconciler.scan(input.substrateSpecs);
     const coreResult = await this.coreSupervisor.observeAndSteer(
@@ -189,6 +196,8 @@ export class ABBARuntimeOrchestrator {
       ...(workspaceArtifactIntelligence?.workspace.findings.filter(item => item.severity === 'HIGH' || item.severity === 'CRITICAL').map(item => `WORKSPACE_FINDING:${item.findingId}:${item.kind}`) ?? []),
       ...(workspaceArtifactIntelligence?.migrations.filter(item => !item.allowed).map(item => `MIGRATION_BLOCKED:${item.migrationId}:${item.reasons.join('|')}`) ?? []),
       ...(workspaceArtifactIntelligence?.recoveries.filter(item => !item.feasible).map(item => `RECOVERY_BLOCKED:${item.recoveryId}:${item.reasons.join('|')}`) ?? []),
+      ...(roleAccountability?.coverageGaps.map(id => `ACCOUNTABILITY_GAP:${id}`) ?? []),
+      ...(roleAccountability?.separationConflicts.map(conflict => `SEGREGATION_CONFLICT:${conflict}`) ?? []) ,
       ...reasoningAssessments.filter((assessment) => !assessment.valid).map((assessment) => `REASONING_BOUNDARY:${assessment.artifactId}:${assessment.reasons.join('|')}`),
       ...(missionIntelligence?.intent.clarificationRequired ? ['INTENT_CLARIFICATION_REQUIRED'] : []),
       ...(missionIntelligence?.decomposition.unresolvedDependencies ?? []).map((dep) => `MISSION_DEPENDENCY_UNRESOLVED:${dep}`),
@@ -250,6 +259,7 @@ export class ABBARuntimeOrchestrator {
       routedContext,
       communicationIntelligence,
       workspaceArtifactIntelligence,
+      roleAccountability,
       reconciliationRecordIds,
       completionProofRecordId
     };
