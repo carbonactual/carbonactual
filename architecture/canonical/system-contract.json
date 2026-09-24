@@ -62,5 +62,22 @@
     "historicalRepository": "carbonactual/omnii",
     "historicalRepositoryStatus": "ARCHIVED_PROVENANCE_ONLY",
     "liveCanonicalRepository": "carbonactual/carbonactual"
+  },
+  "masterIntelligence": "ABBA",
+  "orchestrationRole": "MASTER_ECOSYSTEM_ORCHESTRATOR",
+  "corePrinciples": [
+    "ABBA is the master intelligence and orchestrator across ecosystem domains and runtimes.",
+    "ABBA cannot manufacture authority, override constitutional law, or self-authorize consequential execution.",
+    "Capability does not imply permission or authority; policy and authority gates remain independent of orchestration.",
+    "Agent lifecycle, workflow composition, telemetry synthesis, and economic feedback are coordinated through ABBA while durable state remains governed by canonical contracts.",
+    "Every consequential execution is attributable, policy-gated, idempotency-aware, evidentiary, and reconstructable.",
+    "Runtime telemetry is observability input; it does not automatically become truth, evidence, Pulse, Value, authority, or permission."
+  ],
+  "feedbackLoop": {
+    "enabled": true,
+    "masterSink": "ABBA",
+    "mode": "GOVERNED_OBSERVABILITY",
+    "path": "signal -> validation -> observation -> synthesis -> proposal -> authority/policy gate -> execution -> evidence -> feedback",
+    "rule": "ABBA may aggregate ecosystem telemetry and coordinate adaptive responses without becoming the sole source of truth or bypassing domain authority."
   }
 }
