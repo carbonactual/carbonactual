@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
@@ -22,7 +22,10 @@
     "Substrate reconciliation never silently repairs or authorizes.",
     "Theory, hypothesis, observation, evidence, result, conclusion, recommendation and decision remain distinct artifact classes.",
     "A recommendation never becomes authorization without the independent governance gate.",
-    "Confidence is an assessment attribute, not a truth claim."
+    "Confidence is an assessment attribute, not a truth claim.",
+    "Reasoning substrate binding prepares and records; it does not independently authorize.",
+    "Production event persistence is adapted to the existing omnii event ingress where that substrate is authoritative.",
+    "A substrate adapter must not create semantic duplicate event or state universes."
   ],
   "jobSequence": [
     {
@@ -565,10 +568,82 @@
     },
     {
       "jobId": "ABBACORE-61",
+      "name": "PREPARE_SUBSTRATE_BINDING",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-60"
+      ],
+      "output": "substrate_binding_preparation"
+    },
+    {
+      "jobId": "ABBACORE-62",
+      "name": "VALIDATE_SUBSTRATE_BINDING",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-61"
+      ],
+      "output": "substrate_binding_validation"
+    },
+    {
+      "jobId": "ABBACORE-63",
+      "name": "PERSIST_REASONING_BINDING",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-62"
+      ],
+      "output": "reasoning_binding_record"
+    },
+    {
+      "jobId": "ABBACORE-64",
+      "name": "CROSS_AUTHORITY_POLICY_CONSENT_GATE",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-63"
+      ],
+      "output": "governance_decision"
+    },
+    {
+      "jobId": "ABBACORE-65",
+      "name": "EXECUTE_BOUND_REASONING_ACTION",
+      "phase": "EXECUTE",
+      "dependsOn": [
+        "ABBACORE-64"
+      ],
+      "output": "governed_execution_result"
+    },
+    {
+      "jobId": "ABBACORE-66",
+      "name": "APPEND_CANONICAL_EVENT",
+      "phase": "RECONCILE",
+      "dependsOn": [
+        "ABBACORE-65"
+      ],
+      "output": "canonical_event_record"
+    },
+    {
+      "jobId": "ABBACORE-67",
+      "name": "RECONCILE_BOUND_SUBSTRATE",
+      "phase": "RECONCILE",
+      "dependsOn": [
+        "ABBACORE-66"
+      ],
+      "output": "binding_reconciliation"
+    },
+    {
+      "jobId": "ABBACORE-68",
+      "name": "AUDIT_BINDING_PROVENANCE",
+      "phase": "STEWARD",
+      "dependsOn": [
+        "ABBACORE-67"
+      ],
+      "output": "binding_audit_result"
+    },
+    {
+      "jobId": "ABBACORE-69",
       "name": "CONTINUE_OR_STOP",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-60"
+        "ABBACORE-68"
       ],
       "output": "next_jobs_or_terminal_state"
     }
@@ -620,7 +695,9 @@
     "reassess_systemic_capability",
     "separate_reasoning_artifacts",
     "validate_evidence_chain",
-    "verify_recommendation_boundary"
+    "verify_recommendation_boundary",
+    "validate_substrate_binding",
+    "audit_binding_provenance"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
@@ -628,6 +705,7 @@
     "CAPABILITY_BENCHMARK_AND_FALLBACK",
     "OUTCOME_ANALYSIS",
     "STEWARDSHIP",
-    "UNIVERSAL_KNOWLEDGE_MASTERY"
+    "UNIVERSAL_KNOWLEDGE_MASTERY",
+    "REASONING_SUBSTRATE_BINDING"
   ]
 }

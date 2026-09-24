@@ -1,0 +1,29 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ABBA Reasoning Substrate Binding Contract",
+  "version":"1.0.0",
+  "status":"canonical-derived-runtime-binding-contract",
+  "bindingChain":[
+    "REASONING_ASSURANCE",
+    "REASONING_SUBSTRATE_PREPARATION",
+    "DURABLE_BINDING_RECORD",
+    "AUTHORITY_POLICY_CONSENT_GATE",
+    "EXECUTION_GATEWAY",
+    "CANONICAL_EVENT_RPC",
+    "EVIDENCE",
+    "RECONCILIATION",
+    "COMPLETION_PROOF"
+  ],
+  "bindingStatuses":["PREPARED","GATED","EXECUTED","BLOCKED","RECOVERY_REQUIRED"],
+  "rules":[
+    "The binder prepares an event envelope but does not call the database.",
+    "The authority gate independently evaluates authority, policy and consent.",
+    "The execution gateway remains the only consequential execution boundary.",
+    "Canonical event persistence uses append_canonical_event(jsonb).",
+    "Reasoning evidence is preserved in event provenance and binding records.",
+    "A recommendation does not itself become a decision.",
+    "A decision does not itself grant authority.",
+    "Binding failure never mutates canonical state.",
+    "Recovery-required execution is never silently replayed."
+  ]
+}

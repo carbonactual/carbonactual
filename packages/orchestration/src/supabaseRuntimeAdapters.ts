@@ -1,4 +1,5 @@
 import type { CanonicalEventEnvelope, CanonicalEventWriter } from './executionGateway';
+import type { ReasoningSubstrateBindingStore } from './governedReasoningSubstrateBridge';
 import type {
   ABBAControlCycle,
   ABBAJobRun,
@@ -333,5 +334,70 @@ export class SupabaseExecutionAttemptStore implements ExecutionAttemptStore {
 
   async markRecoveryRequired(executionId: string, reason: string, evidenceRef?: string): Promise<void> {
     await this.update(executionId, 'RECOVERY_REQUIRED', { error: reason, evidenceRef });
+  }
+}
+
+export class SupabaseReasoningSubstrateBindingStore implements ReasoningSubstrateBindingStore {
+  constructor(private readonly rpc: SupabaseRpcClient) {}
+
+  async append(input: Record<string, unknown>): Promise<string> {
+    return rpcId(await this.rpc.call('append_abba_reasoning_substrate_binding', input));
+  }
+
+  async update(bindingId: string, update: Record<string, unknown>): Promise<void> {
+    await this.rpc.call('update_abba_reasoning_substrate_binding', {
+      bindingId,
+      ...update
+    });
+  }
+}
+
+import { CANONICAL_EVENT_TYPES, type CanonicalEventType } from '../../events/src/types';
+
+export class SupabaseOmniiEventWriter implements CanonicalEventWriter {
+  constructor(private readonly rpc: SupabaseRpcClient) {}
+
+  async append(event: CanonicalEventEnvelope): Promise<string> {
+    const actor = event.actorEntityId;
+    const source = 'carbonactual/abba';
+    if (!CANONICAL_EVENT_TYPES.includes(event.eventType as CanonicalEventType)) {
+      throw new Error(`UNSUPPORTED_CANONICAL_EVENT_TYPE:${event.eventType}`);
+    }
+    const payload = { ...event.payload, authorityRef: event.authorityRef };
+    const result = await this.rpc.call('omnii_append_event', {
+      p_id: crypto.randomUUID(),
+      p_event_type: event.eventType as CanonicalEventType,
+      p_event_version: '1',
+      p_schema_version: event.schemaVersion,
+      p_lifecycle: 'active',
+      p_status: 'accepted',
+      p_occurred_at: new Date().toISOString(),
+      p_recorded_at: new Date().toISOString(),
+      p_actor_ref: actor,
+      p_subject_ref: typeof event.payload.subjectRef === 'string' ? event.payload.subjectRef : null,
+      p_institution_ref: typeof event.payload.institutionRef === 'string' ? event.payload.institutionRef : null,
+      p_operating_context_id: typeof event.payload.operatingContextId === 'string' ? event.payload.operatingContextId : null,
+      p_correlation_id: event.correlationId,
+      p_causation_id: event.causationId ?? null,
+      p_parent_event_id: typeof event.payload.parentEventId === 'string' ? event.payload.parentEventId : null,
+      p_reality_state: typeof event.payload.realityState === 'string' ? event.payload.realityState : 'actual',
+      p_authority_ref: event.authorityRef,
+      p_source: source,
+      p_provenance: {
+        ...event.provenance,
+        authoritySignature: event.authoritySignature,
+        canonicalAdapter: 'SupabaseOmniiEventWriter'
+      },
+      p_evidence_refs: event.payload.evidenceRefs ?? [],
+      p_metadata: {
+        principalEntityId: event.principalEntityId ?? null,
+        policyVersion: event.policyVersion,
+        schemaVersion: event.schemaVersion
+      },
+      p_payload: payload,
+      p_idempotency_key: event.idempotencyKey
+    });
+
+    return rpcId(result);
   }
 }

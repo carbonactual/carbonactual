@@ -59,19 +59,23 @@
       "canonicalConcept": "EXECUTION_CONTROL",
       "substrate": "public.omnii_execution_controls",
       "integrationRole": "existing_timeout_retry_compensation_kill_switch_controls",
-      "authority": "control configuration is subordinate to Canon and explicit authority"
+      "authority": "control configuration is subordinate to Canon and explicit authority",
+      "ingress": "public.omnii_abba_record_execution_gate(...); public.omnii_atomic_execution_audit(...)"
     },
     {
       "canonicalConcept": "EVENT",
       "substrate": "public.omnii_events",
-      "integrationRole": "existing event projection",
-      "authority": "event semantics must remain aligned with Carbon Actual canonical event contract"
+      "integrationRole": "existing append-only event projection and canonical-event adapter ingress",
+      "authority": "event semantics must remain aligned with Carbon Actual canonical event contract",
+      "ingress": "public.omnii_append_event(text,...,jsonb,text)",
+      "notes": "Canonical Event Envelope is adapted into the existing omnii_events substrate; no production canonical_events table is introduced."
     },
     {
       "canonicalConcept": "STATE",
       "substrate": "public.omnii_state",
       "integrationRole": "existing state projection",
-      "authority": "derived current state, not historical event stream"
+      "authority": "derived current state, not historical event stream",
+      "ingress": "public.omnii_atomic_state_event(...)"
     },
     {
       "canonicalConcept": "RECONCILIATION",
@@ -91,6 +95,8 @@
     "Do not duplicate an existing live capability when a compatible adapter can bind it.",
     "Do not treat an existing omnii-prefixed table as constitutional authority.",
     "All consequential mutations introduced through the new Carbon Actual canonical runtime must retain principal, authority, policy, provenance, correlation and idempotency.",
-    "Historical provenance is preserved through bindings rather than rewritten."
+    "Historical provenance is preserved through bindings rather than rewritten.",
+    "Production canonical event binding uses public.omnii_append_event; append_canonical_event(jsonb) remains a staged canonical-contract interface until the existing substrate mapping is promoted through controlled deployment.",
+    "Never introduce a duplicate production canonical_events table solely to satisfy a contract name when an existing append-only event substrate can be adapted."
   ]
 }
