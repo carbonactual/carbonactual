@@ -3,6 +3,9 @@ import { ABBAAuthorityPolicyGate, AuthorityContext, GateResult } from './authori
 import { ABBAExecutionGateway, GatedExecutionResult } from './executionGateway';
 import { ABBASubstrateReadinessGate } from './substrateReadinessGate';
 import type { SubstrateRequirement, SubstrateHealthSnapshot } from './substrateHealthEngine';
+import { ABBAAutonomousSafetyGuard } from './autonomousSafetyGuard';
+import type { OperationalActionProfile, OperationalSafetyEnvelope, SafetyAssessment } from './operationalSafetyEnvelope';
+import type { CircuitState, CircuitDecision } from './circuitBreakerEngine';
 
 export interface ReasoningSubstrateBindingStore {
   append(input: Record<string, unknown>): Promise<string>;
@@ -21,6 +24,9 @@ export interface GovernedReasoningExecutionInput {
   pulseImpact: Record<string, unknown>;
   provenance?: Record<string, unknown>;
   substrateRequirements: SubstrateRequirement[];
+  safetyEnvelope: OperationalSafetyEnvelope;
+  actionProfile: OperationalActionProfile;
+  circuitState?: CircuitState;
 }
 
 export interface GovernedReasoningExecutionResult {
@@ -29,6 +35,8 @@ export interface GovernedReasoningExecutionResult {
   gate?: GateResult;
   execution?: GatedExecutionResult;
   substrateHealth?: SubstrateHealthSnapshot;
+  safety?: SafetyAssessment;
+  circuit?: CircuitDecision;
 }
 
 export class ABBAGovernedReasoningSubstrateBridge {
@@ -37,11 +45,17 @@ export class ABBAGovernedReasoningSubstrateBridge {
     private readonly gate: ABBAAuthorityPolicyGate,
     private readonly executionGateway: ABBAExecutionGateway,
     private readonly bindingStore: ReasoningSubstrateBindingStore,
-    private readonly substrateReadinessGate: ABBASubstrateReadinessGate = new ABBASubstrateReadinessGate()
+    private readonly substrateReadinessGate: ABBASubstrateReadinessGate = new ABBASubstrateReadinessGate(),
+    private readonly safetyGuard: ABBAAutonomousSafetyGuard = new ABBAAutonomousSafetyGuard()
   ) {}
 
   public async execute(input: GovernedReasoningExecutionInput): Promise<GovernedReasoningExecutionResult> {
     const substrateReadiness = this.substrateReadinessGate.evaluate(input.substrateRequirements);
+    const safetyCheck = this.safetyGuard.evaluate({
+      envelope: input.safetyEnvelope,
+      action: input.actionProfile,
+      circuit: input.circuitState
+    });
 
     const preparation = this.binder.prepareCanonicalEvent(
       input.reasoningChainId,
@@ -71,12 +85,26 @@ export class ABBAGovernedReasoningSubstrateBridge {
       provenance: { source: 'ABBAGovernedReasoningSubstrateBridge' }
     });
 
+    if (!safetyCheck.proceedToAuthorityGate) {
+      await this.bindingStore.update(bindingId, {
+        bindingStatus: 'BLOCKED',
+        blockingReasons: [...safetyCheck.safety.reasons, ...(safetyCheck.circuit?.reasons ?? [])]
+      });
+      return {
+        bindingId,
+        preparation,
+        substrateHealth: substrateReadiness.snapshot,
+        safety: safetyCheck.safety,
+        circuit: safetyCheck.circuit
+      };
+    }
+
     if (substrateReadiness.decision !== 'PROCEED_TO_AUTHORITY_GATE') {
       await this.bindingStore.update(bindingId, {
         bindingStatus: 'BLOCKED',
         blockingReasons: substrateReadiness.reasons
       });
-      return { bindingId, preparation, substrateHealth: substrateReadiness.snapshot };
+      return { bindingId, preparation, substrateHealth: substrateReadiness.snapshot, safety: safetyCheck.safety, circuit: safetyCheck.circuit };
     }
 
     if (!preparation.isBoundToSubstrate || !preparation.canonicalEventDraft) {
@@ -90,7 +118,7 @@ export class ABBAGovernedReasoningSubstrateBridge {
         bindingStatus: 'BLOCKED',
         blockingReasons: gate.reasons
       });
-      return { bindingId, preparation, gate, substrateHealth: substrateReadiness.snapshot };
+      return { bindingId, preparation, gate, substrateHealth: substrateReadiness.snapshot, safety: safetyCheck.safety, circuit: safetyCheck.circuit };
     }
 
     await this.bindingStore.update(bindingId, { bindingStatus: 'GATED' });
@@ -113,6 +141,6 @@ export class ABBAGovernedReasoningSubstrateBridge {
       blockingReasons: execution.reason ? [execution.reason] : []
     });
 
-    return { bindingId, preparation, gate, execution, substrateHealth: substrateReadiness.snapshot };
+    return { bindingId, preparation, gate, execution, substrateHealth: substrateReadiness.snapshot, safety: safetyCheck.safety, circuit: safetyCheck.circuit };
   }
 }
