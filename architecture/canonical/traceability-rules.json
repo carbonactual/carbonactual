@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TraceabilityRules",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "canonicalSources": [
+    "architecture/CARBON_ACTUAL_CANONICAL_EVENT_STATE_INTEGRITY.md",
+    "architecture/CARBON_ACTUAL_CONTROL_PLANE.md"
+  ],
+  "tracePath": "canonical_id -> contract -> authority_class -> scope -> implementation_ref -> data_ref -> runtime_ref -> evidence_ref -> lifecycle -> version -> dependencies -> consumers -> conformance_status",
+  "eventTraceFields": [
+    "eventId",
+    "eventType",
+    "actor",
+    "principal",
+    "subject",
+    "source",
+    "jurisdiction",
+    "correlationId",
+    "causationId",
+    "parentEventId",
+    "schemaVersion",
+    "policyVersion",
+    "traceId",
+    "provenance",
+    "evidenceRef"
+  ],
+  "rules": [
+    "Every consequential operation should have an attributable principal and actor.",
+    "External events retain source identity and provenance.",
+    "Evidence is retained separately from claims and state.",
+    "Current state is a projection and is not the complete historical record.",
+    "Conflicting records are preserved, classified and resolved through governance.",
+    "Recovery must be possible from accepted canonical evidence where the underlying data permits."
+  ]
+}
