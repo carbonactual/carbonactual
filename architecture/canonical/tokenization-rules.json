@@ -8,56 +8,32 @@
     "decimalization": "Changes representational precision or quantity granularity.",
     "fractionalization": "Expresses divisible units, participations or rights.",
     "tokenization": "Creates a digital representation referencing a qualified governed object, right or value.",
-    "minting": "Creates an ecosystem-recognized representation or issuance after applicable gates.",
+    "minting": "Creates an ecosystem-recognized representation or issuance after applicable eligibility, authority, provenance and policy gates.",
     "decentralization": "Distributes control, validation, execution or governance across independently authorized participants or infrastructure.",
     "democratization": "Broadens access or participation under explicit eligibility and authority rules."
   },
+  "precision": {
+    "decimalPlaces": 18,
+    "minimumDecimalizedUnit": "0.000000000000000001"
+  },
   "tokenRecord": {
-    "required": [
-      "tokenId",
-      "underlyingReference",
-      "representationType",
-      "precision",
-      "totalUnits",
-      "issuerOrAuthorityReference",
-      "provenance",
-      "status"
-    ],
-    "recommended": [
-      "custodyReference",
-      "ownershipReference",
-      "rightsReference",
-      "jurisdiction",
-      "transferRules",
-      "redemptionRules",
-      "expiry",
-      "revocationRules"
-    ]
+    "required": ["tokenId", "underlyingReference", "representationType", "precision", "totalUnits", "issuerOrAuthorityReference", "provenance", "status"],
+    "recommended": ["custodyReference", "ownershipReference", "rightsReference", "jurisdiction", "transferRules", "redemptionRules", "expiry", "revocationRules"]
   },
-  "constraints": {
-    "maxDecimalPlaces": 18,
-    "maxFractionalUnit": "1e-18",
-    "blockchain": "optional implementation or settlement adapter",
-    "underlyingObjectPrimary": true
-  },
-  "lifecycle": [
-    "IDENTIFIED",
-    "QUALIFIED",
-    "AUTHORIZED",
-    "REPRESENTED",
-    "ISSUED",
-    "HELD",
-    "TRANSFERRED",
-    "SETTLED",
-    "RECONCILED",
-    "REVOKED",
-    "EXPIRED"
-  ],
+  "lifecycle": ["IDENTIFIED", "QUALIFIED", "AUTHORIZED", "REPRESENTED", "ISSUED", "HELD", "TRANSFERRED", "SETTLED", "RECONCILED", "REVOKED", "EXPIRED"],
   "rules": [
+    "Underlying governed object, right or value remains primary.",
     "A token cannot manufacture ownership or authority.",
-    "A token representation cannot become canonical truth merely because it exists on a ledger or blockchain.",
-    "Supply and fractional unit calculations must be deterministic and auditable.",
+    "Tokenization, minting, decimalization and fractionalization are distinct operations.",
+    "Physical asset backing is required only where the underlying object/right contract or applicable jurisdiction requires it; it is not a universal tokenization rule.",
+    "Proof-of-utility is an optional domain qualification unless a higher-authority contract requires it.",
+    "Democratized issuance remains subject to authority, eligibility, jurisdiction, consent and policy gates.",
     "Transfers must pass identity, authority, eligibility, policy and settlement gates.",
-    "Revocation/recovery must preserve provenance and underlying rights records."
-  ]
+    "Supply and fractional-unit calculations must be deterministic and auditable.",
+    "Revocation and recovery preserve provenance and the underlying rights record."
+  ],
+  "implementation": {
+    "blockchain": "optional infrastructure or settlement adapter",
+    "underlyingObjectPrimary": true
+  }
 }
