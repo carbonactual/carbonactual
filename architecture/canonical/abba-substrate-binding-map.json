@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBACompatibilityBindingMap",
+  "version": "1.0.0",
+  "status": "canonical-derived-integration-contract",
+  "canonicalRepository": "carbonactual/carbonactual",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "rule": "Existing substrate implementations are reusable bindings, not semantic authority.",
+  "bindings": [
+    {
+      "canonicalConcept": "ABBA_MASTER_INTELLIGENCE_PROFILE",
+      "substrate": "public.omnii_abba_profiles",
+      "integrationRole": "profile_and_autonomy_policy",
+      "authority": "read_and_interpret_only; mutations remain governed"
+    },
+    {
+      "canonicalConcept": "ABBA_CONTEXT_SESSION",
+      "substrate": "public.omnii_abba_sessions",
+      "integrationRole": "session_context",
+      "authority": "runtime_record_not_constitution"
+    },
+    {
+      "canonicalConcept": "ABBA_PLAN",
+      "substrate": "public.omnii_abba_plans",
+      "integrationRole": "workflow_and_mission_projection",
+      "authority": "proposal_and_plan_state_only"
+    },
+    {
+      "canonicalConcept": "ABBA_DECISION",
+      "substrate": "public.omnii_abba_decisions",
+      "integrationRole": "decision_trace_and_human_approval_reference",
+      "authority": "decision_record_not_automatic_execution_authority"
+    },
+    {
+      "canonicalConcept": "ABBA_TOOL_CALL",
+      "substrate": "public.omnii_abba_tool_calls",
+      "integrationRole": "tool_execution_trace",
+      "authority": "tool trace; capability and authority remain separate"
+    },
+    {
+      "canonicalConcept": "ABBA_MEMORY",
+      "substrate": "public.omnii_abba_memory_records",
+      "integrationRole": "bounded_memory_and_learning",
+      "authority": "memory_is_not_canonical_truth"
+    },
+    {
+      "canonicalConcept": "WORKFLOW_TASK",
+      "substrate": "public.omnii_process_tasks",
+      "integrationRole": "worker_queue_task_projection",
+      "authority": "execution remains subject to authority/policy gate"
+    },
+    {
+      "canonicalConcept": "RUNTIME_RECORD",
+      "substrate": "public.canonical_runtime_records",
+      "integrationRole": "runtime_projection_and_compatibility_evidence",
+      "authority": "runtime_truth_is_not_constitutional_truth"
+    },
+    {
+      "canonicalConcept": "EXECUTION_CONTROL",
+      "substrate": "public.omnii_execution_controls",
+      "integrationRole": "existing_timeout_retry_compensation_kill_switch_controls",
+      "authority": "control configuration is subordinate to Canon and explicit authority"
+    },
+    {
+      "canonicalConcept": "EVENT",
+      "substrate": "public.omnii_events",
+      "integrationRole": "existing event projection",
+      "authority": "event semantics must remain aligned with Carbon Actual canonical event contract"
+    },
+    {
+      "canonicalConcept": "STATE",
+      "substrate": "public.omnii_state",
+      "integrationRole": "existing state projection",
+      "authority": "derived current state, not historical event stream"
+    },
+    {
+      "canonicalConcept": "RECONCILIATION",
+      "substrate": "public.omnii_reconciliations",
+      "integrationRole": "existing expected_actual_recovery record",
+      "authority": "reconciliation outcome is evidence/analysis, not authority"
+    },
+    {
+      "canonicalConcept": "CAPABILITY_SHELF",
+      "substrate": "public.omnii_common_primitives + public.ecosystem_capability_metadata",
+      "integrationRole": "capability discovery",
+      "authority": "capability availability never implies authority"
+    }
+  ],
+  "integrationRules": [
+    "Do not rename or delete existing substrate tables merely to make names look canonical.",
+    "Do not duplicate an existing live capability when a compatible adapter can bind it.",
+    "Do not treat an existing omnii-prefixed table as constitutional authority.",
+    "All consequential mutations introduced through the new Carbon Actual canonical runtime must retain principal, authority, policy, provenance, correlation and idempotency.",
+    "Historical provenance is preserved through bindings rather than rewritten."
+  ]
+}
