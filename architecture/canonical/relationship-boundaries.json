@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RelationshipBoundaries",
+  "version": "1.0.0",
+  "status": "canonical-derived-contract",
+  "principle": "Relationships describe typed connections; they are not identity, authority, events or evidence by themselves.",
+  "relationshipTypes": [
+    "owns",
+    "controls",
+    "authorizes",
+    "delegates",
+    "represents",
+    "employs",
+    "contracts_with",
+    "supplies",
+    "serves",
+    "depends_on",
+    "governs",
+    "custodies",
+    "participates_in",
+    "witnesses",
+    "observes",
+    "references",
+    "is_parent_of",
+    "is_successor_of"
+  ],
+  "relationshipRecord": {
+    "required": [
+      "relationshipId",
+      "relationshipType",
+      "fromEntity",
+      "toEntity",
+      "status",
+      "provenance"
+    ],
+    "optional": [
+      "scope",
+      "jurisdiction",
+      "effectiveFrom",
+      "effectiveUntil",
+      "evidenceRef",
+      "authorityRef"
+    ]
+  },
+  "boundaryRules": [
+    "A relationship does not imply execution.",
+    "A relationship does not imply authority unless its type and authority basis explicitly provide it.",
+    "Ownership and custody are separate relationships.",
+    "Representation requires an authority or relationship basis appropriate to the context.",
+    "Historical relationship changes must preserve lineage and evidence."
+  ]
+}
