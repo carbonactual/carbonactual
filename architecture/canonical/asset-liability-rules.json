@@ -4,35 +4,27 @@
   "version": "1.0.0",
   "status": "canonical-derived-economic-contract",
   "canonicalSource": "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
-  "principle": "Asset/liability classification is a value-and-obligation classification layer and does not by itself establish legal title, accounting treatment, or jurisdictional status.",
-  "classificationInputs": [
-    "underlying_object_or_right",
-    "recognized_value",
-    "full_cost",
-    "obligation",
-    "control_or_entitlement",
-    "evidence",
-    "jurisdiction",
-    "time_horizon",
-    "settlement_status"
-  ],
-  "engineClassification": {
-    "asset": "Positive governed economic contribution, resource, right, receivable, or beneficial control recognized under the applicable model.",
-    "liability": "Obligation, burden, required outflow, negative economic exposure, or unresolved cost recognized under the applicable model.",
-    "contingent": "Material economic exposure exists but recognition depends on a future condition, eligibility or evidence gate.",
-    "unclassified": "Evidence or authority is insufficient for classification."
+  "accountingModel": "Double-entry event-driven ledger where a ledger posting must balance debits and credits.",
+  "classificationPrinciple": "Asset/liability classification is a value-and-obligation classification layer and does not by itself establish legal title, accounting treatment, or jurisdictional status.",
+  "assetTypes": ["TOKENIZED_COMPUTE", "REAL_ESTATE_FRACTION", "INSTITUTIONAL_CREDENTIAL", "SYSTEM_LIQUIDITY"],
+  "liabilityTypes": ["AGENT_CONTRACT_OBLIGATION", "PENDING_SETTLEMENT", "RESOURCE_DEBT"],
+  "rules": {
+    "enforceDoubleEntry": true,
+    "preventNegativeBalance": "where the applicable account/contract policy requires it",
+    "requireEvidenceHashOnSettlement": true,
+    "requireEvidenceForClassification": true,
+    "tokenizationDoesNotCreateAsset": true
   },
-  "pulseValueRule": {
-    "description": "Where the configured Pulse–Value assessment compares Pulse burden against value sent/realized, a positive net contribution may be represented as an Asset and a negative net contribution as a Liability for the engine.",
-    "formula": "NetContribution = RecognizedValue - FullCost - RecognizedObligations",
-    "positiveClassification": "ASSET",
-    "negativeClassification": "LIABILITY",
-    "zeroClassification": "UNCLASSIFIED_OR_NEUTRAL"
+  "classificationEngine": {
+    "positiveNetContribution": "ASSET",
+    "negativeNetContribution": "LIABILITY",
+    "contingentExposure": "CONTINGENT",
+    "insufficientEvidence": "UNCLASSIFIED",
+    "formula": "NetContribution = RecognizedValue - FullCost - RecognizedObligations"
   },
-  "rules": [
-    "Tokenization does not create an Asset.",
-    "Minting does not create an Asset.",
-    "A liability classification does not automatically establish legal debt without the applicable evidence and jurisdictional basis.",
+  "rulesOfInterpretation": [
+    "Accounting equality is an implementation accounting invariant, not a replacement for the constitutional value model.",
+    "A liability classification does not automatically establish legal debt.",
     "Full-cost accounting is preferred for economic measurement.",
     "Asset and liability state must remain traceable to evidence and source records."
   ]
