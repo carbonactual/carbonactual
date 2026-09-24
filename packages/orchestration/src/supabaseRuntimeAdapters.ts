@@ -184,8 +184,7 @@ export class SupabaseResponseProposalStore implements ResponseProposalStore {
       reason: proposal.reason,
       sourceSignalIds: proposal.sourceSignalIds,
       priority: proposal.priority,
-      idempotencyKey: metadata.idempotencyKey,
-      expiresAt: proposal.expiresAt
+      idempotencyKey: metadata.idempotencyKey
     });
   }
 }
