@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AssetLiabilityRules",
+  "version": "1.0.0",
+  "status": "canonical-derived-economic-contract",
+  "canonicalSource": "architecture/CARBON_ACTUAL_ECONOMIC_LEDGER_TOKENIZATION_BOUNDARY.md",
+  "principle": "Asset/liability classification is a value-and-obligation classification layer and does not by itself establish legal title, accounting treatment, or jurisdictional status.",
+  "classificationInputs": [
+    "underlying_object_or_right",
+    "recognized_value",
+    "full_cost",
+    "obligation",
+    "control_or_entitlement",
+    "evidence",
+    "jurisdiction",
+    "time_horizon",
+    "settlement_status"
+  ],
+  "engineClassification": {
+    "asset": "Positive governed economic contribution, resource, right, receivable, or beneficial control recognized under the applicable model.",
+    "liability": "Obligation, burden, required outflow, negative economic exposure, or unresolved cost recognized under the applicable model.",
+    "contingent": "Material economic exposure exists but recognition depends on a future condition, eligibility or evidence gate.",
+    "unclassified": "Evidence or authority is insufficient for classification."
+  },
+  "pulseValueRule": {
+    "description": "Where the configured Pulse–Value assessment compares Pulse burden against value sent/realized, a positive net contribution may be represented as an Asset and a negative net contribution as a Liability for the engine.",
+    "formula": "NetContribution = RecognizedValue - FullCost - RecognizedObligations",
+    "positiveClassification": "ASSET",
+    "negativeClassification": "LIABILITY",
+    "zeroClassification": "UNCLASSIFIED_OR_NEUTRAL"
+  },
+  "rules": [
+    "Tokenization does not create an Asset.",
+    "Minting does not create an Asset.",
+    "A liability classification does not automatically establish legal debt without the applicable evidence and jurisdictional basis.",
+    "Full-cost accounting is preferred for economic measurement.",
+    "Asset and liability state must remain traceable to evidence and source records."
+  ]
+}
