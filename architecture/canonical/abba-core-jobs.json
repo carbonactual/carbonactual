@@ -718,7 +718,7 @@
       "output": "next_jobs_or_terminal_state"
     },
     {
-      "jobId": "ABBACORE-86",
+      "jobId": "ABBACORE-77",
       "name": "DISCOVER_EVIDENCE_SOURCES",
       "phase": "OBSERVE",
       "dependsOn": [
@@ -727,67 +727,148 @@
       "output": "evidence_source_set"
     },
     {
-      "jobId": "ABBACORE-87",
+      "jobId": "ABBACORE-78",
+      "name": "CLASSIFY_SOURCE_TYPE",
+      "phase": "INTERPRET",
+      "dependsOn": [
+        "ABBACORE-77"
+      ],
+      "output": "source_classification"
+    },
+    {
+      "jobId": "ABBACORE-79",
       "name": "VERIFY_SOURCE_PROVENANCE",
       "phase": "VERIFY",
       "dependsOn": [
-        "ABBACORE-86"
+        "ABBACORE-78"
       ],
       "output": "source_provenance_assessment"
     },
     {
-      "jobId": "ABBACORE-88",
+      "jobId": "ABBACORE-80",
       "name": "CHECK_SOURCE_FRESHNESS",
       "phase": "VERIFY",
       "dependsOn": [
-        "ABBACORE-87"
+        "ABBACORE-79"
       ],
       "output": "source_freshness_assessment"
     },
     {
-      "jobId": "ABBACORE-89",
+      "jobId": "ABBACORE-81",
       "name": "ASSESS_SOURCE_INDEPENDENCE",
       "phase": "VERIFY",
       "dependsOn": [
-        "ABBACORE-88"
+        "ABBACORE-80"
       ],
       "output": "source_independence_assessment"
     },
     {
-      "jobId": "ABBACORE-90",
+      "jobId": "ABBACORE-82",
+      "name": "DEDUPLICATE_SOURCE_COPIES",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-81"
+      ],
+      "output": "source_deduplication"
+    },
+    {
+      "jobId": "ABBACORE-83",
+      "name": "CORRELATE_SOURCE_CONSENSUS",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-82"
+      ],
+      "output": "source_consensus_analysis"
+    },
+    {
+      "jobId": "ABBACORE-84",
       "name": "BUILD_EVIDENCE_CHAIN",
       "phase": "REASON",
       "dependsOn": [
-        "ABBACORE-89"
+        "ABBACORE-83"
       ],
       "output": "evidence_chain"
     },
     {
-      "jobId": "ABBACORE-91",
+      "jobId": "ABBACORE-85",
       "name": "PRESERVE_SOURCE_CONTRADICTIONS",
       "phase": "REASON",
       "dependsOn": [
-        "ABBACORE-90"
+        "ABBACORE-84"
       ],
       "output": "source_conflict_set"
     },
     {
-      "jobId": "ABBACORE-92",
+      "jobId": "ABBACORE-86",
+      "name": "VERIFY_EVIDENCE_CHAIN_QUALITY",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-85"
+      ],
+      "output": "evidence_chain_quality"
+    },
+    {
+      "jobId": "ABBACORE-87",
       "name": "CLASSIFY_EXTERNAL_REALITY_STATE",
       "phase": "INTERPRET",
       "dependsOn": [
-        "ABBACORE-91"
+        "ABBACORE-86"
       ],
       "output": "external_reality_state"
     },
     {
-      "jobId": "ABBACORE-93",
+      "jobId": "ABBACORE-88",
       "name": "UPDATE_PROVENANCE_BOUND_KNOWLEDGE",
       "phase": "LEARN",
       "dependsOn": [
-        "ABBACORE-92"
+        "ABBACORE-87"
       ],
       "output": "provenance_knowledge_update"
+    },
+    {
+      "jobId": "ABBACORE-89",
+      "name": "VERIFY_EVIDENCE_EXPIRY",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-88"
+      ],
+      "output": "evidence_expiry_assessment"
+    },
+    {
+      "jobId": "ABBACORE-90",
+      "name": "VERIFY_CLAIM_SCOPE",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-89"
+      ],
+      "output": "claim_scope_assessment"
+    },
+    {
+      "jobId": "ABBACORE-91",
+      "name": "DETECT_EVIDENCE_GAPS",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-90"
+      ],
+      "output": "evidence_gap_set"
+    },
+    {
+      "jobId": "ABBACORE-92",
+      "name": "REASSESS_EXTERNAL_EVIDENCE",
+      "phase": "LEARN",
+      "dependsOn": [
+        "ABBACORE-91"
+      ],
+      "output": "evidence_reassessment"
+    },
+    {
+      "jobId": "ABBACORE-93",
+      "name": "GENERATE_EVIDENCE_FOLLOW_ON_JOBS",
+      "phase": "CONTINUE",
+      "dependsOn": [
+        "ABBACORE-92"
+      ],
+      "output": "evidence_follow_on_job_set"
     },
     {
       "jobId": "ABBACORE-94",
@@ -799,7 +880,7 @@
       "output": "next_jobs_or_terminal_state"
     },
     {
-      "jobId": "ABBACORE-94",
+      "jobId": "ABBACORE-95",
       "name": "DETECT_HUMAN_INPUT_REQUIREMENT",
       "phase": "GATE",
       "dependsOn": [
@@ -808,89 +889,80 @@
       "output": "human_input_requirement"
     },
     {
-      "jobId": "ABBACORE-95",
-      "name": "PREPARE_MINIMUM_HUMAN_CONTEXT",
-      "phase": "COMMUNICATE",
-      "dependsOn": [
-        "ABBACORE-94"
-      ],
-      "output": "minimum_human_context"
-    },
-    {
       "jobId": "ABBACORE-96",
-      "name": "REQUEST_CLARIFICATION",
+      "name": "PREPARE_MINIMUM_HUMAN_CONTEXT",
       "phase": "COMMUNICATE",
       "dependsOn": [
         "ABBACORE-95"
       ],
-      "output": "clarification_request"
+      "output": "minimum_human_context"
     },
     {
       "jobId": "ABBACORE-97",
-      "name": "REQUEST_AUTHORIZATION",
-      "phase": "GATE",
+      "name": "REQUEST_CLARIFICATION",
+      "phase": "COMMUNICATE",
       "dependsOn": [
         "ABBACORE-96"
       ],
-      "output": "human_authorization_request"
+      "output": "clarification_request"
     },
     {
       "jobId": "ABBACORE-98",
-      "name": "REQUEST_CONSENT",
+      "name": "REQUEST_AUTHORIZATION",
       "phase": "GATE",
       "dependsOn": [
         "ABBACORE-97"
       ],
-      "output": "consent_request"
+      "output": "human_authorization_request"
     },
     {
       "jobId": "ABBACORE-99",
-      "name": "REQUEST_REVIEW",
+      "name": "REQUEST_CONSENT",
       "phase": "GATE",
       "dependsOn": [
         "ABBACORE-98"
       ],
-      "output": "human_review_request"
+      "output": "consent_request"
     },
     {
       "jobId": "ABBACORE-100",
+      "name": "REQUEST_REVIEW",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-99"
+      ],
+      "output": "human_review_request"
+    },
+    {
+      "jobId": "ABBACORE-101",
       "name": "ESCALATE_TO_HUMAN",
       "phase": "COMMUNICATE",
       "dependsOn": [
-        "ABBACORE-99"
+        "ABBACORE-100"
       ],
       "output": "human_escalation"
     },
     {
-      "jobId": "ABBACORE-101",
-      "name": "CAPTURE_HUMAN_DECISION",
-      "phase": "VERIFY",
-      "dependsOn": [
-        "ABBACORE-100"
-      ],
-      "output": "human_decision_record"
-    },
-    {
       "jobId": "ABBACORE-102",
-      "name": "VERIFY_HUMAN_DECISION_EVIDENCE",
+      "name": "CAPTURE_HUMAN_DECISION",
       "phase": "VERIFY",
       "dependsOn": [
         "ABBACORE-101"
       ],
-      "output": "human_decision_evidence"
+      "output": "human_decision_record"
     },
     {
       "jobId": "ABBACORE-103",
-      "name": "RESUME_GOVERNED_CONTINUATION",
-      "phase": "CONTINUE",
+      "name": "VERIFY_HUMAN_DECISION_EVIDENCE",
+      "phase": "VERIFY",
       "dependsOn": [
         "ABBACORE-102"
       ],
-      "output": "resumable_continuation"
+      "output": "human_decision_evidence"
     },
     {
       "jobId": "ABBACORE-104",
-      "name": "CONTINUE_OR_STOP",
+      "name": "CONTINUE_GOVERNED_CONTINUATION",
       "phase": "CONTINUE",
       "dependsOn": [
         "ABBACORE-103"
@@ -960,7 +1032,16 @@
     "request_authorization",
     "request_consent",
     "escalate_to_human",
-    "verify_human_decision_evidence"
+    "verify_human_decision_evidence",
+    "classify_source_type",
+    "deduplicate_source_copies",
+    "correlate_source_consensus",
+    "verify_evidence_chain_quality",
+    "verify_evidence_expiry",
+    "verify_claim_scope",
+    "detect_evidence_gaps",
+    "reassess_external_evidence",
+    "generate_evidence_follow_on_jobs"
   ],
   "specialistPacks": [
     "MISSION_INTELLIGENCE",
