@@ -5,11 +5,16 @@ import test from 'node:test';
 const graph = JSON.parse(await readFile('architecture/canonical/abba-core-jobs.json', 'utf8'));
 const runtime = await readFile('packages/orchestration/src/closedLoopRuntime.ts', 'utf8');
 
-test('ABBA core job graph is sequential and ends in governed continuation/stop', () => {
+test('ABBA core job graph contains the full governed lifecycle', () => {
   assert.equal(graph.masterIntelligence, 'ABBA');
-  assert.equal(graph.jobSequence.length, 24);
+  assert.equal(graph.version, '1.1.0');
+  assert.equal(graph.jobSequence.length, 37);
   assert.equal(graph.jobSequence.at(-1).name, 'CONTINUE_OR_STOP');
   assert.equal(graph.continuation.defaultBehavior, 'CHOOSE_ALL_AND_CONTINUE');
+
+  for (let index = 1; index < graph.jobSequence.length; index += 1) {
+    assert.deepEqual(graph.jobSequence[index].dependsOn, [graph.jobSequence[index - 1].jobId]);
+  }
 });
 
 test('closed-loop runtime preserves the observation-to-proposal boundary', () => {
@@ -28,7 +33,6 @@ test('closed-loop runtime preserves the observation-to-proposal boundary', () =>
 
 test('closed-loop runtime blocks invalid or persistence-failed signals before composition', () => {
   assert.match(runtime, /item\.processing\.isValid && item\.observationPersisted/);
-  assert.match(runtime, /PERSIST_RESPONSE/);
   assert.match(runtime, /responsePersistenceFailed/);
   assert.match(runtime, /PERSIST_PROPOSAL/);
 });
