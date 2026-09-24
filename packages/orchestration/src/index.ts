@@ -3,4 +3,6 @@ export * from './feedbackEngine';
 export * from './continuationEngine';
 export * from './contextEngine';
 export * from './responsePlanner';
+export * from './authorityPolicyGate';
+export * from './executionGateway';
 export * from './closedLoopRuntime';
