@@ -35,7 +35,7 @@ function rpcId(value: unknown): string {
   if (typeof value === 'string') return value;
   if (Array.isArray(value) && value[0] && typeof value[0] === 'object') {
     const first = value[0] as Record<string, unknown>;
-    const candidate = first.id ?? first.uuid ?? first.proposal_id ?? first.observation_id ?? first.reconciliation_id ?? first.completion_id;
+    const candidate = first.id ?? first.uuid ?? first.proposal_id ?? first.observation_id ?? first.reconciliation_id ?? first.completion_id ?? first.proof_id;
     if (typeof candidate === 'string') return candidate;
   }
   if (value && typeof value === 'object') {
@@ -297,7 +297,7 @@ export class SupabaseCompletionWriter implements SupabaseCompletionStore {
 export class SupabaseExecutionAttemptStore implements ExecutionAttemptStore {
   constructor(private readonly rpc: SupabaseRpcClient) {}
 
-  async reserve(input: { executionId: string; actionId: string; idempotencyKey: string }): Promise<ExecutionAttemptReservation> {
+  async reserve(input: { executionId: string; actionId: string; idempotencyKey: string }): Promise<import('./executionGateway').ExecutionAttemptReservationResult> {
     const result = rpcObject(await this.rpc.call('reserve_abba_execution_attempt', {
       execution: {
         executionId: input.executionId,
@@ -305,8 +305,11 @@ export class SupabaseExecutionAttemptStore implements ExecutionAttemptStore {
         idempotencyKey: input.idempotencyKey
       }
     }));
-    const reservation = String(result.reservation);
-    return reservation as ExecutionAttemptReservation;
+    const reservation = String(result.reservation) as ExecutionAttemptReservation;
+    return {
+      reservation,
+      existingExecutionId: typeof result.executionId === 'string' ? result.executionId : undefined
+    };
   }
 
   private async update(executionId: string, status: ExecutionAttempt['status'], extra: Record<string, unknown> = {}): Promise<void> {
