@@ -15,6 +15,8 @@ test('knowledge mastery contract covers atoms, language and progressive mastery'
   assert.ok(contract.knowledgeAtomKinds.includes('FILE'));
   assert.ok(contract.languageModalities.includes('BRAILLE'));
   assert.ok(contract.learningLevels.includes('EMERITUS'));
+  assert.equal(contract.certificationAuthority.provider,'InstituteGPT');
+  assert.equal(contract.certificationAuthority.selfCertificationAllowed,false);
 });
 
 test('knowledge graph preserves provenance and contradiction status',()=>{
@@ -35,6 +37,7 @@ test('language capability spans lexical, grammatical, cultural and accessibility
 test('advanced mastery requires external verification and does not grant authority',()=>{
   assert.match(mastery,/EXTERNAL_CREDENTIAL_REQUIRED/);
   assert.match(mastery,/grantsAuthority: false/);
+  assert.match(mastery,/InstituteGPT/);
 });
 
 test('knowledge mastery job pack supplies the learning lifecycle',()=>{
@@ -42,4 +45,5 @@ test('knowledge mastery job pack supplies the learning lifecycle',()=>{
   assert.ok(jobs.jobs.includes('VERIFY_EXTERNAL_CERTIFICATION'));
   assert.ok(jobs.jobs.includes('CHECK_MASTERY_DECAY'));
   assert.match(pack,/executionAllowed: false/);
+  assert.match(pack,/masteryEngine/);
 });
