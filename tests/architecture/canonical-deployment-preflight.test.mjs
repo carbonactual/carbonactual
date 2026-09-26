@@ -17,6 +17,7 @@ test('core job graph extends the governed lifecycle to phase6 assurance', () => 
 test('runtime preflight rejects destructive migration surfaces and checks canonical write boundary', () => {
   assert.match(preflight, /DROP TABLE|DROP COLUMN|TRUNCATE|DELETE FROM/);
   assert.match(preflight, /append_canonical_event/);
+  assert.match(preflight, /20260924000010_reasoning_assurance_binding/);
   assert.match(preflight, /RLS/);
 });
 
