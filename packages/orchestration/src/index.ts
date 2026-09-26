@@ -19,3 +19,4 @@ export * from './completionProof';
 export * from './runtimeOrchestrator';
 export * from './deploymentPreflight';
 export * from './reasoningAssuranceEngine';
+export * from './reasoningSubstrateBinder';
