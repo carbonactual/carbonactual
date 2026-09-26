@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
@@ -22,7 +22,9 @@
     "Substrate reconciliation never silently repairs or authorizes.",
     "Theory, hypothesis, observation, evidence, result, conclusion, recommendation and decision remain distinct artifact classes.",
     "A recommendation never becomes authorization without the independent governance gate.",
-    "Confidence is an assessment attribute, not a truth claim."
+    "Confidence is an assessment attribute, not a truth claim.",
+    "Reasoning substrate binding is a governed persistence boundary, not an authority source.",
+    "A reasoning chain may be durable before execution, but consequential canonical emission requires independent governance."
   ],
   "jobSequence": [
     {
@@ -565,10 +567,37 @@
     },
     {
       "jobId": "ABBACORE-61",
+      "name": "VALIDATE_REASONING_SUBSTRATE_BINDING",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-60"
+      ],
+      "output": "reasoning_binding_validation"
+    },
+    {
+      "jobId": "ABBACORE-62",
+      "name": "LOG_REASONING_CHAIN",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-61"
+      ],
+      "output": "reasoning_chain_audit_record"
+    },
+    {
+      "jobId": "ABBACORE-63",
+      "name": "EMIT_REASONING_BOUND_EVENT",
+      "phase": "RECONCILE",
+      "dependsOn": [
+        "ABBACORE-62"
+      ],
+      "output": "reasoning_bound_canonical_event"
+    },
+    {
+      "jobId": "ABBACORE-64",
       "name": "CONTINUE_OR_STOP",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-60"
+        "ABBACORE-63"
       ],
       "output": "next_jobs_or_terminal_state"
     }
@@ -620,6 +649,7 @@
     "reassess_systemic_capability",
     "separate_reasoning_artifacts",
     "validate_evidence_chain",
-    "verify_recommendation_boundary"
+    "verify_recommendation_boundary",
+    "bind_reasoning_assurance_to_substrate"
   ]
 }
