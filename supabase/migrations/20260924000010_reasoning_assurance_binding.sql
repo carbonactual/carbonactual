@@ -119,6 +119,55 @@ REVOKE ALL ON FUNCTION public.append_abba_reasoning_chain(jsonb)
 GRANT EXECUTE ON FUNCTION public.append_abba_reasoning_chain(jsonb)
   TO service_role;
 
+
+CREATE OR REPLACE FUNCTION public.log_and_bind_reasoning_chain(
+  p_chain_id UUID,
+  p_actor_entity_id UUID,
+  p_objective TEXT,
+  p_epistemic_sequence JSONB,
+  p_authority_verified BOOLEAN,
+  p_authority_signature TEXT,
+  p_execution_blocked BOOLEAN,
+  p_blocking_reason TEXT
+)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, pg_temp
+AS $
+DECLARE
+  v_id UUID;
+BEGIN
+  v_id := public.append_abba_reasoning_chain(
+    jsonb_build_object(
+      'chainId', p_chain_id::text,
+      'actorEntityId', p_actor_entity_id::text,
+      'objective', p_objective,
+      'epistemicSequence', COALESCE(p_epistemic_sequence, '[]'::jsonb),
+      'authorityVerified', COALESCE(p_authority_verified, FALSE),
+      'authoritySignature', p_authority_signature,
+      'gateDecision', CASE WHEN COALESCE(p_authority_verified, FALSE) THEN 'ALLOW' ELSE 'NOT_EVALUATED' END,
+      'executionBlocked', COALESCE(p_execution_blocked, FALSE),
+      'blockingReason', p_blocking_reason,
+      'idempotencyKey', 'abba:reasoning-chain:' || p_chain_id::text,
+      'provenance', jsonb_build_object('source', 'log_and_bind_reasoning_chain')
+    )
+  );
+
+  RETURN jsonb_build_object(
+    'status', CASE WHEN COALESCE(p_execution_blocked, FALSE) THEN 'BLOCKED' ELSE 'BOUND' END,
+    'chain_id', v_id,
+    'execution_blocked', COALESCE(p_execution_blocked, FALSE)
+  );
+END;
+$;
+
+REVOKE ALL ON FUNCTION public.log_and_bind_reasoning_chain(uuid, uuid, text, jsonb, boolean, text, boolean, text)
+  FROM PUBLIC, anon, authenticated, service_role;
+
+GRANT EXECUTE ON FUNCTION public.log_and_bind_reasoning_chain(uuid, uuid, text, jsonb, boolean, text, boolean, text)
+  TO service_role;
+
 -- Extend the staged canonical event vocabulary with the explicit reasoning-binding event.
 DO $$
 BEGIN
