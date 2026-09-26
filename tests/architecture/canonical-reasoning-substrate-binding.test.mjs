@@ -30,6 +30,7 @@ test('reasoning audit persistence is RLS protected and idempotent',()=>{
   assert.match(migration,/ENABLE ROW LEVEL SECURITY/);
   assert.match(migration,/idempotency_key TEXT NOT NULL UNIQUE/);
   assert.match(migration,/append_abba_reasoning_chain/);
+  assert.match(migration,/log_and_bind_reasoning_chain/);
   assert.match(migration,/REVOKE ALL ON FUNCTION public\.append_abba_reasoning_chain/);
 });
 
