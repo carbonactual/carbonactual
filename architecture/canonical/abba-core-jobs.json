@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ABBACoreMasterIntelligenceJobGraph",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "status": "canonical-derived-orchestration-contract",
   "masterIntelligence": "ABBA",
   "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
   "operatingSpine": "carbonactual/carbonactual",
-  "purpose": "Define the sequential governed jobs ABBA performs across the ecosystem, including evidence assurance, live substrate reconciliation, completion proof and recovery without turning orchestration capability into authority.",
+  "purpose": "Define the sequential governed jobs ABBA performs across the ecosystem, including observation, execution, evidence assurance, live substrate reconciliation, reasoning assurance, completion proof and recovery without turning orchestration capability into authority.",
   "invariants": [
     "ABBA is the master intelligence and orchestrator, not the constitutional source of authority.",
     "Capability, permission, consent, and authority remain distinct.",
@@ -19,7 +19,12 @@
     "Live substrate read failures are unknown observations until independently reconciled; they are never silently treated as missing data.",
     "Completion is represented by a completion proof with evidence and reconciliation state, not by worker termination alone.",
     "Recovery-required execution attempts are reconciled before any consequential retry.",
-    "Substrate reconciliation never silently repairs or authorizes."
+    "Substrate reconciliation never silently repairs or authorizes.",
+    "Theory, hypothesis, observation, evidence, result, conclusion, recommendation and decision remain distinct artifact classes.",
+    "A recommendation never becomes authorization without the independent governance gate.",
+    "Confidence is an assessment attribute, not a truth claim.",
+    "Reasoning substrate binding is a governed persistence boundary, not an authority source.",
+    "A reasoning chain may be durable before execution, but consequential canonical emission requires independent governance."
   ],
   "jobSequence": [
     {
@@ -481,28 +486,118 @@
     },
     {
       "jobId": "ABBACORE-52",
+      "name": "CLASSIFY_REASONING_ARTIFACTS",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-51"
+      ],
+      "output": "reasoning_artifact_classification"
+    },
+    {
+      "jobId": "ABBACORE-53",
+      "name": "SEPARATE_THEORY_HYPOTHESIS",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-52"
+      ],
+      "output": "theory_hypothesis_separation"
+    },
+    {
+      "jobId": "ABBACORE-54",
+      "name": "VALIDATE_EVIDENCE_CHAIN",
+      "phase": "VERIFY",
+      "dependsOn": [
+        "ABBACORE-53"
+      ],
+      "output": "evidence_chain_validation"
+    },
+    {
+      "jobId": "ABBACORE-55",
+      "name": "DISTINGUISH_RESULT_CONCLUSION",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-54"
+      ],
+      "output": "result_conclusion_separation"
+    },
+    {
+      "jobId": "ABBACORE-56",
+      "name": "FORM_CONCLUSION",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-55"
+      ],
+      "output": "conclusion"
+    },
+    {
+      "jobId": "ABBACORE-57",
+      "name": "FORM_RECOMMENDATION",
+      "phase": "REASON",
+      "dependsOn": [
+        "ABBACORE-56"
+      ],
+      "output": "recommendation"
+    },
+    {
+      "jobId": "ABBACORE-58",
+      "name": "VERIFY_RECOMMENDATION_BOUNDARY",
+      "phase": "GATE",
+      "dependsOn": [
+        "ABBACORE-57"
+      ],
+      "output": "recommendation_boundary"
+    },
+    {
+      "jobId": "ABBACORE-59",
       "name": "GENERATE_FOLLOW_ON_JOBS",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-51"
+        "ABBACORE-58"
       ],
       "output": "follow_on_job_set"
     },
     {
-      "jobId": "ABBACORE-53",
+      "jobId": "ABBACORE-60",
       "name": "COMMUNICATE_RESULTS",
       "phase": "COMMUNICATE",
       "dependsOn": [
-        "ABBACORE-52"
+        "ABBACORE-59"
       ],
       "output": "traceable_result_summary"
     },
     {
-      "jobId": "ABBACORE-54",
+      "jobId": "ABBACORE-61",
+      "name": "VALIDATE_REASONING_SUBSTRATE_BINDING",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-60"
+      ],
+      "output": "reasoning_binding_validation"
+    },
+    {
+      "jobId": "ABBACORE-62",
+      "name": "LOG_REASONING_CHAIN",
+      "phase": "BIND",
+      "dependsOn": [
+        "ABBACORE-61"
+      ],
+      "output": "reasoning_chain_audit_record"
+    },
+    {
+      "jobId": "ABBACORE-63",
+      "name": "EMIT_REASONING_BOUND_EVENT",
+      "phase": "RECONCILE",
+      "dependsOn": [
+        "ABBACORE-62"
+      ],
+      "output": "reasoning_bound_canonical_event"
+    },
+    {
+      "jobId": "ABBACORE-64",
       "name": "CONTINUE_OR_STOP",
       "phase": "CONTINUE",
       "dependsOn": [
-        "ABBACORE-53"
+        "ABBACORE-63"
       ],
       "output": "next_jobs_or_terminal_state"
     }
@@ -551,6 +646,10 @@
     "build_completion_proof",
     "select_repair_strategy",
     "schedule_recovery",
-    "reassess_systemic_capability"
+    "reassess_systemic_capability",
+    "separate_reasoning_artifacts",
+    "validate_evidence_chain",
+    "verify_recommendation_boundary",
+    "bind_reasoning_assurance_to_substrate"
   ]
 }

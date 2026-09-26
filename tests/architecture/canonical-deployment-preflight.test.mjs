@@ -7,16 +7,17 @@ const migration = await readFile('supabase/migrations/20260924000009_abba_phase6
 const preflight = await readFile('packages/orchestration/src/deploymentPreflight.ts','utf8');
 
 test('core job graph extends the governed lifecycle to phase6 assurance', () => {
-  assert.equal(jobs.version, '1.3.0');
-  assert.equal(jobs.jobSequence.length, 54);
+  assert.equal(jobs.version, '1.4.1');
+  assert.equal(jobs.jobSequence.length, 64);
   assert.equal(jobs.jobSequence.at(-1).name, 'CONTINUE_OR_STOP');
-  assert.equal(jobs.jobSequence.at(-1).dependsOn[0], 'ABBACORE-53');
+  assert.equal(jobs.jobSequence.at(-1).dependsOn[0], 'ABBACORE-63');
   assert.equal(jobs.jobSequence.find((job) => job.name === 'RECONCILE_LIVE_SUBSTRATE').dependsOn[0], 'ABBACORE-46');
 });
 
 test('runtime preflight rejects destructive migration surfaces and checks canonical write boundary', () => {
   assert.match(preflight, /DROP TABLE|DROP COLUMN|TRUNCATE|DELETE FROM/);
   assert.match(preflight, /append_canonical_event/);
+  assert.match(preflight, /20260924000010_reasoning_assurance_binding/);
   assert.match(preflight, /RLS/);
 });
 

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBAReasoningAssuranceContract",
+  "version": "1.0.0",
+  "status": "canonical-derived-reasoning-contract",
+  "canonicalRepository": "carbonactual/carbonactual",
+  "constitutionalAuthority": "carbonactual/hapi-world/CANON.md",
+  "principle": "ABBA may reason across artifacts, but no reasoning artifact is itself authority.",
+  "artifactTypes": [
+    "THEORY",
+    "HYPOTHESIS",
+    "OBSERVATION",
+    "EVIDENCE",
+    "RESULT",
+    "CONCLUSION",
+    "RECOMMENDATION",
+    "DECISION"
+  ],
+  "separationRules": [
+    "THEORY is an explanatory model, not evidence.",
+    "HYPOTHESIS is a testable proposition, not evidence or a result.",
+    "OBSERVATION is an observed input, not automatically evidence or truth.",
+    "EVIDENCE supports or challenges a claim; it is not truth by itself.",
+    "RESULT is the outcome of a defined procedure; it is not a conclusion.",
+    "CONCLUSION is a reasoned synthesis grounded in referenced evidence/results; it is not a recommendation.",
+    "RECOMMENDATION is an action proposal derived from context and conclusions; it is not authorization.",
+    "DECISION is a recorded decision artifact; authority and consent must still be independently validated by the governance gate."
+  ],
+  "governanceRules": [
+    "Capability never implies permission.",
+    "Permission never implies consent.",
+    "Consent never implies authority.",
+    "Authority is never inferred by ABBA from a reasoning artifact.",
+    "No reasoning artifact may self-authorize consequential execution.",
+    "Contradictory or insufficient basis remains explicitly marked rather than silently promoted.",
+    "All reasoning remains attributable, provenance-bound and reconstructable."
+  ],
+  "confidenceRule": "Confidence describes the assessment of an artifact, not the truth status of the world.",
+  "executionRule": "Only the independent Authority + Policy + Consent Gate can permit consequential execution."
+}

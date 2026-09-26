@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Reasoning Assurance Substrate Compatibility Contract",
+  "version": "1.0.0",
+  "status": "phase7-cross-layer-binding-contract",
+  "reasoningLayer": "ABBA_REASONING_ASSURANCE",
+  "substrateImplementation": "PHASE10_LIVE_SUBSTRATE_BINDING",
+  "productionEventIngress": "public.omnii_append_event(...)",
+  "durableReasoningBinding": "public.abba_reasoning_substrate_bindings",
+  "rules": [
+    "Phase 7 reasoning semantics remain substrate-agnostic.",
+    "Phase 7 never creates a second canonical event table.",
+    "Phase 7 never calls a database write directly from the reasoning engine.",
+    "Phase 7 hands validated reasoning artifacts to the governed substrate binding layer.",
+    "The substrate binding layer must persist reasoning provenance before consequential execution.",
+    "The independent Authority + Policy + Consent Gate remains between reasoning and execution.",
+    "Existing production omnii event/state/execution primitives are adapted rather than duplicated."
+  ],
+  "statusFlow": [
+    "REASONING_ASSURED",
+    "SUBSTRATE_PREPARED",
+    "GOVERNANCE_GATED",
+    "EXECUTED",
+    "RECONCILED"
+  ]
+}

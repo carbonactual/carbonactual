@@ -2,6 +2,7 @@ import { ABBACoreSupervisor } from './abbaCoreSupervisor';
 import { ABBAEvidenceQualityEngine, EvidenceItem } from './evidenceQualityEngine';
 import { buildCompletionProof, CompletionProof } from './completionProof';
 import { ABBALiveSubstrateReconciler, LiveSubstrateBindingSpec } from './liveSubstrateReconciler';
+import { ABBAReasoningAssuranceEngine, ReasoningArtifact, ReasoningAssessment } from './reasoningAssuranceEngine';
 import type { ABBAJobDefinition, ABBAControlCycle } from './abbaSupervisor';
 import type { DecisionSet, FollowOnJob } from './continuationEngine';
 import type { ClosedLoopObjective, ClosedLoopCycleResult } from './closedLoopRuntime';
@@ -25,6 +26,7 @@ export interface ABBARuntimeCycleInput {
   followOnJobs: FollowOnJob[];
   substrateSpecs: LiveSubstrateBindingSpec[];
   evidenceItems?: EvidenceItem[];
+  reasoningArtifacts?: ReasoningArtifact[];
 }
 
 export interface ABBARuntimeCycleResult {
@@ -32,6 +34,7 @@ export interface ABBARuntimeCycleResult {
   reconciliations: ReconciliationResult[];
   completionProof: CompletionProof;
   evidenceAssessments: ReturnType<ABBAEvidenceQualityEngine['assess']>[];
+  reasoningAssessments: ReasoningAssessment[];
   reconciliationRecordIds: string[];
   completionProofRecordId: string;
 }
@@ -41,6 +44,7 @@ export class ABBARuntimeOrchestrator {
     private readonly coreSupervisor: ABBACoreSupervisor,
     private readonly substrateReconciler: ABBALiveSubstrateReconciler,
     private readonly evidenceEngine: ABBAEvidenceQualityEngine,
+    private readonly reasoningEngine: ABBAReasoningAssuranceEngine,
     private readonly reconciliationWriter: ReconciliationWriter,
     private readonly completionWriter: CompletionProofWriter
   ) {}
@@ -74,6 +78,7 @@ export class ABBARuntimeOrchestrator {
     }
 
     const evidenceAssessments = (input.evidenceItems ?? []).map((item) => this.evidenceEngine.assess(item));
+    const reasoningAssessments = this.reasoningEngine.assessMany(input.reasoningArtifacts ?? []);
     const evidenceComplete =
       input.evidenceItems !== undefined &&
       input.evidenceItems.length > 0 &&
@@ -86,13 +91,14 @@ export class ABBARuntimeOrchestrator {
 
     const blockers = [
       ...coreResult.repairs.map((repair) => `REPAIR_REQUIRED:${repair.action}`),
-      ...coreResult.cycle.failures.map((failure) => `CYCLE_FAILURE:${failure.stage}:${failure.reason}`)
+      ...coreResult.cycle.failures.map((failure) => `CYCLE_FAILURE:${failure.stage}:${failure.reason}`),
+      ...reasoningAssessments.filter((assessment) => !assessment.valid).map((assessment) => `REASONING_BOUNDARY:${assessment.artifactId}:${assessment.reasons.join('|')}`)
     ];
 
     const completionProof = await buildCompletionProof({
       cycleId: input.cycle.cycleId,
       objective: input.objective.objective,
-      evidenceRefs: evidenceAssessments.map((item) => item.evidenceRef),
+      evidenceRefs: [...evidenceAssessments.map((item) => item.evidenceRef), ...reasoningAssessments.map((item) => `reasoning:${item.artifactId}`)],
       evidenceComplete,
       reconciliationComplete,
       outstandingJobIds: coreResult.continuation.nextJobIds,
@@ -110,7 +116,12 @@ export class ABBARuntimeOrchestrator {
       blockers: completionProof.blockers,
       terminalReason: completionProof.terminalReason,
       proofFingerprint: completionProof.proofFingerprint,
-      provenance: { source: 'ABBARuntimeOrchestrator', proofId: completionProof.proofId }
+      provenance: {
+        source: 'ABBARuntimeOrchestrator',
+        proofId: completionProof.proofId,
+        evidenceAssessments,
+        reasoningAssessments
+      }
     });
 
     return {
@@ -118,6 +129,7 @@ export class ABBARuntimeOrchestrator {
       reconciliations: coreResult.reconciliations,
       completionProof,
       evidenceAssessments,
+      reasoningAssessments,
       reconciliationRecordIds,
       completionProofRecordId
     };

@@ -121,6 +121,17 @@ export function createSupabaseTableReader(
   };
 }
 
+export interface ReasoningChainAuditStoreAdapter {
+  append(input: Record<string, unknown>): Promise<string>;
+}
+
+export class SupabaseReasoningChainAuditStore implements ReasoningChainAuditStoreAdapter {
+  constructor(private readonly rpc: SupabaseRpcClient) {}
+  async append(input: Record<string, unknown>): Promise<string> {
+    return rpcId(await this.rpc.call('append_abba_reasoning_chain', input));
+  }
+}
+
 export class SupabaseCanonicalEventWriter implements CanonicalEventWriter {
   constructor(private readonly rpc: SupabaseRpcClient) {}
   async append(event: CanonicalEventEnvelope): Promise<string> {

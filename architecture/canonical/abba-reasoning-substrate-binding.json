@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABBA Reasoning Assurance Substrate Binding",
+  "version": "1.0.0",
+  "status": "canonical-derived-runtime-binding-contract",
+  "pipeline": [
+    "THEORY",
+    "HYPOTHESIS",
+    "OBSERVATION",
+    "EVIDENCE",
+    "RESULT",
+    "CONCLUSION",
+    "RECOMMENDATION",
+    "DECISION",
+    "AUTHORITY_POLICY_CONSENT_GATE",
+    "CANONICAL_EVENT_INGRESS"
+  ],
+  "rules": [
+    "Epistemic categories remain distinct and ordered.",
+    "Skipped epistemic categories are allowed; backward transitions are not.",
+    "DECISION must be terminal in the reasoning sequence.",
+    "A DECISION requires an authority reference, consent reference and explicit authority signature.",
+    "Reasoning assessment never grants authority.",
+    "The independent Authority + Policy + Consent Gate must ALLOW before canonical event emission.",
+    "The binder never writes canonical tables directly.",
+    "No SYSTEM_INTERNAL signature is synthesized.",
+    "Reasoning-chain audit persistence is idempotent and RLS protected.",
+    "Canonical event persistence uses the existing canonical event writer and staged append_canonical_event ingress."
+  ],
+  "eventType": "abba_reasoning_bound",
+  "executionBoundary": "AUTHORITY_POLICY_CONSENT_GATE"
+}
