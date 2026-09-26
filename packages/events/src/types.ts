@@ -21,7 +21,8 @@ export type CanonicalEventType =
   | 'settlement_failed'
   | 'agent_suspended'
   | 'agent_terminated'
-  | 'reconciliation_completed';
+  | 'reconciliation_completed'
+  | 'abba_reasoning_bound';
 
 export interface PulseImpact {
   deltaValue: number;
@@ -65,5 +66,5 @@ export const CANONICAL_EVENT_TYPES: readonly CanonicalEventType[] = [
   'value_created','value_transferred','payment_received','liability_created',
   'asset_created','asset_consumed','agent_contract_formed','agent_contract_settled',
   'pulse_observed','ledger_posted','settlement_confirmed','settlement_failed',
-  'agent_suspended','agent_terminated','reconciliation_completed'
+  'agent_suspended','agent_terminated','reconciliation_completed','abba_reasoning_bound'
 ] as const;
