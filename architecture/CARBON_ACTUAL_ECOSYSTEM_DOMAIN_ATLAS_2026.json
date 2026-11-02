@@ -2179,6 +2179,15 @@
         "incident-log",
         "recovery-proof",
         "reconstruction"
+      ],
+      "markets": [
+        "services",
+        "insurance",
+        "data",
+        "software",
+        "procurement",
+        "capacity",
+        "time"
       ]
     },
     {

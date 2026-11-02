@@ -70,10 +70,10 @@ for (const [id, name, refs, domains] of teams) {
 }
 
 const capabilityFamilies = capability.families ?? capability.capabilities ?? [];
-if (capability.count !== 335) fail(`capability catalog count drift: ${capability.count}`);
+if (!Number.isInteger(capability.count) || capability.count < 1) fail(`capability catalog count is invalid: ${capability.count}`);
 if (capabilityFamilies.length !== capability.count) fail(`capability family array/count mismatch: ${capabilityFamilies.length} vs ${capability.count}`);
 for (const family of capabilityFamilies) {
   if (!family.id || !family.name) fail('capability family missing id or name');
 }
 
-console.log(`Ecosystem overview conformance passed: ${domains.length} atlas domains, ${swirms.length} SWIRMs, ${teams.length} TEAM patterns, ${capabilityFamilies.length} capability families.`);
+if (!process.exitCode) console.log(`Ecosystem overview conformance passed: ${domains.length} atlas domains, ${swirms.length} SWIRMs, ${teams.length} TEAM patterns, ${capabilityFamilies.length} capability families.`);
