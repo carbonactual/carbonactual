@@ -27,7 +27,7 @@ The public canonical repository cannot safely assume access to the separate priv
 - Runs existing canonical law, ecosystem-kernel, ecosystem-overview, product-recipe and global-readiness validators on Linux, macOS and Windows using Node.js 22.
 - Runs the repository's complete Node.js test discovery with `node --test`.
 - Runs CodeQL security analysis for JavaScript/TypeScript with the extended query suite.
-- Runs dependency review on pull requests only when a dependency manifest or lockfile is present. The current canonical repository has no root dependency manifest or lockfile, so this gate will remain skipped until that prerequisite exists.
+- Dependency review is a recommended next activation once the app/runtime repositories have committed dependency manifests and lockfiles. The canonical repo currently has no root manifest, so this first pass does not run a dependency-review action here.
 - Publishes a machine-generated readiness inventory showing which native platform project manifests and source components are actually present in this repository.
 
 The CI matrix validates canonical contracts on three host operating systems. **It does not yet compile or package a HAPI launcher for those operating systems.** There is intentionally no deployment job and no `|| true`: a compiler, test or security failure must remain a failure.

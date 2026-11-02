@@ -74,29 +74,6 @@ jobs:
       - name: Analyze JavaScript and TypeScript
         uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
 
-  dependency-review:
-    name: Pull request dependency review
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-      pull-requests: read
-    steps:
-      - name: Checkout canonical repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-
-      - name: Review dependency changes
-        if: ${{ hashFiles('**/package.json', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/Cargo.toml', '**/Cargo.lock', '**/gradle.lockfile', '**/build.gradle', '**/build.gradle.kts', '**/pom.xml', '**/requirements.txt', '**/pyproject.toml', '**/go.mod', '**/go.sum') != '' }}
-        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
-        with:
-          fail-on-severity: high
-          comment-summary-in-pr: always
-
-      - name: Explain dependency review skip
-        if: ${{ hashFiles('**/package.json', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/Cargo.toml', '**/Cargo.lock', '**/gradle.lockfile', '**/build.gradle', '**/build.gradle.kts', '**/pom.xml', '**/requirements.txt', '**/pyproject.toml', '**/go.mod', '**/go.sum') == '' }}
-        run: echo "No dependency manifest or lockfile is tracked in this repository; dependency review was skipped."
-
   launcher-target-readiness:
     name: Launcher target readiness inventory
     needs: canonical-conformance
@@ -106,62 +83,33 @@ jobs:
       - name: Checkout canonical repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      - name: Set up Node.js 22
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: "22"
-
       - name: Publish verified platform implementation inventory
         shell: bash
         run: |
-          node --input-type=module <<'NODE'
-          import { readdir, appendFile } from "node:fs/promises";
-          import path from "node:path";
-
-          const root = process.cwd();
-          const files = [];
-
-          async function walk(dir) {
-            for (const entry of await readdir(dir, { withFileTypes: true })) {
-              if ([".git", "node_modules", ".next", "dist", "target"].includes(entry.name)) continue;
-              const absolute = path.join(dir, entry.name);
-              const relative = path.relative(root, absolute).split(path.sep).join("/");
-              if (entry.isDirectory()) await walk(absolute);
-              else if (entry.isFile()) files.push(relative);
-            }
+          has_file() {
+            find . -type f -not -path './.git/*' -name "$1" -print -quit | grep -q .
           }
 
-          await walk(root);
-
-          const has = (predicate) => files.some(predicate);
-          const checks = [
-            ["Rust workspace", has((p) => p === "Cargo.toml" || p.endsWith("/Cargo.toml"))],
-            ["Tauri desktop shell", has((p) => /(^|\/)tauri\.conf\.json$/.test(p) || /(^|\/)tauri\.conf\.json5$/.test(p))],
-            ["Android Gradle project", has((p) => /(^|\/)gradlew$/.test(p) || /(^|\/)build\.gradle(\.kts)?$/.test(p))],
-            ["Apple Xcode project", has((p) => /\.xcodeproj\/|\.xcworkspace\/|(^|\/)Package\.swift$/.test(p))],
-            ["C11 shared-memory ring buffer", files.includes("native/shm_ring/uef_shm_ring.c")],
-            ["HCPQL implementation source", has((p) => /hcpql/i.test(p) && /\.(c|cc|cpp|h|hpp|rs|ts|tsx|js|mjs|py)$/.test(p))]
-          ];
-
-          const lines = [
-            "## HAPI OS launcher target readiness",
-            "",
-            "| Target or component | Evidence in this repository | Status |",
-            "|---|---|---|",
-            "| Linux / macOS / Windows | Canonical validators and Node.js tests run in the CI matrix | CI conformance only; no launcher binaries |"
-          ];
-          for (const item of checks) {
-            lines.push("| " + item[0] + " | " + (item[1] ? "Tracked implementation/configuration detected" : "No matching implementation/configuration found") + " | " + (item[1] ? "PRESENT — verify build/test coverage separately" : "NOT PRESENT — do not claim this target is built") + " |");
+          has_dir() {
+            find . -type d -not -path './.git/*' -name "$1" -print -quit | grep -q .
           }
-          lines.push(
-            "",
-            "This inventory scans only carbonactual/carbonactual. The launcher UI and platform runtime are maintained in their separately governed repositories; this job does not claim to build those repositories.",
-            "",
-            "No release, signing, publishing, or production deployment is performed by this workflow."
-          );
 
-          const summaryPath = process.env.GITHUB_STEP_SUMMARY;
-          if (!summaryPath) throw new Error("GITHUB_STEP_SUMMARY is unavailable");
-          await appendFile(summaryPath, lines.join(String.fromCharCode(10)) + String.fromCharCode(10), "utf8");
-          console.log("HAPI OS platform inventory written to the workflow summary.");
-          NODE
+          {
+            echo "## HAPI OS launcher target readiness"
+            echo
+            echo "| Target or component | Evidence in this repository | Status |"
+            echo "|---|---|---|"
+            echo "| Linux / macOS / Windows | Canonical validators and tests run on all three CI runners | CI conformance only; no launcher binaries |"
+
+            if has_file Cargo.toml; then echo "| Rust workspace | Cargo.toml found | PRESENT |"; else echo "| Rust workspace | No Cargo.toml found | NOT PRESENT |"; fi
+            if has_file tauri.conf.json || has_file tauri.conf.json5; then echo "| Tauri shell | Tauri configuration found | PRESENT |"; else echo "| Tauri shell | No Tauri configuration found | NOT PRESENT |"; fi
+            if has_file gradlew || has_file build.gradle || has_file build.gradle.kts; then echo "| Android Gradle project | Gradle project files found | PRESENT |"; else echo "| Android Gradle project | No Gradle project files found | NOT PRESENT |"; fi
+            if has_dir '*.xcodeproj' || has_dir '*.xcworkspace'; then echo "| Apple Xcode project | Xcode project/workspace found | PRESENT |"; else echo "| Apple Xcode project | No Xcode project/workspace found | NOT PRESENT |"; fi
+            if has_file uef_shm_ring.c; then echo "| C11 shared-memory ring buffer | C source filename found | PRESENT — inspect path and tests |"; else echo "| C11 shared-memory ring buffer | No uef_shm_ring.c found | NOT PRESENT |"; fi
+            if find . -type f -not -path './.git/*' \\( -iname '*hcpql*.rs' -o -iname '*hcpql*.c' -o -iname '*hcpql*.cpp' -o -iname '*hcpql*.ts' -o -iname '*hcpql*.js' \\) -print -quit | grep -q .; then echo "| HCPQL implementation source | Matching source file found | PRESENT — verify implementation separately |"; else echo "| HCPQL implementation source | No matching source file found | NOT PRESENT |"; fi
+
+            echo
+            echo "This inventory scans only carbonactual/carbonactual. It does not build the private ABBA or platform-runtime repositories."
+            echo
+            echo "No release, signing, publishing, or production deployment is performed by this workflow."
+          } >> "$GITHUB_STEP_SUMMARY"
