@@ -11,13 +11,13 @@ permissions:
   contents: read
 
 concurrency:
-  group: hapi-os-ci-\${{ github.workflow }}-\${{ github.ref }}
+  group: hapi-os-ci-${{{ github.workflow }}-${{{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   canonical-conformance:
-    name: Canonical conformance (\${{ matrix.os }})
-    runs-on: \${{ matrix.os }}
+    name: Canonical conformance (${{{ matrix.os }})
+    runs-on: ${{{ matrix.os }}
     timeout-minutes: 20
     strategy:
       fail-fast: false
@@ -76,7 +76,7 @@ jobs:
 
   dependency-review:
     name: Pull request dependency review
-    if: \${{ github.event_name == 'pull_request' && hashFiles('**/package.json', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/Cargo.toml', '**/Cargo.lock', '**/gradle.lockfile', '**/build.gradle', '**/build.gradle.kts', '**/pom.xml', '**/requirements.txt', '**/pyproject.toml', '**/go.mod', '**/go.sum') != '' }}
+    if: ${{{ github.event_name == 'pull_request' && hashFiles('**/package.json', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/Cargo.toml', '**/Cargo.lock', '**/gradle.lockfile', '**/build.gradle', '**/build.gradle.kts', '**/pom.xml', '**/requirements.txt', '**/pyproject.toml', '**/go.mod', '**/go.sum') != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -147,7 +147,7 @@ jobs:
           }
           lines.push(
             "",
-            "This inventory scans only \`carbonactual/carbonactual\`. The launcher UI and platform runtime are maintained in their separately governed repositories; this job does not claim to build those repositories.",
+            "This inventory scans only carbonactual/carbonactual. The launcher UI and platform runtime are maintained in their separately governed repositories; this job does not claim to build those repositories.",
             "",
             "No release, signing, publishing, or production deployment is performed by this workflow."
           );
