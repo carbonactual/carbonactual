@@ -22,8 +22,15 @@ assert.equal(readiness.products["ZUJID & CO."].vercel, "do_not_touch");
 assert.equal(readiness.products["ZUJID & CO."].codebase_touch, "none in this pass");
 
 const serialized = JSON.stringify(federation);
-for (const forbidden of ["apiKey:", "bearer ", "client_secret", "private_key", "refresh_token"]) {
-  assert.equal(serialized.toLowerCase().includes(forbidden.toLowerCase()), false, `secret-like value found: ${forbidden}`);
+const credentialPatterns = [
+  ["private-key PEM block", /-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----/],
+  ["GitHub token", /\b(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,})\b/],
+  ["service API token", /\b(?:sk-[A-Za-z0-9_-]{24,}|xox[baprs]-[A-Za-z0-9-]{20,})\b/],
+  ["bearer token", /\bBearer\s+[A-Za-z0-9._~+/-]{24,}\b/i],
+  ["populated credential field", /"(?:api[_-]?key|client[_-]?secret|private[_-]?key|access[_-]?token|refresh[_-]?token|password)"\s*:\s*"(?!(?:redacted|placeholder|not set|none|null|pending))[^"]{16,}"/i],
+];
+for (const [label, pattern] of credentialPatterns) {
+  assert.equal(pattern.test(serialized), false, `credential-like value found: ${label}`);
 }
 
 console.log("Carbon Actual global federation/release readiness validation passed.");
