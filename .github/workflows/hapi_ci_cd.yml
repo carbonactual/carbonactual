@@ -76,18 +76,26 @@ jobs:
 
   dependency-review:
     name: Pull request dependency review
-    if: ${{{ github.event_name == 'pull_request' && hashFiles('**/package.json', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/Cargo.toml', '**/Cargo.lock', '**/gradle.lockfile', '**/build.gradle', '**/build.gradle.kts', '**/pom.xml', '**/requirements.txt', '**/pyproject.toml', '**/go.mod', '**/go.sum') != '' }}
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: read
       pull-requests: read
     steps:
+      - name: Checkout canonical repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
       - name: Review dependency changes
+        if: ${{ hashFiles('**/package.json', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/Cargo.toml', '**/Cargo.lock', '**/gradle.lockfile', '**/build.gradle', '**/build.gradle.kts', '**/pom.xml', '**/requirements.txt', '**/pyproject.toml', '**/go.mod', '**/go.sum') != '' }}
         uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         with:
           fail-on-severity: high
           comment-summary-in-pr: always
+
+      - name: Explain dependency review skip
+        if: ${{ hashFiles('**/package.json', '**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock', '**/Cargo.toml', '**/Cargo.lock', '**/gradle.lockfile', '**/build.gradle', '**/build.gradle.kts', '**/pom.xml', '**/requirements.txt', '**/pyproject.toml', '**/go.mod', '**/go.sum') == '' }}
+        run: echo "No dependency manifest or lockfile is tracked in this repository; dependency review was skipped."
 
   launcher-target-readiness:
     name: Launcher target readiness inventory
