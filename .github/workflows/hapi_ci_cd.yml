@@ -11,13 +11,13 @@ permissions:
   contents: read
 
 concurrency:
-  group: hapi-os-ci-${{{ github.workflow }}-${{{ github.ref }}
+  group: hapi-os-ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   canonical-conformance:
-    name: Canonical conformance (${{{ matrix.os }})
-    runs-on: ${{{ matrix.os }}
+    name: Canonical conformance (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     strategy:
       fail-fast: false
@@ -106,7 +106,7 @@ jobs:
             if has_file gradlew || has_file build.gradle || has_file build.gradle.kts; then echo "| Android Gradle project | Gradle project files found | PRESENT |"; else echo "| Android Gradle project | No Gradle project files found | NOT PRESENT |"; fi
             if has_dir '*.xcodeproj' || has_dir '*.xcworkspace'; then echo "| Apple Xcode project | Xcode project/workspace found | PRESENT |"; else echo "| Apple Xcode project | No Xcode project/workspace found | NOT PRESENT |"; fi
             if has_file uef_shm_ring.c; then echo "| C11 shared-memory ring buffer | C source filename found | PRESENT — inspect path and tests |"; else echo "| C11 shared-memory ring buffer | No uef_shm_ring.c found | NOT PRESENT |"; fi
-            if find . -type f -not -path './.git/*' \\( -iname '*hcpql*.rs' -o -iname '*hcpql*.c' -o -iname '*hcpql*.cpp' -o -iname '*hcpql*.ts' -o -iname '*hcpql*.js' \\) -print -quit | grep -q .; then echo "| HCPQL implementation source | Matching source file found | PRESENT — verify implementation separately |"; else echo "| HCPQL implementation source | No matching source file found | NOT PRESENT |"; fi
+            if find . -type f -not -path './.git/*' \( -iname '*hcpql*.rs' -o -iname '*hcpql*.c' -o -iname '*hcpql*.cpp' -o -iname '*hcpql*.ts' -o -iname '*hcpql*.js' \) -print -quit | grep -q .; then echo "| HCPQL implementation source | Matching source file found | PRESENT — verify implementation separately |"; else echo "| HCPQL implementation source | No matching source file found | NOT PRESENT |"; fi
 
             echo
             echo "This inventory scans only carbonactual/carbonactual. It does not build the private ABBA or platform-runtime repositories."
