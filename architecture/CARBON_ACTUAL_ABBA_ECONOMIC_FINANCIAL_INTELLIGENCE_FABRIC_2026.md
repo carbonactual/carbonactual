@@ -34,7 +34,7 @@ Universal kernel: identity -> authority -> intent -> capability -> relationship 
 
 Consequential financial actions require applicable authority, policy, eligibility/suitability, risk and execution gates. ABBA may analyze and plan; it does not manufacture Seal authority.
 
-## 3. Twenty-two economic intelligence engines
+## 3. Twenty-eight economic and intelligence engines
 
 1. Monetisation — identify legitimate ways value can produce revenue or recurring income.
 2. Income — model earning pathways across labour, enterprise, services, commissions and investment income.
@@ -59,6 +59,8 @@ Consequential financial actions require applicable authority, policy, eligibilit
 21. Tokenisation & Fractionalisation — qualify an underlying object/right/value, represent it, govern rights, transfer, redeem and preserve provenance.
 22. Financial Command — translate declared economic objectives and resource state into auditable constraints, opportunities, strategies and authorized actions.
 
+
+The first 22 entries are the foundational economic engines. The registry extends these with six cross-domain engines for commerce/production/distribution, prediction/challenge/incentives, media clipping/social, intelligence economics, revenue/consolidation strategy and institution/mentorship/essential capability pathways. The full 28-entry registry is authoritative for the current version.
 ## 4. Universal economic loop
 
 observe -> discover -> verify -> analyze -> value -> price -> source -> structure -> finance -> authorize -> execute -> settle -> reconcile -> measure -> learn -> reinvest/exit/restructure
